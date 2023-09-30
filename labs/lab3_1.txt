@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Прізвище, група</title>
+	</head>	
+	<body>
+		<script> 
+			"use strict";
+			let today=new Date();
+			let hours=today.getHours();
+			let minute=today.getMinutes();
+			if (minute<10)minute="0" + minute; 
+			if (hours < 12) {
+				var time12 = hours + ":" + minute + " am ";
+			} 
+			else {
+				var time12 = hours - 12 + ":" + minute + " pm "; 
+			}
+			console.log("поточний час -", time12);
+			alert("поточний час -" + time12);
+		</script>
+	</body>
+</html>
