@@ -1,3 +1,3 @@
-# web-programming-course
+# Profile page
 
-Reference to https://htmlpreview.github.io/?https://raw.githubusercontent.com/dmytro-kushnir/web-programming-course/main/index.html
+Web Programming: https://dmytro-kushnir.github.io/web-programming
