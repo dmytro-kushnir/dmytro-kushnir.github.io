@@ -9,12 +9,10 @@ export default defineConfig({
     rollupOptions: {
       // Build two separate bundles, one for each app.
       input: {
-        inbox: path.resolve(__dirname, 'src/inbox/index.html'),
-        main: path.resolve(__dirname, 'index.html'),
+        home: path.resolve(__dirname, 'index.html'),
+        webProgramming: path.resolve(__dirname, 'src/apps/web-programming/index.html'),
       },
     },
   },
-  plugins: [
-    react(), eslint(),
-  ],
+  plugins: [react(), eslint()],
 });

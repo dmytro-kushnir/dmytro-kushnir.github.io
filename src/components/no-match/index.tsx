@@ -10,5 +10,4 @@ function NoMatch() {
     </div>
   );
 }
-
-export { NoMatch };
+export default NoMatch;
