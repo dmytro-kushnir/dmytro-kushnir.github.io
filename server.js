@@ -1,3 +1,5 @@
+/* Please note: SSR is currently disabled as site is intent to work as a static page. */
+
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'node:url';

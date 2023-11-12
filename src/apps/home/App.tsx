@@ -1,13 +1,16 @@
 import * as React from 'react';
 import {
-  Routes, Route, Outlet, Link,
+  Routes, Route, Outlet, Link, useLocation,
 } from 'react-router-dom';
+
+import WebProgrammingApp from '../web-programming/App.tsx';
 
 const About = React.lazy(() => import('../../components/about/index.tsx'));
 const NoMatch = React.lazy(() => import('../../components/no-match/index.tsx'));
 const Dashboard = React.lazy(() => import('../web-programming/App.tsx'));
 
 function Layout() {
+  const location = useLocation();
   return (
     <div>
       <nav>
@@ -19,11 +22,11 @@ function Layout() {
             <Link to="/about">About</Link>
           </li>
           <li>
-            {/* Use a normal <a> when linking to the "Web Programming" app so the browser
-                does a full document reload, which is what we want when exiting
-                this app and entering another, so we execute its entry point in
-                web-programming/main.jsx. */}
-            <a href="/web-programming">Web Programming</a>
+            {location.pathname.startsWith('/web-programming') ? (
+              <Link to="/">Back to Home</Link>
+            ) : (
+              <Link to="/web-programming">Web Programming</Link>
+            )}
           </li>
         </ul>
       </nav>
@@ -117,6 +120,7 @@ export default function App() {
               </React.Suspense>
             )}
           />
+          <Route path="/web-programming/*" element={<WebProgrammingApp />} />
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>

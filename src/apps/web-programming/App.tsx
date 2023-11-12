@@ -12,10 +12,7 @@ function Layout() {
       <nav>
         <ul>
           <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <a href="/">Home Page</a>
+            <Link to="/web-programming/about">About</Link>
           </li>
         </ul>
       </nav>

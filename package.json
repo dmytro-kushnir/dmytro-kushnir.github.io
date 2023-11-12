@@ -4,11 +4,12 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "debug": "cross-env NODE_ENV=development node --inspect-brk server.js",
+    "dev": "vite",
     "build": "tsc && vite build",
-    "dev": "cross-env NODE_ENV=development node server.js",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "serve": "cross-env NODE_ENV=production node server.js"
+    "preview": "vite preview",
+    "serve:ssr": "cross-env NODE_ENV=production node server.js",
+    "debug:ssr": "cross-env NODE_ENV=development node --inspect-brk server.js"
   },
   "dependencies": {
     "compression": "^1.7.4",
