@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom';
 
 import WebProgrammingApp from '../web-programming/App.tsx';
+import './App.css';
 
 const About = React.lazy(() => import('../../components/about/index.tsx'));
 const NoMatch = React.lazy(() => import('../../components/no-match/index.tsx'));
