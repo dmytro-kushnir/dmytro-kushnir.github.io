@@ -60,7 +60,7 @@ function Home() {
   );
 }
 
-export default function App({ config }: AppProps) {
+export default function App({ config }: AppProps) { //   HashRouter could be reiplemented with standard BrowserRouter https://github.com/rafgraph/spa-github-pages to properly reload each sub-page
   return (
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error

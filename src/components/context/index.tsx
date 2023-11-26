@@ -1,21 +1,7 @@
-import React, {
-  useContext, createContext, useMemo, FC, ReactNode,
-} from 'react';
+import React, { useMemo, FC, ReactNode } from 'react';
 
 import { ConfigMapping } from '../config/config.ts';
-
-interface CombinedContext {}
-
-const combinedContext: CombinedContext = {};
-
-/**
- * @desc [createContext] method for creating context.
- */
-const context = createContext<CombinedContext>({ ...combinedContext });
-
-function capitalize(string: string): string {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+import context, { CombinedContext } from './context.ts';
 
 interface AppProps {
   children: ReactNode;
@@ -26,10 +12,9 @@ interface AppProps {
 const AppWrapper: FC<AppProps> = (
   { children, config, contextProviders = [] },
 ) => contextProviders
-  .reverse()
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
-  .reduce((child, [Component]) => <Component config={config}>{child}</Component>, children);
+  .reduceRight((child, [Component]) => <Component config={config}>{child}</Component>, children);
 
 /**
  * @desc The AppContext component returns a component that shares all app contexts.
@@ -62,22 +47,6 @@ const AppContext: FC<AppProps> = function AppContext(
 
 AppContext.defaultProps = {
   contextProviders: [] as [React.ComponentType<unknown>, CombinedContext][],
-};
-
-/**
- * @desc [useAppContext] custom hook for using appWrapper component.
- */
-export const useAppContext = <T extends keyof CombinedContext>(contextKey: T = '' as T) => {
-  const c = useContext(context);
-  if (contextKey) {
-    const hookName = `use${capitalize(contextKey as string)}`;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    const hook = c[hookName];
-    return (typeof hook === 'function' && hook()) || {};
-  }
-
-  return c;
 };
 
 export default AppContext;
