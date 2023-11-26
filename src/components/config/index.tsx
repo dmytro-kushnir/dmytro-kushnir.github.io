@@ -1,11 +1,8 @@
 import {
-  createContext, useContext, useEffect, useState, ReactNode,
+  createContext, useEffect, useState, ReactNode,
 } from 'react';
 
 import { ConfigMapping } from './config.ts';
-
-const AppConfig = createContext<ConfigMapping | null>(null);
-const useConfig = () => useContext(AppConfig);
 
 interface ConfigProps {
   config: ConfigMapping;
@@ -27,6 +24,8 @@ function deepFreeze<T>(object: T): Readonly<T> {
   return Object.freeze(object);
 }
 
+export const AppConfig = createContext<ConfigMapping | null>(null);
+
 function Config({ config, children }: ConfigProps) {
   const [appConfig, setConfig] = useState(deepFreeze({ ...config }));
 
@@ -42,4 +41,3 @@ function Config({ config, children }: ConfigProps) {
 
 Config.displayName = 'AppConfig';
 export default Config;
-export { useConfig };
