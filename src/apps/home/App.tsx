@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {
   Routes, Route, Outlet, Link, useLocation, HashRouter,
 } from 'react-router-dom';
@@ -13,7 +14,6 @@ import './App.css';
 
 const About = React.lazy(() => import('../../components/about/index.tsx'));
 const NoMatch = React.lazy(() => import('../../components/no-match/index.tsx'));
-const Dashboard = React.lazy(() => import('../web-programming/App.tsx'));
 
 interface AppProps {
     config: ConfigMapping;
@@ -60,40 +60,26 @@ function Home() {
   );
 }
 
-export default function App({ config }: AppProps) { //   HashRouter could be reiplemented with standard BrowserRouter https://github.com/rafgraph/spa-github-pages to properly reload each sub-page
+export default function App({ config }: AppProps) { //   HashRouter could be reimplemented with standard BrowserRouter https://github.com/rafgraph/spa-github-pages to properly reload each sub-page
   return (
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-expect-error
     <AppContext contextProviders={contextProviders} config={config}>
-      <h1>Lazy Loading Example</h1>
-      <p>
-        This example demonstrates how to lazily load both route elements and
-      </p>
+      <h1>Home page</h1>
       <HashRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route
-              path="about"
-              element={(
-                <React.Suspense fallback={<>...</>}>
-                  <About />
-                </React.Suspense>
-                )}
-            />
-            <Route
-              path="dashboard/*"
-              element={(
-                <React.Suspense fallback={<>...</>}>
-                  <Dashboard />
-                </React.Suspense>
-                )}
-            />
+            <Route path="about" element={<About />} />
             <Route path="/web-programming/*" element={<WebProgrammingApp />} />
             <Route path="*" element={<NoMatch />} />
           </Route>
         </Routes>
       </HashRouter>
+
+      <p>
+        This example demonstrates how to lazily load both route elements and
+      </p>
     </AppContext>
   );
 }
