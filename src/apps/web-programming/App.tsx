@@ -1,7 +1,11 @@
+import './App.css';
+
 import {
   Routes, Route, Outlet, Link,
 } from 'react-router-dom';
 import * as React from 'react';
+
+import Sidebar from '../../components/sidebar/index.tsx';
 
 const About = React.lazy(() => import('../../components/about/index.tsx'));
 const NoMatch = React.lazy(() => import('../../components/no-match/index.tsx'));
@@ -16,8 +20,7 @@ function Layout() {
           </li>
         </ul>
       </nav>
-
-      <hr />
+      <Sidebar />
 
       <Outlet />
     </div>
@@ -30,14 +33,7 @@ export default function WebProgrammingApp() {
   return (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route
-          path="about"
-          element={(
-            <React.Suspense fallback={<>...</>}>
-              <About />
-            </React.Suspense>
-          )}
-        />
+        <Route path="about" element={(<About />)} />
         <Route path="*" element={<NoMatch />} />
       </Route>
     </Routes>

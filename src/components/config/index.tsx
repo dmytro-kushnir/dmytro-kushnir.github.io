@@ -26,7 +26,7 @@ function deepFreeze<T>(object: T): Readonly<T> {
 
 export const AppConfig = createContext<ConfigMapping | null>(null);
 
-function Config({ config, children }: ConfigProps) {
+function ConfigProvider({ config, children }: ConfigProps) {
   const [appConfig, setConfig] = useState(deepFreeze({ ...config }));
 
   useEffect(() => {
@@ -39,5 +39,5 @@ function Config({ config, children }: ConfigProps) {
   );
 }
 
-Config.displayName = 'AppConfig';
-export default Config;
+ConfigProvider.displayName = 'AppConfig';
+export default ConfigProvider;

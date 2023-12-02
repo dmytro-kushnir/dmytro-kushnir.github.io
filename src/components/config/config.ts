@@ -1,30 +1,15 @@
+export interface DriveLink {
+    name: string;
+    doc: string;
+    drive: string;
+}
+
 export type ConfigMapping = {
     apps: {
         wp: {
             name: string;
             sidebar: {
-                driveLinks: {
-                    'КІ-41': {
-                        doc: string;
-                        drive: string;
-                    },
-                    'КІ-42': {
-                        doc: string;
-                        drive: string;
-                    }
-                    'КІ-43': {
-                        doc: string;
-                        drive: string;
-                    }
-                    'КІ-44': {
-                        doc: string;
-                        drive: string;
-                    }
-                    'КІ-45': {
-                        doc: string;
-                        drive: string;
-                    }
-                }
+                driveLinks: DriveLink[];
                 scores: {
                     current: number;
                     exam: number;
@@ -49,28 +34,33 @@ const config: ConfigMapping = {
     wp: {
       name: 'web-programming',
       sidebar: {
-        driveLinks: {
-          'КІ-41': {
+        driveLinks: [
+          {
             doc: 'https://docs.google.com/spreadsheets/d/1Cq50xhcB1aXG2i06z2TTFGQKO9Ov-PLl',
             drive: 'https://drive.google.com/drive/u/0/folders/168tWDv7CTfGKh5DOTG4rNujxaJS9ZDGW',
+            name: 'KI-41',
           },
-          'КІ-42': {
+          {
             doc: 'https://drive.google.com/drive/u/0/folders/1hbeZmpsK9EByz67o0zViKmu0s_Mlwn0g',
             drive: 'https://docs.google.com/spreadsheets/d/1cTeO678uh9C8Thpl-To5jLvBJcQVdFTo',
+            name: 'KI-42',
           },
-          'КІ-43': {
+          {
             doc: 'https://drive.google.com/drive/u/0/folders/1363d0DT4xQNE7BHSXkrSvAlbHkTh7mXj',
             drive: 'https://docs.google.com/spreadsheets/d/1X93VYlvLjmsCqxXYEohF4K1g7kL-vhf6',
+            name: 'KI-43',
           },
-          'КІ-44': {
+          {
             doc: 'https://drive.google.com/drive/u/0/folders/1FAwfJHtS93V2_vp-TETMjtPgjv0s29Qi',
             drive: 'https://docs.google.com/spreadsheets/d/1GGrgoJ_CEHz893MOUYXc-QX3ksCqB6s2',
+            name: 'KI-44',
           },
-          'КІ-45': {
+          {
             doc: 'https://drive.google.com/drive/u/0/folders/1puhqbpG7DYhoeKgB33J3rkt-mP-_Wbq4',
             drive: 'https://docs.google.com/spreadsheets/d/1YoIDnu8TSv50v1OWHgwsRRoW3xQpkwDv',
+            name: 'KI-45',
           },
-        },
+        ],
         scores: {
           current: 40,
           exam: 60,
