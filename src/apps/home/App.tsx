@@ -9,9 +9,9 @@ import ConfigProvider from '../../components/config/index.tsx';
 import { ConfigMapping } from '../../components/config/config.ts';
 
 import './App.css';
+import NoMatch from '../../components/no-match/index.tsx';
 
 const About = React.lazy(() => import('../../components/about/index.tsx'));
-const NoMatch = React.lazy(() => import('../../components/no-match/index.tsx'));
 
 interface AppProps {
     config: ConfigMapping;
@@ -21,6 +21,7 @@ function Layout() {
   const location = useLocation();
   return (
     <div>
+      <h1>Home page</h1>
       <nav>
         <ul>
           <li>
@@ -42,14 +43,9 @@ function Layout() {
       <hr />
 
       <Outlet />
-    </div>
-  );
-}
-
-function Home() {
-  return (
-    <div>
-      <h2>Home</h2>
+      <p>
+        This example demonstrates how to lazily load both route elements and
+      </p>
     </div>
   );
 }
@@ -57,21 +53,22 @@ function Home() {
 export default function App({ config }: AppProps) { //   HashRouter could be reimplemented with standard BrowserRouter https://github.com/rafgraph/spa-github-pages to properly reload each sub-page
   return (
     <ConfigProvider config={config}>
-      <h1>Home page</h1>
       <HashRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-            <Route path="/web-programming/*" element={<WebProgrammingApp />} />
+            <Route
+              path="about"
+              element={(
+                <React.Suspense fallback={<>...</>}>
+                  <About />
+                </React.Suspense>
+              )}
+            />
             <Route path="*" element={<NoMatch />} />
           </Route>
+          <Route path="/web-programming/*" element={<WebProgrammingApp />} />
         </Routes>
       </HashRouter>
-
-      <p>
-        This example demonstrates how to lazily load both route elements and
-      </p>
     </ConfigProvider>
   );
 }

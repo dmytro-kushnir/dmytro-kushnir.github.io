@@ -1,5 +1,5 @@
 import {
-  useState, useEffect, Suspense, startTransition,
+  useState, useEffect, startTransition,
 } from 'react';
 import ModuleLoader from '../loader/loader.tsx';
 
@@ -17,15 +17,13 @@ function AboutPage() {
   }, []);
 
   return (
-    <Suspense fallback={<ModuleLoader />}>
-      {!loading && (
+    !loading
+      ? (
         <div>
           <h2>About</h2>
-          {/* Other content of your AboutPage */}
         </div>
-      )}
-    </Suspense>
-  );
+      )
+      : <ModuleLoader />);
 }
 
 export default AboutPage;
