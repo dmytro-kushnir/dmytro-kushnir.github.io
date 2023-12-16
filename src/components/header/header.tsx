@@ -19,7 +19,7 @@ function Header() {
   const toggleSidebar = () => setShowSidebar(!showSidebar);
 
   // todo to be retrieved from config as well as other props of image
-  const logoPath = 'src/apps/web-programming/assets/logo.png';
+  const logoPath = '/images/apps/wp/logo.png';
 
   return (
     <header className="header">

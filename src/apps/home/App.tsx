@@ -8,7 +8,7 @@ import WebProgrammingApp from '../web-programming/App.tsx';
 import ConfigProvider from '../../components/config/index.tsx';
 import { ConfigMapping } from '../../components/config/config.ts';
 
-import './App.css';
+import './App.scss';
 import NoMatch from '../../components/no-match/index.tsx';
 
 const About = React.lazy(() => import('../../components/about/index.tsx'));
