@@ -1,10 +1,7 @@
-import * as React from 'react';
 import useConfig from '../config/useConfig.ts';
 import { DriveLink } from '../config/config.ts';
 
-function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
-  event.preventDefault();
-}
+import cssClasses from './sidebar.module.scss';
 
 function Sidebar() {
   /* todo - each app should generate own sidebar config,
@@ -29,14 +26,9 @@ function Sidebar() {
   } = config;
 
   return (
-    <aside className="sidebar d-none d-xl-block">
-      <div className="sidebar-inner">
-        <div className="close-sidebar-wrapper">
-          <button aria-label="Close" type="button" onClick={handleClick} className="close-sidebar">
-            <i className="las la-times" />
-          </button>
-        </div>
-        <div className="intro">
+    <aside>
+      <div className={cssClasses['sidebar-inner']}>
+        <div className={cssClasses.intro}>
           <h4>Розподіл балів</h4>
           <ul>
             <li>
@@ -69,7 +61,7 @@ function Sidebar() {
           </ul>
 
           <h4>Диски для звітності</h4>
-          <ul className="disk-list">
+          <ul className={cssClasses['disk-list']}>
             {driveLinks.map((link: DriveLink) => (
               <li key={link.name}>
                 {link.name}

@@ -7,8 +7,7 @@ import {
 import * as React from 'react';
 
 import TopBar from '../../components/topbar/topbar.tsx';
-import Header from '../../components/header/index.tsx';
-import Sidebar from '../../components/sidebar/index.tsx';
+import Header from '../../components/header/header.tsx';
 
 import NoMatch from '../../components/no-match/index.tsx';
 
@@ -27,7 +26,6 @@ function Layout() {
           </li>
         </ul>
       </nav>
-      <Sidebar />
       <Outlet />
     </div>
   );
