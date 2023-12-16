@@ -1,76 +1,60 @@
-import * as React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import {
+  Container, Navbar, Nav, NavDropdown,
+} from 'react-bootstrap';
+
 import Image from '../image/index.tsx';
 
 function handleClick(event: React.MouseEvent<HTMLButtonElement>) {
   event.preventDefault();
 }
 function Header() {
+  const [showDropdown, setShowDropdown] = useState<string | null>(null);
+
+  const handleDropdownToggle = (dropdown: string | null) => {
+    setShowDropdown(dropdown);
+  };
+
   // todo to be retrieved from config as well as other props of image
   const logoPath = 'src/apps/web-programming/assets/logo.png';
 
   return (
     <header className="header">
-      <nav className="navbar navbar-expand-xl">
-        <div className="container">
-          <a className="navbar-logo" href="index.html">
+      <Navbar expand="xl">
+        <Container>
+          <Link to="/web-programming">
             <Image path={logoPath} alt="Веб-програмування" className="logo" />
-          </a>
-          <div className="collapse navbar-collapse justify-content-center order-3 order-xl-2" id="primaryNav">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <a className="nav-link active" href="index.html">Головна</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="lecture.html">Лекції</a>
-              </li>
-              <li className="nav-item dropdown">
-                <button
-                  className="nav-link dropdown-toggle"
-                  onClick={handleClick}
-                  id="navbarLabDropdown"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  type="button"
-                >
-                  Лабораторні
-                </button>
-                <ul className="dropdown-menu" aria-labelledby="navbarLabDropdown">
-                  <li><a className="dropdown-item" href="work1.html">Лабораторна 1</a></li>
-                  <li><a className="dropdown-item" href="work2.html">Лабораторна 2</a></li>
-                  <li><a className="dropdown-item" href="work3.html">Лабораторна 3</a></li>
-                  <li><a className="dropdown-item" href="work4.html">Лабораторна 4</a></li>
-                  <li><a className="dropdown-item" href="work5.html">Лабораторна 5</a></li>
-                  <li><a className="dropdown-item" href="work6.html">Лабораторна 6</a></li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="selfwork.html">Самостійна</a>
-              </li>
+          </Link>
 
-              <li className="nav-item dropdown">
-                <button
-                  className="nav-link dropdown-toggle"
-                  onClick={handleClick}
-                  id="navbarDiskDropdown"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  type="button"
-                >
-                  Диски
-                </button>
-                <ul className="dropdown-menu" aria-labelledby="navbarDiskDropdown">
-                  <li><a target="_blank" className="dropdown-item" href="https://drive.google.com/drive/u/0/folders/168tWDv7CTfGKh5DOTG4rNujxaJS9ZDGW" rel="noreferrer">КІ-41</a></li>
-                  <li><a target="_blank" className="dropdown-item" href="https://drive.google.com/drive/u/0/folders/1hbeZmpsK9EByz67o0zViKmu0s_Mlwn0g" rel="noreferrer">КІ-42</a></li>
-                  <li><a target="_blank" className="dropdown-item" href="https://drive.google.com/drive/u/0/folders/1363d0DT4xQNE7BHSXkrSvAlbHkTh7mXj" rel="noreferrer">КІ-43</a></li>
-                  <li><a target="_blank" className="dropdown-item" href="https://drive.google.com/drive/u/0/folders/1FAwfJHtS93V2_vp-TETMjtPgjv0s29Qi" rel="noreferrer">КІ-44</a></li>
-                  <li><a target="_blank" className="dropdown-item" href="https://drive.google.com/drive/u/0/folders/1puhqbpG7DYhoeKgB33J3rkt-mP-_Wbq4" rel="noreferrer">КІ-45</a></li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="journal.html">Журнали</a>
-              </li>
-            </ul>
-          </div>
+          <Navbar.Collapse id="primaryNav" className="justify-content-center order-3 order-xl-2">
+            <Nav className="navbar-nav">
+              <Nav.Link href="index.html" className="nav-link active">Головна</Nav.Link>
+              <Nav.Link href="lecture.html" className="nav-link">Лекції</Nav.Link>
+              <NavDropdown
+                title="Лабораторні"
+                show={showDropdown === 'lab'}
+                onMouseEnter={() => handleDropdownToggle('lab')}
+                onMouseLeave={() => handleDropdownToggle(null)}
+              >
+                <NavDropdown.Item href="work1.html">Лабораторна 1</NavDropdown.Item>
+                <NavDropdown.Item href="work2.html">Лабораторна 2</NavDropdown.Item>
+                {/* ... Other lab items */}
+              </NavDropdown>
+              <Nav.Link href="selfwork.html" className="nav-link">Самостійна</Nav.Link>
+              <NavDropdown
+                title="Диски"
+                show={showDropdown === 'disk'}
+                onMouseEnter={() => handleDropdownToggle('disk')}
+                onMouseLeave={() => handleDropdownToggle(null)}
+              >
+                <NavDropdown.Item target="_blank" href="https://drive.google.com/drive/u/0/folders/168tWDv7CTfGKh5DOTG4rNujxaJS9ZDGW" rel="noreferrer">КІ-41</NavDropdown.Item>
+                <NavDropdown.Item target="_blank" href="https://drive.google.com/drive/u/0/folders/168tWDv7CTfGKh5DOTG4rNujxaJS9ZDGW" rel="noreferrer">КІ-41</NavDropdown.Item>
+                {/* ... Other lab items */}
+              </NavDropdown>
+              <Nav.Link href="journal.html" className="nav-link">Журнали</Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
           <div className="navbar-out order-2 order-xl-3">
             <div>
               <button aria-label="Open Sidebar" onClick={handleClick} className="d-none d-xl-block open-sidebar" type="button">
@@ -93,8 +77,12 @@ function Header() {
               <span className="icon-bar bottom-bar" />
             </button>
           </div>
-        </div>
-      </nav>
+
+          {/* <Navbar.Toggle aria-label="Toggle Primary Nav"> */}
+          {/*  <FaBars /> */}
+          {/* </Navbar.Toggle> */}
+        </Container>
+      </Navbar>
     </header>
   );
 }

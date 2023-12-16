@@ -37,11 +37,13 @@ function TopBar() {
               <li>
                 <a href="mailto:Dmytro.O.Kushnir@lpnu.ua" aria-label="mail" target="_blank" title="Dmytro.O.Kushnir@lpnu.ua" rel="noreferrer">
                   <FaEnvelope />
+                  Пошта
                 </a>
               </li>
               <li>
                 <a href="https://t.me/dmytro_kushnir" aria-label="tg" target="_blank" title="+380730189648" rel="noreferrer">
                   <FaTelegram />
+                  Телеграм
                 </a>
               </li>
             </ul>
