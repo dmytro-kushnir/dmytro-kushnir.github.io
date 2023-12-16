@@ -28,7 +28,7 @@ $background-color_5: var(--wpr-light);
     position: relative;
     z-index: 9;
     li {
-        margin: 0px;
+        margin: 0;
     }
     &::after {
         content: "";
@@ -43,7 +43,7 @@ $background-color_5: var(--wpr-light);
     }
 }
 .logo {
-    max-width: 154px;
+    max-width: 10rem;
 }
 
 .nav-link {
@@ -70,7 +70,6 @@ $background-color_5: var(--wpr-light);
         margin: 0;
         padding: 0;
         background-color: $background-color_1;
-        margin-top: 0;
         border-top: 5px solid var(--wpr-red);
         box-shadow: var(--wpr-shadow);
         border-radius: 0;
@@ -118,7 +117,7 @@ $background-color_5: var(--wpr-light);
 }
 @media (max-width: 1199px) {
     .navbar {
-        padding: 15px 0px;
+        padding: 15px 0;
     }
     .navbar-collapse {
         margin-left: 0;
@@ -260,13 +259,13 @@ $background-color_5: var(--wpr-light);
 }
 @media (max-width: 575px) {
     .navbar-toggler {
-        margin: 0px;
+        margin: 0;
         .icon-bar {
             width: 30px;
         }
     }
     .open-sidebar {
-        margin: 0px;
+        margin: 0;
         .icon-bar {
             width: 30px;
         }
@@ -294,4 +293,3 @@ $background-color_5: var(--wpr-light);
         }
     }
 }
-

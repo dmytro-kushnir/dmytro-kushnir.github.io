@@ -4,11 +4,10 @@ import {
   Container, Navbar, Nav, NavDropdown, Modal, Button,
 } from 'react-bootstrap';
 import { FaBars } from 'react-icons/fa';
+import './header.scss';
 
 import Image from '../image/index.tsx';
 import Sidebar from '../sidebar/sidebar.tsx';
-
-import cssClasses from './header.module.scss';
 
 function Header() {
   const [showDropdown, setShowDropdown] = useState<string | null>(null);
@@ -23,16 +22,16 @@ function Header() {
   const logoPath = 'src/apps/web-programming/assets/logo.png';
 
   return (
-    <header className={cssClasses.header}>
-      <Navbar expand="xl" className={`${cssClasses.navbar} p-0`}>
+    <header className="header">
+      <Navbar expand="xl" className="p-0">
         <Container>
           <Link to="/web-programming">
-            <Image path={logoPath} alt="Веб-програмування" className={cssClasses.logo} />
+            <Image path={logoPath} alt="Веб-програмування" className="logo" />
           </Link>
           <Navbar.Collapse id="primaryNav" className="justify-content-center order-3 order-xl-2">
-            <Nav className="navbar-nav">
-              <Nav.Link href="index.html" className={`${cssClasses['nav-link']} active`}>Головна</Nav.Link>
-              <Nav.Link href="lecture.html" className={cssClasses['nav-link']}>Лекції</Nav.Link>
+            <Nav>
+              <Nav.Link href="index.html" className="active">Головна</Nav.Link>
+              <Nav.Link href="lecture.html">Лекції</Nav.Link>
               <NavDropdown
                 title="Лабораторні"
                 id="navbarLabDropdown"
@@ -44,7 +43,8 @@ function Header() {
                 <NavDropdown.Item href="work2.html">Лабораторна 2</NavDropdown.Item>
                 {/* ... Other lab items */}
               </NavDropdown>
-              <Nav.Link href="selfwork.html" className={cssClasses['nav-link']}>Самостійна</Nav.Link>
+
+              <Nav.Link href="selfwork.html">Самостійна</Nav.Link>
               <NavDropdown
                 title="Диски"
                 id="navbarDiskDropdown"
@@ -56,12 +56,12 @@ function Header() {
                 <NavDropdown.Item target="_blank" href="https://drive.google.com/drive/u/0/folders/168tWDv7CTfGKh5DOTG4rNujxaJS9ZDGW" rel="noreferrer">КІ-41</NavDropdown.Item>
                 {/* ... Other lab items */}
               </NavDropdown>
-              <Nav.Link href="journal.html" className={cssClasses['nav-link']}>Журнали</Nav.Link>
+              <Nav.Link href="journal.html">Журнали</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           <div className="order-1 order-xl-3">
             <Button aria-label="Open Sidebar" onClick={toggleSidebar} variant="link">
-              <FaBars className={cssClasses.hamburger} />
+              <FaBars className="hamburger" />
             </Button>
           </div>
           <Modal show={showSidebar} onHide={toggleSidebar} centered>
