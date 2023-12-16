@@ -1,45 +1,47 @@
 import { Container } from 'react-bootstrap';
 
+import {
+  FaBuilding, FaCalendarAlt, FaChalkboardTeacher, FaEnvelope, FaTelegram,
+} from 'react-icons/fa';
+import cssClasses from './topbar.module.scss';
+
 function TopBar() {
   return (
-    <nav className="topbar">
+    <nav className={cssClasses.topbar}>
       <Container>
-        <div className="topbar-block">
-          <div className="topbar-left">
+        <div className={cssClasses['topbar-block']}>
+          <div className={cssClasses['topbar-left']}>
             <ul>
               <li>
                 <a href="https://eom.lpnu.ua/" target="_blank" rel="noreferrer">
-                  <i className="las la-building" />
-                  {' '}
+                  <FaBuilding />
                   Кафедра ЕОМ
                 </a>
               </li>
               <li>
                 <a href="https://lpnu.ua/rozklad-zaniat-ta-ekzameniv" target="_blank" rel="noreferrer">
-                  <i className="las la-calendar" />
-                  {' '}
+                  <FaCalendarAlt />
                   Розклад занять
                 </a>
               </li>
               <li>
                 <a href="https://vns.lpnu.ua" target="_blank" rel="noreferrer">
-                  <i className="las la-chalkboard-teacher" />
-                  {' '}
+                  <FaChalkboardTeacher />
                   ВНС
                 </a>
               </li>
             </ul>
           </div>
-          <div className="topbar-right">
+          <div className={cssClasses['topbar-right']}>
             <ul>
               <li>
                 <a href="mailto:Dmytro.O.Kushnir@lpnu.ua" aria-label="mail" target="_blank" title="Dmytro.O.Kushnir@lpnu.ua" rel="noreferrer">
-                  <i className="las la-envelope" />
+                  <FaEnvelope />
                 </a>
               </li>
               <li>
                 <a href="https://t.me/dmytro_kushnir" aria-label="tg" target="_blank" title="+380730189648" rel="noreferrer">
-                  <i className="lab la-telegram" />
+                  <FaTelegram />
                 </a>
               </li>
             </ul>
@@ -49,4 +51,5 @@ function TopBar() {
     </nav>
   );
 }
+
 export default TopBar;

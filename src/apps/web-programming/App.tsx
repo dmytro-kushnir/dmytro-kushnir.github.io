@@ -6,7 +6,7 @@ import {
 
 import * as React from 'react';
 
-import TopBar from '../../components/topbar/index.tsx';
+import TopBar from '../../components/topbar/topbar.tsx';
 import Header from '../../components/header/index.tsx';
 import Sidebar from '../../components/sidebar/index.tsx';
 
