@@ -64,9 +64,9 @@ export default function App({ config }: AppProps) { //   HashRouter could be rei
                 </React.Suspense>
               )}
             />
-            <Route path="*" element={<NoMatch />} />
           </Route>
           <Route path="/web-programming/*" element={<WebProgrammingApp />} />
+          <Route path="*" element={<NoMatch />} />
         </Routes>
       </HashRouter>
     </ConfigProvider>

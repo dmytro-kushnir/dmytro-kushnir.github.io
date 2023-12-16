@@ -5,8 +5,10 @@ import {
 } from 'react-router-dom';
 
 import * as React from 'react';
+
+import TopBar from '../../components/topbar/index.tsx';
+import Header from '../../components/header/index.tsx';
 import Sidebar from '../../components/sidebar/index.tsx';
-// import Header from '../../components/header/index.tsx';
 
 import NoMatch from '../../components/no-match/index.tsx';
 
@@ -15,6 +17,8 @@ const About = React.lazy(() => import('../../components/about/index.tsx'));
 function Layout() {
   return (
     <div>
+      <TopBar />
+      <Header />
       <h2>Web programming</h2>
       <nav>
         <ul>
@@ -23,7 +27,6 @@ function Layout() {
           </li>
         </ul>
       </nav>
-      {/* <Header /> */}
       <Sidebar />
       <Outlet />
     </div>
