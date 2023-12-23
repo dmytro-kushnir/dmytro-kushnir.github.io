@@ -3,7 +3,11 @@ import {
 } from 'react';
 import ModuleLoader from '../loader/loader.tsx';
 
-function AboutPage() {
+interface Props {
+    name: string;
+}
+
+function AboutPage({ name }: Props) {
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -20,7 +24,7 @@ function AboutPage() {
     !loading
       ? (
         <div>
-          <h2>About</h2>
+          <h2>{name}</h2>
         </div>
       )
       : <ModuleLoader />);

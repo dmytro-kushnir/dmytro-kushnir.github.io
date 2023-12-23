@@ -1,16 +1,18 @@
 import './App.css';
 
 import {
-  Routes, Route, Outlet, Link,
+  Routes, Route, Outlet,
 } from 'react-router-dom';
 
 import * as React from 'react';
 
 import TopBar from '../../components/topbar/topbar.tsx';
 import Header from '../../components/header/header.tsx';
+import Lab from '../../components/lab/lab.tsx';
 
 import NoMatch from '../../components/no-match/index.tsx';
 import { AppNames } from '../../components/config/configMapping.ts';
+import useConfig from '../../components/config/useConfig.ts';
 
 const About = React.lazy(() => import('../../components/about/index.tsx'));
 
@@ -23,22 +25,15 @@ function Layout({ appName }: Props) {
     <div>
       <TopBar appName={appName} />
       <Header appName={appName} />
-      <h2>Web programming</h2>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/web-programming/about">About</Link>
-          </li>
-        </ul>
-      </nav>
       <Outlet />
     </div>
   );
 }
 
 export default function WebProgrammingApp({ appName }: Props) {
-  // These routes are defined when this component is loaded on demand via
-  // dynamic import() on the home page!
+  const config = useConfig(appName);
+  const { labList } = config;
+
   return (
     <Routes>
       <Route path="/" element={<Layout appName={appName} />}>
@@ -46,9 +41,36 @@ export default function WebProgrammingApp({ appName }: Props) {
           path="about"
           element={(
             <React.Suspense fallback={<>...</>}>
-              <About />
+              <About name="about" />
             </React.Suspense>
           )}
+        />
+        <Route
+          path="lectures"
+          element={(
+            <React.Suspense fallback={<>...</>}>
+              <About name="lectures" />
+            </React.Suspense>
+          )}
+        />
+        {labList.map((lab) => (
+          <Route key={lab.id} path={`labs/${lab.id}`} element={<Lab lab={lab} />} />
+        ))}
+        <Route
+          path="self-work"
+          element={(
+            <React.Suspense fallback={<>...</>}>
+              <About name="self-work" />
+            </React.Suspense>
+              )}
+        />
+        <Route
+          path="grades"
+          element={(
+            <React.Suspense fallback={<>...</>}>
+              <About name="grades" />
+            </React.Suspense>
+              )}
         />
         <Route path="*" element={<NoMatch />} />
       </Route>

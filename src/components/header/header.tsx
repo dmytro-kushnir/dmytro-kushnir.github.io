@@ -23,9 +23,9 @@ function Header({ appName }: Props) {
     appPath,
     driveLinks,
     header: {
-      labList,
       logo,
     },
+    labList,
   } = config;
 
   const [showDropdown, setShowDropdown] = useState<string | null>(null);
@@ -55,7 +55,7 @@ function Header({ appName }: Props) {
                 onMouseLeave={() => handleDropdownToggle(null)}
               >
                 {labList.map((lab) => (
-                  <NavDropdown.Item key={lab.id} onClick={() => navigate(`/labs/${lab.id}`)}>
+                  <NavDropdown.Item key={lab.id} onClick={() => navigate(`${appPath}/labs/${lab.id}`)}>
                     {lab.name}
                   </NavDropdown.Item>
                 ))}

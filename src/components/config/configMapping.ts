@@ -32,13 +32,12 @@ type TopBarMapping = {
     }
 };
 
-interface LabLink {
+export interface LabLink {
     id: string;
     name: string;
 }
 
 type HeaderMapping = {
-    labList: LabLink[];
     logo: {
         url: string;
         alt: string;
@@ -49,6 +48,7 @@ type CommonAppMapping = {
     appPath: string;
     driveLinks: DriveLink[];
     header: HeaderMapping;
+    labList: LabLink[];
     name: string;
     sidebar: SideBarMapping;
     topBar: TopBarMapping;

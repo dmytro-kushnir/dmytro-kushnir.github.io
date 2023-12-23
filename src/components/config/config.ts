@@ -17,12 +17,12 @@ const config: ConfigMapping = {
       appPath: '/other-app',
       driveLinks: [],
       header: {
-        labList: [],
         logo: {
           alt: 'Other logo',
           url: '/images/apps/otherApp/logo.png',
         },
       },
+      labList: [],
       name: 'otherApp',
       sidebar: {
         scores: {
@@ -72,37 +72,37 @@ const config: ConfigMapping = {
         },
       ],
       header: {
-        labList: [
-          {
-            id: 'lab1',
-            name: 'Лабараторна №1',
-          },
-          {
-            id: 'lab2',
-            name: 'Лабараторна №2',
-          },
-          {
-            id: 'lab3',
-            name: 'Лабараторна №3',
-          },
-          {
-            id: 'lab4',
-            name: 'Лабараторна №4',
-          },
-          {
-            id: 'lab5',
-            name: 'Лабараторна №5',
-          },
-          {
-            id: 'lab6',
-            name: 'Лабараторна №6',
-          },
-        ],
         logo: {
           alt: 'Веб-програмування',
           url: '/images/apps/wp/logo.png',
         },
       },
+      labList: [
+        {
+          id: 'lab1',
+          name: 'Лабараторна №1',
+        },
+        {
+          id: 'lab2',
+          name: 'Лабараторна №2',
+        },
+        {
+          id: 'lab3',
+          name: 'Лабараторна №3',
+        },
+        {
+          id: 'lab4',
+          name: 'Лабараторна №4',
+        },
+        {
+          id: 'lab5',
+          name: 'Лабараторна №5',
+        },
+        {
+          id: 'lab6',
+          name: 'Лабараторна №6',
+        },
+      ],
       name: 'wp',
       sidebar: {
         scores: {
