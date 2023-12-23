@@ -48,7 +48,7 @@ function Sidebar({ appName }: Props) {
               <strong>Залік</strong>
               <ul>
                 <li>{`Поточні бали - ${scores.current} балів`}</li>
-                <li>{`Екзаменаційні тести - ${scores.exam}} балів (з них ${scores.presentationMax * 2} за презентації)`}</li>
+                <li>{`Екзаменаційні тести - ${scores.exam} балів (з них ${scores.presentationMax * 2} за презентації)`}</li>
               </ul>
             </li>
           </ul>

@@ -40,12 +40,12 @@ function Header({ appName }: Props) {
     <header className="header">
       <Navbar expand="xl" className="p-0">
         <Container>
-          <Link to={appPath}>
+          <Link to={`${appPath}/`}>
             <Image path={logo.url} alt={logo.alt} className="logo" />
           </Link>
           <Navbar.Collapse id="primaryNav" className="justify-content-center order-3 order-xl-2">
             <Nav>
-              <Nav.Link as={NavLink} to={appPath} className="active">Головна</Nav.Link>
+              <Nav.Link as={NavLink} to={`${appPath}/`}>Головна</Nav.Link>
               <Nav.Link as={NavLink} to={`${appPath}/lectures`}>Лекції</Nav.Link>
               <NavDropdown
                 title="Лабораторні"

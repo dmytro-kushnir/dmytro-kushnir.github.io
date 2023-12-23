@@ -25,6 +25,7 @@ function Layout({ appName }: Props) {
     <div>
       <TopBar appName={appName} />
       <Header appName={appName} />
+
       <Outlet />
     </div>
   );
