@@ -1,17 +1,20 @@
 import { Container } from 'react-bootstrap';
 
 import {
-  FaBuilding, FaCalendarAlt, FaChalkboardTeacher, FaEnvelope, FaTelegram,
+  FaBuilding, FaCalendarAlt, FaChalkboardTeacher, FaEnvelope, FaTelegram, FaGraduationCap,
 } from 'react-icons/fa';
 import cssClasses from './topbar.module.scss';
 import { AppNames } from '../config/config.ts';
+import useConfig from '../config/useConfig.ts';
 
 interface Props {
   appName: AppNames;
 }
 
 function TopBar({ appName }: Props) {
-  console.log(appName);
+  const config = useConfig(appName);
+
+  const { topBar: { links } } = config;
 
   return (
     <nav className={cssClasses.topbar}>
@@ -20,19 +23,25 @@ function TopBar({ appName }: Props) {
           <div className={cssClasses['topbar-left']}>
             <ul>
               <li>
-                <a href="https://eom.lpnu.ua/" target="_blank" rel="noreferrer">
+                <a href={links.eom} target="_blank" rel="noreferrer">
                   <FaBuilding />
                   Кафедра ЕОМ
                 </a>
               </li>
               <li>
-                <a href="https://lpnu.ua/rozklad-zaniat-ta-ekzameniv" target="_blank" rel="noreferrer">
+                <a href={links.scheduleLesson} target="_blank" rel="noreferrer">
                   <FaCalendarAlt />
                   Розклад занять
                 </a>
               </li>
               <li>
-                <a href="https://vns.lpnu.ua" target="_blank" rel="noreferrer">
+                <a href={links.scheduleExam} target="_blank" rel="noreferrer">
+                  <FaGraduationCap />
+                  Розклад Екзаменів
+                </a>
+              </li>
+              <li>
+                <a href={links.vle} target="_blank" rel="noreferrer">
                   <FaChalkboardTeacher />
                   ВНС
                 </a>
@@ -42,13 +51,13 @@ function TopBar({ appName }: Props) {
           <div className={cssClasses['topbar-right']}>
             <ul>
               <li>
-                <a href="mailto:Dmytro.O.Kushnir@lpnu.ua" aria-label="mail" target="_blank" title="Dmytro.O.Kushnir@lpnu.ua" rel="noreferrer">
+                <a href={`mailto:${links.mail}`} aria-label="mail" target="_blank" rel="noreferrer">
                   <FaEnvelope />
                   Пошта
                 </a>
               </li>
               <li>
-                <a href="https://t.me/dmytro_kushnir" aria-label="tg" target="_blank" title="+380730189648" rel="noreferrer">
+                <a href={links.telegram} aria-label="tg" target="_blank" rel="noreferrer">
                   <FaTelegram />
                   Телеграм
                 </a>

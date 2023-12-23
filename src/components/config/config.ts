@@ -22,15 +22,28 @@ type SideBarMapping = {
     }
 };
 
+type TopBarMapping = {
+    links: {
+        eom: string;
+        mail: string;
+        scheduleExam: string;
+        scheduleLesson: string;
+        telegram: string;
+        vle: string; // virtual learning environment
+    }
+};
+
 export type ConfigMapping = {
     apps: {
         otherApp: { // an example app
             name: string;
-            sidebar: SideBarMapping; // optional
+            sidebar: SideBarMapping;
+            topBar: TopBarMapping;
         }
         wp: {
             name: string;
             sidebar: SideBarMapping;
+            topBar: TopBarMapping;
         }
     };
 };
@@ -41,6 +54,17 @@ const AppNames = {
 } as const;
 
 export type AppNames = keyof typeof AppNames;
+
+const topBar : TopBarMapping = {
+  links: {
+    eom: 'https://lpnu.ua/',
+    mail: 'Dmytro.O.Kushnir@lpnu.ua',
+    scheduleExam: 'https://student2023.lpnu.ua/students_exam',
+    scheduleLesson: 'https://student2023.lpnu.ua/students_schedule',
+    telegram: 'https://t.me/dmytro_kushnir',
+    vle: 'https://vns.lpnu.ua',
+  },
+};
 
 const config: ConfigMapping = {
   apps: {
@@ -63,6 +87,7 @@ const config: ConfigMapping = {
           },
         },
       },
+      topBar,
     },
     wp: {
       name: 'wp',
@@ -109,6 +134,7 @@ const config: ConfigMapping = {
           },
         },
       },
+      topBar,
     },
   },
 };
