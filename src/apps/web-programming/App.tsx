@@ -10,7 +10,7 @@ import TopBar from '../../components/topbar/topbar.tsx';
 import Header from '../../components/header/header.tsx';
 
 import NoMatch from '../../components/no-match/index.tsx';
-import { AppNames } from '../../components/config/config.ts';
+import { AppNames } from '../../components/config/configMapping.ts';
 
 const About = React.lazy(() => import('../../components/about/index.tsx'));
 

@@ -6,7 +6,7 @@ import {
 
 import WebProgrammingApp from '../web-programming/App.tsx';
 import ConfigProvider from '../../components/config/index.tsx';
-import { ConfigMapping } from '../../components/config/config.ts';
+import { ConfigMapping, AppNames } from '../../components/config/configMapping.ts';
 
 import './App.scss';
 import NoMatch from '../../components/no-match/index.tsx';
@@ -65,7 +65,7 @@ export default function App({ config }: AppProps) { //   HashRouter could be rei
               )}
             />
           </Route>
-          <Route path="/web-programming/*" element={<WebProgrammingApp appName={config.apps.wp.name} />} />
+          <Route path="/web-programming/*" element={<WebProgrammingApp appName={config.apps.wp.name as AppNames} />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </HashRouter>

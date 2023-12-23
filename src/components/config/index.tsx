@@ -2,7 +2,7 @@ import {
   createContext, useEffect, useState, ReactNode,
 } from 'react';
 
-import { ConfigMapping } from './config.ts';
+import { ConfigMapping } from './configMapping.ts';
 
 interface ConfigProps {
   config: ConfigMapping;

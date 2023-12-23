@@ -4,7 +4,7 @@ import {
   FaBuilding, FaCalendarAlt, FaChalkboardTeacher, FaEnvelope, FaTelegram, FaGraduationCap,
 } from 'react-icons/fa';
 import cssClasses from './topbar.module.scss';
-import { AppNames } from '../config/config.ts';
+import { AppNames } from '../config/configMapping.ts';
 import useConfig from '../config/useConfig.ts';
 
 interface Props {

@@ -1,5 +1,5 @@
 import useConfig from '../config/useConfig.ts';
-import { DriveLink, AppNames } from '../config/config.ts';
+import { AppNames } from '../config/configMapping.ts';
 
 import cssClasses from './sidebar.module.scss';
 
@@ -11,8 +11,8 @@ function Sidebar({ appName }: Props) {
   const config = useConfig(appName);
 
   const {
+    driveLinks,
     sidebar: {
-      driveLinks,
       scores,
       semesters,
     },
@@ -55,7 +55,7 @@ function Sidebar({ appName }: Props) {
 
           <h4>Диски для звітності</h4>
           <ul className={cssClasses['disk-list']}>
-            {driveLinks.map((link: DriveLink) => (
+            {driveLinks.map((link) => (
               <li key={link.name}>
                 {link.name}
                 <a href={link.drive} target="_blank" rel="noreferrer">Диск</a>

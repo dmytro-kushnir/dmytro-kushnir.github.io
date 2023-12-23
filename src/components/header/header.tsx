@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, NavLink } from 'react-router-dom';
 import {
   Container, Navbar, Nav, NavDropdown, Modal, Button,
 } from 'react-bootstrap';
@@ -8,14 +8,25 @@ import './header.scss';
 
 import Image from '../image/index.tsx';
 import Sidebar from '../sidebar/sidebar.tsx';
-import { AppNames } from '../config/config.ts';
+import { AppNames } from '../config/configMapping.ts';
+import useConfig from '../config/useConfig.ts';
 
 interface Props {
   appName: AppNames;
 }
 
 function Header({ appName }: Props) {
-  console.log(appName);
+  const navigate = useNavigate();
+  const config = useConfig(appName);
+
+  const {
+    appPath,
+    driveLinks,
+    header: {
+      labList,
+      logo,
+    },
+  } = config;
 
   const [showDropdown, setShowDropdown] = useState<string | null>(null);
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
@@ -25,20 +36,17 @@ function Header({ appName }: Props) {
   };
   const toggleSidebar = () => setShowSidebar(!showSidebar);
 
-  // todo to be retrieved from config as well as other props of image
-  const logoPath = '/images/apps/wp/logo.png';
-
   return (
     <header className="header">
       <Navbar expand="xl" className="p-0">
         <Container>
-          <Link to="/web-programming">
-            <Image path={logoPath} alt="Веб-програмування" className="logo" />
+          <Link to={appPath}>
+            <Image path={logo.url} alt={logo.alt} className="logo" />
           </Link>
           <Navbar.Collapse id="primaryNav" className="justify-content-center order-3 order-xl-2">
             <Nav>
-              <Nav.Link href="index.html" className="active">Головна</Nav.Link>
-              <Nav.Link href="lecture.html">Лекції</Nav.Link>
+              <Nav.Link as={NavLink} to={appPath} className="active">Головна</Nav.Link>
+              <Nav.Link as={NavLink} to={`${appPath}/lectures`}>Лекції</Nav.Link>
               <NavDropdown
                 title="Лабораторні"
                 id="navbarLabDropdown"
@@ -46,12 +54,14 @@ function Header({ appName }: Props) {
                 onMouseEnter={() => handleDropdownToggle('lab')}
                 onMouseLeave={() => handleDropdownToggle(null)}
               >
-                <NavDropdown.Item href="work1.html">Лабораторна 1</NavDropdown.Item>
-                <NavDropdown.Item href="work2.html">Лабораторна 2</NavDropdown.Item>
-                {/* ... Other lab items */}
+                {labList.map((lab) => (
+                  <NavDropdown.Item key={lab.id} onClick={() => navigate(`/labs/${lab.id}`)}>
+                    {lab.name}
+                  </NavDropdown.Item>
+                ))}
               </NavDropdown>
 
-              <Nav.Link href="selfwork.html">Самостійна</Nav.Link>
+              <Nav.Link as={NavLink} to={`${appPath}/self-work`}>Самостійна</Nav.Link>
               <NavDropdown
                 title="Диски"
                 id="navbarDiskDropdown"
@@ -59,11 +69,18 @@ function Header({ appName }: Props) {
                 onMouseEnter={() => handleDropdownToggle('disk')}
                 onMouseLeave={() => handleDropdownToggle(null)}
               >
-                <NavDropdown.Item target="_blank" href="https://drive.google.com/drive/u/0/folders/168tWDv7CTfGKh5DOTG4rNujxaJS9ZDGW" rel="noreferrer">КІ-41</NavDropdown.Item>
-                <NavDropdown.Item target="_blank" href="https://drive.google.com/drive/u/0/folders/168tWDv7CTfGKh5DOTG4rNujxaJS9ZDGW" rel="noreferrer">КІ-41</NavDropdown.Item>
-                {/* ... Other lab items */}
+                {driveLinks.map((link) => (
+                  <NavDropdown.Item
+                    key={link.name}
+                    target="_blank"
+                    href={link.drive}
+                    rel="noreferrer"
+                  >
+                    {link.name}
+                  </NavDropdown.Item>
+                ))}
               </NavDropdown>
-              <Nav.Link href="journal.html">Журнали</Nav.Link>
+              <Nav.Link as={NavLink} to={`${appPath}/grades`}>Журнали</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           <div className="order-1 order-xl-3">

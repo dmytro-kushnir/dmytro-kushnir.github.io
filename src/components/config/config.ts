@@ -1,61 +1,6 @@
-export interface DriveLink {
-    name: string;
-    doc: string;
-    drive: string;
-}
+import { ConfigMapping } from './configMapping.ts';
 
-type SideBarMapping = {
-    driveLinks: DriveLink[];
-    scores: {
-        current: number;
-        exam: number;
-        labs: number;
-        presentationMax: number;
-        presentationMin: number;
-        selfStudy: number;
-    };
-    semesters: {
-        duration: {
-            part1: string;
-            part2: string;
-        }
-    }
-};
-
-type TopBarMapping = {
-    links: {
-        eom: string;
-        mail: string;
-        scheduleExam: string;
-        scheduleLesson: string;
-        telegram: string;
-        vle: string; // virtual learning environment
-    }
-};
-
-export type ConfigMapping = {
-    apps: {
-        otherApp: { // an example app
-            name: string;
-            sidebar: SideBarMapping;
-            topBar: TopBarMapping;
-        }
-        wp: {
-            name: string;
-            sidebar: SideBarMapping;
-            topBar: TopBarMapping;
-        }
-    };
-};
-
-const AppNames = {
-  otherApp: 'otherApp' as const,
-  wp: 'wp' as const,
-} as const;
-
-export type AppNames = keyof typeof AppNames;
-
-const topBar : TopBarMapping = {
+const topBar = {
   links: {
     eom: 'https://lpnu.ua/',
     mail: 'Dmytro.O.Kushnir@lpnu.ua',
@@ -69,9 +14,17 @@ const topBar : TopBarMapping = {
 const config: ConfigMapping = {
   apps: {
     otherApp: {
+      appPath: '/other-app',
+      driveLinks: [],
+      header: {
+        labList: [],
+        logo: {
+          alt: 'Other logo',
+          url: '/images/apps/otherApp/logo.png',
+        },
+      },
       name: 'otherApp',
       sidebar: {
-        driveLinks: [],
         scores: {
           current: 0,
           exam: 0,
@@ -90,35 +43,68 @@ const config: ConfigMapping = {
       topBar,
     },
     wp: {
-      name: 'wp',
-      sidebar: {
-        driveLinks: [
+      appPath: '/web-programming',
+      driveLinks: [
+        {
+          doc: 'https://docs.google.com/spreadsheets/d/1Cq50xhcB1aXG2i06z2TTFGQKO9Ov-PLl',
+          drive: 'https://drive.google.com/drive/u/0/folders/168tWDv7CTfGKh5DOTG4rNujxaJS9ZDGW',
+          name: 'KI-41',
+        },
+        {
+          doc: 'https://drive.google.com/drive/u/0/folders/1hbeZmpsK9EByz67o0zViKmu0s_Mlwn0g',
+          drive: 'https://docs.google.com/spreadsheets/d/1cTeO678uh9C8Thpl-To5jLvBJcQVdFTo',
+          name: 'KI-42',
+        },
+        {
+          doc: 'https://drive.google.com/drive/u/0/folders/1363d0DT4xQNE7BHSXkrSvAlbHkTh7mXj',
+          drive: 'https://docs.google.com/spreadsheets/d/1X93VYlvLjmsCqxXYEohF4K1g7kL-vhf6',
+          name: 'KI-43',
+        },
+        {
+          doc: 'https://drive.google.com/drive/u/0/folders/1FAwfJHtS93V2_vp-TETMjtPgjv0s29Qi',
+          drive: 'https://docs.google.com/spreadsheets/d/1GGrgoJ_CEHz893MOUYXc-QX3ksCqB6s2',
+          name: 'KI-44',
+        },
+        {
+          doc: 'https://drive.google.com/drive/u/0/folders/1puhqbpG7DYhoeKgB33J3rkt-mP-_Wbq4',
+          drive: 'https://docs.google.com/spreadsheets/d/1YoIDnu8TSv50v1OWHgwsRRoW3xQpkwDv',
+          name: 'KI-45',
+        },
+      ],
+      header: {
+        labList: [
           {
-            doc: 'https://docs.google.com/spreadsheets/d/1Cq50xhcB1aXG2i06z2TTFGQKO9Ov-PLl',
-            drive: 'https://drive.google.com/drive/u/0/folders/168tWDv7CTfGKh5DOTG4rNujxaJS9ZDGW',
-            name: 'KI-41',
+            id: 'lab1',
+            name: 'Лабараторна №1',
           },
           {
-            doc: 'https://drive.google.com/drive/u/0/folders/1hbeZmpsK9EByz67o0zViKmu0s_Mlwn0g',
-            drive: 'https://docs.google.com/spreadsheets/d/1cTeO678uh9C8Thpl-To5jLvBJcQVdFTo',
-            name: 'KI-42',
+            id: 'lab2',
+            name: 'Лабараторна №2',
           },
           {
-            doc: 'https://drive.google.com/drive/u/0/folders/1363d0DT4xQNE7BHSXkrSvAlbHkTh7mXj',
-            drive: 'https://docs.google.com/spreadsheets/d/1X93VYlvLjmsCqxXYEohF4K1g7kL-vhf6',
-            name: 'KI-43',
+            id: 'lab3',
+            name: 'Лабараторна №3',
           },
           {
-            doc: 'https://drive.google.com/drive/u/0/folders/1FAwfJHtS93V2_vp-TETMjtPgjv0s29Qi',
-            drive: 'https://docs.google.com/spreadsheets/d/1GGrgoJ_CEHz893MOUYXc-QX3ksCqB6s2',
-            name: 'KI-44',
+            id: 'lab4',
+            name: 'Лабараторна №4',
           },
           {
-            doc: 'https://drive.google.com/drive/u/0/folders/1puhqbpG7DYhoeKgB33J3rkt-mP-_Wbq4',
-            drive: 'https://docs.google.com/spreadsheets/d/1YoIDnu8TSv50v1OWHgwsRRoW3xQpkwDv',
-            name: 'KI-45',
+            id: 'lab5',
+            name: 'Лабараторна №5',
+          },
+          {
+            id: 'lab6',
+            name: 'Лабараторна №6',
           },
         ],
+        logo: {
+          alt: 'Веб-програмування',
+          url: '/images/apps/wp/logo.png',
+        },
+      },
+      name: 'wp',
+      sidebar: {
         scores: {
           current: 40,
           exam: 60,

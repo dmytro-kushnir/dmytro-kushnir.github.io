@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { AppConfig } from './index.tsx';
-import { ConfigMapping } from './config.ts';
+import { ConfigMapping } from './configMapping.ts';
 
 function useConfig(appName: keyof ConfigMapping['apps']): ConfigMapping['apps'][keyof ConfigMapping['apps']] {
   const appConfig = useContext(AppConfig);
