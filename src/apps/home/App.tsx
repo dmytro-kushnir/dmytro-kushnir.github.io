@@ -65,7 +65,7 @@ export default function App({ config }: AppProps) { //   HashRouter could be rei
               )}
             />
           </Route>
-          <Route path="/web-programming/*" element={<WebProgrammingApp />} />
+          <Route path="/web-programming/*" element={<WebProgrammingApp appName={config.apps.wp.name} />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </HashRouter>

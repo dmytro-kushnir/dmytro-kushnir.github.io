@@ -4,8 +4,15 @@ import {
   FaBuilding, FaCalendarAlt, FaChalkboardTeacher, FaEnvelope, FaTelegram,
 } from 'react-icons/fa';
 import cssClasses from './topbar.module.scss';
+import { AppNames } from '../config/config.ts';
 
-function TopBar() {
+interface Props {
+  appName: AppNames;
+}
+
+function TopBar({ appName }: Props) {
+  console.log(appName);
+
   return (
     <nav className={cssClasses.topbar}>
       <Container>

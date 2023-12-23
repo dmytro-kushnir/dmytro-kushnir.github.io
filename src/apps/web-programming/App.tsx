@@ -10,14 +10,19 @@ import TopBar from '../../components/topbar/topbar.tsx';
 import Header from '../../components/header/header.tsx';
 
 import NoMatch from '../../components/no-match/index.tsx';
+import { AppNames } from '../../components/config/config.ts';
 
 const About = React.lazy(() => import('../../components/about/index.tsx'));
 
-function Layout() {
+interface Props {
+  appName: AppNames;
+}
+
+function Layout({ appName }: Props) {
   return (
     <div>
-      <TopBar />
-      <Header />
+      <TopBar appName={appName} />
+      <Header appName={appName} />
       <h2>Web programming</h2>
       <nav>
         <ul>
@@ -31,12 +36,12 @@ function Layout() {
   );
 }
 
-export default function WebProgrammingApp() {
+export default function WebProgrammingApp({ appName }: Props) {
   // These routes are defined when this component is loaded on demand via
   // dynamic import() on the home page!
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path="/" element={<Layout appName={appName} />}>
         <Route
           path="about"
           element={(

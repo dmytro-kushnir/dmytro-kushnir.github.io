@@ -8,8 +8,15 @@ import './header.scss';
 
 import Image from '../image/index.tsx';
 import Sidebar from '../sidebar/sidebar.tsx';
+import { AppNames } from '../config/config.ts';
 
-function Header() {
+interface Props {
+  appName: AppNames;
+}
+
+function Header({ appName }: Props) {
+  console.log(appName);
+
   const [showDropdown, setShowDropdown] = useState<string | null>(null);
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
 
@@ -67,7 +74,7 @@ function Header() {
           <Modal show={showSidebar} onHide={toggleSidebar} centered>
             <Modal.Header closeButton />
             <Modal.Body>
-              <Sidebar />
+              <Sidebar appName={appName} />
             </Modal.Body>
           </Modal>
         </Container>

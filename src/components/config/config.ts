@@ -4,35 +4,68 @@ export interface DriveLink {
     drive: string;
 }
 
+type SideBarMapping = {
+    driveLinks: DriveLink[];
+    scores: {
+        current: number;
+        exam: number;
+        labs: number;
+        presentationMax: number;
+        presentationMin: number;
+        selfStudy: number;
+    };
+    semesters: {
+        duration: {
+            part1: string;
+            part2: string;
+        }
+    }
+};
+
 export type ConfigMapping = {
     apps: {
+        otherApp: { // an example app
+            name: string;
+            sidebar: SideBarMapping; // optional
+        }
         wp: {
             name: string;
-            sidebar: {
-                driveLinks: DriveLink[];
-                scores: {
-                    current: number;
-                    exam: number;
-                    labs: number;
-                    presentationMax: number;
-                    presentationMin: number;
-                    selfStudy: number;
-                };
-                semesters: {
-                    duration: {
-                        part1: string;
-                        part2: string;
-                    }
-                }
-            }
-        };
+            sidebar: SideBarMapping;
+        }
     };
 };
 
+const AppNames = {
+  otherApp: 'otherApp' as const,
+  wp: 'wp' as const,
+} as const;
+
+export type AppNames = keyof typeof AppNames;
+
 const config: ConfigMapping = {
   apps: {
+    otherApp: {
+      name: 'otherApp',
+      sidebar: {
+        driveLinks: [],
+        scores: {
+          current: 0,
+          exam: 0,
+          labs: 0,
+          presentationMax: 0,
+          presentationMin: 0,
+          selfStudy: 0,
+        },
+        semesters: {
+          duration: {
+            part1: '',
+            part2: '',
+          },
+        },
+      },
+    },
     wp: {
-      name: 'web-programming',
+      name: 'wp',
       sidebar: {
         driveLinks: [
           {

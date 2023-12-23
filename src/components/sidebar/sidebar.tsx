@@ -1,27 +1,20 @@
 import useConfig from '../config/useConfig.ts';
-import { DriveLink } from '../config/config.ts';
+import { DriveLink, AppNames } from '../config/config.ts';
 
 import cssClasses from './sidebar.module.scss';
 
-function Sidebar() {
-  /* todo - each app should generate own sidebar config,
-      so name of the app should be retrieved dynamically.
-   */
-  const config = useConfig();
+interface Props {
+  appName: AppNames;
+}
 
-  if (config === null) {
-    return null;
-  }
+function Sidebar({ appName }: Props) {
+  const config = useConfig(appName);
 
   const {
-    apps: {
-      wp: {
-        sidebar: {
-          driveLinks,
-          scores,
-          semesters,
-        },
-      },
+    sidebar: {
+      driveLinks,
+      scores,
+      semesters,
     },
   } = config;
 
