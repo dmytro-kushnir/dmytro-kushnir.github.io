@@ -1,14 +1,10 @@
 import useConfig from '../config/useConfig.ts';
-import { AppNames } from '../config/configMapping.ts';
+import useAppName from '../context/useAppNameContext.ts';
 
 import cssClasses from './sidebar.module.scss';
 
-interface Props {
-  appName: AppNames;
-}
-
-function Sidebar({ appName }: Props) {
-  const config = useConfig(appName);
+function Sidebar() {
+  const config = useConfig(useAppName());
 
   const {
     driveLinks,

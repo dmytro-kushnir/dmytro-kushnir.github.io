@@ -8,16 +8,12 @@ import './header.scss';
 
 import Image from '../image/index.tsx';
 import Sidebar from '../sidebar/sidebar.tsx';
-import { AppNames } from '../config/configMapping.ts';
 import useConfig from '../config/useConfig.ts';
+import useAppName from '../context/useAppNameContext.ts';
 
-interface Props {
-  appName: AppNames;
-}
-
-function Header({ appName }: Props) {
+function Header() {
   const navigate = useNavigate();
-  const config = useConfig(appName);
+  const config = useConfig(useAppName());
 
   const {
     appPath,
@@ -92,7 +88,7 @@ function Header({ appName }: Props) {
           <Modal show={showSidebar} onHide={toggleSidebar} centered>
             <Modal.Header closeButton />
             <Modal.Body>
-              <Sidebar appName={appName} />
+              <Sidebar />
             </Modal.Body>
           </Modal>
         </Container>

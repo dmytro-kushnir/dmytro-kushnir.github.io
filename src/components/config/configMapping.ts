@@ -66,4 +66,6 @@ const AppNames = {
   wp: 'wp' as const,
 } as const;
 
+export const defaultApp: AppNames = 'wp';
+
 export type AppNames = keyof typeof AppNames;

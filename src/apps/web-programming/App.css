@@ -310,18 +310,6 @@ section {
 /*---------------------------------------------------------/
 [04] FOOTER
 ---------------------------------------------------------*/
-footer {
-  background: var(--wpr-main);
-  text-align: center;
-  padding: 20px 0;
-}
-footer a{
-  color: #fff;
-}
-.footer-list li{
-  display: inline-block;
-  margin: 10px;
-}
 
 /*---------------------------------------------------------/
 [08] BANNER
