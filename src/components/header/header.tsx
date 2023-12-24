@@ -43,8 +43,9 @@ function Header({ appName }: Props) {
           <Link to={`${appPath}/`}>
             <Image path={logo.url} alt={logo.alt} className="logo" />
           </Link>
-          <Navbar.Collapse id="primaryNav" className="justify-content-center order-3 order-xl-2">
-            <Nav>
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-center order-3 order-xl-2">
+            <Nav className="mr-auto">
               <Nav.Link as={NavLink} to={`${appPath}/`}>Головна</Nav.Link>
               <Nav.Link as={NavLink} to={`${appPath}/lectures`}>Лекції</Nav.Link>
               <NavDropdown
@@ -83,7 +84,7 @@ function Header({ appName }: Props) {
               <Nav.Link as={NavLink} to={`${appPath}/grades`}>Журнали</Nav.Link>
             </Nav>
           </Navbar.Collapse>
-          <div className="order-1 order-xl-3">
+          <div className="order-1 d-none d-xl-block order-xl-3">
             <Button aria-label="Open Sidebar" onClick={toggleSidebar} variant="link">
               <FaBars className="hamburger" />
             </Button>
