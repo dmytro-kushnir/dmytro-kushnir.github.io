@@ -22,8 +22,10 @@ type SideBarMapping = {
 };
 
 type LinksMapping = {
-    eom: string;
+    institute: string;
     mail: string;
+    university: string;
+    department: string;
     scheduleExam: string;
     scheduleLesson: string;
     telegram: string;

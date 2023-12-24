@@ -1,11 +1,13 @@
 import { ConfigMapping } from './configMapping.ts';
 
 const links = {
-  eom: 'https://lpnu.ua/',
+  department: 'https://eom.lpnu.ua',
+  institute: 'https://lpnu.ua/ikta',
   mail: 'Dmytro.O.Kushnir@lpnu.ua',
   scheduleExam: 'https://student2023.lpnu.ua/students_exam',
   scheduleLesson: 'https://student2023.lpnu.ua/students_schedule',
   telegram: 'https://t.me/dmytro_kushnir',
+  university: 'https://lpnu.ua',
   vle: 'https://vns.lpnu.ua',
 };
 

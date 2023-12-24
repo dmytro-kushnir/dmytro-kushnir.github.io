@@ -19,7 +19,7 @@ function TopBar() {
           <div className={cssClasses['topbar-left']}>
             <ul>
               <li>
-                <a href={links.eom} target="_blank" rel="noreferrer">
+                <a href={links.department} target="_blank" rel="noreferrer">
                   <FaBuilding />
                   Кафедра ЕОМ
                 </a>

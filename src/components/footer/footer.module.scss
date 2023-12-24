@@ -1,12 +1,16 @@
+$color_1: #fff;
+
 footer {
     background: var(--wpr-main);
     text-align: center;
     padding: 20px 0;
+    a {
+        color: $color_1;
+    }
 }
-footer a{
-    color: #fff;
-}
-.footer-list li{
-    display: inline-block;
-    margin: 10px;
+.footer-list {
+    li {
+        display: inline-block;
+        margin: 10px;
+    }
 }
