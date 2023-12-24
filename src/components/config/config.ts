@@ -1,14 +1,12 @@
 import { ConfigMapping } from './configMapping.ts';
 
-const topBar = {
-  links: {
-    eom: 'https://lpnu.ua/',
-    mail: 'Dmytro.O.Kushnir@lpnu.ua',
-    scheduleExam: 'https://student2023.lpnu.ua/students_exam',
-    scheduleLesson: 'https://student2023.lpnu.ua/students_schedule',
-    telegram: 'https://t.me/dmytro_kushnir',
-    vle: 'https://vns.lpnu.ua',
-  },
+const links = {
+  eom: 'https://lpnu.ua/',
+  mail: 'Dmytro.O.Kushnir@lpnu.ua',
+  scheduleExam: 'https://student2023.lpnu.ua/students_exam',
+  scheduleLesson: 'https://student2023.lpnu.ua/students_schedule',
+  telegram: 'https://t.me/dmytro_kushnir',
+  vle: 'https://vns.lpnu.ua',
 };
 
 const config: ConfigMapping = {
@@ -23,6 +21,7 @@ const config: ConfigMapping = {
         },
       },
       labList: [],
+      links,
       name: 'otherApp',
       sidebar: {
         scores: {
@@ -40,7 +39,6 @@ const config: ConfigMapping = {
           },
         },
       },
-      topBar,
     },
     wp: {
       appPath: '/web-programming',
@@ -103,6 +101,7 @@ const config: ConfigMapping = {
           name: 'Лабараторна №6',
         },
       ],
+      links,
       name: 'wp',
       sidebar: {
         scores: {
@@ -120,7 +119,6 @@ const config: ConfigMapping = {
           },
         },
       },
-      topBar,
     },
   },
 };

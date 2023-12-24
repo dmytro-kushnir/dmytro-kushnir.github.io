@@ -21,16 +21,14 @@ type SideBarMapping = {
     }
 };
 
-type TopBarMapping = {
-    links: {
-        eom: string;
-        mail: string;
-        scheduleExam: string;
-        scheduleLesson: string;
-        telegram: string;
-        vle: string; // virtual learning environment
-    }
-};
+type LinksMapping = {
+    eom: string;
+    mail: string;
+    scheduleExam: string;
+    scheduleLesson: string;
+    telegram: string;
+    vle: string; // virtual learning environment
+}
 
 export interface LabLink {
     id: string;
@@ -49,9 +47,9 @@ type CommonAppMapping = {
     driveLinks: DriveLink[];
     header: HeaderMapping;
     labList: LabLink[];
+    links: LinksMapping;
     name: string;
     sidebar: SideBarMapping;
-    topBar: TopBarMapping;
 }
 
 export type ConfigMapping = {

@@ -10,7 +10,7 @@ import useConfig from '../config/useConfig.ts';
 function TopBar() {
   const config = useConfig(useAppName());
 
-  const { topBar: { links } } = config;
+  const { links } = config;
 
   return (
     <nav className={cssClasses.topbar}>
