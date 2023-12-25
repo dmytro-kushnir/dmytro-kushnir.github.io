@@ -184,7 +184,7 @@ $background-color_5: var(--wpr-light);
 @media (max-width: 1399px) {
     .navbar {
         &::after {
-            max-height: 92px;
+            max-height: 4rem;
         }
     }
     .nav-link {

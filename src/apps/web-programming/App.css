@@ -152,31 +152,7 @@ section {
 .container-narrow a:focus{
   color: var(--wpr-red);
 }
-.bg-img {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-}
-.bg-title {
-  background-image: url(../images/bg-title.jpg);
-}
-.dark-overlay {
-  position: relative;
-  z-index: 1;
-}
-.dark-overlay::after {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(var(--wpr-main-rgb), 0.7);
-  z-index: -1;
-}
+
 .img-effect .poster {
   overflow: hidden;
 }
@@ -314,16 +290,6 @@ section {
 /*---------------------------------------------------------/
 [08] BANNER
 ---------------------------------------------------------*/
-.banner {
-  padding: 60px 0;
-  color: #fff;
-  text-align: center;
-}
-@media (max-width: 1199px) {
-  .banner {
-    padding: 40px 0;
-  }
-}
 /*---------------------------------------------------------/
 [09] ABOUT
 ---------------------------------------------------------*/
