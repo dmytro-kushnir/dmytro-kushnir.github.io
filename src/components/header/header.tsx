@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { Link, useNavigate, NavLink } from 'react-router-dom';
+import {
+  Link, useNavigate, useLocation, NavLink,
+} from 'react-router-dom';
 import {
   Container, Navbar, Nav, NavDropdown, Modal, Button,
 } from 'react-bootstrap';
@@ -10,9 +12,12 @@ import Image from '../image/index.tsx';
 import Sidebar from '../sidebar/sidebar.tsx';
 import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
+import Banner from '../banner/banner.tsx';
 
 function Header() {
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
   const config = useConfig(useAppName());
 
   const {
@@ -93,6 +98,7 @@ function Header() {
           </Modal>
         </Container>
       </Navbar>
+      <Banner title="Веб Програмування" subtitle="Навчальна дисципліна" />
     </header>
   );
 }

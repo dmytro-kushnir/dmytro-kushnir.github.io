@@ -8,7 +8,6 @@ import * as React from 'react';
 
 import TopBar from '../../components/topbar/topbar.tsx';
 import Header from '../../components/header/header.tsx';
-import Banner from '../../components/banner/banner.tsx';
 import Footer from '../../components/footer/footer.tsx';
 import Lab from '../../components/lab/lab.tsx';
 
@@ -28,7 +27,6 @@ function Layout() {
     <div>
       <TopBar />
       <Header />
-      <Banner title="Веб Програмування" subtitle="Навчальна дисципліна" />
       <Footer />
       <Outlet />
     </div>

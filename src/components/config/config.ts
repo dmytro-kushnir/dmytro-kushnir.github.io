@@ -17,6 +17,9 @@ const config: ConfigMapping = {
       appPath: '/other-app',
       driveLinks: [],
       header: {
+        banner: {
+          url: '/images/apps/otherApp/bg-banner.png',
+        },
         logo: {
           alt: 'Other logo',
           url: '/images/apps/otherApp/logo.png',
@@ -72,6 +75,9 @@ const config: ConfigMapping = {
         },
       ],
       header: {
+        banner: {
+          url: '/images/apps/wp/bg-banner.png',
+        },
         logo: {
           alt: 'Веб-програмування',
           url: '/images/apps/wp/logo.png',

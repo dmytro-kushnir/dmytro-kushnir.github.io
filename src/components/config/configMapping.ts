@@ -38,6 +38,9 @@ export interface LabLink {
 }
 
 type HeaderMapping = {
+    banner: {
+        url: string;
+    }
     logo: {
         url: string;
         alt: string;
