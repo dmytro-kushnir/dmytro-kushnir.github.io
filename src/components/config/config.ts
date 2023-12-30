@@ -18,6 +18,8 @@ const config: ConfigMapping = {
       driveLinks: [],
       header: {
         banner: {
+          defaultPageConfig: { name: 'home', subtitle: 'example', title: 'Example title' },
+          pageConfigs: [],
           url: '/images/apps/otherApp/bg-banner.png',
         },
         logo: {
@@ -76,6 +78,13 @@ const config: ConfigMapping = {
       ],
       header: {
         banner: {
+          defaultPageConfig: { name: 'home', subtitle: 'Навчальна дисципліна', title: 'Веб-програмуання' },
+          pageConfigs: [
+            { name: 'labs', title: 'Роботи до виконання' },
+            { name: 'lectures', title: 'Курс Лекцій' },
+            { name: 'self-work', title: 'Самостійна робота' },
+            { name: 'grades', title: 'Журнали успішності' },
+          ],
           url: '/images/apps/wp/bg-banner.png',
         },
         logo: {

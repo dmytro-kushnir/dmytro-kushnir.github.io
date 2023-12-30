@@ -37,9 +37,17 @@ export interface LabLink {
     name: string;
 }
 
+interface PageConfig {
+    name: string;
+    title: string;
+    subtitle?: string;
+}
+
 type HeaderMapping = {
     banner: {
         url: string;
+        defaultPageConfig: PageConfig;
+        pageConfigs: PageConfig[];
     }
     logo: {
         url: string;
