@@ -8,6 +8,7 @@ import * as React from 'react';
 
 import TopBar from '../../components/topbar/topbar.tsx';
 import Header from '../../components/header/header.tsx';
+import HomePage from '../../components/home-page/homePage.tsx';
 import Footer from '../../components/footer/footer.tsx';
 import Lab from '../../components/lab/lab.tsx';
 
@@ -27,27 +28,24 @@ function Layout() {
     <div>
       <TopBar />
       <Header />
-      <Footer />
+
       <Outlet />
+
+      <Footer />
     </div>
   );
 }
 
 export default function WebProgrammingApp({ appName }: Props) {
-  const config = useConfig(appName);
-  const { labList } = config;
+  const { labList } = useConfig(appName);
 
   return (
     <AppNameProvider appName={appName}>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route
-            path="about"
-            element={(
-              <React.Suspense fallback={<>...</>}>
-                <About name="about" />
-              </React.Suspense>
-          )}
+            index
+            element={<HomePage />}
           />
           <Route
             path="lectures"
