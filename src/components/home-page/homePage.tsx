@@ -3,10 +3,13 @@ import { Link } from 'react-router-dom';
 import './homePage.scss';
 import { FaArrowRight, FaBookOpen, FaCode } from 'react-icons/fa';
 
-import { Container, Row, Col } from 'react-bootstrap';
+import {
+  Container, Row, Col, Card,
+} from 'react-bootstrap';
 import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
 import Image from '../image/index.tsx';
+import SliderComponent from '../slider/slider.tsx';
 
 function CourseIntro() {
   const config = useConfig(useAppName());
@@ -153,12 +156,81 @@ function CourseFullInfo() {
   );
 }
 
+function LecturesInfo() {
+  const lectures = [
+    {
+      description: 'Огляд дисципліни. Базові знання об’єктно-орієнтованого програмування.', id: 1, imageUrl: '/images/apps/wp/lecture1.jpg', link: '/lectures/1', title: 'Тема 1',
+    },
+    {
+      description: 'Клієнт-серверна архітектура. Модель OSI. Протокол прикладного рівня HTTP.', id: 2, imageUrl: '/images/apps/wp/lecture2.jpg', link: '/lectures/2', title: 'Тема 2',
+    },
+    {
+      description: 'Основні поняття веб-програмування. Знання та вміння для веб-розробника.', id: 3, imageUrl: '/images/apps/wp/lecture3.jpg', link: '/lectures/3', title: 'Тема 3',
+    },
+    {
+      description: 'Базові технології Веб-програмування. Мова розмітки HTML, HTML 5. Мова стилів CSS, CSS3. Верстка (HTML + CSS). Фреймворки: Angular, React.', id: 4, imageUrl: '/images/apps/wp/lecture4.jpg', link: '/lectures/4', title: 'Тема 4',
+    },
+    {
+      description: 'Програмування на стороні клієнта (Front-end). Javascript. AJAX. JavaScript и XML. PHP.', id: 5, imageUrl: '/images/apps/wp/lecture5.jpg', link: '/lectures/5', title: 'Тема 5',
+    },
+    {
+      description: 'Програмування на стороні сервера (Back-end). Огляд мов програмування (Python, Php, Java, C#, Ruby). Javascript. Фреймворк Node.js', id: 6, imageUrl: '/images/apps/wp/lecture6.jpg', link: '/lectures/6', title: 'Тема 6',
+    },
+    {
+      description: 'Бази даних. MySQL. PostgreSQL. Oracle.', id: 7, imageUrl: '/images/apps/wp/lecture7.jpg', link: '/lectures/7', title: 'Тема 7',
+    },
+    {
+      description: 'Back-end інструменти.', id: 8, imageUrl: '/images/apps/wp/lecture8.jpg', link: '/lectures/8', title: 'Тема 8',
+    },
+    {
+      description: 'Front-end інструменти Javascript, jQuery, TwitterBootstrap', id: 9, imageUrl: '/images/apps/wp/lecture9.jpg', link: '/lectures/9', title: 'Тема 9',
+    },
+    {
+      description: 'Додаткові інструменти та знання.', id: 10, imageUrl: '/images/apps/wp/lecture10.jpg', link: '/lectures/10', title: 'Тема 10',
+    },
+  ];
+
+  return (
+    <section className="lecture">
+      <Container>
+        <h2 className="text-center mb-5">Лекційний курс</h2>
+        <Row>
+          <Col lg={12}>
+            <div className="lecture-slider">
+              <SliderComponent>
+                {lectures.map((lecture) => (
+                  <Card className="lecture-single img-effect" key={lecture.id}>
+                    <Card.Body className="lecture-single-inner">
+                      <div className="poster lecture-item">
+                        <Link to={lecture.link}>
+                          <img src={lecture.imageUrl} alt={lecture.title} className="img-fluid" />
+                        </Link>
+                        <Link to={`/lecture/${lecture.id}`} className="read-more">Читати</Link>
+                      </div>
+                      <div className="lecture-item lecture-content">
+                        <h3><Link to={`/lecture/${lecture.id}`}>{lecture.title}</Link></h3>
+                        <p>{lecture.description}</p>
+                      </div>
+                    </Card.Body>
+                  </Card>
+                ))}
+              </SliderComponent>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+  );
+}
+
 function HomePage() {
   return (
     <main>
       <CourseIntro />
       <CourseShortInfo />
       <CourseFullInfo />
+      <LecturesInfo />
+      <CourseShortInfo />
     </main>
   );
 }
