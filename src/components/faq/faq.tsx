@@ -112,7 +112,7 @@ function FaqSection() {
   return (
     <section className="faq">
       <Container className="container-narrow">
-        <h2 className="text-center">Часті записання</h2>
+        <h2 className="text-center">Часті запитання</h2>
         <Row>
           <Col lg={12}>
             <div className="faq-wrapper">

@@ -11,6 +11,7 @@ import Header from '../../components/header/header.tsx';
 import HomePage from '../../components/home-page/homePage.tsx';
 import Footer from '../../components/footer/footer.tsx';
 import Lab from '../../components/lab/lab.tsx';
+import Journals from '../../components/journals/journals.tsx';
 
 import NoMatch from '../../components/no-match/index.tsx';
 import useConfig from '../../components/config/useConfig.ts';
@@ -72,7 +73,7 @@ export default function WebProgrammingApp({ appName }: Props) {
             path="grades"
             element={(
               <React.Suspense fallback={<>...</>}>
-                <About name="grades" />
+                <Journals />
               </React.Suspense>
               )}
           />
