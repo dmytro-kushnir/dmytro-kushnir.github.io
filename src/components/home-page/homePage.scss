@@ -8,8 +8,7 @@ $background-color_3: #fff;
 $background-color_4: var(--wpr-light);
 $background-color_5: rgba(0,0,0,0.6);
 $background-color_6: transparent;
-
-
+$background-color_7: var(--wpr-gray);
 
 .img-effect {
     .poster {
@@ -23,6 +22,121 @@ $background-color_6: transparent;
         }
     }
 }
+
+// presentation
+
+
+.presentation {
+    background-color: $background-color_4;
+    h2 {
+        text-align: center;
+        margin-bottom: 40px;
+    }
+}
+.presentation-area {
+    position: relative;
+    z-index: 9;
+}
+.presentation-box {
+    padding: 35px 25px;
+    background-color: $background-color_3;
+    box-shadow: var(--wpr-shadow);
+    height: 100%;
+    li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: .5rem;
+        color: $color_3;
+        margin: 0;
+        &:first-of-type {
+            padding-top: 0;
+        }
+        &:last-of-type {
+            padding-bottom: 0;
+            border-bottom: 0 solid transparent;
+            margin-bottom: -7px;
+        }
+    }
+}
+.presentation-wrapper {
+    margin-top: 30px;
+    h6 {
+        margin-top: 0;
+    }
+    .accordion-item {
+        margin-bottom: 20px;
+        border: 0 solid transparent;
+        &:nth-last-of-type(1) {
+            margin-bottom: 0;
+        }
+    }
+    .accordion-button {
+        padding: 14px 20px 18px;
+        font-size: 1.1em;
+        background-color: $background-color_4;
+        border: none;
+        color: $color_3;
+        padding-left: 45px;
+        position: relative;
+    }
+    .accordion-body {
+        padding: 24px 20px;
+        background-color: $background-color_4;
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: calc(100% - 40px);
+            height: 1px;
+            transform: translateX(-50%);
+            background-color: $background-color_7;
+        }
+        p {
+            margin-bottom: -6px;
+        }
+    }
+}
+.presentation-img {
+    text-align: center;
+}
+.accordion-button {
+    &:focus {
+        box-shadow: none;
+    }
+}
+@media (max-width: 1199px) {
+    .presentation-box {
+        padding: 30px 15px;
+        li {
+            padding: 14px 0;
+        }
+    }
+    .presentation-wrapper {
+        .accordion-button {
+            padding: 14px 15px 18px;
+            padding-left: 40px;
+            font-size: 1em;
+            &::after {
+                left: 15px;
+            }
+        }
+        .accordion-body {
+            padding: 25px 15px;
+            &::before {
+                width: calc(100% - 30px);
+            }
+        }
+    }
+}
+@media (max-width: 991px) {
+    .presentation-img {
+        margin-bottom: 50px;
+    }
+}
+
 
 // labs
 

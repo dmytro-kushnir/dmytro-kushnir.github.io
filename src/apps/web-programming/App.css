@@ -225,140 +225,7 @@ section {
 /*---------------------------------------------------------/
 [14] PRESENTATION
 ---------------------------------------------------------*/
-.presentation {
-  background-color: var(--wpr-light);
-}
-.presentation h2{
-  text-align: center;
-  margin-bottom: 40px;
-}
-.presentation-area {
-  position: relative;
-  z-index: 9;
-}
-.presentation-box {
-  padding: 35px 25px;
-  background-color: #fff;
-  box-shadow: var(--wpr-shadow);
-  height: 100%;
-}
-@media (max-width: 1199px) {
-  .presentation-box {
-    padding: 30px 15px;
-  }
-}
-.presentation-wrapper {
-  margin-top: 30px;
-}
-.presentation-img {
-  text-align: center;
-}
-@media (max-width: 991px) {
-  .presentation-img {
-    margin-bottom: 50px;
-  }
-}
-.presentation-box li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 19px 0px;
-  color: var(--wpr-main);
-  margin: 0;
-}
-@media (max-width: 1199px) {
-  .presentation-box li {
-    padding: 14px 0;
-  }
-}
-.presentation-box li:first-of-type {
-  padding-top: 0;
-}
-.presentation-box li:last-of-type {
-  padding-bottom: 0px;
-  border-bottom: 0px solid transparent;
-  margin-bottom: -7px;
-}
-.presentation-wrapper h6 {
-  margin-top: 0;
-}
-.presentation-wrapper .accordion-item {
-  margin-bottom: 20px;
-  border: 0 solid transparent;
-}
-.presentation-wrapper .accordion-item:nth-last-of-type(1) {
-  margin-bottom: 0;
-}
-.presentation-wrapper .accordion-button {
-  box-shadow: 0;
-  padding: 14px 20px 18px;
-  font-size: 1.1em;
-  background-color: var(--wpr-light);
-  border: none;
-  color: var(--wpr-main);
-  padding-left: 45px;
-  position: relative;
-}
-@media (max-width: 1199px) {
-  .presentation-wrapper .accordion-button {
-    padding: 14px 15px 18px;
-    padding-left: 40px;
-    font-size: 1em;
-  }
-}
-.presentation-wrapper .accordion-button::after {
-  background-size: 0;
-  content: "\f068";
-  position: absolute;
-  left: 20px;
-  font-size: 16px;
-  line-height: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-family: 'Line Awesome Free';
-  font-weight: 900;
-}
-@media (max-width: 1199px) {
-  .presentation-wrapper .accordion-button::after {
-    left: 15px;
-  }
-}
-.accordion-button:focus {
-  box-shadow: none;
-}
-.presentation-wrapper .collapsed::after {
-  content: "\f067";
-  font-family: 'Line Awesome Free';
-  font-weight: 900;
-}
-.presentation-wrapper .accordion-body {
-  padding: 24px 20px;
-  background-color: var(--wpr-light);
-  position: relative;
-}
-@media (max-width: 1199px) {
-  .presentation-wrapper .accordion-body {
-    padding: 25px 15px;
-  }
-}
-.presentation-wrapper .accordion-body::before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: 50%;
-  width: calc(100% - 40px);
-  height: 1px;
-  transform: translateX(-50%);
-  background-color: var(--wpr-gray);
-}
-@media (max-width: 1199px) {
-  .presentation-wrapper .accordion-body::before {
-    width: calc(100% - 30px);
-  }
-}
-.presentation-wrapper .accordion-body p {
-  margin-bottom: -6px;
-}
+
 /*---------------------------------------------------------/
 [15] BALLS
 ---------------------------------------------------------*/
@@ -590,22 +457,7 @@ section {
     font-size: 1em;
   }
 }
-.faq-wrapper .accordion-button::after {
-  background-size: 0;
-  font-family: 'Line Awesome Free';
-  font-weight: 900;
-  content: "\f106";
-  position: absolute;
-  left: unset;
-  right: 20px;
-  font-size: 1em;
-  line-height: 1em;
-  top: 50%;
-  width: auto;
-  height: auto;
-  transform: translateY(-50%);
-  color: #fff;
-}
+
 @media (max-width: 1199px) {
   .faq-wrapper .accordion-button::after {
     left: unset;
@@ -616,12 +468,7 @@ section {
   background-color: #fff;
   color: var(--wpr-main);
 }
-.faq-wrapper .collapsed::after {
-  content: "\f107";
-  font-family: 'Line Awesome Free';
-  font-weight: 900;
-  color: var(--wpr-main);
-}
+
 .faq-wrapper .accordion-body {
   padding: 25px;
   background-color: #fff;

@@ -4,7 +4,7 @@ import './homePage.scss';
 import { FaArrowRight, FaBookOpen, FaCode } from 'react-icons/fa';
 
 import {
-  Container, Row, Col, Card,
+  Container, Row, Col, Card, Accordion,
 } from 'react-bootstrap';
 import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
@@ -183,10 +183,10 @@ function LecturesInfo() {
       description: 'Back-end інструменти.', id: 8, imageUrl: '/images/apps/wp/lectures/lecture8.jpg', link: '/lectures/8', title: 'Тема 8',
     },
     {
-      description: 'Front-end інструменти Javascript, jQuery, TwitterBootstrap', id: 9, imageUrl: '/images/apps/wp/lectures/  lecture9.jpg', link: '/lectures/9', title: 'Тема 9',
+      description: 'Front-end інструменти Javascript, jQuery, TwitterBootstrap', id: 9, imageUrl: '/images/apps/wp/lectures/lecture9.jpg', link: '/lectures/9', title: 'Тема 9',
     },
     {
-      description: 'Додаткові інструменти та знання.', id: 10, imageUrl: '/images/apps/wp/lecture10.jpg', link: '/lectures/10', title: 'Тема 10',
+      description: 'Додаткові інструменти та знання.', id: 10, imageUrl: '/images/apps/wp/lectures/lecture10.jpg', link: '/lectures/10', title: 'Тема 10',
     },
   ];
 
@@ -203,7 +203,7 @@ function LecturesInfo() {
                     <Card.Body className="lecture-single-inner">
                       <div className="poster lecture-item">
                         <Link to={lecture.link}>
-                          <img src={lecture.imageUrl} alt={lecture.title} className="img-fluid" />
+                          <Image path={lecture.imageUrl} alt={lecture.title} className="img-fluid" />
                         </Link>
                         <Link to={`/lecture/${lecture.id}`} className="read-more">Читати</Link>
                       </div>
@@ -313,6 +313,126 @@ function LabsSection() {
   );
 }
 
+function PresentationSection() {
+  interface AccordionItem {
+    content: string[];
+    eventKey: string;
+    header: string;
+    listItems?: string[];
+  }
+
+  interface PresentationConfig {
+    accordionItems: AccordionItem[];
+    introduction: string;
+    title: string;
+  }
+
+  const presentationConfig: PresentationConfig = {
+    accordionItems: [
+      {
+        content: [
+          'Презентація - це коротке, змістовне представлення певної новинки з області Інтернет чи Веб: інструмент, сервіс, технологія тощо.',
+          'Структуру доповіді складати за наступним регламентом:',
+        ],
+        eventKey: '0',
+        header: 'Що таке презентація?',
+        listItems: [
+          'Мета новинки',
+          'Актуальність розробки',
+          'Сфера застосування',
+          'Доступність для споживачів',
+          'Ефект від використання',
+          'Перспективи розвитку',
+        ],
+      },
+      {
+        content: [
+          'Для презентації можна представити новинки з галузі комп’ютерних та інтернет технологій, що виникли протягом 2022-2023 років.',
+        ],
+        eventKey: '1',
+        header: 'Теми для презентацій',
+        listItems: [
+          'Сучасні інтернет-сервіси, новітні служби, протоколи.',
+          'Мобільні додатки.',
+          'Інтелектуальні сервіси.',
+          'Робототехніка.',
+          'Програмне забезпечення та інструменти.',
+          'Інтернет речей.',
+          'Криптовалюта, блокчейн, NFT-токени.',
+          'Віртуальна, доповнена та інші реальності.',
+          'Пристрої, що реалізовані на інтелектуальних алгоритмах.',
+          'Штучний інтелект (https://t.me/ukraine_intelekt)',
+          'Інші новинки, що варті представлення.',
+        ],
+      },
+      {
+        content: [
+          'Презентація проводиться на лабораторних заняттях в присутності викладача та студентів групи.',
+          'Викладач оцінює якість доповіді та наочного матеріалу, актуальність новинки, опанування теми студентом',
+          'Максимальна оцінка за успішну презентацію - 5 балів',
+        ],
+        eventKey: '2',
+        header: 'Проведення та оцінювання презентації',
+      },
+      {
+        content: [
+          'Протягом семестру студенти мають можливість зробити 2 презентації',
+          'Якщо студент не зробив презентацію протягом першої половини семестру, то в подальшому він має можливість зробити лише одну презентацію.',
+          'Бали, що отримані за презентацію будуть враховані на екзамені як відповідь на описове питання. Описових питань на екзамені є 2, тому кожна презентація зараховується як відповідь на одне описове питання. Під час складання екзамену студент завантажує презентацію (doc, pdf або ppt файл) у вікно описового питання.',
+          'Презентація НЕ є обов’язковою частиною дисципліни. Студенти, що не робили презентацій до екзамену допускаються і мають відповісти на тестові завдання та описові питання.',
+        ],
+        eventKey: '3',
+        header: 'Бонуси від проведення презентації',
+        listItems: [
+          'І половина семестру: 27.02.2023 - 26.03.2023',
+          'ІІ половина семестру: 27.03.2023 - 23.04.2023',
+        ],
+      },
+    ],
+    introduction: 'Бурхливий розвиток інтернет технологій змінили життя всього суспільства...',
+    title: 'Доповідь-презентація',
+  };
+
+  return (
+    <section className="presentation">
+      <Container>
+        <h2>Доповідь-презентація</h2>
+        <Row>
+          <Col lg={6}>
+            <div className="presentation-img">
+              <Image path="/images/apps/wp/presentation.png" alt="Доповідь-презентація" />
+            </div>
+          </Col>
+          <Col lg={6}>
+            <div className="presentation-box">
+              <p>Бурхливий розвиток інтернет технологій змінили життя всього суспільства...</p>
+              <div className="presentation-wrapper">
+                <Accordion className="accordion-flush" id="accordionFlushExample">
+                  {presentationConfig.accordionItems.map((item) => (
+                    <Accordion.Item eventKey={item.eventKey} key={item.eventKey}>
+                      <Accordion.Header as="h6" id={`flush-heading${item.eventKey}`}>
+                        {item.header}
+                      </Accordion.Header>
+                      <Accordion.Body className="accordion-body">
+                        {item.content.map((paragraph) => <p key={paragraph.substring(0, 10)}>{paragraph}</p>)}
+                        {item.listItems && (
+                        <ul className="summaru-list">
+                          {item.listItems.map((listItem) => <li key={listItem.substring(0, 10)}>{listItem}</li>)}
+                        </ul>
+                        )}
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  ))}
+                </Accordion>
+              </div>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+  );
+}
+
 function HomePage() {
   return (
     <main>
@@ -321,6 +441,7 @@ function HomePage() {
       <CourseFullInfo />
       <LecturesInfo />
       <LabsSection />
+      <PresentationSection />
     </main>
   );
 }
