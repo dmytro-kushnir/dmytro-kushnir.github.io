@@ -433,6 +433,110 @@ function PresentationSection() {
   );
 }
 
+function PointsDistributionSection() {
+  interface PointItem {
+    label: string;
+    points: string;
+    specialClass?: string;
+  }
+
+  interface PointsPeriod {
+    items: PointItem[];
+    title: string;
+  }
+
+  interface PointsDistributionConfig {
+    additionalNotes: string[];
+    periods: PointsPeriod[];
+  }
+
+  const pointsDistributionConfig: PointsDistributionConfig = {
+    additionalNotes: [
+      'Зазначено максимальну кількість балів за умови вчасного і належного захисту.',
+      'Бали за презентації (максимум 10 балів) буде враховано під час екзамену.',
+    ],
+    periods: [
+      {
+        items: [
+          { label: 'Лабораторні 1-3', points: '12' },
+          { label: 'Доповідь-презентація', points: '5', specialClass: 'pres' },
+        ],
+        title: '27.02-26.03.2023',
+      },
+      {
+        items: [
+          { label: 'Лабораторні 4-6', points: '12' },
+          { label: 'Доповідь-презентація', points: '5', specialClass: 'pres' },
+        ],
+        title: '27.03-23.04.2023',
+      },
+      {
+        items: [
+          { label: 'Самостійна робота', points: '16' },
+          { label: 'Тести', points: '60', specialClass: 'test' },
+        ],
+        title: 'Залік',
+      },
+    ],
+  };
+  return (
+    <section className="balls dark-overlay bg-img" style={{ backgroundImage: "url('/images/apps/wp/bg-points.jpg')" }}>
+      <Container>
+        <h2>Розподіл балів</h2>
+        <Row>
+          <Col lg={12}>
+            <div className="balls-box">
+              <div className="icon-box__wrapper">
+                {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+                <a href="tel:+01(977)259912" className="icon-box">
+                  <i className="las la-phone" />
+                </a>
+              </div>
+              <Row>
+                {pointsDistributionConfig.periods.map((period) => (
+                  <Col lg={4} md={6} key={period.title.substring(0, 10)}>
+                    <div className="inner-box">
+                      <h4>{period.title}</h4>
+                      <ul className="inner-list">
+                        {period.items.map((item) => (
+                          <li key={item.label.substring(0, 10)}>
+                            <span className={item.specialClass}>{item.points}</span>
+                            {item.label}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </Col>
+                ))}
+              </Row>
+              <hr />
+              <Row>
+                <Col xs={12} className="text-center">
+                  {pointsDistributionConfig.additionalNotes.map((note) => (
+                    <p key={note.substring(0, 10)}>{note}</p>
+                  ))}
+                  <ul className="inner-bullet">
+                    <li>
+                      <strong />
+                      {' '}
+                      Виконання під час навчання
+                    </li>
+                    <li>
+                      <strong className="test" />
+                      {' '}
+                      Виконання під час контрольних заходів
+                    </li>
+                  </ul>
+                </Col>
+              </Row>
+            </div>
+          </Col>
+        </Row>
+      </Container>
+    </section>
+  );
+}
+
 function HomePage() {
   return (
     <main>
@@ -442,6 +546,7 @@ function HomePage() {
       <LecturesInfo />
       <LabsSection />
       <PresentationSection />
+      <PointsDistributionSection />
     </main>
   );
 }

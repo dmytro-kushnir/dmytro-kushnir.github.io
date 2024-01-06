@@ -9,6 +9,8 @@ $background-color_4: var(--wpr-light);
 $background-color_5: rgba(0,0,0,0.6);
 $background-color_6: transparent;
 $background-color_7: var(--wpr-gray);
+$background-color_8: rgba(var(--wpr-main-rgb), 0.7);
+
 
 .img-effect {
     .poster {
@@ -22,6 +24,181 @@ $background-color_7: var(--wpr-gray);
         }
     }
 }
+
+
+// points
+// todo - this two styles are currently applied in banne as well. Need to standardize.
+.bg-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+
+.dark-overlay {
+    position: relative;
+    z-index: 1;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: $background-color_8;
+        z-index: -1;
+    }
+}
+
+.balls {
+    padding: 90px 0;
+    color: $color_1;
+    h2 {
+        text-align: center;
+        margin-bottom: 80px;
+    }
+    hr {
+        background: #fff;
+        color: $color_1;
+        margin: 30px 0;
+        opacity: 0.75;
+    }
+}
+.balls-box {
+    padding: 80px;
+    border: 10px solid var(--wpr-red);
+    text-align: center;
+    .icon-box {
+        width: 80px;
+        min-width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0;
+        margin: 0 auto;
+        position: relative;
+        top: -126px;
+        margin-bottom: -82px;
+        transform: rotate(45deg);
+        background-color: $background-color_1;
+        box-shadow: var(--wpr-shadow);
+        transition: all 0.3s ease-out;
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        i {
+            font-size: 2em;
+            line-height: 1;
+            color: $color_1;
+            transform: rotate(-45deg);
+        }
+        &:hover {
+            transform: rotate(0deg);
+            background-color: $background-color_3;
+            i {
+                transform: rotate(0deg);
+                color: $color_4;
+            }
+        }
+    }
+    .inner-box {
+        text-align: left;
+        padding: 10px;
+        span {
+            display: inline-block;
+            text-align: center;
+            font-style: normal;
+            font-size: 1.6em;
+            line-height: 1.8em;
+            background: var(--wpr-gray);
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 100%;
+            color: $color_3;
+        }
+        span.test {
+            background: var(--wpr-red);
+            color: $color_1;
+        }
+        h4 {
+            margin: 20px;
+        }
+        span.pres {
+            background: var(--wpr-gray);
+            color: $color_1;
+        }
+    }
+    .inner-list {
+        li {
+            list-style: none;
+            margin: 10px;
+            text-align: left;
+        }
+    }
+    .inner-bullet {
+        text-align: center;
+        li {
+            list-style: none;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 10px;
+        }
+        strong {
+            display: inline-block;
+            background: var(--wpr-gray);
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+            border-radius: 100%;
+        }
+        strong.test {
+            background: var(--wpr-red);
+        }
+        strong.pres {
+            background: var(--wpr-gray);
+        }
+    }
+}
+@media (max-width: 1199px) {
+    .balls-box {
+        padding: 60px 40px;
+        .icon-box {
+            width: 60px;
+            min-width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0;
+            top: -94px;
+            margin-bottom: -63px;
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+            i {
+                font-size: 1.5em;
+            }
+        }
+    }
+}
+@media (max-width: 767px) {
+    .balls-box {
+        padding: 60px 20px 40px;
+        border: 4px solid var(--wpr-red);
+        .icon-box {
+            top: -92px;
+            margin-bottom: -61px;
+        }
+    }
+}
+
 
 // presentation
 
