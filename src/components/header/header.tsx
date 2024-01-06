@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link, useNavigate, NavLink } from 'react-router-dom';
 import {
   Container, Navbar, Nav, NavDropdown, Modal, Button,
@@ -10,7 +10,6 @@ import Image from '../image/index.tsx';
 import Sidebar from '../sidebar/sidebar.tsx';
 import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
-import Banner from '../banner/banner.tsx';
 
 function Header() {
   const navigate = useNavigate();
@@ -27,6 +26,23 @@ function Header() {
 
   const [showDropdown, setShowDropdown] = useState<string | null>(null);
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
+  const [isSticky, setIsSticky] = useState(false);
+
+  const handleScroll = useCallback(() => {
+    if (window.scrollY > 100) {
+      setIsSticky(true);
+    } else {
+      setIsSticky(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll]);
 
   const handleDropdownToggle = (dropdown: string | null) => {
     setShowDropdown(dropdown);
@@ -34,8 +50,8 @@ function Header() {
   const toggleSidebar = () => setShowSidebar(!showSidebar);
 
   return (
-    <header className="header">
-      <Navbar expand="xl" className="p-0">
+    <header className={`header ${isSticky ? 'sticky-header' : ''}`}>
+      <Navbar expand="xl" className="p-0" bg={isSticky ? 'light' : 'transparent'} sticky="top">
         <Container>
           <Link to={`${appPath}/`}>
             <Image path={logo.url} alt={logo.alt} className="logo" />
@@ -94,7 +110,6 @@ function Header() {
           </Modal>
         </Container>
       </Navbar>
-      <Banner />
     </header>
   );
 }

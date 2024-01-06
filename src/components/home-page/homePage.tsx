@@ -10,6 +10,7 @@ import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
 import Image from '../image/index.tsx';
 import SliderComponent from '../slider/slider.tsx';
+import Faq from '../faq/faq.tsx';
 
 function CourseIntro() {
   const config = useConfig(useAppName());
@@ -547,6 +548,7 @@ function HomePage() {
       <LabsSection />
       <PresentationSection />
       <PointsDistributionSection />
+      <Faq />
     </main>
   );
 }

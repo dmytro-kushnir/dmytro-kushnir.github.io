@@ -16,6 +16,7 @@ import NoMatch from '../../components/no-match/index.tsx';
 import useConfig from '../../components/config/useConfig.ts';
 import AppNameProvider from '../../components/context/appName.tsx';
 import { AppNames } from '../../components/config/configMapping.ts';
+import Banner from '../../components/banner/banner.tsx';
 
 const About = React.lazy(() => import('../../components/about/index.tsx'));
 
@@ -28,6 +29,7 @@ function Layout() {
     <div>
       <TopBar />
       <Header />
+      <Banner />
 
       <Outlet />
 

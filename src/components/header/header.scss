@@ -14,7 +14,18 @@ $background-color_5: var(--wpr-light);
 .header {
     z-index: 9999;
     box-shadow: var(--wpr-shadow);
+    transition: all 0.3s ease-in-out;
+
+    &.sticky-header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000; // High z-index to ensure it stays on top
+        background-color: $background-color_4; // Change to your preferred sticky header background color
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Adds a subtle shadow for depth
+    }
 }
+
 .header-active {
     position: fixed;
     top: 0;
