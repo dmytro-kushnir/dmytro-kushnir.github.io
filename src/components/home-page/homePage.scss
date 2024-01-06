@@ -24,6 +24,82 @@ $background-color_6: transparent;
     }
 }
 
+// labs
+
+.labs-single {
+    background-color: $background-color_3;
+    box-shadow: var(--wpr-shadow);
+    &:hover {
+        .icon-box {
+            background-color: $background-color_1;
+        }
+        .button {
+            background-color: $background-color_1;
+            color: $color_1;
+        }
+    }
+}
+.labs-single-content {
+    padding: 15px 15px 35px;
+    text-align: center;
+    .poster {
+        a {
+            width: 100%;
+            height: auto;
+        }
+        img {
+            width: 100%;
+        }
+    }
+    .icon-box-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 28px;
+    }
+    .icon-box {
+        width: 90px;
+        height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $background-color_2;
+        position: relative;
+        top: -45px;
+        margin-bottom: -45px;
+    }
+    h5 {
+        margin-bottom: 25px;
+    }
+    p {
+        min-height: 80px;
+    }
+}
+@media (max-width: 1199px) {
+    .labs-single-content {
+        padding-bottom: 25px;
+        .icon-box-wrapper {
+            margin-bottom: 23px;
+        }
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            top: -30px;
+            margin-bottom: -30px;
+            img {
+                max-width: 50%;
+            }
+        }
+    }
+}
+@media (max-width: 767px) {
+    .labs-single-content {
+        p {
+            min-height: auto;
+        }
+    }
+}
+
+
 
 // lectures
 
@@ -70,6 +146,15 @@ $background-color_6: transparent;
         flex-grow: 1;
         flex-basis: 0;
         min-width: 0;
+
+        a {
+            color: $color_3;
+            text-decoration: none;
+        }
+
+        a:hover {
+            color: $color_4
+        }
     }
     .poster {
         position: relative;

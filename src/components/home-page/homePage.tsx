@@ -159,31 +159,31 @@ function CourseFullInfo() {
 function LecturesInfo() {
   const lectures = [
     {
-      description: 'Огляд дисципліни. Базові знання об’єктно-орієнтованого програмування.', id: 1, imageUrl: '/images/apps/wp/lecture1.jpg', link: '/lectures/1', title: 'Тема 1',
+      description: 'Огляд дисципліни. Базові знання об’єктно-орієнтованого програмування.', id: 1, imageUrl: '/images/apps/wp/lectures/lecture1.jpg', link: '/lectures/1', title: 'Тема 1',
     },
     {
-      description: 'Клієнт-серверна архітектура. Модель OSI. Протокол прикладного рівня HTTP.', id: 2, imageUrl: '/images/apps/wp/lecture2.jpg', link: '/lectures/2', title: 'Тема 2',
+      description: 'Клієнт-серверна архітектура. Модель OSI. Протокол прикладного рівня HTTP.', id: 2, imageUrl: '/images/apps/wp/lectures/lecture2.jpg', link: '/lectures/2', title: 'Тема 2',
     },
     {
-      description: 'Основні поняття веб-програмування. Знання та вміння для веб-розробника.', id: 3, imageUrl: '/images/apps/wp/lecture3.jpg', link: '/lectures/3', title: 'Тема 3',
+      description: 'Основні поняття веб-програмування. Знання та вміння для веб-розробника.', id: 3, imageUrl: '/images/apps/wp/lectures/lecture3.jpg', link: '/lectures/3', title: 'Тема 3',
     },
     {
-      description: 'Базові технології Веб-програмування. Мова розмітки HTML, HTML 5. Мова стилів CSS, CSS3. Верстка (HTML + CSS). Фреймворки: Angular, React.', id: 4, imageUrl: '/images/apps/wp/lecture4.jpg', link: '/lectures/4', title: 'Тема 4',
+      description: 'Базові технології Веб-програмування. Мова розмітки HTML, HTML 5. Мова стилів CSS, CSS3. Верстка (HTML + CSS). Фреймворки: Angular, React.', id: 4, imageUrl: '/images/apps/wp/lectures/lecture4.jpg', link: '/lectures/4', title: 'Тема 4',
     },
     {
-      description: 'Програмування на стороні клієнта (Front-end). Javascript. AJAX. JavaScript и XML. PHP.', id: 5, imageUrl: '/images/apps/wp/lecture5.jpg', link: '/lectures/5', title: 'Тема 5',
+      description: 'Програмування на стороні клієнта (Front-end). Javascript. AJAX. JavaScript и XML. PHP.', id: 5, imageUrl: '/images/apps/wp/lectures/lecture5.jpg', link: '/lectures/5', title: 'Тема 5',
     },
     {
-      description: 'Програмування на стороні сервера (Back-end). Огляд мов програмування (Python, Php, Java, C#, Ruby). Javascript. Фреймворк Node.js', id: 6, imageUrl: '/images/apps/wp/lecture6.jpg', link: '/lectures/6', title: 'Тема 6',
+      description: 'Програмування на стороні сервера (Back-end). Огляд мов програмування (Python, Php, Java, C#, Ruby). Javascript. Фреймворк Node.js', id: 6, imageUrl: '/images/apps/wp/lectures/lecture6.jpg', link: '/lectures/6', title: 'Тема 6',
     },
     {
-      description: 'Бази даних. MySQL. PostgreSQL. Oracle.', id: 7, imageUrl: '/images/apps/wp/lecture7.jpg', link: '/lectures/7', title: 'Тема 7',
+      description: 'Бази даних. MySQL. PostgreSQL. Oracle.', id: 7, imageUrl: '/images/apps/wp/lectures/lecture7.jpg', link: '/lectures/7', title: 'Тема 7',
     },
     {
-      description: 'Back-end інструменти.', id: 8, imageUrl: '/images/apps/wp/lecture8.jpg', link: '/lectures/8', title: 'Тема 8',
+      description: 'Back-end інструменти.', id: 8, imageUrl: '/images/apps/wp/lectures/lecture8.jpg', link: '/lectures/8', title: 'Тема 8',
     },
     {
-      description: 'Front-end інструменти Javascript, jQuery, TwitterBootstrap', id: 9, imageUrl: '/images/apps/wp/lecture9.jpg', link: '/lectures/9', title: 'Тема 9',
+      description: 'Front-end інструменти Javascript, jQuery, TwitterBootstrap', id: 9, imageUrl: '/images/apps/wp/lectures/  lecture9.jpg', link: '/lectures/9', title: 'Тема 9',
     },
     {
       description: 'Додаткові інструменти та знання.', id: 10, imageUrl: '/images/apps/wp/lecture10.jpg', link: '/lectures/10', title: 'Тема 10',
@@ -223,6 +223,96 @@ function LecturesInfo() {
   );
 }
 
+function LabsSection() {
+  const config = useConfig(useAppName());
+  const { appPath } = config;
+
+  const labs = [
+    {
+      description: 'Знайомство з JavaScript',
+      iconSrc: '/images/apps/wp/svg/index-js.svg',
+      id: 1,
+      imgSrc: '/images/apps/wp/labs/lab1.jpg',
+      link: '/labs/lab1',
+      title: 'Лабораторна робота 1',
+    },
+    {
+      description: 'Основні конструкції мови JavaScript',
+      iconSrc: '/images/apps/wp/svg/index-constuction.svg',
+      id: 2,
+      imgSrc: '/images/apps/wp/labs/lab2.jpg',
+      link: '/labs/lab2',
+      title: 'Лабораторна робота 2',
+    },
+    {
+      description: 'Використання функцій JavaScript',
+      iconSrc: '/images/apps/wp/svg/index-function.svg',
+      id: 3,
+      imgSrc: '/images/apps/wp/labs/lab3.jpg',
+      link: '/labs/lab3',
+      title: 'Лабораторна робота 3',
+    },
+    {
+      description: 'Робота з масивами JavaScript',
+      iconSrc: '/images/apps/wp/svg/index-matrix.svg',
+      id: 4,
+      imgSrc: '/images/apps/wp/labs/lab4.jpg',
+      link: '/labs/lab4',
+      title: 'Лабораторна робота 4',
+    },
+    {
+      description: 'Робота з рядками у JavaScript',
+      iconSrc: '/images/apps/wp/svg/index-string.svg',
+      id: 5,
+      imgSrc: '/images/apps/wp/labs/lab5.jpg',
+      link: '/labs/lab6',
+      title: 'Лабораторна робота 5',
+    },
+    {
+      description: "Робота з об'єктами JavaScript",
+      iconSrc: '/images/apps/wp/svg/index-object.svg',
+      id: 6,
+      imgSrc: '/images/apps/wp/labs/lab6.jpg',
+      link: '/labs/lab6',
+      title: 'Лабораторна робота 6',
+    },
+  ];
+
+  return (
+    <section className="labs">
+      <Container>
+        <Row className="justify-content-center">
+          {labs.map((lab) => (
+            <Col md={6} lg={4} className="align-center row-item" key={lab.id}>
+              <div className="labs-single img-effect">
+                <div className="labs-single-content">
+                  <div className="poster">
+                    <Link to={`${appPath}${lab.link}`}>
+                      <img src={lab.imgSrc} alt={lab.title} />
+                    </Link>
+                  </div>
+                  <div className="icon-box-wrapper">
+                    <div className="icon-box">
+                      <Link to={`${appPath}${lab.link}`}>
+                        <img src={lab.iconSrc} alt={lab.title} />
+                      </Link>
+                    </div>
+                  </div>
+                  <h5>{lab.title}</h5>
+                  <p>{lab.description}</p>
+                </div>
+                <Link to={`${appPath}${lab.link}`} className="button button-full button-effect">
+                  Перейти до роботи
+                </Link>
+              </div>
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </section>
+  );
+}
+
 function HomePage() {
   return (
     <main>
@@ -230,7 +320,7 @@ function HomePage() {
       <CourseShortInfo />
       <CourseFullInfo />
       <LecturesInfo />
-      <CourseShortInfo />
+      <LabsSection />
     </main>
   );
 }
