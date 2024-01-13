@@ -4,9 +4,10 @@ import ModuleLoader from '../loader/loader.tsx';
 interface IframeLoaderProps {
     src: string;
     title: string;
+    className?: string;
 }
 
-function IframeLoader({ src, title }: IframeLoaderProps) {
+function IframeLoader({ src, title, className }: IframeLoaderProps) {
   const MAX_TIMEOUT = 5000;
   const [loading, setLoading] = useState(true);
 
@@ -22,6 +23,7 @@ function IframeLoader({ src, title }: IframeLoaderProps) {
     <>
       {loading && <ModuleLoader />}
       <iframe
+        className={className}
         src={src}
         title={title}
         onLoad={() => setLoading(false)}
@@ -29,5 +31,8 @@ function IframeLoader({ src, title }: IframeLoaderProps) {
     </>
   );
 }
+IframeLoader.defaultProps = {
+  className: '',
+};
 
 export default IframeLoader;

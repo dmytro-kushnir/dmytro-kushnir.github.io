@@ -39,6 +39,7 @@ export interface LabLink {
 
 export interface LectureLink {
     id: string;
+    filePath: string;
     name: string;
     subLectures?: LectureLink[];
 }
