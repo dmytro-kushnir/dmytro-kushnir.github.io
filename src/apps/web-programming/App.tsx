@@ -11,6 +11,8 @@ import Header from '../../components/header/header.tsx';
 import HomePage from '../../components/home-page/homePage.tsx';
 import Footer from '../../components/footer/footer.tsx';
 import Lab from '../../components/lab/lab.tsx';
+import Lectures from '../../components/lecture/lectures.tsx';
+import Lecture from '../../components/lecture/lecture.tsx';
 import Journals from '../../components/journals/journals.tsx';
 
 import NoMatch from '../../components/no-match/index.tsx';
@@ -40,7 +42,7 @@ function Layout() {
 }
 
 export default function WebProgrammingApp({ appName }: Props) {
-  const { labList } = useConfig(appName);
+  const { labList, lecturesList } = useConfig(appName);
 
   return (
     <AppNameProvider appName={appName}>
@@ -50,14 +52,15 @@ export default function WebProgrammingApp({ appName }: Props) {
             index
             element={<HomePage />}
           />
-          <Route
-            path="lectures"
-            element={(
-              <React.Suspense fallback={<>...</>}>
-                <About name="lectures" />
-              </React.Suspense>
-          )}
-          />
+          {lecturesList.map((lecture) => (
+            <React.Fragment key={lecture.id}>
+              <Route path={`/lectures/${lecture.id}`} element={<Lecture lecture={lecture} />} />
+              {lecture.subLectures && lecture.subLectures.map((subLecture) => (
+                <Route key={subLecture.id} path={`/lectures/${subLecture.id}`} element={<Lecture lecture={subLecture} />} />
+              ))}
+            </React.Fragment>
+          ))}
+          <Route path="/lectures" element={<Lectures />} />
           {labList.map((lab) => (
             <Route key={lab.id} path={`labs/${lab.id}`} element={<Lab lab={lab} />} />
           ))}

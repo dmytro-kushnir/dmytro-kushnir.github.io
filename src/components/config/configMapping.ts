@@ -37,6 +37,12 @@ export interface LabLink {
     name: string;
 }
 
+export interface LectureLink {
+    id: string;
+    name: string;
+    subLectures?: LectureLink[];
+}
+
 interface PageConfig {
     name: string;
     title: string;
@@ -60,6 +66,7 @@ type CommonAppMapping = {
     driveLinks: DriveLink[];
     header: HeaderMapping;
     labList: LabLink[];
+    lecturesList: LectureLink[];
     links: LinksMapping;
     name: string;
     sidebar: SideBarMapping;
