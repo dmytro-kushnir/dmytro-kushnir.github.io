@@ -26,7 +26,8 @@ function Header() {
 
   const [showDropdown, setShowDropdown] = useState<string | null>(null);
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
-  const [isSticky, setIsSticky] = useState(false);
+  const [showNavbar, setShowNavbar] = useState<boolean>(false);
+  const [isSticky, setIsSticky] = useState<boolean>(false);
 
   const handleScroll = useCallback(() => {
     if (window.scrollY > 100) {
@@ -48,19 +49,20 @@ function Header() {
     setShowDropdown(dropdown);
   };
   const toggleSidebar = () => setShowSidebar(!showSidebar);
+  const toggleNavbar = () => setShowNavbar(!showNavbar);
 
   return (
     <header className={`header ${isSticky ? 'sticky-header' : ''}`}>
-      <Navbar expand="xl" className="p-0" bg={isSticky ? 'light' : 'transparent'} sticky="top">
+      <Navbar expanded={showNavbar} expand="xl" className="p-0" bg={isSticky ? 'light' : 'transparent'} sticky="top">
         <Container>
           <Link to={`${appPath}/`}>
             <Image path={logo.url} alt={logo.alt} className="logo" />
           </Link>
-          <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+          <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={toggleNavbar} />
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-center order-3 order-xl-2">
             <Nav className="mr-auto">
-              <Nav.Link as={NavLink} to={`${appPath}/`}>Головна</Nav.Link>
-              <Nav.Link as={NavLink} to={`${appPath}/lectures`}>Лекції</Nav.Link>
+              <Nav.Link as={NavLink} to={`${appPath}/`} onClick={toggleNavbar}>Головна</Nav.Link>
+              <Nav.Link as={NavLink} to={`${appPath}/lectures`} onClick={toggleNavbar}>Лекції</Nav.Link>
               <NavDropdown
                 title="Лабораторні"
                 id="navbarLabDropdown"
@@ -69,13 +71,19 @@ function Header() {
                 onMouseLeave={() => handleDropdownToggle(null)}
               >
                 {labList.map((lab) => (
-                  <NavDropdown.Item key={lab.id} onClick={() => navigate(`${appPath}/labs/${lab.id}`)}>
+                  <NavDropdown.Item
+                    key={lab.id}
+                    onClick={() => {
+                      navigate(`${appPath}/labs/${lab.id}`);
+                      toggleNavbar();
+                    }}
+                  >
                     {lab.name}
                   </NavDropdown.Item>
                 ))}
               </NavDropdown>
 
-              <Nav.Link as={NavLink} to={`${appPath}/self-work`}>Самостійна</Nav.Link>
+              <Nav.Link as={NavLink} to={`${appPath}/self-work`} onClick={toggleNavbar}>Самостійна</Nav.Link>
               <NavDropdown
                 title="Диски"
                 id="navbarDiskDropdown"
@@ -89,12 +97,13 @@ function Header() {
                     target="_blank"
                     href={link.drive}
                     rel="noreferrer"
+                    onClick={toggleNavbar}
                   >
                     {link.name}
                   </NavDropdown.Item>
                 ))}
               </NavDropdown>
-              <Nav.Link as={NavLink} to={`${appPath}/grades`}>Журнали</Nav.Link>
+              <Nav.Link as={NavLink} to={`${appPath}/grades`} onClick={toggleNavbar}>Журнали</Nav.Link>
             </Nav>
           </Navbar.Collapse>
           <div className="order-1 d-none d-xl-block order-xl-3">
