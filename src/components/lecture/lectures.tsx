@@ -4,6 +4,7 @@ import { ListGroup } from 'react-bootstrap';
 import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
 import { LectureLink } from '../config/configMapping.ts';
+import { isMobileDevice } from '../../utils/utils.ts';
 
 /**
  * Renders a single lecture in the list of lectures.
@@ -14,6 +15,8 @@ import { LectureLink } from '../config/configMapping.ts';
  * @returns {JSX.Element} The rendered lecture.
  */
 function renderLecture(lecture: LectureLink, index: number, appPath: string): JSX.Element {
+  const baseUrl = window.location.origin;
+
   return (
     <React.Fragment key={lecture.id}>
       <ListGroup.Item as="li" className="d-flex align-items-start">
@@ -30,13 +33,17 @@ function renderLecture(lecture: LectureLink, index: number, appPath: string): JS
                   {subIndex + 1}
                   {' '}
                   {subLecture.name}
-                  <Link to={`${appPath}/lectures/${subLecture.id}`}>Переглянути</Link>
+                  { isMobileDevice()
+                    ? <a href={`${baseUrl}${subLecture.filePath}`} target="_blank" rel="noopener noreferrer">Переглянути</a>
+                    : <Link to={`${appPath}/lectures/${subLecture.id}`}>Переглянути</Link>}
                 </ListGroup.Item>
               ))}
             </ListGroup>
           )}
         </div>
-        <Link to={`${appPath}/lectures/${lecture.id}`}>Переглянути</Link>
+        { isMobileDevice()
+          ? <a href={`${baseUrl}${lecture.filePath}`} target="_blank" rel="noopener noreferrer">Переглянути</a>
+          : <Link to={`${appPath}/lectures/${lecture.id}`}>Переглянути</Link>}
       </ListGroup.Item>
     </React.Fragment>
   );
