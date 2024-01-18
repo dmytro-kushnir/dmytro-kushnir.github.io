@@ -1,5 +1,5 @@
 import {
-  Container, Card, ListGroup, Accordion,
+  Container, Card, ListGroup, Accordion, Row, Col,
 } from 'react-bootstrap';
 
 import cssClasses from './selfWork.module.scss';
@@ -38,7 +38,7 @@ interface CourseInfoConfig {
 
 const courseInfoConfig: CourseInfoConfig = {
   assessment: 'Максимальна оцінка виконаної самостійної роботи 20 балів.',
-  instruction: 'Для виконання самостійної роботи студент обирає один з наведених нижче варіантів',
+  instruction: 'Для виконання самостійної роботи студент обирає один з наведених нижче варіантів:',
   objective: 'практично застосувати отримані під час вивчення курсу навички та знання.',
   options: [
     {
@@ -75,7 +75,7 @@ const courseInfoConfig: CourseInfoConfig = {
         },
         // ... other subTopics ...
       ],
-      title: 'Створення повноцінного тематичного сайту з втіленням Javascript',
+      title: '1. Створення повноцінного тематичного сайту з втіленням Javascript',
     },
     {
       description: 'Опис варіанту, що включає розробку окремих веб-додатків...',
@@ -92,19 +92,87 @@ const courseInfoConfig: CourseInfoConfig = {
       title: '2. Створення окремого веб-додатку, написаного на чистому Javascript',
     },
     {
-      description: 'Опис варіанту, що включає розробку за допомогою мов серверного програмування.',
+      description: 'Написання інтерактивного сайту за допомогою веб-фреймворків. Наприклад цей статичний сайт написаний на Vite + ReactJs',
       links: [
         {
+          altText: 'Angular',
+          imageUrl: '/images/apps/wp/icon/angular.png',
+          text: 'Angular JS',
+          url: 'https://angularjs.org/',
+        },
+        {
+          altText: 'Backbone',
+          imageUrl: '/images/apps/wp/icon/backbone.png',
+          text: 'Backbone JS',
+          url: 'https://backbonejs.org/',
+        },
+        {
+          altText: 'Ember',
+          imageUrl: '/images/apps/wp/icon/ember.png',
+          text: 'Ember JS',
+          url: 'https://emberjs.com/',
+        },
+        {
+          altText: 'NextJS',
+          imageUrl: '/images/apps/wp/icon/nextjs.png',
+          text: 'NextJS',
+          url: 'https://nextjs.org/',
+        },
+        {
+          altText: 'React',
+          imageUrl: '/images/apps/wp/icon/react.png',
+          text: 'React JS',
+          url: 'https://react.dev/learn',
+        },
+        {
+          altText: 'Svelte',
+          imageUrl: '/images/apps/wp/icon/svelte.png',
+          text: 'Svelte JS',
+          url: 'https://svelte.dev/',
+        },
+        {
+          altText: 'Vue',
+          imageUrl: '/images/apps/wp/icon/vue.png',
+          text: 'Vue JS',
+          url: 'https://vuejs.org/',
+        },
+      ],
+      title: '3. Створення повноцінного сайту, написаного за допомогою JS-фрейворків',
+    },
+    {
+      description: `Ваш сайт цілком може хоститись на локальному сервері. Така технологія називається Server Side Rendering (SSR).
+       Для реалізації таких потреб цілком можна використати мову програмування Javascript (фреймворк  NodeJs), але цілком можуть підійти і
+       інші мови програмування з можливістю підключення відповідних фреймворків:`,
+      links: [
+        {
+          altText: 'C#',
+          imageUrl: '/images/apps/wp/icon/c.png',
+          text: 'C#',
+          url: 'https://learn.microsoft.com/en-us/dotnet/csharp/',
+        },
+        {
+          altText: 'Java',
+          imageUrl: '/images/apps/wp/icon/java.png',
+          text: 'Java',
+          url: 'https://www.java.com/en/',
+        },
+        {
           altText: 'PHP',
-          imageUrl: 'images/icon/php.png',
+          imageUrl: '/images/apps/wp/icon/php.png',
           text: 'PHP',
           url: 'https://www.php.net/',
         },
         {
           altText: 'Python',
-          imageUrl: 'images/icon/python.png',
+          imageUrl: '/images/apps/wp/icon/python.png',
           text: 'Python',
           url: 'https://www.python.org/',
+        },
+        {
+          altText: 'Ruby',
+          imageUrl: '/images/apps/wp/icon/ruby.png',
+          text: 'Ruby',
+          url: 'https://www.ruby-lang.org/en/',
         },
       ],
       title: '4. Створення динамічного додатку, написаного мовою серверного програмування',
@@ -120,7 +188,7 @@ const courseInfoConfig: CourseInfoConfig = {
   title: 'Виконання самостійної роботи',
   workOrder: [
     'Обрати варіант виконання самостійної роботи.',
-    'Визначитися з тематикою проекту, його назвою та динамічними елементами для реалізації.',
+    'Визначитися з тематикою проєкту, його назвою та динамічними елементами для реалізації.',
     'Реалізувати проект у вибраний спосіб.',
     'Розгорнути проект на безкоштовному хостингу або локальному сервері.',
     'По результатах роботи сформувати звіт.',
@@ -138,7 +206,7 @@ function CourseContent() {
       </p>
       <p>{courseInfoConfig.instruction}</p>
 
-      <Accordion id="accordionMain">
+      <Accordion id="accordionMain" className="mb-4">
         {courseInfoConfig.options.map((option, index) => (
           <Accordion.Item eventKey={String(index)} key={option.title}>
             <Accordion.Header>{option.title}</Accordion.Header>
@@ -156,14 +224,23 @@ function CourseContent() {
                   </ListGroup>
                 </Card>
               ))}
-              {option.links && option.links.map((link) => (
-                <div key={link.imageUrl} className="mb-2">
-                  <a href={link.url} target="_blank" rel="noopener noreferrer">
-                    <img src={link.imageUrl} alt={link.altText} />
-                    <p>{link.text}</p>
-                  </a>
-                </div>
-              ))}
+              <Row>
+                {option.links && option.links.map((link) => (
+                  <Col md={6} lg={4} key={link.url}>
+                    {' '}
+                    {' '}
+                    {/* Adjust the column sizes as needed */}
+                    <Card className="mb-2 text-center">
+                      <Card.Body>
+                        <a href={link.url} target="_blank" rel="noopener noreferrer">
+                          <img src={link.imageUrl} alt={link.altText} className="img-fluid" />
+                          <Card.Title>{link.text}</Card.Title>
+                        </a>
+                      </Card.Body>
+                    </Card>
+                  </Col>
+                ))}
+              </Row>
               {option.iframeSrc && (
               <IframeLoader className={cssClasses['example-iframe']} src={option.iframeSrc} title={`Embedded Content - ${option.title}`} />
               )}
@@ -183,7 +260,7 @@ function CourseContent() {
       </ol>
 
       <h2>Зміст звіту</h2>
-      <ol>
+      <ol className="mb-4">
         {courseInfoConfig.reportContents.map((content) => (
           <li key={content}>{content}</li>
         ))}
