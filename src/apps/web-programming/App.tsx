@@ -22,13 +22,6 @@ import AppNameProvider from '../../components/context/appName.tsx';
 import { AppNames } from '../../components/config/configMapping.ts';
 import Banner from '../../components/banner/banner.tsx';
 
-// const NoMatch = React.lazy(() => import('../../components/no-match/index.tsx'));
-// const SelfWork = React.lazy(() => import('../../components/self-work/selfWork.tsx'));
-// const Journals = React.lazy(() => import('../../components/journals/journals.tsx'));
-// const Lecture = React.lazy(() => import('../../components/lecture/lecture.tsx'));
-// const Lectures = React.lazy(() => import('../../components/lecture/lectures.tsx'));
-// const Lab = React.lazy(() => import('../../components/lab/lab.tsx'));
-
 interface Props {
     appName: AppNames;
 }
