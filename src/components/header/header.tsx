@@ -10,6 +10,7 @@ import Image from '../image/index.tsx';
 import Sidebar from '../sidebar/sidebar.tsx';
 import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
+import { isDesktopScreen } from '../../utils/utils.ts';
 
 function Header() {
   const navigate = useNavigate();
@@ -48,8 +49,9 @@ function Header() {
   const handleDropdownToggle = (dropdown: string | null) => {
     setShowDropdown(dropdown);
   };
+
   const toggleSidebar = () => setShowSidebar(!showSidebar);
-  const toggleNavbar = () => setShowNavbar(!showNavbar);
+  const toggleNavbar = () => !isDesktopScreen() && setShowNavbar(!showNavbar);
 
   return (
     <header className={`header ${isSticky ? 'sticky-header' : ''}`}>
