@@ -1,21 +1,24 @@
+@import '../../variables.scss';
+
 .example-iframe {
   width: 70vw;
   height: 80vh;
 }
 
 .img-fluid {
-  max-width: 100%;
   height: auto;
+  max-width: 200px;
+  width: 200px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: $tablet) {
   .img-fluid-tablet {
     width: 50%;
     height: auto;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: $mobile) {
   .img-fluid-mobile {
     width: 25%;
     height: auto;

@@ -38,7 +38,9 @@ interface CourseInfoConfig {
 
 const courseInfoConfig: CourseInfoConfig = {
   assessment: 'Максимальна оцінка виконаної самостійної роботи 20 балів.',
-  instruction: 'Для виконання самостійної роботи студент обирає один з наведених нижче варіантів:',
+  instruction: `Для виконання самостійної роботи студент обирає один з наведених нижче варіантів. Складність варіантів зростає від 1 до 6 (зверху-вниз).
+  Чим складніше завдання, тим легше можна отримати позитивні бали. Проте варіанти цілком можна поєднувати то розширювати, і можна отримати хороші
+  бали за перші завдання, якщо вони будуть якісно зроблені:`,
   objective: 'практично застосувати отримані під час вивчення курсу навички та знання.',
   options: [
     {
@@ -87,11 +89,11 @@ const courseInfoConfig: CourseInfoConfig = {
       subTopics: [
         {
           items: [
-            'Інтерактивна гра.  ',
             'Автоматизована презентація.',
             'Система анкетування з виведенням підсумкового висновку.',
             'Інфографіка, що формується з даних форми, яка заповнюється користувачам',
             'Математичний калькулятор.',
+            'Інтерактивна гра. Наприклад, як нижче: ',
           ],
           title: 'Приклади сервісів. Насправді список реалізацій є необмежений, тому студент може втілювати власні ідеї.',
         },
@@ -143,19 +145,37 @@ const courseInfoConfig: CourseInfoConfig = {
           text: 'Vue JS',
           url: 'https://vuejs.org/',
         },
+        {
+          altText: 'Vite',
+          imageUrl: '/images/apps/wp/icon/vite.svg',
+          text: 'Vite JS',
+          url: 'https://vitejs.dev/',
+        },
       ],
       title: '3. Створення повноцінного сайту, написаного за допомогою JS-фрейворків',
     },
     {
       description: `Ваш сайт цілком може хоститись на локальному сервері. Така технологія називається Server Side Rendering (SSR).
-       Для реалізації таких потреб цілком можна використати мову програмування Javascript (фреймворк  NodeJs), але цілком можуть підійти і
+       Для реалізації таких потреб можна використати мову програмування Javascript (фреймворк  NodeJs), але можуть підійти і
        інші мови програмування з можливістю підключення відповідних фреймворків:`,
       links: [
+        {
+          altText: 'NodeJs',
+          imageUrl: '/images/apps/wp/icon/node-js.png',
+          text: 'NodeJs (JavaScript)',
+          url: 'https://nodejs.org/en/learn/getting-started/introduction-to-nodejs',
+        },
         {
           altText: 'C#',
           imageUrl: '/images/apps/wp/icon/c.png',
           text: 'C#',
           url: 'https://learn.microsoft.com/en-us/dotnet/csharp/',
+        },
+        {
+          altText: 'ASP.NET',
+          imageUrl: '/images/apps/wp/icon/asp-net.png',
+          text: 'ASP.NET (C#)',
+          url: 'https://dotnet.microsoft.com/en-us/apps/aspnet',
         },
         {
           altText: 'Java',
@@ -164,10 +184,22 @@ const courseInfoConfig: CourseInfoConfig = {
           url: 'https://www.java.com/en/',
         },
         {
+          altText: 'Spring',
+          imageUrl: '/images/apps/wp/icon/spring.png',
+          text: 'Spring (Java)',
+          url: 'https://spring.io/',
+        },
+        {
           altText: 'PHP',
           imageUrl: '/images/apps/wp/icon/php.png',
           text: 'PHP',
           url: 'https://www.php.net/',
+        },
+        {
+          altText: 'Laravel',
+          imageUrl: '/images/apps/wp/icon/laravel.png',
+          text: 'Laravel (PHP)',
+          url: 'https://laravel.com/',
         },
         {
           altText: 'Python',
@@ -176,13 +208,66 @@ const courseInfoConfig: CourseInfoConfig = {
           url: 'https://www.python.org/',
         },
         {
+          altText: 'Django',
+          imageUrl: '/images/apps/wp/icon/django.png',
+          text: 'Django (Python)',
+          url: 'https://www.djangoproject.com/',
+        },
+        {
+          altText: 'Flask',
+          imageUrl: '/images/apps/wp/icon/flask.jpeg',
+          text: 'Flask (Python)',
+          url: 'https://flask.palletsprojects.com/',
+        },
+        {
           altText: 'Ruby',
           imageUrl: '/images/apps/wp/icon/ruby.png',
           text: 'Ruby',
           url: 'https://www.ruby-lang.org/en/',
         },
+        {
+          altText: 'Ruby on Rails',
+          imageUrl: '/images/apps/wp/icon/ruby-on-rails.png',
+          text: 'Ruby on Rails (Ruby)',
+          url: 'https://rubyonrails.org/',
+        },
       ],
-      title: '4. Створення динамічного додатку, написаного мовою серверного програмування',
+      title: '4. Створення динамічного додатку, написаного мовою серверного програмування або серверним фреймворком',
+    },
+    {
+      description: `Кросплатформні рішення з залученням технологій веб-розробки. Такі підходи дозволяють мати одну архітектуру для усіх платфторм.
+      Наприклад на React Native простий додаток, написаний на JS фреймворці React може бути запущений як у браузері, так і на Android та iOS.`,
+      links: [
+        {
+          altText: 'React Native',
+          imageUrl: '/images/apps/wp/icon/react-native.png',
+          text: 'React Native',
+          url: 'https://reactnative.dev/',
+        },
+      ],
+      title: '5. Створення кросплатформного додатку',
+    },
+    {
+      description: `Рішення масштабуванння веб-аплікації дозволяє створити ізольовані компоненти, які можуть бути запущенні на довільній кількості серверів.
+       В рамках цієї роботи доречно поєднати  масштабоване рішення (наприклад Docker), з існуючими веб-фреймворками (попередні пункти).
+       Наприклад, запустити NodeJs сервер, фронтенд на React та базу даних MongoDB в окремих контейнерах Docker.
+       З такими більш абстрактними SAAS (Software as a Service) системами як Google Cloud чи AWS можна працювати як і через веб-інтерфейс, 
+       так і через їхнє SDK (Software Development Kit), яке інтегровується у ваш веб-фреймворк або операційну систему.`,
+      links: [
+        {
+          altText: 'Docker',
+          imageUrl: '/images/apps/wp/icon/docker.png',
+          text: 'Docker',
+          url: 'https://www.docker.com/',
+        },
+        {
+          altText: 'Google Cloud',
+          imageUrl: '/images/apps/wp/icon/google-cloud.png',
+          text: 'Google Cloud',
+          url: 'https://cloud.google.com/',
+        },
+      ],
+      title: '6. Створення масштабованого веб-додатку',
     },
   ],
   reportContents: [
