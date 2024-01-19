@@ -2,3 +2,22 @@
   width: 70vw;
   height: 80vh;
 }
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .img-fluid-tablet {
+    width: 50%;
+    height: auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .img-fluid-mobile {
+    width: 25%;
+    height: auto;
+  }
+}

@@ -83,7 +83,7 @@ const courseInfoConfig: CourseInfoConfig = {
     },
     {
       description: 'Написання інтерактивної аплікації, сервісу або веб-додатку',
-      iframeSrc: 'http://htmlpreview.github.io/?https://github.com/dmytro-kushnir/tic-tac-toe-legacy-2015-project/blob/main/index.html',
+      iframeSrc: 'https://htmlpreview.github.io/?https://github.com/dmytro-kushnir/tic-tac-toe-legacy-2015-project/blob/main/index.html',
       subTopics: [
         {
           items: [
@@ -233,14 +233,15 @@ function CourseContent() {
               ))}
               <Row>
                 {option.links && option.links.map((link) => (
-                  <Col md={6} lg={4} key={link.url}>
-                    {' '}
-                    {' '}
-                    {/* Adjust the column sizes as needed */}
+                  <Col xs={12} sm={6} md={6} lg={4} key={link.url}>
                     <Card className="mb-2 text-center">
                       <Card.Body>
                         <a href={link.url} target="_blank" rel="noopener noreferrer">
-                          <img src={link.imageUrl} alt={link.altText} className="img-fluid" />
+                          <img
+                            src={link.imageUrl}
+                            alt={link.altText}
+                            className={`${cssClasses['img-fluid']} ${cssClasses['img-fluid-tablet']} ${cssClasses['img-fluid-mobile']}`}
+                          />
                           <Card.Title>{link.text}</Card.Title>
                         </a>
                       </Card.Body>
