@@ -226,80 +226,29 @@ function LecturesInfo() {
 
 function LabsSection() {
   const config = useConfig(useAppName());
-  const { appPath } = config;
-
-  const labs = [
-    {
-      description: 'Знайомство з JavaScript',
-      iconSrc: '/images/apps/wp/svg/index-js.svg',
-      id: 1,
-      imgSrc: '/images/apps/wp/labs/lab1.jpg',
-      link: '/labs/lab1',
-      title: 'Лабораторна робота 1',
-    },
-    {
-      description: 'Основні конструкції мови JavaScript',
-      iconSrc: '/images/apps/wp/svg/index-constuction.svg',
-      id: 2,
-      imgSrc: '/images/apps/wp/labs/lab2.jpg',
-      link: '/labs/lab2',
-      title: 'Лабораторна робота 2',
-    },
-    {
-      description: 'Використання функцій JavaScript',
-      iconSrc: '/images/apps/wp/svg/index-function.svg',
-      id: 3,
-      imgSrc: '/images/apps/wp/labs/lab3.jpg',
-      link: '/labs/lab3',
-      title: 'Лабораторна робота 3',
-    },
-    {
-      description: 'Робота з масивами JavaScript',
-      iconSrc: '/images/apps/wp/svg/index-matrix.svg',
-      id: 4,
-      imgSrc: '/images/apps/wp/labs/lab4.jpg',
-      link: '/labs/lab4',
-      title: 'Лабораторна робота 4',
-    },
-    {
-      description: 'Робота з рядками у JavaScript',
-      iconSrc: '/images/apps/wp/svg/index-string.svg',
-      id: 5,
-      imgSrc: '/images/apps/wp/labs/lab5.jpg',
-      link: '/labs/lab6',
-      title: 'Лабораторна робота 5',
-    },
-    {
-      description: "Робота з об'єктами JavaScript",
-      iconSrc: '/images/apps/wp/svg/index-object.svg',
-      id: 6,
-      imgSrc: '/images/apps/wp/labs/lab6.jpg',
-      link: '/labs/lab6',
-      title: 'Лабораторна робота 6',
-    },
-  ];
+  const { appPath, labList } = config;
 
   return (
     <section className="labs">
       <Container>
         <Row className="justify-content-center">
-          {labs.map((lab) => (
+          {labList.map((lab) => (
             <Col md={6} lg={4} className="align-center row-item" key={lab.id}>
               <div className="labs-single img-effect">
                 <div className="labs-single-content">
                   <div className="poster">
                     <Link to={`${appPath}${lab.link}`}>
-                      <img src={lab.imgSrc} alt={lab.title} />
+                      <img src={lab.imgSrc} alt={lab.name} />
                     </Link>
                   </div>
                   <div className="icon-box-wrapper">
                     <div className="icon-box">
                       <Link to={`${appPath}${lab.link}`}>
-                        <img src={lab.iconSrc} alt={lab.title} />
+                        <img src={lab.iconSrc} alt={lab.name} />
                       </Link>
                     </div>
                   </div>
-                  <h5>{lab.title}</h5>
+                  <h5>{lab.name}</h5>
                   <p>{lab.description}</p>
                 </div>
                 <Link to={`${appPath}${lab.link}`} className="button button-full button-effect">

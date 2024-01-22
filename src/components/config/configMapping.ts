@@ -33,8 +33,14 @@ type LinksMapping = {
 }
 
 export interface LabLink {
+    description: string;
+    filePath: string;
+    iconSrc: string;
     id: string;
+    imgSrc: string
+    link: string
     name: string;
+    objective: string;
 }
 
 export interface LectureLink {
