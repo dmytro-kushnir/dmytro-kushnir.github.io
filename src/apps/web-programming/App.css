@@ -12,7 +12,7 @@ font-family: 'Raleway', sans-serif;
   --wpr-light:#eceff1;
   --wpr-gray:#cfd8dc;
   --wpr-gray-rgba:207,216,220;
-  --wpr-red:#ea062b;
+  --wpr-green: #679f60;
   --wpr-red-rgb:234,6,43;
   --wpr-shadow:0 10px 50px rgba(0,0,0,0.07);
   --wpr-shadow-dark:0 16px 35px rgba(0,0,0,0.15);
@@ -88,7 +88,7 @@ a,
 a:hover,
 a:active,
 a:focus{
-  color: var(--wpr-red);
+  color: var(--wpr-green);
   text-decoration: none;
 }
 *::-moz-selection {
@@ -150,7 +150,7 @@ section {
 .container-narrow a:hover,
 .container-narrow a:active,
 .container-narrow a:focus{
-  color: var(--wpr-red);
+  color: var(--wpr-green);
 }
 
 /*---------------------------------------------------------/
@@ -171,7 +171,7 @@ section {
   align-items: center;
   justify-content: center;
   border-radius: 0px;
-  background-color: var(--wpr-red);
+  background-color: var(--wpr-green);
   color: #fff;
   font-size: 1.5em;
   z-index: 999;
@@ -239,7 +239,7 @@ section {
 ---------------------------------------------------------*/
 .slogan {
   padding: 80px 0;
-  background-color: var(--wpr-red);
+  background-color: var(--wpr-green);
   color: #fff;
 }
 .column3{

@@ -26,7 +26,7 @@ interface CourseOption {
   iframeSrc?: string;
 }
 
-interface CourseInfoConfig {
+interface SelfWorkConfig {
   assessment: string;
   instruction: string;
   objective: string;
@@ -36,7 +36,7 @@ interface CourseInfoConfig {
   workOrder: string[];
 }
 
-const courseInfoConfig: CourseInfoConfig = {
+const selfWorkConfig: SelfWorkConfig = {
   assessment: 'Максимальна оцінка виконаної самостійної роботи 20 балів.',
   instruction: `Для виконання самостійної роботи студент обирає один з наведених нижче варіантів. Складність варіантів зростає від 1 до 6 (зверху-вниз).
   Чим складніше завдання, тим легше можна отримати позитивні бали. Проте варіанти цілком можна поєднувати то розширювати, і можна отримати хороші
@@ -287,19 +287,19 @@ const courseInfoConfig: CourseInfoConfig = {
   ],
 };
 
-function CourseContent() {
+function SelfWorkContent() {
   return (
     <Container className="container-narrow my-4">
-      <h1>{courseInfoConfig.title}</h1>
+      <h1>{selfWorkConfig.title}</h1>
       <p>
         <strong>Мета роботи:</strong>
         {' '}
-        {courseInfoConfig.objective}
+        {selfWorkConfig.objective}
       </p>
-      <p>{courseInfoConfig.instruction}</p>
+      <p>{selfWorkConfig.instruction}</p>
 
       <Accordion id="accordionMain" className="mb-4">
-        {courseInfoConfig.options.map((option, index) => (
+        {selfWorkConfig.options.map((option, index) => (
           <Accordion.Item eventKey={String(index)} key={option.title}>
             <Accordion.Header>{option.title}</Accordion.Header>
             <Accordion.Body>
@@ -343,18 +343,18 @@ function CourseContent() {
       </Accordion>
 
       <h2>Оцінювання роботи</h2>
-      <p>{courseInfoConfig.assessment}</p>
+      <p>{selfWorkConfig.assessment}</p>
 
       <h2>Порядок роботи</h2>
       <ol>
-        {courseInfoConfig.workOrder.map((step) => (
+        {selfWorkConfig.workOrder.map((step) => (
           <li key={step}>{step}</li>
         ))}
       </ol>
 
       <h2>Зміст звіту</h2>
       <ol className="mb-4">
-        {courseInfoConfig.reportContents.map((content) => (
+        {selfWorkConfig.reportContents.map((content) => (
           <li key={content}>{content}</li>
         ))}
       </ol>
@@ -362,4 +362,4 @@ function CourseContent() {
   );
 }
 
-export default CourseContent;
+export default SelfWorkContent;

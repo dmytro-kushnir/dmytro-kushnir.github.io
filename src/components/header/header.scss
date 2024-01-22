@@ -4,9 +4,9 @@
 }
 
 $color_1: var(--wpr-main);
-$color_2: var(--wpr-red);
+$color_2: var(--wpr-red );
 $background-color_1: #fff;
-$background-color_2: var(--wpr-red);
+$background-color_2: var(--wpr-green);
 $background-color_3: var(--wpr-main);
 $background-color_4: var(--wpr-gray);
 $background-color_5: var(--wpr-light);
@@ -81,7 +81,7 @@ $background-color_5: var(--wpr-light);
         margin: 0;
         padding: 0;
         background-color: $background-color_1;
-        border-top: 5px solid var(--wpr-red);
+        border-top: 5px solid var(--wpr-green);
         box-shadow: var(--wpr-shadow);
         border-radius: 0;
         max-height: 500px;
