@@ -6,13 +6,7 @@ import cssClasses from './sidebar.module.scss';
 function Sidebar() {
   const config = useConfig(useAppName());
 
-  const {
-    driveLinks,
-    sidebar: {
-      scores,
-      semesters,
-    },
-  } = config;
+  const { driveLinks, scores, semesters } = config;
 
   return (
     <aside>
@@ -21,14 +15,14 @@ function Sidebar() {
           <h4>Розподіл балів</h4>
           <ul>
             <li>
-              <strong>{`І половина семестру ${semesters.duration.part1}`}</strong>
+              <strong>{`І половина семестру ${semesters.duration.partOneStart}-${semesters.duration.partOneEnd}`}</strong>
               <ul>
                 <li>{`Лабораторні №1-3 - ${scores.labs / 2} балів`}</li>
                 <li>{`Презентація ${scores.presentationMin} - ${scores.presentationMax} балів (додається до тестів)`}</li>
               </ul>
             </li>
             <li>
-              <strong>{`IІ половина семестру ${semesters.duration.part1}`}</strong>
+              <strong>{`IІ половина семестру ${semesters.duration.partTwoStart}-${semesters.duration.partTwoEnd}`}</strong>
               <ul>
                 <li>{`Лабораторні №4-6 - ${scores.labs / 2} балів`}</li>
                 <li>{`Презентація ${scores.presentationMin} - ${scores.presentationMax} балів (додається до тестів)`}</li>

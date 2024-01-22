@@ -4,22 +4,23 @@ interface DriveLink {
     drive: string;
 }
 
-type SideBarMapping = {
-    scores: {
-        current: number;
-        exam: number;
-        labs: number;
-        presentationMax: number;
-        presentationMin: number;
-        selfStudy: number;
-    };
-    semesters: {
-        duration: {
-            part1: string;
-            part2: string;
-        }
+type ScoresMappping = {
+    current: number;
+    exam: number;
+    labs: number;
+    presentationMax: number;
+    presentationMin: number;
+    selfStudy: number;
+}
+
+type SemestersMapping = {
+    duration: {
+        partOneEnd: string;
+        partOneStart: string;
+        partTwoEnd: string;
+        partTwoStart: string;
     }
-};
+}
 
 type LinksMapping = {
     institute: string;
@@ -44,8 +45,10 @@ export interface LabLink {
 }
 
 export interface LectureLink {
-    id: string;
+    description?: string;
     filePath: string;
+    id: string;
+    imageUrl?: string;
     name: string;
     subLectures?: LectureLink[];
 }
@@ -76,7 +79,8 @@ type CommonAppMapping = {
     lecturesList: LectureLink[];
     links: LinksMapping;
     name: string;
-    sidebar: SideBarMapping;
+    scores: ScoresMappping;
+    semesters: SemestersMapping
 }
 
 export type ConfigMapping = {

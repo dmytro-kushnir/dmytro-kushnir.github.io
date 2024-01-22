@@ -31,20 +31,20 @@ const config: ConfigMapping = {
       lecturesList: [],
       links,
       name: 'otherApp',
-      sidebar: {
-        scores: {
-          current: 0,
-          exam: 0,
-          labs: 0,
-          presentationMax: 0,
-          presentationMin: 0,
-          selfStudy: 0,
-        },
-        semesters: {
-          duration: {
-            part1: '',
-            part2: '',
-          },
+      scores: {
+        current: 0,
+        exam: 0,
+        labs: 0,
+        presentationMax: 0,
+        presentationMin: 0,
+        selfStudy: 0,
+      },
+      semesters: {
+        duration: {
+          partOneEnd: '',
+          partOneStart: '',
+          partTwoEnd: '',
+          partTwoStart: '',
         },
       },
     },
@@ -157,56 +157,76 @@ const config: ConfigMapping = {
       ],
       lecturesList: [
         {
+          description: 'Огляд дисципліни. Базові знання об’єктно-орієнтованого програмування.',
           filePath: '/files/apps/wp/lectures/1.pdf',
           id: 'lecture1',
+          imageUrl: '/images/apps/wp/lectures/lecture1.jpg',
           name: 'Клієнт-серверна архітектура та її компоненти.',
         },
         {
+          description: 'Клієнт-серверна архітектура. Модель OSI. Протокол прикладного рівня HTTP.',
           filePath: '/files/apps/wp/lectures/2.pdf',
           id: 'lecture2',
+          imageUrl: '/images/apps/wp/lectures/lecture2.jpg',
           name: 'Протокол HTTP. Принципи функціонування.',
         },
         {
+          description: 'Основні поняття веб-програмування. Знання та вміння для веб-розробника.',
           filePath: '/files/apps/wp/lectures/3.pdf',
           id: 'lecture3',
+          imageUrl: '/images/apps/wp/lectures/lecture3.jpg',
           name: 'Браузер. Склад і загальні принципи роботи.',
         },
         {
+          description: 'Базові технології Веб-програмування. Мова розмітки HTML, HTML 5. Мова стилів CSS, CSS3. Верстка (HTML + CSS). Фреймворки: Angular, React.',
           filePath: '/files/apps/wp/lectures/4.pdf',
           id: 'lecture4',
+          imageUrl: '/images/apps/wp/lectures/lecture4.jpg',
           name: 'Веб сервер. Апаратне і програмне забезпечення.',
         },
         {
+          description: '',
           filePath: '/files/apps/wp/lectures/5.pdf',
           id: 'lecture5',
+          imageUrl: '/images/apps/wp/lectures/lecture5.jpg',
           name: 'Веб-додатки. Поняття, компоненти та принципи роботи.',
           subLectures: [
             { filePath: '/files/apps/wp/lectures/5.1.pdf', id: 'lecture5.1', name: 'Веб-додатки для колективної роботи.' },
           ],
         },
         {
+          description: '',
           filePath: '/files/apps/wp/lectures/6.pdf',
           id: 'lecture6',
+          imageUrl: '/images/apps/wp/lectures/lecture6.jpg',
           name: 'Архітектура веб-додатків.',
         },
         {
+          description: '',
           filePath: '/files/apps/wp/lectures/7.pdf',
           id: 'lecture7',
+          imageUrl: '/images/apps/wp/lectures/lecture7.jpg',
           name: 'Етапи реалізації веб-проекту.',
         },
         {
+          description: '',
           filePath: '/files/apps/wp/lectures/8.pdf',
           id: 'lecture8',
-          name: 'Етап аналітики і проектування.',
+          imageUrl: '/images/apps/wp/lectures/lecture8.jpg',
+          name: 'Етап аналітики і проєктування.',
         },
         {
+          description: '',
           filePath: '/files/apps/wp/lectures/9.pdf',
           id: 'lecture9',
+          imageUrl: '/images/apps/wp/lectures/lecture9.jpg',
           name: 'Етап реалізації. Дизайн-макети, frontend, backend, тестування.',
         },
         {
+          description: 'Програмування на стороні клієнта (Front-end). Javascript. AJAX. JavaScript и XML. PHP.',
           filePath: '/files/apps/wp/lectures/10.pdf',
           id: 'lecture10',
+          imageUrl: '/images/apps/wp/lectures/lecture10.jpg',
           name: 'Фронтенд-розробка. Ключові технології та поняття.',
           subLectures: [
             { filePath: '/files/apps/wp/lectures/10.1.pdf', id: 'lecture10.1', name: 'Мова HTML. Поняття, стандарти, теги та атрибути.' },
@@ -219,8 +239,10 @@ const config: ConfigMapping = {
           ],
         },
         {
+          description: 'Програмування на стороні сервера (Back-end). Огляд мов програмування (Python, Php, Java, C#, Ruby). Javascript. Фреймворк Node.js',
           filePath: '/files/apps/wp/lectures/11.pdf',
           id: 'lecture11',
+          imageUrl: '/images/apps/wp/lectures/lecture11.jpg',
           name: 'Бекенд. Програмування серверної частини.',
           subLectures: [
             { filePath: '/files/apps/wp/lectures/11.1.pdf', id: 'lecture11.1', name: 'Мови серверного програмування.' },
@@ -228,8 +250,10 @@ const config: ConfigMapping = {
           ],
         },
         {
+          description: '',
           filePath: '/files/apps/wp/lectures/12.pdf',
           id: 'lecture12',
+          imageUrl: '/images/apps/wp/lectures/lecture12.jpg',
           name: 'Інструменти веб-розробника.',
           subLectures: [
             { filePath: '/files/apps/wp/lectures/12.1.pdf', id: 'lecture12.1', name: 'Консоль розробника в браузері.' },
@@ -240,20 +264,20 @@ const config: ConfigMapping = {
       ],
       links,
       name: 'wp',
-      sidebar: {
-        scores: {
-          current: 40,
-          exam: 60,
-          labs: 24, // please divide by 2 for each semester
-          presentationMax: 5,
-          presentationMin: 1,
-          selfStudy: 16,
-        },
-        semesters: {
-          duration: {
-            part1: '27.02.2023 - 26.03.2023',
-            part2: '27.03.2023 - 23.04.2023',
-          },
+      scores: {
+        current: 40,
+        exam: 60,
+        labs: 20, // please divide by 2 for each semester
+        presentationMax: 5,
+        presentationMin: 1,
+        selfStudy: 20,
+      },
+      semesters: {
+        duration: {
+          partOneEnd: '26.03.2023',
+          partOneStart: '27.02.2023',
+          partTwoEnd: '23.04.2023',
+          partTwoStart: '27.03.2023',
         },
       },
     },

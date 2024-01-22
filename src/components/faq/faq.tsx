@@ -25,7 +25,7 @@ const faqConfig: FaqItem[] = [
             {' '}
             Pass here
           </li>
-          <li><a href="link here" target="_blank" rel="noreferrer">Лінк до сторінки Zoom</a></li>
+          <li><a href="link here" target="_blank" rel="noreferrer">Лінк до сторінки Google Meet</a></li>
           {/* Other content elements */}
         </ul>
       </div>

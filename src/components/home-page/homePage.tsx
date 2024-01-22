@@ -89,6 +89,9 @@ function CourseShortInfo() {
 }
 
 function CourseFullInfo() {
+  const config = useConfig(useAppName());
+  const { scores } = config;
+
   return (
     <section className="course">
       <Container className="container-narrow">
@@ -113,18 +116,18 @@ function CourseFullInfo() {
             <Col md={6} xl={5}>
               <div className="course-box">
                 <div className="course-box-item">
-                  <h5>Лекції</h5>
+                  <h5>Лекції, залік</h5>
                   <p>Теоретичні базові знання з клієнтських та серверних мов програмування, грунтовне ознайомлення з сучасними методами та засобами побудови динамічних та інтерактивних веб-додатків.</p>
                   <div className="text">
-                    <p>60</p>
+                    <p>{scores.exam}</p>
                   </div>
                   <span className="arrow" />
                 </div>
                 <div className="course-box-item">
-                  <h5>Презентації</h5>
+                  <h5>Презентації (опціонально)</h5>
                   <p>Презентація - це коротке, змістовне представлення певної новинки з області Інтернет чи Веб: інструмент, мова, фреймворк, бібліотека, сервіс, технологія тощо.</p>
                   <div className="text">
-                    <p>10</p>
+                    <p>{scores.presentationMax}</p>
                   </div>
                   <span className="arrow" />
                 </div>
@@ -136,7 +139,9 @@ function CourseFullInfo() {
                   <h5>Лабораторні роботи</h5>
                   <p>Створення інтерактивних веб-додатків з  використанням  мови  JavaScript. Вміння перевіряти дані користувача на стороні клієнта. Практичні навики створення інформаційної системи на базі мови програмування JavaScript.</p>
                   <div className="text">
-                    <p>30</p>
+                    <p>
+                      {scores.labs}
+                    </p>
                   </div>
                   <span className="arrow" />
                 </div>
@@ -144,7 +149,7 @@ function CourseFullInfo() {
                   <h5>Самостійна робота</h5>
                   <p>Самостійною роботою є створення динамічного веб-додатку в обраний студентом спосіб.</p>
                   <div className="text text-alt">
-                    <p>10</p>
+                    <p>{scores.selfStudy}</p>
                   </div>
                   <span className="arrow" />
                 </div>
@@ -158,38 +163,8 @@ function CourseFullInfo() {
 }
 
 function LecturesInfo() {
-  const lectures = [
-    {
-      description: 'Огляд дисципліни. Базові знання об’єктно-орієнтованого програмування.', id: 1, imageUrl: '/images/apps/wp/lectures/lecture1.jpg', link: '/lectures/1', title: 'Тема 1',
-    },
-    {
-      description: 'Клієнт-серверна архітектура. Модель OSI. Протокол прикладного рівня HTTP.', id: 2, imageUrl: '/images/apps/wp/lectures/lecture2.jpg', link: '/lectures/2', title: 'Тема 2',
-    },
-    {
-      description: 'Основні поняття веб-програмування. Знання та вміння для веб-розробника.', id: 3, imageUrl: '/images/apps/wp/lectures/lecture3.jpg', link: '/lectures/3', title: 'Тема 3',
-    },
-    {
-      description: 'Базові технології Веб-програмування. Мова розмітки HTML, HTML 5. Мова стилів CSS, CSS3. Верстка (HTML + CSS). Фреймворки: Angular, React.', id: 4, imageUrl: '/images/apps/wp/lectures/lecture4.jpg', link: '/lectures/4', title: 'Тема 4',
-    },
-    {
-      description: 'Програмування на стороні клієнта (Front-end). Javascript. AJAX. JavaScript и XML. PHP.', id: 5, imageUrl: '/images/apps/wp/lectures/lecture5.jpg', link: '/lectures/5', title: 'Тема 5',
-    },
-    {
-      description: 'Програмування на стороні сервера (Back-end). Огляд мов програмування (Python, Php, Java, C#, Ruby). Javascript. Фреймворк Node.js', id: 6, imageUrl: '/images/apps/wp/lectures/lecture6.jpg', link: '/lectures/6', title: 'Тема 6',
-    },
-    {
-      description: 'Бази даних. MySQL. PostgreSQL. Oracle.', id: 7, imageUrl: '/images/apps/wp/lectures/lecture7.jpg', link: '/lectures/7', title: 'Тема 7',
-    },
-    {
-      description: 'Back-end інструменти.', id: 8, imageUrl: '/images/apps/wp/lectures/lecture8.jpg', link: '/lectures/8', title: 'Тема 8',
-    },
-    {
-      description: 'Front-end інструменти Javascript, jQuery, TwitterBootstrap', id: 9, imageUrl: '/images/apps/wp/lectures/lecture9.jpg', link: '/lectures/9', title: 'Тема 9',
-    },
-    {
-      description: 'Додаткові інструменти та знання.', id: 10, imageUrl: '/images/apps/wp/lectures/lecture10.jpg', link: '/lectures/10', title: 'Тема 10',
-    },
-  ];
+  const config = useConfig(useAppName());
+  const { appPath, lecturesList } = config;
 
   return (
     <section className="lecture">
@@ -199,17 +174,17 @@ function LecturesInfo() {
           <Col lg={12}>
             <div className="lecture-slider">
               <SliderComponent>
-                {lectures.map((lecture) => (
+                {lecturesList.map((lecture, index) => (
                   <Card className="lecture-single img-effect" key={lecture.id}>
                     <Card.Body className="lecture-single-inner">
                       <div className="poster lecture-item">
-                        <Link to={lecture.link}>
-                          <Image path={lecture.imageUrl} alt={lecture.title} className="img-fluid" />
+                        <Link to={`${appPath}/lectures/${lecture.id}`}>
+                          <Image path={lecture.imageUrl || ''} alt={`Тема ${index + 1}`} className="img-fluid" />
                         </Link>
-                        <Link to={`/lecture/${lecture.id}`} className="read-more">Читати</Link>
+                        <Link to={`${appPath}/lectures/${lecture.id}`} className="read-more">Читати</Link>
                       </div>
                       <div className="lecture-item lecture-content">
-                        <h3><Link to={`/lecture/${lecture.id}`}>{lecture.title}</Link></h3>
+                        <h3><Link to={`${appPath}/lectures/${lecture.id}`}>{`Тема ${index + 1}`}</Link></h3>
                         <p>{lecture.description}</p>
                       </div>
                     </Card.Body>
@@ -277,6 +252,9 @@ function PresentationSection() {
     title: string;
   }
 
+  const config = useConfig(useAppName());
+  const { semesters } = config;
+
   const presentationConfig: PresentationConfig = {
     accordionItems: [
       {
@@ -334,12 +312,12 @@ function PresentationSection() {
         eventKey: '3',
         header: 'Бонуси від проведення презентації',
         listItems: [
-          'І половина семестру: 27.02.2023 - 26.03.2023',
-          'ІІ половина семестру: 27.03.2023 - 23.04.2023',
+          `І половина семестру: ${semesters.duration.partOneStart} - ${semesters.duration.partOneEnd}`,
+          `II половина семестру: ${semesters.duration.partTwoStart} - ${semesters.duration.partTwoEnd}`,
         ],
       },
     ],
-    introduction: 'Бурхливий розвиток інтернет технологій змінили життя всього суспільства...',
+    introduction: 'Бурхливий розвиток інтернет технологій змінили життя всього суспільства. З кожним днем зʼявляються все нові і нові можливості як для кожної людини зокрема, так і для всіх сфер життєдіяльності.',
     title: 'Доповідь-презентація',
   };
 
@@ -355,7 +333,7 @@ function PresentationSection() {
           </Col>
           <Col lg={6}>
             <div className="presentation-box">
-              <p>Бурхливий розвиток інтернет технологій змінили життя всього суспільства...</p>
+              <p>{presentationConfig.introduction}</p>
               <div className="presentation-wrapper">
                 <Accordion className="accordion-flush" id="accordionFlushExample">
                   {presentationConfig.accordionItems.map((item) => (
@@ -386,7 +364,7 @@ function PresentationSection() {
 function PointsDistributionSection() {
   interface PointItem {
     label: string;
-    points: string;
+    points: number;
     specialClass?: string;
   }
 
@@ -400,6 +378,9 @@ function PointsDistributionSection() {
     periods: PointsPeriod[];
   }
 
+  const config = useConfig(useAppName());
+  const { scores, semesters } = config;
+
   const pointsDistributionConfig: PointsDistributionConfig = {
     additionalNotes: [
       'Зазначено максимальну кількість балів за умови вчасного і належного захисту.',
@@ -408,27 +389,28 @@ function PointsDistributionSection() {
     periods: [
       {
         items: [
-          { label: 'Лабораторні 1-3', points: '12' },
-          { label: 'Доповідь-презентація', points: '5', specialClass: 'pres' },
+          { label: 'Лабораторні 1-3', points: scores.labs / 2 },
+          { label: 'Доповідь-презентація', points: scores.presentationMax, specialClass: 'pres' },
         ],
-        title: '27.02-26.03.2023',
+        title: `${semesters.duration.partOneStart}-${semesters.duration.partOneEnd}`,
       },
       {
         items: [
-          { label: 'Лабораторні 4-6', points: '12' },
-          { label: 'Доповідь-презентація', points: '5', specialClass: 'pres' },
+          { label: 'Лабораторні 4-6', points: scores.labs / 2 },
+          { label: 'Доповідь-презентація', points: scores.presentationMax, specialClass: 'pres' },
         ],
-        title: '27.03-23.04.2023',
+        title: `${semesters.duration.partTwoStart}-${semesters.duration.partTwoEnd}`,
       },
       {
         items: [
-          { label: 'Самостійна робота', points: '16' },
-          { label: 'Тести', points: '60', specialClass: 'test' },
+          { label: 'Самостійна робота', points: scores.selfStudy },
+          { label: 'Тести', points: scores.exam, specialClass: 'test' },
         ],
         title: 'Залік',
       },
     ],
   };
+
   return (
     <section className="balls dark-overlay bg-img" style={{ backgroundImage: "url('/images/apps/wp/bg-points.jpg')" }}>
       <Container>
