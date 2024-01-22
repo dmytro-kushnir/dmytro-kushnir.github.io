@@ -22,6 +22,8 @@ import AppNameProvider from '../../components/context/appName.tsx';
 import { AppNames } from '../../components/config/configMapping.ts';
 import Banner from '../../components/banner/banner.tsx';
 
+import ScrollToTop from '../../components/scroll-to-top/scrollToTop.ts';
+
 interface Props {
     appName: AppNames;
 }
@@ -45,6 +47,7 @@ export default function WebProgrammingApp({ appName }: Props) {
 
   return (
     <AppNameProvider appName={appName}>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route
