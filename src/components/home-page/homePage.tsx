@@ -6,11 +6,13 @@ import { FaArrowRight, FaBookOpen, FaCode } from 'react-icons/fa';
 import {
   Container, Row, Col, Card, Accordion,
 } from 'react-bootstrap';
+
 import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
 import Image from '../image/index.tsx';
 import SliderComponent from '../slider/slider.tsx';
 import Faq from '../faq/faq.tsx';
+import { isMobileDevice } from '../../utils/utils.ts';
 
 function CourseIntro() {
   const config = useConfig(useAppName());
@@ -165,6 +167,7 @@ function CourseFullInfo() {
 function LecturesInfo() {
   const config = useConfig(useAppName());
   const { appPath, lecturesList } = config;
+  const baseUrl = window.location.origin;
 
   return (
     <section className="lecture">
@@ -178,13 +181,17 @@ function LecturesInfo() {
                   <Card className="lecture-single img-effect" key={lecture.id}>
                     <Card.Body className="lecture-single-inner">
                       <div className="poster lecture-item">
-                        <Link to={`${appPath}/lectures/${lecture.id}`}>
-                          <Image path={lecture.imageUrl || ''} alt={`Тема ${index + 1}`} className="img-fluid" />
-                        </Link>
-                        <Link to={`${appPath}/lectures/${lecture.id}`} className="read-more">Читати</Link>
+                        <Image path={lecture.imageUrl || ''} alt={`Тема ${index + 1}`} className="img-fluid" />
+                        { isMobileDevice()
+                          ? <a href={`${baseUrl}${lecture.filePath}`} className="read-more" target="_blank" rel="noopener noreferrer">Читати</a>
+                          : <Link to={`${appPath}/lectures/${lecture.id}`} className="read-more">Читати</Link>}
                       </div>
                       <div className="lecture-item lecture-content">
-                        <h3><Link to={`${appPath}/lectures/${lecture.id}`}>{`Тема ${index + 1}`}</Link></h3>
+                        <h3>
+                          { isMobileDevice()
+                            ? <a href={`${baseUrl}${lecture.filePath}`} target="_blank" rel="noopener noreferrer">{`Тема ${index + 1}`}</a>
+                            : <Link to={`${appPath}/lectures/${lecture.id}`}>{`Тема ${index + 1}`}</Link>}
+                        </h3>
                         <p>{lecture.description}</p>
                       </div>
                     </Card.Body>
@@ -202,6 +209,7 @@ function LecturesInfo() {
 function LabsSection() {
   const config = useConfig(useAppName());
   const { appPath, labList } = config;
+  const baseUrl = window.location.origin;
 
   return (
     <section className="labs">
@@ -212,23 +220,23 @@ function LabsSection() {
               <div className="labs-single img-effect">
                 <div className="labs-single-content">
                   <div className="poster">
-                    <Link to={`${appPath}${lab.link}`}>
-                      <img src={lab.imgSrc} alt={lab.name} />
-                    </Link>
+                    { isMobileDevice()
+                      ? (<a href={`${baseUrl}${lab.filePath}`} target="_blank" rel="noopener noreferrer"><img src={lab.imgSrc} alt={lab.name} /></a>)
+                      : (<Link to={`${appPath}${lab.link}`}><img src={lab.imgSrc} alt={lab.name} /></Link>)}
                   </div>
                   <div className="icon-box-wrapper">
                     <div className="icon-box">
-                      <Link to={`${appPath}${lab.link}`}>
-                        <img src={lab.iconSrc} alt={lab.name} />
-                      </Link>
+                      { isMobileDevice()
+                        ? (<a href={`${baseUrl}${lab.filePath}`} target="_blank" rel="noopener noreferrer"><img src={lab.iconSrc} alt={lab.name} /></a>)
+                        : (<Link to={`${appPath}${lab.link}`}><img src={lab.iconSrc} alt={lab.name} /></Link>)}
                     </div>
                   </div>
                   <h5>{lab.name}</h5>
                   <p>{lab.description}</p>
                 </div>
-                <Link to={`${appPath}${lab.link}`} className="button button-full button-effect">
-                  Перейти до роботи
-                </Link>
+                { isMobileDevice()
+                  ? <a href={`${baseUrl}${lab.filePath}`} className="button button-full button-effect" target="_blank" rel="noopener noreferrer">Перейти до роботи</a>
+                  : <Link to={`${appPath}${lab.link}`} className="button button-full button-effect">Перейти до роботи</Link>}
               </div>
             </Col>
           ))}
@@ -335,7 +343,7 @@ function PresentationSection() {
             <div className="presentation-box">
               <p>{presentationConfig.introduction}</p>
               <div className="presentation-wrapper">
-                <Accordion className="accordion-flush" id="accordionFlushExample">
+                <Accordion className="accordion-flush" id="accordionPresentation">
                   {presentationConfig.accordionItems.map((item) => (
                     <Accordion.Item eventKey={item.eventKey} key={item.eventKey}>
                       <Accordion.Header as="h6" id={`flush-heading${item.eventKey}`}>
@@ -344,7 +352,7 @@ function PresentationSection() {
                       <Accordion.Body className="accordion-body">
                         {item.content.map((paragraph) => <p key={paragraph.substring(0, 10)}>{paragraph}</p>)}
                         {item.listItems && (
-                        <ul className="summaru-list">
+                        <ul className="summary-list">
                           {item.listItems.map((listItem) => <li key={listItem.substring(0, 10)}>{listItem}</li>)}
                         </ul>
                         )}

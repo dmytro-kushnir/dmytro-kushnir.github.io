@@ -77,8 +77,12 @@ type CommonAppMapping = {
     header: HeaderMapping;
     labList: LabLink[];
     lecturesList: LectureLink[];
+    lecturerName: string;
+    lecturerPhoto: string,
+    lecturerAssistants: string[]
     links: LinksMapping;
     name: string;
+    onlineLink: string;
     scores: ScoresMappping;
     semesters: SemestersMapping
 }

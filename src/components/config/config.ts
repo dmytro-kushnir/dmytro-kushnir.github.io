@@ -28,9 +28,13 @@ const config: ConfigMapping = {
         },
       },
       labList: [],
+      lecturerAssistants: [],
+      lecturerName: '',
+      lecturerPhoto: '',
       lecturesList: [],
       links,
       name: 'otherApp',
+      onlineLink: '',
       scores: {
         current: 0,
         exam: 0,
@@ -155,6 +159,12 @@ const config: ConfigMapping = {
           objective: 'Отримати навички створення об\'єктів, доступу до полів та методів ознайомитись із прототипним успадкуванням.',
         },
       ],
+      lecturerAssistants: [
+        'Кушнір Дмитро Олександрович',
+        'Довбуш Андрій',
+      ],
+      lecturerName: 'Кушнір Дмитро Олександрович',
+      lecturerPhoto: '/images/apps/wp/lecturer.jpeg',
       lecturesList: [
         {
           description: 'Огляд дисципліни. Базові знання об’єктно-орієнтованого програмування.',
@@ -264,6 +274,7 @@ const config: ConfigMapping = {
       ],
       links,
       name: 'wp',
+      onlineLink: 'https://meet.google.123',
       scores: {
         current: 40,
         exam: 60,
@@ -274,10 +285,10 @@ const config: ConfigMapping = {
       },
       semesters: {
         duration: {
-          partOneEnd: '26.03.2023',
-          partOneStart: '27.02.2023',
-          partTwoEnd: '23.04.2023',
-          partTwoStart: '27.03.2023',
+          partOneEnd: '11.03.2024',
+          partOneStart: '12.02.2024',
+          partTwoEnd: '08.04.2024',
+          partTwoStart: '12.03.2024',
         },
       },
     },

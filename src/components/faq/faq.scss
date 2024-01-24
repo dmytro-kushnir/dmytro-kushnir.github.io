@@ -46,7 +46,7 @@ $background-color_2: var(--wpr-green);
   display: flex;
   gap: 40px;
 }
-.summaru-list {
+.summary-list {
   margin: 20px 0 30px;
   li {
     list-style: none;
@@ -107,6 +107,34 @@ $background-color_2: var(--wpr-green);
     }
   }
 }
+
+.disk-list {
+  li {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 30px 5px 0;
+  }
+}
+
+li {
+  display: inline-block;
+  margin: 10px;
+  a {
+    color: $color_1;
+    > :first-child {
+      font-size: 1.5rem; // icon
+      margin-right: .5rem;
+    }
+  }
+}
+
+.teacher-img {
+  max-width: 15rem;
+  img {
+    border-radius: 50%;
+  }
+}
+
 @media (max-width: 1199px) {
   .faq-wrapper {
     .accordion-button {

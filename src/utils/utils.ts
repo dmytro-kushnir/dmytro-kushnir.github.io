@@ -39,8 +39,3 @@ export function isDesktopScreen() {
 export function isXXLScreen() {
   return window.innerWidth >= SCHEMA.SCREEN_DESIGN_TYPES.XXL;
 }
-
-export default {
-  isDesktopScreen,
-  isMobileDevice,
-};
