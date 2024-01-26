@@ -23,6 +23,7 @@ import { AppNames } from '../../components/config/configMapping.ts';
 import Banner from '../../components/banner/banner.tsx';
 
 import ScrollToTop from '../../components/scroll-to-top/scrollToTop.ts';
+import { useAppHead } from '../../utils/utils.ts';
 
 interface Props {
     appName: AppNames;
@@ -43,7 +44,11 @@ function Layout() {
 }
 
 export default function WebProgrammingApp({ appName }: Props) {
-  const { labList, lecturesList } = useConfig(appName);
+  const {
+    faviconLink, labList, lecturesList, title,
+  } = useConfig(appName);
+
+  useAppHead(faviconLink, title);
 
   return (
     <AppNameProvider appName={appName}>

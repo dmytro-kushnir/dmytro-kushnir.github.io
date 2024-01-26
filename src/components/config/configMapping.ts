@@ -74,6 +74,7 @@ type HeaderMapping = {
 type CommonAppMapping = {
     appPath: string;
     driveLinks: DriveLink[];
+    faviconLink: string;
     header: HeaderMapping;
     labList: LabLink[];
     lecturesList: LectureLink[];
@@ -85,6 +86,7 @@ type CommonAppMapping = {
     onlineLink: string;
     scores: ScoresMappping;
     semesters: SemestersMapping
+    title: string;
 }
 
 export type ConfigMapping = {

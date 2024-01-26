@@ -1,3 +1,6 @@
+// useFavicon.ts
+import { useEffect } from 'react';
+
 const SCHEMA = {
   SCREEN_DESIGN_TYPES: {
     LG: 992, // Large devices (small laptops)
@@ -39,3 +42,14 @@ export function isDesktopScreen() {
 export function isXXLScreen() {
   return window.innerWidth >= SCHEMA.SCREEN_DESIGN_TYPES.XXL;
 }
+
+export const useAppHead = (faviconLink: string, title: string) => {
+  useEffect(() => {
+    const link: HTMLLinkElement = document.querySelector("link[rel*='icon']") || document.createElement('link');
+    link.type = 'image/x-icon';
+    link.rel = 'shortcut icon';
+    link.href = faviconLink;
+    document.getElementsByTagName('head')[0].appendChild(link);
+    document.title = title;
+  }, [faviconLink, title]);
+};

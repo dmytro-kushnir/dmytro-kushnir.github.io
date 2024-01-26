@@ -16,6 +16,7 @@ const config: ConfigMapping = {
     otherApp: {
       appPath: '/other-app',
       driveLinks: [],
+      faviconLink: '/images/apps/otherApp/favicon.png',
       header: {
         banner: {
           defaultPageConfig: { name: 'home', subtitle: 'example', title: 'Example title' },
@@ -51,6 +52,7 @@ const config: ConfigMapping = {
           partTwoStart: '',
         },
       },
+      title: 'Other app',
     },
     wp: {
       appPath: '/web-programming',
@@ -81,6 +83,7 @@ const config: ConfigMapping = {
           name: 'KI-45',
         },
       ],
+      faviconLink: '/images/apps/wp/svg/favicon.svg',
       header: {
         banner: {
           defaultPageConfig: { name: 'home', subtitle: 'Навчальна дисципліна', title: 'Веб-програмуання' },
@@ -291,6 +294,7 @@ const config: ConfigMapping = {
           partTwoStart: '12.03.2024',
         },
       },
+      title: 'Веб-програмування',
     },
   },
 };
