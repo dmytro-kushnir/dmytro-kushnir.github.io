@@ -9,9 +9,9 @@ import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
 
 interface FaqItem {
-  id: string;
-  title: string;
-  content: JSX.Element;
+    id: string;
+    title: string;
+    content: JSX.Element;
 }
 
 function FaqSection() {
@@ -105,7 +105,7 @@ function FaqSection() {
     {
       content: (
         <div className="teacher-box">
-          <div className="teacher-img">
+          <div className="img-lecturer">
             <img src={lecturerPhoto} alt={lecturerName} />
           </div>
           <ul className="summary-list">

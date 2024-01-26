@@ -277,6 +277,10 @@ section {
 
 /* rest */
 
+.accordion-header {
+  font-size: 1rem;
+}
+
 .example {
   width: 100%;
   min-height: 300px;
