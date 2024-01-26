@@ -170,10 +170,10 @@ const config: ConfigMapping = {
       lecturerPhoto: '/images/apps/wp/lecturer.jpeg',
       lecturesList: [
         {
-          description: 'Огляд дисципліни. Базові знання об’єктно-орієнтованого програмування.',
+          description: 'Огляд дисципліни. Клієнт-серверна архітектура та її компоненти.',
           filePath: '/files/apps/wp/lectures/1.pdf',
           id: 'lecture1',
-          imageUrl: '/images/apps/wp/lectures/lecture1.jpg',
+          imageUrl: '/images/apps/wp/lectures/lecture1.webp',
           name: 'Клієнт-серверна архітектура та її компоненти.',
         },
         {
@@ -184,10 +184,10 @@ const config: ConfigMapping = {
           name: 'Протокол HTTP. Принципи функціонування.',
         },
         {
-          description: 'Основні поняття веб-програмування. Знання та вміння для веб-розробника.',
+          description: 'Браузер. Склад і загальні принципи роботи.',
           filePath: '/files/apps/wp/lectures/3.pdf',
           id: 'lecture3',
-          imageUrl: '/images/apps/wp/lectures/lecture3.jpg',
+          imageUrl: '/images/apps/wp/lectures/lecture3.webp',
           name: 'Браузер. Склад і загальні принципи роботи.',
         },
         {
@@ -198,42 +198,42 @@ const config: ConfigMapping = {
           name: 'Веб сервер. Апаратне і програмне забезпечення.',
         },
         {
-          description: '',
+          description: 'Веб-додатки. Поняття, компоненти та принципи роботи.',
           filePath: '/files/apps/wp/lectures/5.pdf',
           id: 'lecture5',
-          imageUrl: '/images/apps/wp/lectures/lecture5.jpg',
+          imageUrl: '/images/apps/wp/lectures/lecture5.webp',
           name: 'Веб-додатки. Поняття, компоненти та принципи роботи.',
           subLectures: [
             { filePath: '/files/apps/wp/lectures/5.1.pdf', id: 'lecture5.1', name: 'Веб-додатки для колективної роботи.' },
           ],
         },
         {
-          description: '',
+          description: 'Архітектура веб-додатків.',
           filePath: '/files/apps/wp/lectures/6.pdf',
           id: 'lecture6',
-          imageUrl: '/images/apps/wp/lectures/lecture6.jpg',
+          imageUrl: '/images/apps/wp/lectures/lecture6.webp',
           name: 'Архітектура веб-додатків.',
         },
         {
-          description: '',
+          description: 'Етапи реалізації веб-проєкту.',
           filePath: '/files/apps/wp/lectures/7.pdf',
           id: 'lecture7',
-          imageUrl: '/images/apps/wp/lectures/lecture7.jpg',
-          name: 'Етапи реалізації веб-проекту.',
+          imageUrl: '/images/apps/wp/lectures/lecture7.webp',
+          name: 'Етапи реалізації веб-проєкту.',
         },
         {
-          description: '',
+          description: 'Етап аналітики в проєктуванні веб додатку.',
           filePath: '/files/apps/wp/lectures/8.pdf',
           id: 'lecture8',
           imageUrl: '/images/apps/wp/lectures/lecture8.jpg',
-          name: 'Етап аналітики і проєктування.',
+          name: 'Етап аналітики в проєктуванні веб додатку.',
         },
         {
-          description: '',
+          description: 'Дизайн-макети, frontend, backend, тестування веб додатку.',
           filePath: '/files/apps/wp/lectures/9.pdf',
           id: 'lecture9',
-          imageUrl: '/images/apps/wp/lectures/lecture9.jpg',
-          name: 'Етап реалізації. Дизайн-макети, frontend, backend, тестування.',
+          imageUrl: '/images/apps/wp/lectures/lecture9.webp',
+          name: 'Дизайн-макети, frontend, backend, тестування веб додатку.',
         },
         {
           description: 'Програмування на стороні клієнта (Front-end). Javascript. AJAX. JavaScript и XML. PHP.',
@@ -263,10 +263,10 @@ const config: ConfigMapping = {
           ],
         },
         {
-          description: '',
+          description: 'Інструменти веб-розробника.',
           filePath: '/files/apps/wp/lectures/12.pdf',
           id: 'lecture12',
-          imageUrl: '/images/apps/wp/lectures/lecture12.jpg',
+          imageUrl: '/images/apps/wp/lectures/lecture12.webp',
           name: 'Інструменти веб-розробника.',
           subLectures: [
             { filePath: '/files/apps/wp/lectures/12.1.pdf', id: 'lecture12.1', name: 'Консоль розробника в браузері.' },
