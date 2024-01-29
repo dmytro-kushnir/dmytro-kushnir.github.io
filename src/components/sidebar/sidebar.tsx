@@ -17,15 +17,15 @@ function Sidebar() {
             <li>
               <strong>{`І половина семестру ${semesters.duration.partOneStart}-${semesters.duration.partOneEnd}`}</strong>
               <ul>
-                <li>{`Лабораторні №1-3 - ${scores.labs / 2} балів`}</li>
-                <li>{`Презентація ${scores.presentationMin} - ${scores.presentationMax} балів (додається до тестів)`}</li>
+                <li>{`Лабораторні №1-3: ${scores.labs / 2} балів`}</li>
+                <li>{`Онлайн задача LeetCode: ${scores.presentationMin} - ${scores.presentationMax} балів (додається до тестів)`}</li>
               </ul>
             </li>
             <li>
               <strong>{`IІ половина семестру ${semesters.duration.partTwoStart}-${semesters.duration.partTwoEnd}`}</strong>
               <ul>
-                <li>{`Лабораторні №4-6 - ${scores.labs / 2} балів`}</li>
-                <li>{`Презентація ${scores.presentationMin} - ${scores.presentationMax} балів (додається до тестів)`}</li>
+                <li>{`Лабораторні №4-6: ${scores.labs / 2} балів`}</li>
+                <li>{`Онлайн задача LeetCode:  ${scores.presentationMin} - ${scores.presentationMax} балів (додається до тестів)`}</li>
               </ul>
             </li>
             <li>
@@ -37,8 +37,8 @@ function Sidebar() {
             <li>
               <strong>Залік</strong>
               <ul>
-                <li>{`Поточні бали - ${scores.current} балів`}</li>
-                <li>{`Екзаменаційні тести - ${scores.exam} балів (з них ${scores.presentationMax * 2} за презентації)`}</li>
+                <li>{`Поточні бали: ${scores.current} балів`}</li>
+                <li>{`Екзаменаційні тести: ${scores.exam} балів (з них ${scores.presentationMax * 2} за онлайн задачі)`}</li>
               </ul>
             </li>
           </ul>

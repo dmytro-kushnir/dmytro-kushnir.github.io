@@ -164,7 +164,7 @@ const config: ConfigMapping = {
       ],
       lecturerAssistants: [
         'Кушнір Дмитро Олександрович',
-        'Довбуш Андрій',
+        'Добуш Андрій Романович',
       ],
       lecturerName: 'Кушнір Дмитро Олександрович',
       lecturerPhoto: '/images/apps/wp/lecturer.jpeg',

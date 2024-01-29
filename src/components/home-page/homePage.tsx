@@ -69,7 +69,7 @@ function CourseShortInfo() {
           <Col className="courseshort-item">
             <div className="courseshort-item-content">
               <h4>Теоретична частина</h4>
-              <p>Лекції, презентації</p>
+              <p>Лекції</p>
             </div>
             <Link to={`${appPath}/lectures`}>
               <FaBookOpen className="icon" />
@@ -78,7 +78,7 @@ function CourseShortInfo() {
           <Col className="courseshort-item courseshort-item-secondary">
             <div className="courseshort-item-content">
               <h4>Практична частина</h4>
-              <p>Лабораторні та самостійна роботи</p>
+              <p>Лабораторні, онлайн-задачі та самостійна робота</p>
             </div>
             <Link to={`${appPath}/self-work`}>
               <FaCode className="icon" />
@@ -126,10 +126,10 @@ function CourseFullInfo() {
                   <span className="arrow" />
                 </div>
                 <div className="course-box-item">
-                  <h5>Презентації (опціонально)</h5>
-                  <p>Презентація - це коротке, змістовне представлення певної новинки з області Інтернет чи Веб: інструмент, мова, фреймворк, бібліотека, сервіс, технологія тощо.</p>
+                  <h5>LeetCode задачі (опціонально)</h5>
+                  <p>LeetCode задачі - це завдання на онлайн ресурсі LeetCode, яке практично демонструє вимоги до технічого кандидата під час співбесіди в IT. </p>
                   <div className="text">
-                    <p>{scores.presentationMax}</p>
+                    <p>{scores.presentationMax * 2}</p>
                   </div>
                   <span className="arrow" />
                 </div>
@@ -246,15 +246,21 @@ function LabsSection() {
   );
 }
 
-function PresentationSection() {
+function LeetCodeTasksSection() {
+  type LeetCodeLink = {
+    title: string;
+    url: string;
+  }
+
   interface AccordionItem {
     content: string[];
     eventKey: string;
     header: string;
+    link?: LeetCodeLink;
     listItems?: string[];
   }
 
-  interface PresentationConfig {
+  interface LeetCodeTasksConfig {
     accordionItems: AccordionItem[];
     introduction: string;
     title: string;
@@ -263,94 +269,89 @@ function PresentationSection() {
   const config = useConfig(useAppName());
   const { semesters } = config;
 
-  const presentationConfig: PresentationConfig = {
+  const leetCodeTasksConfig: LeetCodeTasksConfig = {
     accordionItems: [
       {
         content: [
-          'Презентація - це коротке, змістовне представлення певної новинки з області Інтернет чи Веб: інструмент, сервіс, технологія тощо.',
-          'Структуру доповіді складати за наступним регламентом:',
+          'Задачі на LeetCode - це завдання, яке практично демонструє вимоги до технічного кандидата під час співбесіди в IT.',
+          'Структурно, типи задач можна поділити на:',
         ],
         eventKey: '0',
-        header: 'Що таке презентація?',
+        header: 'Що таке онлайн задачі LeetCode?',
         listItems: [
-          'Мета новинки',
-          'Актуальність розробки',
-          'Сфера застосування',
-          'Доступність для споживачів',
-          'Ефект від використання',
-          'Перспективи розвитку',
+          'алгоритмічні задачі;',
+          'задачі на стуктури даних;',
+          'математичні задачі;',
+          'дизайн систем (ООП, API інтерфейси тощо);',
+          'задачі пов\'язані з конкретною мовою програмування (наприклад Javascript).',
         ],
       },
       {
         content: [
-          'Для презентації можна представити новинки з галузі комп’ютерних та інтернет технологій, що виникли протягом 2022-2023 років.',
+          'Задачі на онлайн ресурсі LeetCode - це завдання, які практично демонструють вимоги до технічного кандидата під час співбесіди в IT. Нижче надано посилання для виконання задач.',
+          'Список відсортований від легших задач до важчих, але цілком можна обирати довільну складність. Щодо варіантів, то студент може обирати ті задачі, які йому найбільше подобаються.',
+          'Обов\'язково виконані задачі потрібно пояснити викладачеві на лабараторній роботі і аргументувати чому саме такий підхід іплементації було обрано.',
         ],
         eventKey: '1',
-        header: 'Теми для презентацій',
-        listItems: [
-          'Сучасні інтернет-сервіси, новітні служби, протоколи.',
-          'Мобільні додатки.',
-          'Інтелектуальні сервіси.',
-          'Робототехніка.',
-          'Програмне забезпечення та інструменти.',
-          'Інтернет речей.',
-          'Криптовалюта, блокчейн, NFT-токени.',
-          'Віртуальна, доповнена та інші реальності.',
-          'Пристрої, що реалізовані на інтелектуальних алгоритмах.',
-          'Штучний інтелект (https://t.me/ukraine_intelekt)',
-          'Інші новинки, що варті представлення.',
-        ],
+        header: 'Посилання на виконання задач та порядок роботи.',
+        link: {
+          title: 'Перейти до завдання',
+          url: 'https://leetcode.com/problem-list/top-interview-questions/?sorting=W3sic29ydE9yZGVyIjoiQVNDRU5ESU5HIiwib3JkZXJCeSI6IkRJRkZJQ1VMVFkifV0%3D',
+        },
       },
       {
         content: [
-          'Презентація проводиться на лабораторних заняттях в присутності викладача та студентів групи.',
-          'Викладач оцінює якість доповіді та наочного матеріалу, актуальність новинки, опанування теми студентом',
-          'Максимальна оцінка за успішну презентацію - 5 балів',
+          'Презентація виконаних задач на LeetCode проводиться на лабораторних заняттях в присутності викладача та студентів групи.',
+          'Викладач оцінює якість доповіді, виконання задачі та опанування теми студентом.',
+          'Максимальна оцінка за успішно виконану та захищену онлайн задачу - 5 балів.',
         ],
         eventKey: '2',
-        header: 'Проведення та оцінювання презентації',
+        header: 'Оцінювання виконання задач.',
       },
       {
         content: [
-          'Протягом семестру студенти мають можливість зробити 2 презентації',
-          'Якщо студент не зробив презентацію протягом першої половини семестру, то в подальшому він має можливість зробити лише одну презентацію.',
-          'Бали, що отримані за презентацію будуть враховані на екзамені як відповідь на описове питання. Описових питань на екзамені є 2, тому кожна презентація зараховується як відповідь на одне описове питання. Під час складання екзамену студент завантажує презентацію (doc, pdf або ppt файл) у вікно описового питання.',
-          'Презентація НЕ є обов’язковою частиною дисципліни. Студенти, що не робили презентацій до екзамену допускаються і мають відповісти на тестові завдання та описові питання.',
+          'Протягом семестру студенти мають можливість захистити 2 онлайн-задачі.',
+          'Якщо студент не зробив задачі протягом першої половини семестру, то в подальшому він має можливість здати лише одну задачу.',
+          'Бали, що отримані за задачі будуть враховані на екзамені як відповідь на описове питання. Описових питань на екзамені є 2, тому кожна захищена задача зараховується як відповідь на одне описове питання. Під час складання екзамену студент завантажує посилання на задачу у вікно описового питання.',
+          'LeetCode задачі НЕ є обов’язковою частиною дисципліни. Студенти, що не робили задачі до екзамену допускаються і мають відповісти на тестові завдання та описові питання.',
         ],
         eventKey: '3',
-        header: 'Бонуси від проведення презентації',
+        header: 'Бонуси від виконання онлайн-задач.',
         listItems: [
           `І половина семестру: ${semesters.duration.partOneStart} - ${semesters.duration.partOneEnd}`,
           `II половина семестру: ${semesters.duration.partTwoStart} - ${semesters.duration.partTwoEnd}`,
         ],
       },
     ],
-    introduction: 'Бурхливий розвиток інтернет технологій змінили життя всього суспільства. З кожним днем зʼявляються все нові і нові можливості як для кожної людини зокрема, так і для всіх сфер життєдіяльності.',
-    title: 'Доповідь-презентація',
+    introduction: `Вміння презентувати як теоретичні так і практичні знання є важливою складовою для успішного працевлаштування в IT. 
+    Для того щоб набути цих навичок, студенти мають можливість виконати набір завдань на онлайн ресурсі LeetCode, та представити результати викладачеві.`,
+    title: 'Онлайн задачі на LeetCode',
   };
 
   return (
     <section className="presentation">
       <Container>
-        <h2>Доповідь-презентація</h2>
+        <h2>{leetCodeTasksConfig.title}</h2>
         <Row>
           <Col lg={6}>
             <div className="presentation-img">
-              <Image path="/images/apps/wp/presentation.png" alt="Доповідь-презентація" />
+              <Image path="/images/apps/wp/presentation.png" alt="LeetCode задачі" />
             </div>
           </Col>
           <Col lg={6}>
             <div className="presentation-box">
-              <p>{presentationConfig.introduction}</p>
+              <p>{leetCodeTasksConfig.introduction}</p>
               <div className="presentation-wrapper">
                 <Accordion className="accordion-flush" id="accordionPresentation">
-                  {presentationConfig.accordionItems.map((item) => (
+                  {leetCodeTasksConfig.accordionItems.map((item) => (
                     <Accordion.Item eventKey={item.eventKey} key={item.eventKey}>
                       <Accordion.Header as="h6" id={`flush-heading${item.eventKey}`}>
                         {item.header}
                       </Accordion.Header>
                       <Accordion.Body className="accordion-body">
-                        {item.content.map((paragraph) => <p key={paragraph.substring(0, 10)}>{paragraph}</p>)}
+                        {item.content.map((paragraph) => <p className="mb-2" key={paragraph.substring(0, 10)}>{paragraph}</p>)}
+                        {item.link?.url && (<a href={item.link.url} target="_blank" rel="noopener noreferrer">{item.link.title}</a>
+                        )}
                         {item.listItems && (
                         <ul className="summary-list">
                           {item.listItems.map((listItem) => <li key={listItem.substring(0, 10)}>{listItem}</li>)}
@@ -392,20 +393,20 @@ function PointsDistributionSection() {
   const pointsDistributionConfig: PointsDistributionConfig = {
     additionalNotes: [
       'Зазначено максимальну кількість балів за умови вчасного і належного захисту.',
-      'Бали за презентації (максимум 10 балів) буде враховано під час екзамену.',
+      'Опціональні бали за виконані і презентовані LeetCode задачі (максимум 10 балів) буде враховано під час екзамену.',
     ],
     periods: [
       {
         items: [
           { label: 'Лабораторні 1-3', points: scores.labs / 2 },
-          { label: 'Доповідь-презентація', points: scores.presentationMax, specialClass: 'pres' },
+          { label: 'Задача на LeetCode', points: scores.presentationMax, specialClass: 'pres' },
         ],
         title: `${semesters.duration.partOneStart}-${semesters.duration.partOneEnd}`,
       },
       {
         items: [
           { label: 'Лабораторні 4-6', points: scores.labs / 2 },
-          { label: 'Доповідь-презентація', points: scores.presentationMax, specialClass: 'pres' },
+          { label: 'Задача на LeetCode', points: scores.presentationMax, specialClass: 'pres' },
         ],
         title: `${semesters.duration.partTwoStart}-${semesters.duration.partTwoEnd}`,
       },
@@ -485,7 +486,7 @@ function HomePage() {
       <CourseFullInfo />
       <LecturesInfo />
       <LabsSection />
-      <PresentationSection />
+      <LeetCodeTasksSection />
       <PointsDistributionSection />
       <Faq />
     </main>
