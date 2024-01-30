@@ -1,4 +1,3 @@
-// useFavicon.ts
 import { useEffect } from 'react';
 
 const SCHEMA = {

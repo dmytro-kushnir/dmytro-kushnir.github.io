@@ -1,7 +1,8 @@
 # Profile page
 
-[Home](https://dmytro-kushnir.github.io/web-programming)
-[Web Programming](https://dmytro-kushnir.github.io/web-programming)
+[Home](https://dmytro-kushnir.github.io) // that currently redirect to Web Programming page.
+
+[Web Programming](https://dmytro-kushnir.github.io/#/web-programming/)
 
 
 # React + TypeScript + Vite
