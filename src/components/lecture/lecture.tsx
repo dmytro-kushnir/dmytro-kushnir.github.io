@@ -36,7 +36,6 @@ function LecturePage({ lecture }: PageProps) {
       </Row>
       <Row className="mt-2 mb-4">
         <Col>
-          {/* Example navigation buttons */}
           {prevLecture && (
             <Link to={`${appPath}/lectures/${prevLecture.id}`}>
               <Button variant="primary" className="me-2">Попередня Лекція</Button>
@@ -44,7 +43,7 @@ function LecturePage({ lecture }: PageProps) {
           )}
           {nextLecture && (
             <Link to={`${appPath}/lectures/${nextLecture.id}`}>
-              <Button variant="secondary">Наступна Леція</Button>
+              <Button variant="secondary">Наступна Лекція</Button>
             </Link>
           )}
         </Col>
