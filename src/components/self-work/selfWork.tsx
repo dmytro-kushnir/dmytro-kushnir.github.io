@@ -249,10 +249,9 @@ const selfWorkConfig: SelfWorkConfig = {
     },
     {
       description: `Рішення масштабуванння веб-аплікації дозволяє створити ізольовані компоненти, які можуть бути запущенні на довільній кількості серверів.
-       В рамках цієї роботи доречно поєднати  масштабоване рішення (наприклад Docker), з існуючими веб-фреймворками (попередні пункти).
-       Наприклад, запустити NodeJs сервер, фронтенд на React та базу даних MongoDB в окремих контейнерах Docker.
-       З такими більш абстрактними SAAS (Software as a Service) системами як Google Cloud чи AWS можна працювати як і через веб-інтерфейс, 
-       так і через їхнє SDK (Software Development Kit), яке інтегровується у ваш веб-фреймворк або операційну систему.`,
+       В рамках цієї роботи доречно поєднати  масштабоване рішення (наприклад Docker), з існуючими веб-фреймворками (попередні пункти). Наприклад, запустити NodeJs сервер, фронтенд на React та базу даних MongoDB в окремих контейнерах Docker.
+       З такими більш абстрактними SAAS (Software as a Service) системами як Google Cloud чи AWS можна працювати як і через веб-інтерфейс, так і через їхнє SDK (Software Development Kit), яке інтегровується у ваш веб-фреймворк або операційну систему.
+       Інший варіант - PAAS рішення для CI/CD (Continious Integration/Continious Deployment). Доречно використати такі системи як Github Pages чи Vercel для інтеграції статичних сайтів аба serverless. Наприклад, при кожному комміті в гітхабі відбувається автоматичний деплой на обрану PAAS систему.`,
       links: [
         {
           altText: 'Docker',
@@ -265,6 +264,18 @@ const selfWorkConfig: SelfWorkConfig = {
           imageUrl: '/images/apps/wp/icon/google-cloud.png',
           text: 'Google Cloud',
           url: 'https://cloud.google.com/',
+        },
+        {
+          altText: 'Vercel',
+          imageUrl: '/images/apps/wp/icon/vercel.png',
+          text: 'Vercel',
+          url: 'https://vercel.com/docs/getting-started-with-vercel',
+        },
+        {
+          altText: 'Github Pages',
+          imageUrl: '/images/apps/wp/icon/github-mark.png',
+          text: 'Github Pages',
+          url: 'https://pages.github.com/',
         },
       ],
       title: '6. Створення масштабованого веб-додатку',
@@ -281,8 +292,8 @@ const selfWorkConfig: SelfWorkConfig = {
   workOrder: [
     'Обрати варіант виконання самостійної роботи.',
     'Визначитися з тематикою проєкту, його назвою та динамічними елементами для реалізації.',
-    'Реалізувати проект у вибраний спосіб.',
-    'Розгорнути проект на безкоштовному хостингу або локальному сервері.',
+    'Реалізувати проєкт у вибраний спосіб.',
+    'Розгорнути проєкт на безкоштовному хостингу або локальному сервері. Щодо хостингу можна використати GitHub Pages, Vercel, Netlify, Firebase Hosting, Heroku, AWS, Google Cloud, Azure тощо. Посилання на деякі з них є в пункті 6.',
     'По результатах роботи сформувати звіт.',
   ],
 };
@@ -303,7 +314,10 @@ function SelfWorkContent() {
           <Accordion.Item eventKey={String(index)} key={option.title}>
             <Accordion.Header>{option.title}</Accordion.Header>
             <Accordion.Body>
-              <p>{option.description}</p>
+              {option.description.split('\n').map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
+
               {option.subTopics && option.subTopics.map((subTopic) => (
                 <Card className="mb-3" key={subTopic.title}>
                   <Card.Header>
