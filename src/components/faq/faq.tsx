@@ -30,13 +30,16 @@ function FaqSection() {
     {
       content: (
         <div>
-          <p>Заняття з дисципліни Веб-програмування у 2024 році відбуваються офлайн у визначених аудиторіях. За потреби проведення онлайн консультацій, буде доступно онлайн посилання:</p>
-          <ul className="summary-list">
-            <li>
-              <strong>Google Meets:</strong>
-            </li>
-            <li><a href={onlineLink} target="_blank" rel="noreferrer">Лінк до сторінки Google Meet</a></li>
-          </ul>
+          <p>Заняття з дисципліни Веб-програмування у 2024 році відбуваються офлайн у визначених аудиторіях. За потреби проведення онлайн консультацій, буде доступно онлайн посилання.</p>
+          {onlineLink
+            && (
+            <ul className="summary-list">
+              <li>
+                <strong>Google Meets:</strong>
+              </li>
+              <li><a href={onlineLink} target="_blank" rel="noreferrer">Лінк до сторінки Google Meet</a></li>
+            </ul>
+            )}
           <br />
           <p>
             <strong>Лекції веде та проводить захисти: </strong>

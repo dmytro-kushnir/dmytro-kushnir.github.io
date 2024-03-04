@@ -277,7 +277,7 @@ const config: ConfigMapping = {
       ],
       links,
       name: 'wp',
-      onlineLink: 'https://meet.google.123',
+      onlineLink: '',
       scores: {
         current: 40,
         exam: 60,
