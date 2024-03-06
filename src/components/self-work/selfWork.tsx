@@ -266,6 +266,18 @@ const selfWorkConfig: SelfWorkConfig = {
           url: 'https://cloud.google.com/',
         },
         {
+          altText: 'Firebase',
+          imageUrl: '/images/apps/wp/icon/firebase.png',
+          text: 'Firebase',
+          url: 'https://firebase.google.com/',
+        },
+        {
+          altText: 'Amazon Web Services',
+          imageUrl: '/images/apps/wp/icon/aws.png',
+          text: 'Amazon Web Services',
+          url: 'https://aws.amazon.com/',
+        },
+        {
           altText: 'Vercel',
           imageUrl: '/images/apps/wp/icon/vercel.png',
           text: 'Vercel',
