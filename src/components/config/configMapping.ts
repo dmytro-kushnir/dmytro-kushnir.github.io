@@ -6,6 +6,7 @@ interface DriveLink {
 
 type ScoresMappping = {
     current: number;
+    interview: number;
     exam: number;
     labs: number;
     presentationMax: number;

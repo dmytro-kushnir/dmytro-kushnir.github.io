@@ -393,27 +393,29 @@ function PointsDistributionSection() {
   const pointsDistributionConfig: PointsDistributionConfig = {
     additionalNotes: [
       'Зазначено максимальну кількість балів за умови вчасного і належного захисту.',
-      'Опціональні бали за виконані і презентовані LeetCode задачі (максимум 10 балів) буде враховано під час екзамену.',
+      `Опціональні бали за виконані і презентовані LeetCode задачі (максимум ${scores.presentationMax * 2} балів) буде враховано під час заліку замість описових задач.`,
+      'Усна компонента є опціональною, за бажанням студента.',
     ],
     periods: [
       {
         items: [
           { label: 'Лабораторні 1-3', points: scores.labs / 2 },
-          { label: 'Задача на LeetCode', points: scores.presentationMax, specialClass: 'pres' },
+          { label: 'Задача на LeetCode', points: scores.presentationMax, specialClass: 'optional' },
         ],
         title: `${semesters.duration.partOneStart}-${semesters.duration.partOneEnd}`,
       },
       {
         items: [
           { label: 'Лабораторні 4-6', points: scores.labs / 2 },
-          { label: 'Задача на LeetCode', points: scores.presentationMax, specialClass: 'pres' },
+          { label: 'Задача на LeetCode', points: scores.presentationMax, specialClass: 'optional' },
         ],
         title: `${semesters.duration.partTwoStart}-${semesters.duration.partTwoEnd}`,
       },
       {
         items: [
           { label: 'Самостійна робота', points: scores.selfStudy },
-          { label: 'Тести', points: scores.exam, specialClass: 'test' },
+          { label: 'Тести, описові питання', points: scores.exam - scores.interview, specialClass: 'test' },
+          { label: 'Усна компонента', points: scores.interview, specialClass: 'test' },
         ],
         title: 'Залік',
       },
@@ -458,7 +460,7 @@ function PointsDistributionSection() {
                   ))}
                   <ul className="inner-bullet">
                     <li>
-                      <strong />
+                      <strong className="work" />
                       {' '}
                       Виконання під час навчання
                     </li>

@@ -39,6 +39,7 @@ const config: ConfigMapping = {
       scores: {
         current: 0,
         exam: 0,
+        interview: 0,
         labs: 0,
         presentationMax: 0,
         presentationMin: 0,
@@ -281,6 +282,7 @@ const config: ConfigMapping = {
       scores: {
         current: 40,
         exam: 60,
+        interview: 10,
         labs: 20, // please divide by 2 for each semester
         presentationMax: 5,
         presentationMin: 1,
