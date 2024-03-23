@@ -150,7 +150,7 @@ const selfWorkConfig: SelfWorkConfig = {
           imageUrl: '/images/apps/wp/icon/vite.svg',
           text: 'Vite JS',
           url: 'https://vitejs.dev/',
-        }
+        },
       ],
       title: '3. Створення повноцінного сайту, написаного за допомогою JS-фрейворків',
     },
