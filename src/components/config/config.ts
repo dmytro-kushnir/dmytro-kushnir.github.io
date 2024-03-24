@@ -59,28 +59,28 @@ const config: ConfigMapping = {
       appPath: '/web-programming',
       driveLinks: [
         {
-          doc: 'https://docs.google.com/spreadsheets/d/1GuNo81pLNycFgitpYdWhWQYXXBZUwPwm/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
-          drive: 'https://drive.google.com/drive/folders/1VYRNmxpzhw60KguvhYRAVOXA_Gl-LZAI?usp=sharing',
+          doc: 'https://docs.google.com/spreadsheets/d/1mryFxzyOy7czdyvab6F1MAZa3e_Vc-Yk/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
+          drive: 'https://drive.google.com/drive/folders/1zOvW9TOw4hEO23iV0v768GcsEoz1y8RM?usp=drive_link',
           name: 'KI-41',
         },
         {
-          doc: 'https://docs.google.com/spreadsheets/d/13tPq2JokpqsS4A0TtfalLJE5NvO99unq/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
-          drive: 'https://drive.google.com/drive/folders/14CDTAxS7Ny9L_jbMt4qhvMBK7BDsSPEi?usp=sharing',
+          doc: 'https://docs.google.com/spreadsheets/d/1JTF9MVdyosBGXYQi2kTrMOtEnErC9t0M/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
+          drive: 'https://drive.google.com/drive/folders/1bxZ4fea1BeIDPNOfTgPXIyKPj35BEmV_?usp=drive_link',
           name: 'KI-42',
         },
         {
-          doc: 'https://docs.google.com/spreadsheets/d/1uNGUPKZUAIP-Ypd_4aIk9FfEI4w-cYfH/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
-          drive: 'https://drive.google.com/drive/folders/1tmcdCmN6qQWRrxvSRPnBXsCvW8pb12Hc?usp=sharing',
+          doc: 'https://docs.google.com/spreadsheets/d/1pIV1ZBFADBnjB25DYr7wLjhrZp8l1bFi/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
+          drive: 'https://drive.google.com/drive/folders/1Hnrov1ovJxGaoT1UBuMIggQu7N0UbJ5T?usp=drive_link',
           name: 'KI-43',
         },
         {
-          doc: 'https://docs.google.com/spreadsheets/d/1B1T_swDd3fdmID8oELcjVOE9B3slM9HB/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
-          drive: 'https://drive.google.com/drive/folders/1Nmr41AOGft7_RdMr7IPwC3Urr_vbDotE?usp=sharing',
+          doc: 'https://docs.google.com/spreadsheets/d/1vhnoKNyL29fohGtEGEnfsQLbjo8KrbnY/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
+          drive: 'https://drive.google.com/drive/folders/1U9bJ4XKsD3vMmwhvYx3uYQ23zSVBq_eI?usp=drive_link',
           name: 'KI-44',
         },
         {
-          doc: 'https://docs.google.com/spreadsheets/d/1Lf801e48pGSPSgrMp7X37pyo7sEyzCKx/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
-          drive: 'https://drive.google.com/drive/folders/1oZEZdznLH-WHlQsfGWcxgwisWYgR9Lkw?usp=sharing',
+          doc: 'https://docs.google.com/spreadsheets/d/13WulPB-aOZutVQqAGISA4zv83_kCqfw5/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
+          drive: 'https://drive.google.com/drive/folders/1L9u9YfOpOwQ77iFrV_AmnvGmRZpdB3YO?usp=drive_link',
           name: 'KI-45',
         },
       ],
