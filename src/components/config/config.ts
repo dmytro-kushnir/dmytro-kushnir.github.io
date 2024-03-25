@@ -292,7 +292,7 @@ const config: ConfigMapping = {
         duration: {
           partOneEnd: '11.03.2024',
           partOneStart: '12.02.2024',
-          partTwoEnd: '08.04.2024',
+          partTwoEnd: '29.03.2024',
           partTwoStart: '12.03.2024',
         },
       },
