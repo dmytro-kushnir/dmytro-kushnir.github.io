@@ -92,12 +92,14 @@ type CommonAppMapping = {
 
 export type ConfigMapping = {
     apps: {
+        compArch: CommonAppMapping
         otherApp: CommonAppMapping
         wp: CommonAppMapping
     };
 };
 
 const AppNames = {
+  compArch: 'compAch' as const,
   otherApp: 'otherApp' as const,
   wp: 'wp' as const,
 } as const;

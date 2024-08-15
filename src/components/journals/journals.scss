@@ -1,8 +1,8 @@
-$color_1: var(--wpr-main);
+$color_1: var(--app-color-main);
 $color_2: #fff;
 $color_3: var(--wd-darkless);
-$background-color_1: var(--wpr-light);
-$background-color_2: var(--wpr-green);
+$background-color_1: var(--app-color-light);
+$background-color_2: var(--app-color-content);
 
 .result-block {
   padding-bottom: 7rem;
@@ -63,7 +63,7 @@ $background-color_2: var(--wpr-green);
   .result-table {
     width: 100%;
     min-height: 100vh;
-    border: 1px solid var(--wpr-gray);
+    border: 1px solid var(--app-color-gray);
     overflow: auto;
     scrollbar-width: thin;
   }

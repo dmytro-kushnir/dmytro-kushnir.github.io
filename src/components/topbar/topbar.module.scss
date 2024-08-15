@@ -1,7 +1,7 @@
 $color_1: #fff;
 
 .topbar {
-    background: var(--wpr-main);
+    background: var(--app-color-main);
 }
 .topbar-block {
     display: flex;
@@ -20,7 +20,7 @@ $color_1: #fff;
             align-items: center;
             > :first-child { // icon
                 padding-right: 10px;
-                border-right: 1px solid var(--wpr-gray);
+                border-right: 1px solid var(--app-color-gray);
                 line-height: 20px;
                 margin-right: 10px;
                 font-size: 1.6rem;
@@ -49,7 +49,7 @@ $color_1: #fff;
         top: 0;
         bottom: 0;
         width: 3000px;
-        background: var(--wpr-green);
+        background: var(--app-color-content);
         z-index: -1;
     }
     li {

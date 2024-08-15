@@ -1,5 +1,5 @@
-$color_1: var(--wpr-green);
-$color_2: var(--wpr-main);
+$color_1: var(--app-color-content);
+$color_2: var(--app-color-main);
 $background-color_1: #fff;
 
 /*
@@ -25,7 +25,7 @@ $background-color_1: #fff;
     bottom: 0;
     overflow-y: auto;
     background-color: $background-color_1;
-    box-shadow: var(--wpr-shadow);
+    box-shadow: var(--app-color-shadow);
     padding: 0;
     z-index: 9999;
 }

@@ -3,17 +3,17 @@
     font-size: 1.4rem;
 }
 
-$color_1: var(--wpr-main);
+$color_1: var(--app-color-main);
 $color_2: var(--wpr-red );
 $background-color_1: #fff;
-$background-color_2: var(--wpr-green);
-$background-color_3: var(--wpr-main);
-$background-color_4: var(--wpr-gray);
-$background-color_5: var(--wpr-light);
+$background-color_2: var(--app-color-content);
+$background-color_3: var(--app-color-main);
+$background-color_4: var(--app-color-gray);
+$background-color_5: var(--app-color-light);
 
 .header {
     z-index: 9999;
-    box-shadow: var(--wpr-shadow);
+    box-shadow: var(--app-color-shadow);
     transition: all 0.3s ease-in-out;
 
     &.sticky-header {
@@ -31,7 +31,7 @@ $background-color_5: var(--wpr-light);
     top: 0;
     left: 0;
     right: 0;
-    box-shadow: var(--wpr-shadow);
+    box-shadow: var(--app-color-shadow);
 }
 .navbar {
     padding: 0;
@@ -81,8 +81,8 @@ $background-color_5: var(--wpr-light);
         margin: 0;
         padding: 0;
         background-color: $background-color_1;
-        border-top: 5px solid var(--wpr-green);
-        box-shadow: var(--wpr-shadow);
+        border-top: 5px solid var(--app-color-content);
+        box-shadow: var(--app-color-shadow);
         border-radius: 0;
         max-height: 500px;
         overflow-y: auto;
@@ -104,7 +104,7 @@ $background-color_5: var(--wpr-light);
             font-weight: 500;
             padding: 10px 15px;
             color: $color_1;
-            border-bottom: 1px solid var(--wpr-gray);
+            border-bottom: 1px solid var(--app-color-gray);
         }
         li {
             &:last-of-type {

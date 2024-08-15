@@ -12,9 +12,31 @@ import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
 import { isDesktopScreen } from '../../utils/utils.ts';
 
-function Header() {
+interface HeaderConfig {
+  showCourseWork?: boolean;
+  showDriveLinks?: boolean;
+  showGrades?: boolean;
+  showLabList?: boolean;
+  showLectures?: boolean;
+  showSelfWork?: boolean;
+}
+
+interface HeaderProps {
+  config: HeaderConfig;
+}
+
+function Header({
+  config: {
+    showDriveLinks = false,
+    showGrades = false,
+    showLabList = false,
+    showLectures = false,
+    showSelfWork = false,
+    showCourseWork = false,
+  } = {},
+}: HeaderProps) {
   const navigate = useNavigate();
-  const config = useConfig(useAppName());
+  const appConfig = useConfig(useAppName());
 
   const {
     appPath,
@@ -23,7 +45,7 @@ function Header() {
       logo,
     },
     labList,
-  } = config;
+  } = appConfig;
 
   const [showDropdown, setShowDropdown] = useState<string | null>(null);
   const [showSidebar, setShowSidebar] = useState<boolean>(false);
@@ -64,7 +86,8 @@ function Header() {
           <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-center order-3 order-xl-2">
             <Nav className="mr-auto">
               <Nav.Link as={NavLink} to={`${appPath}/`} onClick={toggleNavbar}>Головна</Nav.Link>
-              <Nav.Link as={NavLink} to={`${appPath}/lectures`} onClick={toggleNavbar}>Лекції</Nav.Link>
+              {showLectures && (<Nav.Link as={NavLink} to={`${appPath}/lectures`} onClick={toggleNavbar}>Лекції</Nav.Link>)}
+              {showLabList && (
               <NavDropdown
                 title="Лабораторні"
                 id="navbarLabDropdown"
@@ -84,8 +107,11 @@ function Header() {
                   </NavDropdown.Item>
                 ))}
               </NavDropdown>
+              )}
 
-              <Nav.Link as={NavLink} to={`${appPath}/self-work`} onClick={toggleNavbar}>Самостійна</Nav.Link>
+              {showSelfWork && (<Nav.Link as={NavLink} to={`${appPath}/self-work`} onClick={toggleNavbar}>Самостійна</Nav.Link>)}
+              {showCourseWork && (<Nav.Link as={NavLink} to={`${appPath}/course-work`} onClick={toggleNavbar}>Курсова робота</Nav.Link>)}
+              {showDriveLinks && (
               <NavDropdown
                 title="Диски"
                 id="navbarDiskDropdown"
@@ -105,7 +131,8 @@ function Header() {
                   </NavDropdown.Item>
                 ))}
               </NavDropdown>
-              <Nav.Link as={NavLink} to={`${appPath}/grades`} onClick={toggleNavbar}>Журнали</Nav.Link>
+              )}
+              {showGrades && (<Nav.Link as={NavLink} to={`${appPath}/grades`} onClick={toggleNavbar}>Журнали</Nav.Link>)}
             </Nav>
           </Navbar.Collapse>
           <div className="order-1 d-none d-xl-block order-xl-3">

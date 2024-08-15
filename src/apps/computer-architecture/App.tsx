@@ -33,11 +33,11 @@ function Layout() {
     <div>
       <TopBar />
       <Header config={{
+        showCourseWork: true,
         showDriveLinks: true,
         showGrades: true,
         showLabList: true,
         showLectures: true,
-        showSelfWork: true,
       }}
       />
       <Banner />
@@ -70,7 +70,11 @@ export default function WebProgrammingApp({ appName }: Props) {
               <React.Fragment key={lecture.id}>
                 <Route path={`/lectures/${lecture.id}`} element={<Lecture lecture={lecture} />} />
                 {lecture.subLectures && lecture.subLectures.map((subLecture) => (
-                  <Route key={subLecture.id} path={`/lectures/${subLecture.id}`} element={<Lecture lecture={subLecture} />} />
+                  <Route
+                    key={subLecture.id}
+                    path={`/lectures/${subLecture.id}`}
+                    element={<Lecture lecture={subLecture} />}
+                  />
                 ))}
               </React.Fragment>
             ))}
