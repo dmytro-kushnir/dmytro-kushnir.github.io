@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import ModuleLoader from '../loader/loader.tsx';
+import ModuleLoader from '../loading-spinner/loadingSpinner.tsx';
 
 interface IframeLoaderProps {
     src: string;

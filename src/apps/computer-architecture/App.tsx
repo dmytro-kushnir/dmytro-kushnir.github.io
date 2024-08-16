@@ -13,7 +13,8 @@ import Lab from '../../components/lab/lab.tsx';
 import Lectures from '../../components/lecture/lectures.tsx';
 import Lecture from '../../components/lecture/lecture.tsx';
 import Journals from '../../components/journals/journals.tsx';
-import SelfWork from '../../components/self-work/selfWork.tsx';
+import CourseWork from '../../components/course-work/courseWork.tsx';
+import MediumArticle from '../../components/articles/mediumArticle.tsx';
 
 import NoMatch from '../../components/no-match/index.tsx';
 import useConfig from '../../components/config/useConfig.ts';
@@ -33,6 +34,7 @@ function Layout() {
     <div>
       <TopBar />
       <Header config={{
+        showArticles: true,
         showCourseWork: true,
         showDriveLinks: true,
         showGrades: true,
@@ -82,7 +84,8 @@ export default function WebProgrammingApp({ appName }: Props) {
             {labList.map((lab) => (
               <Route key={lab.id} path={`labs/${lab.id}`} element={<Lab lab={lab} />} />
             ))}
-            <Route path="self-work" element={<SelfWork />} />
+            <Route path="course-work" element={<CourseWork />} />
+            <Route path="articles" element={<MediumArticle />} />
             <Route path="grades" element={<Journals />} />
             <Route path="*" element={<NoMatch />} />
           </Route>

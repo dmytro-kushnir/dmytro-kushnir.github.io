@@ -1,7 +1,7 @@
 import {
   useState, useEffect, startTransition,
 } from 'react';
-import ModuleLoader from '../loader/loader.tsx';
+import ModuleLoader from '../loading-spinner/loadingSpinner.tsx';
 
 interface Props {
     name: string;

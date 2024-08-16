@@ -72,8 +72,27 @@ type HeaderMapping = {
     }
 };
 
+interface CourseWork {
+    description: string;
+    filePath: string;
+    name: string;
+    objective: string;
+    sample?: string;
+    samplePath?: string;
+}
+
+interface Article {
+    description: string;
+    link?: string;
+    name?: string;
+    type: string;
+    username: string;
+}
+
 type CommonAppMapping = {
     appPath: string;
+    articles?: Article[];
+    courseWork?: CourseWork;
     driveLinks: DriveLink[];
     faviconLink: string;
     header: HeaderMapping;

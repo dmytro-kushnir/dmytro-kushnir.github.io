@@ -13,6 +13,7 @@ import useAppName from '../context/useAppNameContext.ts';
 import { isDesktopScreen } from '../../utils/utils.ts';
 
 interface HeaderConfig {
+  showArticles?: boolean;
   showCourseWork?: boolean;
   showDriveLinks?: boolean;
   showGrades?: boolean;
@@ -27,6 +28,7 @@ interface HeaderProps {
 
 function Header({
   config: {
+    showArticles = false,
     showDriveLinks = false,
     showGrades = false,
     showLabList = false,
@@ -110,7 +112,8 @@ function Header({
               )}
 
               {showSelfWork && (<Nav.Link as={NavLink} to={`${appPath}/self-work`} onClick={toggleNavbar}>Самостійна</Nav.Link>)}
-              {showCourseWork && (<Nav.Link as={NavLink} to={`${appPath}/course-work`} onClick={toggleNavbar}>Курсова робота</Nav.Link>)}
+              {showCourseWork && (<Nav.Link as={NavLink} to={`${appPath}/course-work`} onClick={toggleNavbar}>Курсова</Nav.Link>)}
+              {showArticles && (<Nav.Link as={NavLink} to={`${appPath}/articles`} onClick={toggleNavbar}>Статті</Nav.Link>)}
               {showDriveLinks && (
               <NavDropdown
                 title="Диски"

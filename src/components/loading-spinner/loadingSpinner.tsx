@@ -1,4 +1,4 @@
-import cssClasses from './loader.module.scss';
+import cssClasses from './loadingSpinner.module.scss';
 
 const moduleLoader = () => (
   <div className={cssClasses.loading}>
