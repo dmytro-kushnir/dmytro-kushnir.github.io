@@ -24,6 +24,7 @@ type SemestersMapping = {
 }
 
 type LinksMapping = {
+    courses: { name: string; path: string }[];
     institute: string;
     mail: string;
     university: string;

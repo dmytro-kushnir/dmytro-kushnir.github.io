@@ -14,3 +14,7 @@ footer {
         margin: 10px;
     }
 }
+
+.active-dropdown-item {
+    background-color: var(--app-color-content) !important; // override react-bootstrap default styles
+}
