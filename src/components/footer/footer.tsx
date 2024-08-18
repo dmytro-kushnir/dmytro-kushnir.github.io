@@ -42,7 +42,7 @@ function Footer() {
             <Dropdown.Menu>
               {links.courses.map((course) => (
                 <Dropdown.Item
-                  className={location.pathname === course.path ? cssClasses['active-dropdown-item'] : ''}
+                  className={location.pathname.includes(course.path) ? cssClasses['active-dropdown-item'] : ''}
                   as={NavLink}
                   key={course.name}
                   to={course.path}
