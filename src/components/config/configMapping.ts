@@ -44,6 +44,9 @@ export interface LabLink {
     link: string
     name: string;
     objective: string;
+    reference?: string;
+    sample?: string;
+    samplePath?: string;
 }
 
 export interface LectureLink {

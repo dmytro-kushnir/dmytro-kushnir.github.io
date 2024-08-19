@@ -95,6 +95,8 @@ const config: ConfigMapping = {
           link: '/labs/lab1',
           name: 'Лабараторна №1',
           objective: 'Ознайомитися з симулятором машини Ноймана та дослідити виконання коду в симуляторі.',
+          sample: 'lab1-2.zip',
+          samplePath: '/files/apps/comp-arch/labs/',
         },
         {
           description: 'Дослідження макроалгоритмів та мікроалгоритмів виконання машинних інструкцій.',
@@ -105,6 +107,8 @@ const config: ConfigMapping = {
           link: '/labs/lab2',
           name: 'Лабараторна №2',
           objective: 'Вивчити макро та мікроалгоритми виконання інструкцій.',
+          sample: 'lab1-2.zip',
+          samplePath: '/files/apps/comp-arch/labs/',
         },
         {
           description: 'Робота з симулятором машини Ноймана. Дослідження виконання асемблерної програми симулятора.',
@@ -115,6 +119,8 @@ const config: ConfigMapping = {
           link: '/labs/lab3',
           name: 'Лабараторна №3',
           objective: 'Вивчити виконання асемблерної програми в симуляторі CISC.',
+          sample: 'lab3.zip',
+          samplePath: '/files/apps/comp-arch/labs/',
         },
         {
           description: 'Робота з симулятором машини Ноймана. Дослідження архітектури системи команд.',
@@ -125,6 +131,8 @@ const config: ConfigMapping = {
           link: '/labs/lab4',
           name: 'Лабараторна №4',
           objective: 'Вивчити архітектуру системи команд у симуляторі CISC.',
+          sample: 'lab4.zip',
+          samplePath: '/files/apps/comp-arch/labs/',
         },
         {
           description: 'Робота з симулятором MARIE.',
@@ -135,6 +143,7 @@ const config: ConfigMapping = {
           link: '/labs/lab5',
           name: 'Лабараторна №5',
           objective: 'Ознайомитися з симулятором MARIE.',
+          reference: 'https://marie.js.org/',
         },
         {
           description: 'Дослідження виконання інструкцій симулятора MARIE за допомогою DataPath.',
@@ -145,6 +154,7 @@ const config: ConfigMapping = {
           link: '/labs/lab6',
           name: 'Лабараторна №6',
           objective: 'Дослідити виконання інструкцій MARIE через DataPath.',
+          reference: 'https://marie.js.org/#datapath',
         },
         {
           description: 'Дослідження виконання циклів на конвеєрі інструкцій.',
@@ -155,6 +165,8 @@ const config: ConfigMapping = {
           link: '/labs/lab7',
           name: 'Лабараторна №7',
           objective: 'Вивчити виконання циклів на RISC конвеєрі інструкцій.',
+          sample: 'lab7-8.zip',
+          samplePath: '/files/apps/comp-arch/labs/',
         },
         {
           description: 'Конкурентне виконання машинних інструкцій.',
@@ -165,6 +177,8 @@ const config: ConfigMapping = {
           link: '/labs/lab8',
           name: 'Лабараторна №8',
           objective: 'Ознайомитися конкурентне виконання RISC інструкцій.',
+          sample: 'lab7-8.zip',
+          samplePath: '/files/apps/comp-arch/labs/',
         },
       ],
       lecturerAssistants: [

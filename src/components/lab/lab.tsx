@@ -1,5 +1,5 @@
 import {
-  Badge, Col, Container, Row,
+  Badge, Button, Col, Container, Row,
 } from 'react-bootstrap';
 import { LabLink } from '../config/configMapping.ts';
 import IframeLoader from '../iframe/iframe.tsx';
@@ -30,6 +30,20 @@ function Lab({ lab }: Props) {
           </p>
           <p> Файли зроблених завдань а також звіт потрібно завантажити на диск у іменну теку.</p>
         </Col>
+        {lab.sample && lab.samplePath && (
+        <a href={`${lab.samplePath}${lab.sample}`} download={lab.sample}>
+          <Button variant="primary" className="mb-4" style={{ backgroundColor: 'var(--app-color-content)' }}>
+            {`Завантажити матеріали до лабараторної ${lab.sample}`}
+          </Button>
+        </a>
+        )}
+        {lab.reference && (
+        <a href={lab.reference} target="_blank" rel="noopener noreferrer">
+          <Button variant="primary" className="mb-4" style={{ backgroundColor: 'var(--app-color-content)' }}>
+            Посилання на веб-сайт лабараторної для виконання роботи
+          </Button>
+        </a>
+        )}
       </Row>
       <Row>
         <Col>
@@ -37,7 +51,7 @@ function Lab({ lab }: Props) {
             ? (
               <h3>
                 <Badge bg="secondary" as="a" href={`${baseUrl}${lab.filePath}`} target="_blank" rel="noopener noreferrer">
-                  Переглянути завдання
+                  Переглянути методичні вказівки
                 </Badge>
               </h3>
             )

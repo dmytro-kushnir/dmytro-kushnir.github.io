@@ -34,11 +34,13 @@ function CourseWork() {
             {' '}
             {objective}
           </p>
+          {sample && samplePath && (
           <a href={`${samplePath}${sample}`} download={sample}>
             <Button variant="primary" className="mb-4" style={{ backgroundColor: 'var(--app-color-content)' }}>
               {`Завантажити приклад ${sample}`}
             </Button>
           </a>
+          )}
         </Col>
       </Row>
       <Row>
