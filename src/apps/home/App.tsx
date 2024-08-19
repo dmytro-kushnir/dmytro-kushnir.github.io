@@ -9,6 +9,7 @@ import { ConfigMapping, AppNames } from '../../components/config/configMapping.t
 
 import './App.scss';
 import NoMatch from '../../components/no-match/index.tsx';
+import Error from '../../components/error/index.tsx';
 
 interface AppProps {
     config: ConfigMapping;
@@ -56,6 +57,7 @@ export default function App({ config }: AppProps) { //   HashRouter could be rei
           <Route path="/" element={<Navigate to={`${config.apps.wp.appPath as AppNames}/`} />} />
           <Route path={`${config.apps.wp.appPath as AppNames}/*`} element={<WebProgrammingApp appName={config.apps.wp.name as AppNames} />} />
           <Route path={`${config.apps.compArch.appPath as AppNames}/*`} element={<ComputerArchitectureApp appName={config.apps.compArch.name as AppNames} />} />
+          <Route path="error" element={<Error />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </HashRouter>

@@ -2,6 +2,7 @@ import {
   Col, Container, Row,
 } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
@@ -17,8 +18,9 @@ interface Post {
 function MediumArticle() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
-  const { articles = [] } = useConfig(useAppName());
+  const { appPath, articles = [] } = useConfig(useAppName());
   const { description = '', username } = articles[0];
 
   useEffect(() => {
@@ -31,11 +33,10 @@ function MediumArticle() {
         setPosts(feed.items);
         setLoading(false);
       } catch (error) {
-        // eslint-disable-next-line no-console
-        console.error('Error fetching data:', error);
+        navigate(`${appPath}/error`);
       }
     })();
-  }, [username]);
+  }, [appPath, navigate, username]);
 
   return (
     <>
@@ -43,7 +44,7 @@ function MediumArticle() {
       <Container fluid="md" className="my-4">
         <Row>
           <Col>
-            {posts.map((post) => (
+            {posts?.length && posts.map((post) => (
               <div key={post.guid}>
                 <a href={post.link} target="_blank" rel="noopener noreferrer">
                   <h2>{post.title}</h2>

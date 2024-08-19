@@ -17,6 +17,7 @@ import CourseWork from '../../components/course-work/courseWork.tsx';
 import MediumArticle from '../../components/articles/mediumArticle.tsx';
 
 import NoMatch from '../../components/no-match/index.tsx';
+import Error from '../../components/error/index.tsx';
 import useConfig from '../../components/config/useConfig.ts';
 import AppNameProvider from '../../components/context/appName.tsx';
 import { AppNames } from '../../components/config/configMapping.ts';
@@ -87,6 +88,7 @@ export default function WebProgrammingApp({ appName }: Props) {
             <Route path="course-work" element={<CourseWork />} />
             <Route path="articles" element={<MediumArticle />} />
             <Route path="grades" element={<Journals />} />
+            <Route path="error" element={<Error />} />
             <Route path="*" element={<NoMatch />} />
           </Route>
         </Routes>
