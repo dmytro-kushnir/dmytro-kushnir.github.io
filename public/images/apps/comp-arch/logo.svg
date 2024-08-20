@@ -1,0 +1,11 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 38" width="160" height="38">
+	<title>logo</title>
+	<style>
+		tspan { white-space:pre } 
+		.t0 { font-size: 25px;fill: #ffffff;font-weight: 700;font-family: "DejaVuSerif-Bold", "DejaVu Serif" } 
+	</style>
+	<text id="Comp Arch" style="transform: matrix(1,0,0,1,-0.046,27)" >
+		<tspan x="0" y="0" class="t0">C</tspan><tspan  y="0" class="t0">o</tspan><tspan  y="0" class="t0">m</tspan><tspan  y="0" class="t0">p</tspan><tspan  y="0" class="t0"> </tspan><tspan  y="0" class="t0">A</tspan><tspan  y="0" class="t0">r</tspan><tspan  y="0" class="t0">c</tspan><tspan  y="0" class="t0">h
+</tspan>
+	</text>
+</svg>

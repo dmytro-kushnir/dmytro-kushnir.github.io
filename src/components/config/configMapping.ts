@@ -64,16 +64,18 @@ interface PageConfig {
     subtitle?: string;
 }
 
+interface ImageMapping {
+    url: string;
+    alt: string;
+}
+
 type HeaderMapping = {
     banner: {
         url: string;
         defaultPageConfig: PageConfig;
         pageConfigs: PageConfig[];
     }
-    logo: {
-        url: string;
-        alt: string;
-    }
+    logo: ImageMapping
 };
 
 interface CourseWork {
@@ -93,6 +95,19 @@ interface Article {
     username: string;
 }
 
+interface HomePageMapping {
+    aboutSection?: {
+        logo?: ImageMapping
+        objective?: {
+            conclusion?: string;
+            link?: string;
+            list?: string[];
+            primary?: string;
+            secondary?: string;
+        };
+    };
+}
+
 type CommonAppMapping = {
     appPath: string;
     articles?: Article[];
@@ -100,6 +115,7 @@ type CommonAppMapping = {
     driveLinks: DriveLink[];
     faviconLink: string;
     header: HeaderMapping;
+    homePage: HomePageMapping;
     labList: LabLink[];
     lecturesList: LectureLink[];
     lecturerName: string;

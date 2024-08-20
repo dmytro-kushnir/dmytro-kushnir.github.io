@@ -1,5 +1,3 @@
-// import logo from '../../apps/web-programming/assets/logo.png';
-
 interface ImageProps {
     path: string; // Path to the image
     alt?: string; // Alt text for the image (optional)

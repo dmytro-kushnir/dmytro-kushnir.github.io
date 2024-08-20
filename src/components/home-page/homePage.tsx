@@ -16,40 +16,36 @@ import { isMobileDevice } from '../../utils/utils.ts';
 
 function CourseIntro() {
   const config = useConfig(useAppName());
-  const { appPath } = config;
+  const { appPath, homePage: { aboutSection = { } } } = config;
+  const {
+    logo = { alt: '', url: '' },
+    objective = {},
+  } = aboutSection;
 
   return (
     <section>
       <Container>
-        <Row className="d-flex align-items-center">
+        <Row className="d-flex align-items-start">
           <Col lg={5}>
-            <Image path="/images/apps/wp/about.jpg" alt="Мета та завдання курсу" />
+            <Image alt={logo.alt} className="rounded" path={logo.url} />
           </Col>
           <Col lg={7}>
             <div className="wow fadeInUp">
-              <h2>Мета та завдання курсу</h2>
-              <p>Мета курсу - формування сучасного рівня інформаційної та комп&apos;ютерної культури, набуття практичних навичок роботи при створенні інтерактивних технологій.</p>
-              <p>В навчальній дисципліні відбувається ознайомлення студентів концептуальним основам сучасних мов Веб-програмування:</p>
+              <h2>{logo.alt}</h2>
+              <p>{objective.primary}</p>
+              {objective?.secondary && <p>{objective.secondary}</p>}
               <ul className="about-list">
-                <li>
-                  <FaArrowRight className="fa-arrow-right" />
-                  Концепції дії, концепції розробки Веб-додатків, концепції стилів у Веб-програмуванні.
-                </li>
-                <li>
-                  <FaArrowRight className="fa-arrow-right" />
-                  Загальним положеням та властивостям технологій Веб-програмування.
-                </li>
-                <li>
-                  <FaArrowRight className="fa-arrow-right" />
-                  Стандартам розробки програмного забезпечення.
-                </li>
-                <li>
-                  <FaArrowRight className="fa-arrow-right" />
-                  Побудови складних систем на базі технології Веб-програмування.
-                </li>
+                {objective?.list && objective.list?.length > 0 && objective.list.map((item) => (
+                  <li key={item}>
+                    <FaArrowRight className="fa-arrow-right" />
+                    {item}
+                  </li>
+                ))}
               </ul>
-              <p>Завдання курсу полягає у тому, щоб навчити студентів використовувати підходи до реалізації динамічних веб-додатків, вибір відповідних засобів при розв’язанні конкретних задач, продемонструвати різноманітність варіантів для втілення власних ідей.</p>
-              <Link to={`${appPath}/self-work`} className="button button-effect">Підсумок вивчення</Link>
+              <p>{objective.conclusion}</p>
+              <Link to={`${appPath}${objective.link}`} className="button button-effect">
+                Підсумок вивчення
+              </Link>
             </div>
           </Col>
         </Row>

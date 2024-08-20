@@ -25,9 +25,16 @@ $background-color_8: rgba(var(--app-color-main-rgb), 0.7);
     }
 }
 
+// about
+
+.rounded {
+    border-radius: 0.25rem;
+}
+
+
 
 // points
-// todo - this two styles are currently applied in banne as well. Need to standardize.
+// todo - this two styles are currently applied in banner as well. Need to standardize.
 .bg-img {
     background-repeat: no-repeat;
     background-size: cover;
@@ -323,6 +330,11 @@ $background-color_8: rgba(var(--app-color-main-rgb), 0.7);
 // labs
 
 .labs-single {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+
     background-color: $background-color_3;
     box-shadow: var(--app-color-shadow);
     &:hover {
@@ -336,6 +348,8 @@ $background-color_8: rgba(var(--app-color-main-rgb), 0.7);
     }
 }
 .labs-single-content {
+    flex-grow: 1;
+
     padding: 15px 15px 35px;
     text-align: center;
     .poster {
@@ -488,6 +502,7 @@ $background-color_8: rgba(var(--app-color-main-rgb), 0.7);
     .lecture-content {
         background-color: $background-color_3;
         padding: 0 20px 0 0;
+        min-height: 12rem;
     }
     h6 {
         margin: 13px 0 18px;
