@@ -599,6 +599,15 @@ $background-color_8: rgba(var(--app-color-main-rgb), 0.7);
     background-color: $background-color_3;
 }
 .course-box {
+    .course-box-item.last-item {
+        .text::after {
+            display: none;
+        }
+        .arrow {
+            display: none;
+        }
+    }
+
     .course-box-item {
         padding: 30px 25px;
         background-color: $background-color_3;

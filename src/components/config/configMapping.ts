@@ -6,12 +6,13 @@ interface DriveLink {
 
 type ScoresMappping = {
     current: number;
+    courseWork?: number;
     interview: number;
     exam: number;
     labs: number;
-    presentationMax: number;
-    presentationMin: number;
-    selfStudy: number;
+    presentationMax?: number;
+    presentationMin?: number;
+    selfStudy?: number;
 }
 
 type SemestersMapping = {
@@ -106,6 +107,18 @@ interface HomePageMapping {
             secondary?: string;
         };
     };
+    shortInfoSection?: {
+        practicalPart?: string;
+        theoryPart?: string;
+    }
+    fullInfoSection?: {
+        roadmap?: {
+            description: string;
+            title: string;
+            type: keyof ScoresMappping;
+        }[];
+        tasks?: string[];
+    }
 }
 
 type CommonAppMapping = {

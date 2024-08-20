@@ -7,7 +7,14 @@ import styles from './App.module.scss';
 
 import TopBar from '../../components/topbar/topbar.tsx';
 import Header from '../../components/header/header.tsx';
-import HomePage from '../../components/home-page/homePage.tsx';
+import {
+  CourseFullInfo,
+  CourseIntro,
+  CourseShortInfo,
+  LabsSection,
+  LecturesInfo,
+  PointsDistributionSection,
+} from '../../components/home-page/homePageComponents.tsx';
 import Footer from '../../components/footer/footer.tsx';
 import Lab from '../../components/lab/lab.tsx';
 import Lectures from '../../components/lecture/lectures.tsx';
@@ -25,6 +32,7 @@ import Banner from '../../components/banner/banner.tsx';
 
 import ScrollToTop from '../../components/scroll-to-top/scrollToTop.ts';
 import { useAppHead } from '../../utils/utils.ts';
+import Faq from '../../components/faq/faq.tsx';
 
 interface Props {
     appName: AppNames;
@@ -52,6 +60,20 @@ function Layout() {
   );
 }
 
+function HomePage() {
+  return (
+    <main>
+      <CourseIntro />
+      <CourseShortInfo />
+      <CourseFullInfo />
+      <LecturesInfo />
+      <LabsSection />
+      <PointsDistributionSection />
+      <Faq />
+    </main>
+  );
+}
+
 export default function WebProgrammingApp({ appName }: Props) {
   const {
     faviconLink, labList, lecturesList, title,
@@ -65,10 +87,7 @@ export default function WebProgrammingApp({ appName }: Props) {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route
-              index
-              element={<HomePage />}
-            />
+            <Route index element={<HomePage />} />
             {lecturesList.map((lecture) => (
               <React.Fragment key={lecture.id}>
                 <Route path={`/lectures/${lecture.id}`} element={<Lecture lecture={lecture} />} />

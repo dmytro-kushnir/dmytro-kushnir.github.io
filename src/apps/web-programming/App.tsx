@@ -7,7 +7,15 @@ import styles from './App.module.scss';
 
 import TopBar from '../../components/topbar/topbar.tsx';
 import Header from '../../components/header/header.tsx';
-import HomePage from '../../components/home-page/homePage.tsx';
+import {
+  CourseFullInfo,
+  CourseIntro,
+  CourseShortInfo,
+  LabsSection,
+  LecturesInfo,
+  LeetCodeTasksSection,
+  PointsDistributionSection,
+} from '../../components/home-page/homePageComponents.tsx';
 import Footer from '../../components/footer/footer.tsx';
 import Lab from '../../components/lab/lab.tsx';
 import Lectures from '../../components/lecture/lectures.tsx';
@@ -21,6 +29,7 @@ import useConfig from '../../components/config/useConfig.ts';
 import AppNameProvider from '../../components/context/appName.tsx';
 import { AppNames } from '../../components/config/configMapping.ts';
 import Banner from '../../components/banner/banner.tsx';
+import Faq from '../../components/faq/faq.tsx';
 
 import ScrollToTop from '../../components/scroll-to-top/scrollToTop.ts';
 import { useAppHead } from '../../utils/utils.ts';
@@ -50,6 +59,21 @@ function Layout() {
   );
 }
 
+function HomePage() {
+  return (
+    <main>
+      <CourseIntro />
+      <CourseShortInfo />
+      <CourseFullInfo />
+      <LecturesInfo />
+      <LabsSection />
+      <LeetCodeTasksSection />
+      <PointsDistributionSection />
+      <Faq />
+    </main>
+  );
+}
+
 export default function WebProgrammingApp({ appName }: Props) {
   const {
     faviconLink, labList, lecturesList, title,
@@ -63,10 +87,7 @@ export default function WebProgrammingApp({ appName }: Props) {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route
-              index
-              element={<HomePage />}
-            />
+            <Route index element={<HomePage />} />
             {lecturesList.map((lecture) => (
               <React.Fragment key={lecture.id}>
                 <Route path={`/lectures/${lecture.id}`} element={<Lecture lecture={lecture} />} />

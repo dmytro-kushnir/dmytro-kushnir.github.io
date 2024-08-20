@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import { Link } from 'react-router-dom';
-import './homePage.scss';
+import './homePageComponents.scss';
 import { FaArrowRight, FaBookOpen, FaCode } from 'react-icons/fa';
 
 import {
@@ -11,10 +11,9 @@ import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
 import Image from '../image/index.tsx';
 import SliderComponent from '../slider/slider.tsx';
-import Faq from '../faq/faq.tsx';
 import { isMobileDevice } from '../../utils/utils.ts';
 
-function CourseIntro() {
+export function CourseIntro() {
   const config = useConfig(useAppName());
   const { appPath, homePage: { aboutSection = { } } } = config;
   const {
@@ -54,9 +53,10 @@ function CourseIntro() {
   );
 }
 
-function CourseShortInfo() {
+export function CourseShortInfo() {
   const config = useConfig(useAppName());
-  const { appPath } = config;
+  const { appPath, homePage = {} } = config;
+  const { shortInfoSection: { theoryPart = '', practicalPart = '' } = {} } = homePage;
 
   return (
     <section className="courseshort">
@@ -65,7 +65,7 @@ function CourseShortInfo() {
           <Col className="courseshort-item">
             <div className="courseshort-item-content">
               <h4>Теоретична частина</h4>
-              <p>Лекції</p>
+              <p>{theoryPart}</p>
             </div>
             <Link to={`${appPath}/lectures`}>
               <FaBookOpen className="icon" />
@@ -74,7 +74,7 @@ function CourseShortInfo() {
           <Col className="courseshort-item courseshort-item-secondary">
             <div className="courseshort-item-content">
               <h4>Практична частина</h4>
-              <p>Лабораторні, онлайн-задачі та самостійна робота</p>
+              <p>{practicalPart}</p>
             </div>
             <Link to={`${appPath}/self-work`}>
               <FaCode className="icon" />
@@ -86,73 +86,57 @@ function CourseShortInfo() {
   );
 }
 
-function CourseFullInfo() {
+export function CourseFullInfo() {
   const config = useConfig(useAppName());
-  const { scores } = config;
+  const { scores, homePage = {} } = config;
+  const { fullInfoSection: { roadmap = [], tasks = [] } = {} } = homePage;
 
   return (
     <section className="course">
       <Container className="container-narrow">
-        <h2 className="text-center mb-5">Завдання  навчальної дисципліни</h2>
+        <h2 className="text-center mb-5">Завдання навчальної дисципліни</h2>
         <p>
-          Внаслідок вивчення навчальної дисципліни  студент повинен бути здатним продемонструвати такі
+          Внаслідок вивчення навчальної дисципліни студент повинен бути здатним продемонструвати такі
           <strong> результати</strong>
           :
         </p>
-        <ul className="about-list">
-          <li>Знати  базові складові клієнт-серверної архітектури.</li>
-          <li>Мати уявлення про створення інтерактивних веб-додатків з використанням мови клієнтського програмування JavaScript.</li>
-          <li>Мати  уявлення про взаємодію з сервером за технологією Ajax, використання плагінів.</li>
-          <li>Набути  навички роботи з програмування на JavaScript. Збереження та отримання даних.  Використання масивів. Робота текстом. Регулярні вирази. Повторне використання  коду і створення функцій. Об&apos;єктно-орієнтоване програмування на JavaScript.  Взаємодія з файловою системою і сервером. Робота з датою і часом. Створення  графіки. </li>
-          <li>Керування сесіями. Виконання  запитів і обробка результатів.</li>
-          <li>Набути  навички використання використання баз даних при розробці ВЕБ-застосувань.  Проектування Веб-баз даних. Створення баз даних. З&apos;єднання з сервером MySQL засобами JavaScript.</li>
-        </ul>
+        {tasks && (
+          <ul className="about-list">
+            {tasks.map((task) => (
+              <li key={task}>{task}</li>
+            ))}
+          </ul>
+        )}
       </Container>
       <Container>
         <Col className="course-area mt-5">
           <Row>
-            <Col md={6} xl={5}>
-              <div className="course-box">
-                <div className="course-box-item">
-                  <h5>Лекції, залік</h5>
-                  <p>Теоретичні базові знання з клієнтських та серверних мов програмування, грунтовне ознайомлення з сучасними методами та засобами побудови динамічних та інтерактивних веб-додатків.</p>
-                  <div className="text">
-                    <p>{scores.exam}</p>
+            {roadmap?.map((item, index) => {
+              const score = scores[item.type];
+              const isLastItem = index === roadmap.length - 1;
+              const isOdd = roadmap.length % 2 !== 0;
+
+              return (
+                <Col key={item.type} md={6} xl={index % 2 === 0 ? 5 : { offset: 2, span: 5 }}>
+                  <div className={`course-box ${index % 2 !== 0 ? 'course-box-right' : ''}`}>
+                    <div
+                      className={`course-box-item ${index % 2 !== 0 ? 'course-box-item-right' : ''} ${
+                        isLastItem && isOdd ? 'last-item' : ''
+                      }`}
+                    >
+                      <h5>{item.title}</h5>
+                      <p>{item.description}</p>
+                      {score !== undefined && (
+                        <div className={`text ${isLastItem ? 'text-alt' : ''}`}>
+                          <p>{score}</p>
+                        </div>
+                      )}
+                      {!isLastItem && <span className="arrow" />}
+                    </div>
                   </div>
-                  <span className="arrow" />
-                </div>
-                <div className="course-box-item">
-                  <h5>LeetCode задачі (опціонально)</h5>
-                  <p>LeetCode задачі - це завдання на онлайн ресурсі LeetCode, яке практично демонструє вимоги до технічого кандидата під час співбесіди в IT. </p>
-                  <div className="text">
-                    <p>{scores.presentationMax * 2}</p>
-                  </div>
-                  <span className="arrow" />
-                </div>
-              </div>
-            </Col>
-            <Col md={6} xl={{ offset: 2, span: 5 }}>
-              <div className="course-box course-box-right">
-                <div className="course-box-item course-box-item-right">
-                  <h5>Лабораторні роботи</h5>
-                  <p>Створення інтерактивних веб-додатків з  використанням  мови  JavaScript. Вміння перевіряти дані користувача на стороні клієнта. Практичні навики створення інформаційної системи на базі мови програмування JavaScript.</p>
-                  <div className="text">
-                    <p>
-                      {scores.labs}
-                    </p>
-                  </div>
-                  <span className="arrow" />
-                </div>
-                <div className="course-box-item course-box-item-right">
-                  <h5>Самостійна робота</h5>
-                  <p>Самостійною роботою є створення динамічного веб-додатку в обраний студентом спосіб.</p>
-                  <div className="text text-alt">
-                    <p>{scores.selfStudy}</p>
-                  </div>
-                  <span className="arrow" />
-                </div>
-              </div>
-            </Col>
+                </Col>
+              );
+            })}
           </Row>
         </Col>
       </Container>
@@ -160,7 +144,7 @@ function CourseFullInfo() {
   );
 }
 
-function LecturesInfo() {
+export function LecturesInfo() {
   const config = useConfig(useAppName());
   const { appPath, lecturesList } = config;
   const baseUrl = window.location.origin;
@@ -202,7 +186,7 @@ function LecturesInfo() {
   );
 }
 
-function LabsSection() {
+export function LabsSection() {
   const config = useConfig(useAppName());
   const { appPath, labList } = config;
   const baseUrl = window.location.origin;
@@ -210,29 +194,58 @@ function LabsSection() {
   return (
     <section className="labs">
       <Container>
+        <h2 className="text-center mb-5">Лабараторні роботи</h2>
         <Row className="justify-content-center">
           {labList.map((lab) => (
             <Col md={6} lg={4} className="align-center row-item" key={lab.id}>
               <div className="labs-single img-effect">
                 <div className="labs-single-content">
                   <div className="poster">
-                    { isMobileDevice()
-                      ? (<a href={`${baseUrl}${lab.filePath}`} target="_blank" rel="noopener noreferrer"><img src={lab.imgSrc} alt={lab.name} /></a>)
+                    {isMobileDevice()
+                      ? (
+                        <a href={`${baseUrl}${lab.filePath}`} target="_blank" rel="noopener noreferrer">
+                          <img
+                            src={lab.imgSrc}
+                            alt={lab.name}
+                          />
+                        </a>
+                      )
                       : (<Link to={`${appPath}${lab.link}`}><img src={lab.imgSrc} alt={lab.name} /></Link>)}
                   </div>
                   <div className="icon-box-wrapper">
                     <div className="icon-box">
-                      { isMobileDevice()
-                        ? (<a href={`${baseUrl}${lab.filePath}`} target="_blank" rel="noopener noreferrer"><img src={lab.iconSrc} alt={lab.name} /></a>)
+                      {isMobileDevice()
+                        ? (
+                          <a href={`${baseUrl}${lab.filePath}`} target="_blank" rel="noopener noreferrer">
+                            <img
+                              src={lab.iconSrc}
+                              alt={lab.name}
+                            />
+                          </a>
+                        )
                         : (<Link to={`${appPath}${lab.link}`}><img src={lab.iconSrc} alt={lab.name} /></Link>)}
                     </div>
                   </div>
                   <h5>{lab.name}</h5>
                   <p>{lab.description}</p>
                 </div>
-                { isMobileDevice()
-                  ? <a href={`${baseUrl}${lab.filePath}`} className="button button-full button-effect" target="_blank" rel="noopener noreferrer">Перейти до роботи</a>
-                  : <Link to={`${appPath}${lab.link}`} className="button button-full button-effect">Перейти до роботи</Link>}
+                {isMobileDevice()
+                  ? (
+                    <a
+                      href={`${baseUrl}${lab.filePath}`}
+                      className="button button-full button-effect"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Перейти до роботи
+                    </a>
+                  )
+                  : (
+                    <Link to={`${appPath}${lab.link}`} className="button button-full button-effect">
+                      Перейти до
+                      роботи
+                    </Link>
+                  )}
               </div>
             </Col>
           ))}
@@ -242,7 +255,7 @@ function LabsSection() {
   );
 }
 
-function LeetCodeTasksSection() {
+export function LeetCodeTasksSection() {
   type LeetCodeLink = {
     title: string;
     url: string;
@@ -366,7 +379,7 @@ function LeetCodeTasksSection() {
   );
 }
 
-function PointsDistributionSection() {
+export function PointsDistributionSection() {
   interface PointItem {
     label: string;
     points: number;
@@ -389,27 +402,27 @@ function PointsDistributionSection() {
   const pointsDistributionConfig: PointsDistributionConfig = {
     additionalNotes: [
       'Зазначено максимальну кількість балів за умови вчасного і належного захисту.',
-      `Опціональні бали за виконані і презентовані LeetCode задачі (максимум ${scores.presentationMax * 2} балів) буде враховано під час заліку замість описових задач.`,
+      `Опціональні бали за виконані і презентовані LeetCode задачі (максимум ${scores?.presentationMax ? scores.presentationMax * 2 : ''} балів) буде враховано під час заліку замість описових задач.`,
       'Усна компонента є опціональною, за бажанням студента.',
     ],
     periods: [
       {
         items: [
           { label: 'Лабораторні 1-3', points: scores.labs / 2 },
-          { label: 'Задача на LeetCode', points: scores.presentationMax, specialClass: 'optional' },
+          { label: 'Задача на LeetCode', points: scores.presentationMax ?? 0, specialClass: 'optional' },
         ],
         title: `${semesters.duration.partOneStart}-${semesters.duration.partOneEnd}`,
       },
       {
         items: [
           { label: 'Лабораторні 4-6', points: scores.labs / 2 },
-          { label: 'Задача на LeetCode', points: scores.presentationMax, specialClass: 'optional' },
+          { label: 'Задача на LeetCode', points: scores.presentationMax ?? 0, specialClass: 'optional' },
         ],
         title: `${semesters.duration.partTwoStart}-${semesters.duration.partTwoEnd}`,
       },
       {
         items: [
-          { label: 'Самостійна робота', points: scores.selfStudy },
+          { label: 'Самостійна робота', points: scores.selfStudy ?? 0 },
           { label: 'Тести, описові питання', points: scores.exam - scores.interview, specialClass: 'test' },
           { label: 'Усна компонента', points: scores.interview, specialClass: 'test' },
         ],
@@ -475,20 +488,3 @@ function PointsDistributionSection() {
     </section>
   );
 }
-
-function HomePage() {
-  return (
-    <main>
-      <CourseIntro />
-      <CourseShortInfo />
-      <CourseFullInfo />
-      <LecturesInfo />
-      <LabsSection />
-      <LeetCodeTasksSection />
-      <PointsDistributionSection />
-      <Faq />
-    </main>
-  );
-}
-
-export default HomePage;

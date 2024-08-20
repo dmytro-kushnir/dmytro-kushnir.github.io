@@ -38,7 +38,7 @@ function Sidebar() {
               <strong>Залік</strong>
               <ul>
                 <li>{`Поточні бали: ${scores.current} балів`}</li>
-                <li>{`Залік: ${scores.exam} балів (з них ${scores.presentationMax * 2} за онлайн задачі)`}</li>
+                <li>{`Залік: ${scores.exam} балів (з них ${scores?.presentationMax ? scores.presentationMax * 2 : ''} за онлайн задачі)`}</li>
               </ul>
             </li>
           </ul>
