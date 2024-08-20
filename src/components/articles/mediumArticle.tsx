@@ -50,7 +50,7 @@ function MediumArticle() {
       <Container fluid="md" className="my-4">
         <Row>
           <Col>
-            {posts?.length && posts.map((post) => (
+            {posts && posts.length > 0 && posts.map((post) => (
               <div key={post.guid}>
                 <a href={post.link} target="_blank" rel="noopener noreferrer">
                   <h2>{post.title}</h2>
