@@ -380,56 +380,9 @@ export function LeetCodeTasksSection() {
 }
 
 export function PointsDistributionSection() {
-  interface PointItem {
-    label: string;
-    points: number;
-    specialClass?: string;
-  }
-
-  interface PointsPeriod {
-    items: PointItem[];
-    title: string;
-  }
-
-  interface PointsDistributionConfig {
-    additionalNotes: string[];
-    periods: PointsPeriod[];
-  }
-
   const config = useConfig(useAppName());
-  const { scores, semesters } = config;
-
-  const pointsDistributionConfig: PointsDistributionConfig = {
-    additionalNotes: [
-      'Зазначено максимальну кількість балів за умови вчасного і належного захисту.',
-      `Опціональні бали за виконані і презентовані LeetCode задачі (максимум ${scores?.presentationMax ? scores.presentationMax * 2 : ''} балів) буде враховано під час заліку замість описових задач.`,
-      'Усна компонента є опціональною, за бажанням студента.',
-    ],
-    periods: [
-      {
-        items: [
-          { label: 'Лабораторні 1-3', points: scores.labs / 2 },
-          { label: 'Задача на LeetCode', points: scores.presentationMax ?? 0, specialClass: 'optional' },
-        ],
-        title: `${semesters.duration.partOneStart}-${semesters.duration.partOneEnd}`,
-      },
-      {
-        items: [
-          { label: 'Лабораторні 4-6', points: scores.labs / 2 },
-          { label: 'Задача на LeetCode', points: scores.presentationMax ?? 0, specialClass: 'optional' },
-        ],
-        title: `${semesters.duration.partTwoStart}-${semesters.duration.partTwoEnd}`,
-      },
-      {
-        items: [
-          { label: 'Самостійна робота', points: scores.selfStudy ?? 0 },
-          { label: 'Тести, описові питання', points: scores.exam - scores.interview, specialClass: 'test' },
-          { label: 'Усна компонента', points: scores.interview, specialClass: 'test' },
-        ],
-        title: 'Залік',
-      },
-    ],
-  };
+  const { appPath, homePage = {} } = config;
+  const { pointsDistributionSection: { additionalNotes = [], periods = [] } = {} } = homePage;
 
   return (
     <section className="balls dark-overlay bg-img" style={{ backgroundImage: "url('/images/apps/wp/bg-points.jpg')" }}>
@@ -439,13 +392,12 @@ export function PointsDistributionSection() {
           <Col lg={12}>
             <div className="balls-box">
               <div className="icon-box__wrapper">
-                {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                <a href="tel:+01(977)259912" className="icon-box">
+                <Link to={`${appPath}`} className="icon-box">
                   <i className="las la-phone" />
-                </a>
+                </Link>
               </div>
               <Row>
-                {pointsDistributionConfig.periods.map((period) => (
+                {periods.map((period) => (
                   <Col lg={4} md={6} key={period.title.substring(0, 10)}>
                     <div className="inner-box">
                       <h4>{period.title}</h4>
@@ -464,7 +416,7 @@ export function PointsDistributionSection() {
               <hr />
               <Row>
                 <Col xs={12} className="text-center">
-                  {pointsDistributionConfig.additionalNotes.map((note) => (
+                  {additionalNotes.map((note) => (
                     <p key={note.substring(0, 10)}>{note}</p>
                   ))}
                   <ul className="inner-bullet">

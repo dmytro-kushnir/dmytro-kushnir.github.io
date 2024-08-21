@@ -7,7 +7,7 @@ interface DriveLink {
 type ScoresMappping = {
     current: number;
     courseWork?: number;
-    interview: number;
+    interview?: number;
     exam: number;
     labs: number;
     presentationMax?: number;
@@ -26,14 +26,14 @@ type SemestersMapping = {
 
 type LinksMapping = {
     courses: { name: string; path: string }[];
+    department: string;
     institute: string;
     mail: string;
-    university: string;
-    department: string;
     scheduleExam: string;
     scheduleLesson: string;
     telegram: string;
     vle: string; // virtual learning environment
+    university: string;
 }
 
 export interface LabLink {
@@ -107,10 +107,6 @@ interface HomePageMapping {
             secondary?: string;
         };
     };
-    shortInfoSection?: {
-        practicalPart?: string;
-        theoryPart?: string;
-    }
     fullInfoSection?: {
         roadmap?: {
             description: string;
@@ -119,9 +115,24 @@ interface HomePageMapping {
         }[];
         tasks?: string[];
     }
+    pointsDistributionSection?: {
+        additionalNotes: string[];
+        periods: {
+            title: string;
+            items: {
+                label: string;
+                points: number;
+                specialClass?: string;
+            }[];
+        }[];
+    };
+    shortInfoSection?: {
+        practicalPart?: string;
+        theoryPart?: string;
+    };
 }
 
-type CommonAppMapping = {
+export type CommonAppMapping = {
     appPath: string;
     articles?: Article[];
     courseWork?: CourseWork;
