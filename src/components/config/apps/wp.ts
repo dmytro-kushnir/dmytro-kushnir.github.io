@@ -1,5 +1,7 @@
 import { CommonAppMapping } from '../configMapping.ts';
 
+const courseName = 'Веб Програмування';
+
 const links = {
   courses: [
     {
@@ -7,7 +9,7 @@ const links = {
       path: '/computer-architecture',
     },
     {
-      name: 'Веб Програмування',
+      name: courseName,
       path: '/web-programming',
     },
   ],
@@ -37,6 +39,15 @@ const semesters = {
     partTwoEnd: '08.04.2024',
     partTwoStart: '12.03.2024',
   },
+};
+
+const staff = {
+  lecturerAssistants: [
+    'Кушнір Дмитро Олександрович',
+    'Добуш Андрій Романович',
+  ],
+  lecturerName: 'Кушнір Дмитро Олександрович',
+  lecturerPhoto: '/images/apps/wp/lecturer.jpeg',
 };
 
 const wpConfig: CommonAppMapping = {
@@ -104,6 +115,43 @@ const wpConfig: CommonAppMapping = {
         secondary: 'В навчальній дисципліні відбувається ознайомлення студентів концептуальним основам сучасних мов Веб-програмування:',
       },
     },
+    faqSection: [
+      {
+        content: [
+          `Заняття з дисципліни ${courseName} у ${new Date().getFullYear()} році відбуваються офлайн у визначених аудиторіях. За потреби проведення онлайн консультацій, буде доступно онлайн посилання.`,
+          `Лекції веде та проводить захисти: ${staff.lecturerName}`,
+          `Лабараторні ведуть: ${staff.lecturerAssistants}`,
+        ],
+        showOnlineLink: true,
+        title: 'Як і де відбуваються заняття?',
+      },
+      {
+        content: [
+          'Захист роботи відбувається на наступних поточних заняттях, після пояснення матеріалу. Викладач задає дотичні питання і оцінює роботу студента. Звіти по виконаних роботах викладаються на диск у відповідну папку студента.',
+          `Після контрольних дат (${semesters.duration.partOneEnd} - №1-3, ${semesters.duration.partTwoEnd} - №4-6) бали за відповідні лабораторні роботи та доповіді не виставляються.`,
+          `Самостійну роботу можна захищати протягом семестру до ${semesters.duration.partTwoEnd}. Після зазначеної дати бали будуть зменшені.`,
+          'До заліку допускаються студенти, які захистили ВСІ лабораторні та самостійну роботи.',
+        ],
+        includeDriveLinks: true,
+        title: 'Як відбуваються захисти робіт?',
+      },
+      {
+        content: [
+          'Протягом семестру студенти мають можливість захистити 2 онлайн-задачі.',
+          `І половина семестру: ${semesters.duration.partOneStart} - ${semesters.duration.partOneEnd}`,
+          `II половина семестру: ${semesters.duration.partTwoStart} - ${semesters.duration.partTwoEnd}`,
+          'Якщо студент не зробив задачі протягом першої половини семестру, то в подальшому він має можливість здати лише одну задачу.',
+          'Бали, що отримані за задачі будуть враховані на екзамені як відповідь на описове питання.',
+          'LeetCode задачі НЕ є обов’язковою частиною дисципліни. Студенти, що не робили задачі до екзамену допускаються і мають відповісти на тестові завдання та описові питання.',
+        ],
+        title: 'Що таке онлайн задачі LeetCode?',
+      },
+      {
+        content: [],
+        includeLecturerContact: true,
+        title: 'Як зв’язатися з викладачем?',
+      },
+    ],
     fullInfoSection: {
       roadmap: [
         {
@@ -234,11 +282,6 @@ const wpConfig: CommonAppMapping = {
       objective: 'Отримати навички створення об\'єктів, доступу до полів та методів ознайомитись із прототипним успадкуванням.',
     },
   ],
-  lecturerAssistants: [
-    'Кушнір Дмитро Олександрович',
-  ],
-  lecturerName: 'Кушнір Дмитро Олександрович',
-  lecturerPhoto: '/images/apps/wp/lecturer.jpeg',
   lecturesList: [
     {
       description: 'Огляд дисципліни. Клієнт-серверна архітектура та її компоненти.',
@@ -351,6 +394,7 @@ const wpConfig: CommonAppMapping = {
   onlineLink: '',
   scores,
   semesters,
+  staff,
   title: 'Веб-програмування',
 };
 

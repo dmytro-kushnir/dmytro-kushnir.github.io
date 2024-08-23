@@ -107,6 +107,13 @@ interface HomePageMapping {
             secondary?: string;
         };
     };
+    faqSection?: {
+        content: string[];
+        includeDriveLinks?: boolean;
+        includeLecturerContact?: boolean;
+        showOnlineLink?: boolean;
+        title: string;
+    }[];
     fullInfoSection?: {
         roadmap?: {
             description: string;
@@ -132,6 +139,12 @@ interface HomePageMapping {
     };
 }
 
+interface StaffMapping {
+    lecturerName: string;
+    lecturerPhoto: string,
+    lecturerAssistants: string[]
+}
+
 export type CommonAppMapping = {
     appPath: string;
     articles?: Article[];
@@ -142,9 +155,7 @@ export type CommonAppMapping = {
     homePage: HomePageMapping;
     labList: LabLink[];
     lecturesList: LectureLink[];
-    lecturerName: string;
-    lecturerPhoto: string,
-    lecturerAssistants: string[]
+    staff: StaffMapping;
     links: LinksMapping;
     name: string;
     onlineLink: string;

@@ -1,9 +1,11 @@
 import { CommonAppMapping } from '../configMapping.ts';
 
+const courseName = 'Архітектура Комп’ютерів';
+
 const links = {
   courses: [
     {
-      name: 'Архітектура Комп’ютерів',
+      name: courseName,
       path: '/computer-architecture',
     },
     {
@@ -35,6 +37,14 @@ const semesters = {
     partTwoEnd: '20.12.2024',
     partTwoStart: '04.11.2024',
   },
+};
+
+const staff = {
+  lecturerAssistants: [
+    'Кушнір Дмитро Олександрович',
+  ],
+  lecturerName: 'TBD',
+  lecturerPhoto: '/images/apps/wp/lecturer.jpeg',
 };
 
 const compArchConfig: CommonAppMapping = {
@@ -118,6 +128,34 @@ const compArchConfig: CommonAppMapping = {
         primary: 'Мета курсу - вивчення будови і організації функціонування комп’ютерних систем та їхніх компонентів на різних рівнях.',
       },
     },
+    faqSection: [
+      {
+        content: [
+          `Заняття з дисципліни ${courseName} у ${new Date().getFullYear()} році відбуваються офлайн у визначених аудиторіях. За потреби проведення онлайн консультацій, буде доступно онлайн посилання.`,
+          `Лекції веде та проводить захисти: ${staff.lecturerName}`,
+          `Лабараторні ведуть: ${staff.lecturerAssistants}`,
+        ],
+        showOnlineLink: true,
+        title: 'Як і де відбуваються заняття?',
+      },
+      {
+        content: [
+          'Захист роботи відбувається на наступних поточних заняттях, після пояснення матеріалу. Викладач задає дотичні питання і оцінює роботу студента. Звіти по виконаних лаьбараторних роботах викладаються на диск у відповідну папку студента.',
+          'Звіти та файли курсової потрібно надіслати на пошту викладачу з лабараторних робіт. На диск завантажувати курсову не треба.',
+          `Після контрольних дат (${semesters.duration.partOneEnd} - №1-4, ${semesters.duration.partTwoEnd} - №4-8) бали за відповідні лабораторні роботи та доповіді не виставляються.`,
+          `Курсову роботу можна захищати протягом семестру до ${semesters.duration.partTwoEnd}. Після зазначеної дати бали будуть зменшені.`,
+          'До екзамену допускаються студенти, які захистили ВСІ лабораторні та самостійну роботи.',
+          'Диски для завантаження робіт:',
+        ],
+        includeDriveLinks: true,
+        title: 'Як відбуваються захисти робіт?',
+      },
+      {
+        content: [],
+        includeLecturerContact: true,
+        title: 'Як зв’язатися з викладачем?',
+      },
+    ],
     fullInfoSection: {
       roadmap: [
         {
@@ -274,11 +312,6 @@ const compArchConfig: CommonAppMapping = {
       samplePath: '/files/apps/comp-arch/labs/',
     },
   ],
-  lecturerAssistants: [
-    'Кушнір Дмитро Олександрович',
-  ],
-  lecturerName: 'TBD',
-  lecturerPhoto: '/images/apps/comp-arch/lecturer.jpeg',
   lecturesList: [
     {
       description: 'Огляд основних понять сучасної комп\'ютерної архітектури.',
@@ -370,6 +403,7 @@ const compArchConfig: CommonAppMapping = {
   onlineLink: '',
   scores,
   semesters,
+  staff,
   title: 'Архітектура комп\'ютерів',
 
 };
