@@ -403,9 +403,37 @@ const compArchConfig: CommonAppMapping = {
   onlineLink: '',
   scores,
   semesters,
+  sidebar: {
+    sections: [
+      {
+        content: [
+          `Лабораторні №1-4: ${scores.labs / 2} балів`,
+        ],
+        title: `І половина семестру ${semesters.duration.partOneStart}-${semesters.duration.partOneEnd}`,
+      },
+      {
+        content: [
+          `Лабораторні №4-8: ${scores.labs / 2} балів`,
+        ],
+        title: `IІ половина семестру ${semesters.duration.partTwoStart}-${semesters.duration.partTwoEnd}`,
+      },
+      {
+        content: [`Курсова робота - ${scores.courseWork} балів`],
+        title: 'Протягом семестру',
+      },
+      {
+        content: [
+          `Поточні бали: ${scores.current} балів`,
+          `Екзамен: ${scores.exam} балів`,
+        ],
+        title: 'Екзмен',
+      },
+    ],
+    showDriveLinks: true,
+    showScores: true,
+  },
   staff,
   title: 'Архітектура комп\'ютерів',
-
 };
 
 export default compArchConfig;

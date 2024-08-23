@@ -29,6 +29,7 @@ const scores = {
   interview: 10,
   labs: 30,
   presentationMax: 5,
+  presentationMin: 1,
   selfStudy: 20,
 };
 
@@ -394,6 +395,39 @@ const wpConfig: CommonAppMapping = {
   onlineLink: '',
   scores,
   semesters,
+  sidebar: {
+    sections: [
+      {
+        content: [
+          `Лабораторні №1-3: ${scores.labs / 2} балів`,
+          `Онлайн задача LeetCode: ${scores.presentationMin} - ${scores.presentationMax} балів (додається до тестів)`,
+        ],
+        title: `І половина семестру ${semesters.duration.partOneStart}-${semesters.duration.partOneEnd}`,
+      },
+      {
+        content: [
+          `Лабораторні №4-6: ${scores.labs / 2} балів`,
+          `Онлайн задача LeetCode: ${scores.presentationMin} - ${scores.presentationMax} балів (додається до тестів)`,
+        ],
+        title: `IІ половина семестру ${semesters.duration.partTwoStart}-${semesters.duration.partTwoEnd}`,
+      },
+      {
+        content: [`Самостійна робота - ${scores.selfStudy} балів`],
+        title: 'Протягом семестру',
+      },
+      {
+        content: [
+          `Поточні бали: ${scores.current} балів`,
+          `Залік: ${scores.exam} балів (з них ${
+            scores.presentationMax ? scores.presentationMax * 2 : ''
+          } за онлайн задачі)`,
+        ],
+        title: 'Залік',
+      },
+    ],
+    showDriveLinks: true,
+    showScores: true,
+  },
   staff,
   title: 'Веб-програмування',
 };

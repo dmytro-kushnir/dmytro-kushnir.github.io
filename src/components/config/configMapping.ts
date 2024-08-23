@@ -139,6 +139,15 @@ interface HomePageMapping {
     };
 }
 
+interface SidebarConfig {
+    sections: {
+        title: string;
+        content: string[];
+    }[];
+    showDriveLinks: boolean;
+    showScores: boolean;
+}
+
 interface StaffMapping {
     lecturerName: string;
     lecturerPhoto: string,
@@ -159,8 +168,9 @@ export type CommonAppMapping = {
     links: LinksMapping;
     name: string;
     onlineLink: string;
-    scores: ScoresMappping;
     semesters: SemestersMapping
+    sidebar?: SidebarConfig;
+    scores: ScoresMappping;
     title: string;
 }
 

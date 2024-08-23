@@ -17,9 +17,6 @@ const otherAppConfig: CommonAppMapping = {
   },
   homePage: {},
   labList: [],
-  lecturerAssistants: [],
-  lecturerName: '',
-  lecturerPhoto: '',
   lecturesList: [],
   links: {
     courses: [],
@@ -47,6 +44,11 @@ const otherAppConfig: CommonAppMapping = {
       partTwoEnd: '',
       partTwoStart: '',
     },
+  },
+  staff: {
+    lecturerAssistants: [],
+    lecturerName: '',
+    lecturerPhoto: '',
   },
   title: 'Other app',
 };
