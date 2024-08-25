@@ -256,91 +256,14 @@ export function LabsSection() {
 }
 
 export function LeetCodeTasksSection() {
-  type LeetCodeLink = {
-    title: string;
-    url: string;
-  }
-
-  interface AccordionItem {
-    content: string[];
-    eventKey: string;
-    header: string;
-    link?: LeetCodeLink;
-    listItems?: string[];
-  }
-
-  interface LeetCodeTasksConfig {
-    accordionItems: AccordionItem[];
-    introduction: string;
-    title: string;
-  }
-
   const config = useConfig(useAppName());
-  const { semesters } = config;
-
-  const leetCodeTasksConfig: LeetCodeTasksConfig = {
-    accordionItems: [
-      {
-        content: [
-          'Задачі на LeetCode - це завдання, яке практично демонструє вимоги до технічного кандидата під час співбесіди в IT.',
-          'Структурно, типи задач можна поділити на:',
-        ],
-        eventKey: '0',
-        header: 'Що таке онлайн задачі LeetCode?',
-        listItems: [
-          'алгоритмічні задачі;',
-          'задачі на стуктури даних;',
-          'математичні задачі;',
-          'дизайн систем (ООП, API інтерфейси тощо);',
-          'задачі пов\'язані з конкретною мовою програмування (наприклад Javascript).',
-        ],
-      },
-      {
-        content: [
-          'Задачі на онлайн ресурсі LeetCode - це завдання, які практично демонструють вимоги до технічного кандидата під час співбесіди в IT. Нижче надано посилання для виконання задач.',
-          'Список відсортований від легших задач до важчих, але цілком можна обирати довільну складність. Щодо варіантів, то студент може обирати ті задачі, які йому найбільше подобаються.',
-          'Обов\'язково виконані задачі потрібно пояснити викладачеві на лабараторній роботі і аргументувати чому саме такий підхід іплементації було обрано.',
-        ],
-        eventKey: '1',
-        header: 'Посилання на виконання задач та порядок роботи.',
-        link: {
-          title: 'Перейти до завдання',
-          url: 'https://leetcode.com/problem-list/top-interview-questions/?sorting=W3sic29ydE9yZGVyIjoiQVNDRU5ESU5HIiwib3JkZXJCeSI6IkRJRkZJQ1VMVFkifV0%3D',
-        },
-      },
-      {
-        content: [
-          'Презентація виконаних задач на LeetCode проводиться на лабораторних заняттях в присутності викладача та студентів групи.',
-          'Викладач оцінює якість доповіді, виконання задачі та опанування теми студентом.',
-          'Максимальна оцінка за успішно виконану та захищену онлайн задачу - 5 балів.',
-        ],
-        eventKey: '2',
-        header: 'Оцінювання виконання задач.',
-      },
-      {
-        content: [
-          'Протягом семестру студенти мають можливість захистити 2 онлайн-задачі.',
-          'Якщо студент не зробив задачі протягом першої половини семестру, то в подальшому він має можливість здати лише одну задачу.',
-          'Бали, що отримані за задачі будуть враховані на екзамені як відповідь на описове питання. Описових питань на екзамені є 2, тому кожна захищена задача зараховується як відповідь на одне описове питання. Під час складання екзамену студент завантажує посилання на задачу у вікно описового питання.',
-          'LeetCode задачі НЕ є обов’язковою частиною дисципліни. Студенти, що не робили задачі до екзамену допускаються і мають відповісти на тестові завдання та описові питання.',
-        ],
-        eventKey: '3',
-        header: 'Бонуси від виконання онлайн-задач.',
-        listItems: [
-          `І половина семестру: ${semesters.duration.partOneStart} - ${semesters.duration.partOneEnd}`,
-          `II половина семестру: ${semesters.duration.partTwoStart} - ${semesters.duration.partTwoEnd}`,
-        ],
-      },
-    ],
-    introduction: `Вміння презентувати як теоретичні так і практичні знання є важливою складовою для успішного працевлаштування в IT. 
-    Для того щоб набути цих навичок, студенти мають можливість виконати набір завдань на онлайн ресурсі LeetCode, та представити результати викладачеві.`,
-    title: 'Онлайн задачі на LeetCode',
-  };
+  const { homePage = {} } = config;
+  const { leetCodeSection: { title = '', introduction = '', items = [] } = {} } = homePage;
 
   return (
     <section className="presentation">
       <Container>
-        <h2>{leetCodeTasksConfig.title}</h2>
+        <h2>{title}</h2>
         <Row>
           <Col lg={6}>
             <div className="presentation-img">
@@ -349,12 +272,12 @@ export function LeetCodeTasksSection() {
           </Col>
           <Col lg={6}>
             <div className="presentation-box">
-              <p>{leetCodeTasksConfig.introduction}</p>
+              <p>{introduction}</p>
               <div className="presentation-wrapper">
                 <Accordion className="accordion-flush" id="accordionPresentation">
-                  {leetCodeTasksConfig.accordionItems.map((item) => (
-                    <Accordion.Item eventKey={item.eventKey} key={item.eventKey}>
-                      <Accordion.Header as="h6" id={`flush-heading${item.eventKey}`}>
+                  {items.map((item) => (
+                    <Accordion.Item eventKey={item.header} key={item.header}>
+                      <Accordion.Header as="h6" id={`flush-heading${item.header}`}>
                         {item.header}
                       </Accordion.Header>
                       <Accordion.Body className="accordion-body">

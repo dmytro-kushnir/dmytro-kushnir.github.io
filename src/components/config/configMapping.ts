@@ -15,13 +15,17 @@ type ScoresMappping = {
     selfStudy?: number;
 }
 
-type SemestersMapping = {
-    duration: {
-        partOneEnd: string;
-        partOneStart: string;
-        partTwoEnd: string;
-        partTwoStart: string;
-    }
+type SemesterMapping = {
+    end: string;
+    middle?: string;
+    periods?: {
+        end: string;
+        labs: string;
+        score: number;
+        start: string;
+        extraScore?: number;
+    }[],
+    start: string;
 }
 
 type LinksMapping = {
@@ -121,6 +125,19 @@ interface HomePageMapping {
             type: keyof ScoresMappping;
         }[];
         tasks?: string[];
+    };
+    leetCodeSection?: {
+        items: {
+            content: string[];
+            header: string;
+            link?: {
+                title?: string;
+                url?: string;
+            }
+            listItems?: string[];
+        }[];
+        introduction: string;
+        title: string;
     }
     pointsDistributionSection?: {
         additionalNotes: string[];
@@ -168,7 +185,7 @@ export type CommonAppMapping = {
     links: LinksMapping;
     name: string;
     onlineLink: string;
-    semesters: SemestersMapping
+    semester: SemesterMapping
     sidebar?: SidebarConfig;
     scores: ScoresMappping;
     title: string;

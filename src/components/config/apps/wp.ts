@@ -24,22 +24,35 @@ const links = {
 };
 
 const scores = {
-  current: 30,
-  exam: 70,
+  current: 40,
+  exam: 50,
   interview: 10,
-  labs: 30,
+  labs: 20,
   presentationMax: 5,
   presentationMin: 1,
   selfStudy: 20,
 };
 
-const semesters = {
-  duration: {
-    partOneEnd: '11.03.2024',
-    partOneStart: '12.02.2024',
-    partTwoEnd: '08.04.2024',
-    partTwoStart: '12.03.2024',
-  },
+const semester = {
+  end: '08.04.2024',
+  middle: '11.03.2024',
+  periods: [
+    {
+      end: '11.03.2024',
+      extraScore: 5,
+      labs: '1-4',
+      score: 10,
+      start: '12.02.2024',
+    },
+    {
+      end: '08.04.2024',
+      extraScore: 5,
+      labs: '5-8',
+      score: 10,
+      start: '12.03.2024',
+    },
+  ],
+  start: '12.02.2024',
 };
 
 const staff = {
@@ -129,8 +142,8 @@ const wpConfig: CommonAppMapping = {
       {
         content: [
           'Захист роботи відбувається на наступних поточних заняттях, після пояснення матеріалу. Викладач задає дотичні питання і оцінює роботу студента. Звіти по виконаних роботах викладаються на диск у відповідну папку студента.',
-          `Після контрольних дат (${semesters.duration.partOneEnd} - №1-3, ${semesters.duration.partTwoEnd} - №4-6) бали за відповідні лабораторні роботи та доповіді не виставляються.`,
-          `Самостійну роботу можна захищати протягом семестру до ${semesters.duration.partTwoEnd}. Після зазначеної дати бали будуть зменшені.`,
+          `Після контрольних дат (${semester.periods.map((period) => `${period.end} - №${period.labs}`).join(', ')}) бали за відповідні лабораторні роботи та доповіді не виставляються.`,
+          `Самостійну роботу можна захищати протягом семестру до ${semester.end}. Після зазначеної дати бали будуть зменшені.`,
           'До заліку допускаються студенти, які захистили ВСІ лабораторні та самостійну роботи.',
         ],
         includeDriveLinks: true,
@@ -139,8 +152,8 @@ const wpConfig: CommonAppMapping = {
       {
         content: [
           'Протягом семестру студенти мають можливість захистити 2 онлайн-задачі.',
-          `І половина семестру: ${semesters.duration.partOneStart} - ${semesters.duration.partOneEnd}`,
-          `II половина семестру: ${semesters.duration.partTwoStart} - ${semesters.duration.partTwoEnd}`,
+          `І половина семестру: ${semester.start} - ${semester.middle}`,
+          `II половина семестру: ${semester.middle} - ${semester.end}`,
           'Якщо студент не зробив задачі протягом першої половини семестру, то в подальшому він має можливість здати лише одну задачу.',
           'Бали, що отримані за задачі будуть враховані на екзамені як відповідь на описове питання.',
           'LeetCode задачі НЕ є обов’язковою частиною дисципліни. Студенти, що не робили задачі до екзамену допускаються і мають відповісти на тестові завдання та описові питання.',
@@ -185,6 +198,60 @@ const wpConfig: CommonAppMapping = {
         'Набути  навички використання використання баз даних при розробці ВЕБ-застосувань.  Проектування Веб-баз даних. Створення баз даних. З&apos;єднання з сервером MySQL засобами JavaScript.',
       ],
     },
+    leetCodeSection: {
+      introduction: `Вміння презентувати як теоретичні так і практичні знання є важливою складовою для успішного працевлаштування в IT. 
+    Для того щоб набути цих навичок, студенти мають можливість виконати набір завдань на онлайн ресурсі LeetCode, та представити результати викладачеві.`,
+      items: [
+        {
+          content: [
+            'Задачі на LeetCode - це завдання, яке практично демонструє вимоги до технічного кандидата під час співбесіди в IT.',
+            'Структурно, типи задач можна поділити на:',
+          ],
+          header: 'Що таке онлайн задачі LeetCode?',
+          listItems: [
+            'алгоритмічні задачі;',
+            'задачі на стуктури даних;',
+            'математичні задачі;',
+            'дизайн систем (ООП, API інтерфейси тощо);',
+            'задачі пов\'язані з конкретною мовою програмування (наприклад Javascript).',
+          ],
+        },
+        {
+          content: [
+            'Задачі на онлайн ресурсі LeetCode - це завдання, які практично демонструють вимоги до технічного кандидата під час співбесіди в IT. Нижче надано посилання для виконання задач.',
+            'Список відсортований від легших задач до важчих, але цілком можна обирати довільну складність. Щодо варіантів, то студент може обирати ті задачі, які йому найбільше подобаються.',
+            'Обов\'язково виконані задачі потрібно пояснити викладачеві на лабараторній роботі і аргументувати чому саме такий підхід іплементації було обрано.',
+          ],
+          header: 'Посилання на виконання задач та порядок роботи.',
+          link: {
+            title: 'Перейти до завдання',
+            url: 'https://leetcode.com/problem-list/top-interview-questions/?sorting=W3sic29ydE9yZGVyIjoiQVNDRU5ESU5HIiwib3JkZXJCeSI6IkRJRkZJQ1VMVFkifV0%3D',
+          },
+        },
+        {
+          content: [
+            'Презентація виконаних задач на LeetCode проводиться на лабораторних заняттях в присутності викладача та студентів групи.',
+            'Викладач оцінює якість доповіді, виконання задачі та опанування теми студентом.',
+            'Максимальна оцінка за успішно виконану та захищену онлайн задачу - 5 балів.',
+          ],
+          header: 'Оцінювання виконання задач.',
+        },
+        {
+          content: [
+            'Протягом семестру студенти мають можливість захистити 2 онлайн-задачі.',
+            'Якщо студент не зробив задачі протягом першої половини семестру, то в подальшому він має можливість здати лише одну задачу.',
+            'Бали, що отримані за задачі будуть враховані на екзамені як відповідь на описове питання. Описових питань на екзамені є 2, тому кожна захищена задача зараховується як відповідь на одне описове питання. Під час складання екзамену студент завантажує посилання на задачу у вікно описового питання.',
+            'LeetCode задачі НЕ є обов’язковою частиною дисципліни. Студенти, що не робили задачі до екзамену допускаються і мають відповісти на тестові завдання та описові питання.',
+          ],
+          header: 'Бонуси від виконання онлайн-задач.',
+          listItems: [
+            `І половина семестру: ${semester.start} - ${semester.middle}`,
+            `II половина семестру: ${semester.middle} - ${semester.end}`,
+          ],
+        },
+      ],
+      title: 'Онлайн задачі на LeetCode',
+    },
     pointsDistributionSection: {
       additionalNotes: [
         'Зазначено максимальну кількість балів за умови вчасного і належного захисту.',
@@ -192,24 +259,17 @@ const wpConfig: CommonAppMapping = {
         'Усна компонента є опціональною, за бажанням студента.',
       ],
       periods: [
-        {
+        ...semester.periods.map((period) => ({
           items: [
-            { label: 'Лабораторні 1-3', points: scores.labs / 2 },
-            { label: 'Задача на LeetCode', points: scores.presentationMax, specialClass: 'optional' },
+            { label: `Лабораторні ${period.labs}`, points: period.score },
+            { label: 'Задача на LeetCode', points: period.extraScore, specialClass: 'optional' },
           ],
-          title: `${semesters.duration.partOneStart} - ${semesters.duration.partOneEnd}`,
-        },
-        {
-          items: [
-            { label: 'Лабораторні 4-6', points: scores.labs / 2 },
-            { label: 'Задача на LeetCode', points: scores.presentationMax, specialClass: 'optional' },
-          ],
-          title: `${semesters.duration.partTwoStart} - ${semesters.duration.partTwoEnd}`,
-        },
+          title: `${period.start} - ${period.end}`,
+        })),
         {
           items: [
             { label: 'Самостійна робота', points: scores.selfStudy },
-            { label: 'Тести, описові питання', points: scores.exam - scores.interview, specialClass: 'test' },
+            { label: 'Тести, описові питання', points: scores.exam, specialClass: 'test' },
             { label: 'Усна компонента', points: scores.interview, specialClass: 'test' },
           ],
           title: 'Залік',
@@ -394,23 +454,16 @@ const wpConfig: CommonAppMapping = {
   name: 'wp',
   onlineLink: '',
   scores,
-  semesters,
+  semester,
   sidebar: {
     sections: [
-      {
+      ...semester.periods.map((period, index) => ({
         content: [
-          `Лабораторні №1-3: ${scores.labs / 2} балів`,
-          `Онлайн задача LeetCode: ${scores.presentationMin} - ${scores.presentationMax} балів (додається до тестів)`,
+          `Лабораторні №${period.labs}: ${period.score} балів`,
+          `Онлайн задача LeetCode: ${scores.presentationMin} - ${scores.presentationMax} балів (замніяє задачу на заліку)`,
         ],
-        title: `І половина семестру ${semesters.duration.partOneStart}-${semesters.duration.partOneEnd}`,
-      },
-      {
-        content: [
-          `Лабораторні №4-6: ${scores.labs / 2} балів`,
-          `Онлайн задача LeetCode: ${scores.presentationMin} - ${scores.presentationMax} балів (додається до тестів)`,
-        ],
-        title: `IІ половина семестру ${semesters.duration.partTwoStart}-${semesters.duration.partTwoEnd}`,
-      },
+        title: `${index % 2 === 0 ? 'І половина семестру' : 'IІ половина семестру'} ${period.start}-${period.end}`,
+      })),
       {
         content: [`Самостійна робота - ${scores.selfStudy} балів`],
         title: 'Протягом семестру',
@@ -418,11 +471,12 @@ const wpConfig: CommonAppMapping = {
       {
         content: [
           `Поточні бали: ${scores.current} балів`,
-          `Залік: ${scores.exam} балів (з них ${
+          `Залік: ${scores.exam} балів (з них до ${
             scores.presentationMax ? scores.presentationMax * 2 : ''
-          } за онлайн задачі)`,
+          } балів можна отримати за онлайн задачі. Не потрібно буде робити завдання з кодом.)`,
+          `Усна компонента (опціонально): ${scores.interview} балів`,
         ],
-        title: 'Залік',
+        title: 'Заліковий контроль',
       },
     ],
     showDriveLinks: true,

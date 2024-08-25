@@ -37,13 +37,10 @@ const otherAppConfig: CommonAppMapping = {
     interview: 0,
     labs: 0,
   },
-  semesters: {
-    duration: {
-      partOneEnd: '',
-      partOneStart: '',
-      partTwoEnd: '',
-      partTwoStart: '',
-    },
+  semester: {
+    end: '',
+    middle: '',
+    start: '',
   },
   staff: {
     lecturerAssistants: [],

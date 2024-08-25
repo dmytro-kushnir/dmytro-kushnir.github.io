@@ -30,13 +30,35 @@ const scores = {
   labs: 30,
 };
 
-const semesters = {
-  duration: {
-    partOneEnd: '01.11.2024',
-    partOneStart: '02.09.2024',
-    partTwoEnd: '20.12.2024',
-    partTwoStart: '04.11.2024',
-  },
+const semester = {
+  end: '20.12.2024',
+  periods: [
+    {
+      end: '20.09.2024',
+      labs: '1-2',
+      score: 7,
+      start: '02.09.2024',
+    },
+    {
+      end: '18.10.2024',
+      labs: '3-4',
+      score: 8,
+      start: '23.09.2024',
+    },
+    {
+      end: '8.11.2024',
+      labs: '5-6',
+      score: 7,
+      start: '21.10.2024',
+    },
+    {
+      end: '6.12.2024',
+      labs: '7-8',
+      score: 8,
+      start: '11.11.2024',
+    },
+  ],
+  start: '02.09.2024',
 };
 
 const staff = {
@@ -142,10 +164,11 @@ const compArchConfig: CommonAppMapping = {
         content: [
           'Захист роботи відбувається на наступних поточних заняттях, після пояснення матеріалу. Викладач задає дотичні питання і оцінює роботу студента. Звіти по виконаних лаьбараторних роботах викладаються на диск у відповідну папку студента.',
           'Звіти та файли курсової потрібно надіслати на пошту викладачу з лабараторних робіт. На диск завантажувати курсову не треба.',
-          `Після контрольних дат (${semesters.duration.partOneEnd} - №1-4, ${semesters.duration.partTwoEnd} - №4-8) бали за відповідні лабораторні роботи та доповіді не виставляються.`,
-          `Курсову роботу можна захищати протягом семестру до ${semesters.duration.partTwoEnd}. Після зазначеної дати бали будуть зменшені.`,
-          'До екзамену допускаються студенти, які захистили ВСІ лабораторні та самостійну роботи.',
-          'Диски для завантаження робіт:',
+          `Після контрольних дат (${semester.periods.map((period) => `${period.end} - №${period.labs}`).join(', ')}), на наступний тиждень, бали за відповідні лабораторні роботи та доповіді будуть зменшені.`,
+          'Ще через тиждень, бали за ці лабараторні виставлятись не будуть.',
+          `Курсову роботу можна захищати протягом семестру до ${semester.end}. Для захисту потрібно надіслати на пошту викладачеві записку та архів з кодом.`,
+          'До екзамену допускаються студенти, які захистили ВСІ лабораторні та курсову роботи.',
+          'Диски для завантаження лабараторних робіт:',
         ],
         includeDriveLinks: true,
         title: 'Як відбуваються захисти робіт?',
@@ -190,18 +213,12 @@ const compArchConfig: CommonAppMapping = {
         'Щодо усної компоненти під час екзамену, усі питання щодо цього можна уточнити у лектора.',
       ],
       periods: [
-        {
+        ...semester.periods.map((period) => ({
           items: [
-            { label: 'Лабораторні 1-4', points: scores.labs / 2 },
+            { label: `Лабораторні ${period.labs}`, points: period.score },
           ],
-          title: `${semesters.duration.partOneStart} - ${semesters.duration.partOneEnd}`,
-        },
-        {
-          items: [
-            { label: 'Лабораторні 4-8', points: scores.labs / 2 },
-          ],
-          title: `${semesters.duration.partTwoStart} - ${semesters.duration.partTwoEnd}`,
-        },
+          title: `${period.start} - ${period.end}`,
+        })),
         {
           items: [
             { label: 'Курсова Робота', points: scores.courseWork },
@@ -402,21 +419,13 @@ const compArchConfig: CommonAppMapping = {
   name: 'compArch',
   onlineLink: '',
   scores,
-  semesters,
+  semester,
   sidebar: {
     sections: [
-      {
-        content: [
-          `Лабораторні №1-4: ${scores.labs / 2} балів`,
-        ],
-        title: `І половина семестру ${semesters.duration.partOneStart}-${semesters.duration.partOneEnd}`,
-      },
-      {
-        content: [
-          `Лабораторні №4-8: ${scores.labs / 2} балів`,
-        ],
-        title: `IІ половина семестру ${semesters.duration.partTwoStart}-${semesters.duration.partTwoEnd}`,
-      },
+      ...semester.periods.map((period) => ({
+        content: [`Лабораторні №${period.labs}: ${period.score} балів`],
+        title: `${period.start}-${period.end}`,
+      })),
       {
         content: [`Курсова робота - ${scores.courseWork} балів`],
         title: 'Протягом семестру',
@@ -426,7 +435,7 @@ const compArchConfig: CommonAppMapping = {
           `Поточні бали: ${scores.current} балів`,
           `Екзамен: ${scores.exam} балів`,
         ],
-        title: 'Екзмен',
+        title: 'Екзаменаційний контроль',
       },
     ],
     showDriveLinks: true,
