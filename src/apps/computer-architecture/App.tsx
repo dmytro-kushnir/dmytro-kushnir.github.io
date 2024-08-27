@@ -19,7 +19,7 @@ import Footer from '../../components/footer/footer.tsx';
 import Lab from '../../components/lab/lab.tsx';
 import Lectures from '../../components/lecture/lectures.tsx';
 import Lecture from '../../components/lecture/lecture.tsx';
-import Journals from '../../components/journals/journals.tsx';
+import DriveLinks from '../../components/drive-links/driveLinks.tsx';
 import CourseWork from '../../components/course-work/courseWork.tsx';
 import MediumArticle from '../../components/articles/mediumArticle.tsx';
 
@@ -49,6 +49,7 @@ function Layout() {
         showGrades: true,
         showLabList: true,
         showLectures: true,
+        showVariants: true,
       }}
       />
       <Banner />
@@ -106,7 +107,8 @@ export default function WebProgrammingApp({ appName }: Props) {
             ))}
             <Route path="course-work" element={<CourseWork />} />
             <Route path="articles" element={<MediumArticle />} />
-            <Route path="grades" element={<Journals />} />
+            <Route path="grades" element={(<DriveLinks showJournals />)} />
+            <Route path="variants" element={(<DriveLinks showVariants />)} />
             <Route path="error" element={<Error />} />
             <Route path="*" element={<NoMatch />} />
           </Route>

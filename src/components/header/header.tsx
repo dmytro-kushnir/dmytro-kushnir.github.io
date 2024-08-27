@@ -12,18 +12,17 @@ import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
 import { isDesktopScreen } from '../../utils/utils.ts';
 
-interface HeaderConfig {
-  showArticles?: boolean;
-  showCourseWork?: boolean;
-  showDriveLinks?: boolean;
-  showGrades?: boolean;
-  showLabList?: boolean;
-  showLectures?: boolean;
-  showSelfWork?: boolean;
-}
-
 interface HeaderProps {
-  config: HeaderConfig;
+  config: {
+    showArticles?: boolean;
+    showCourseWork?: boolean;
+    showDriveLinks?: boolean;
+    showGrades?: boolean;
+    showLabList?: boolean;
+    showLectures?: boolean;
+    showSelfWork?: boolean;
+    showVariants?: boolean;
+  };
 }
 
 function Header({
@@ -35,6 +34,7 @@ function Header({
     showLectures = false,
     showSelfWork = false,
     showCourseWork = false,
+    showVariants = false,
   } = {},
 }: HeaderProps) {
   const navigate = useNavigate();
@@ -114,6 +114,7 @@ function Header({
               {showSelfWork && (<Nav.Link as={NavLink} to={`${appPath}/self-work`} onClick={toggleNavbar}>Самостійна</Nav.Link>)}
               {showCourseWork && (<Nav.Link as={NavLink} to={`${appPath}/course-work`} onClick={toggleNavbar}>Курсова</Nav.Link>)}
               {showArticles && (<Nav.Link as={NavLink} to={`${appPath}/articles`} onClick={toggleNavbar}>Статті</Nav.Link>)}
+              {showVariants && (<Nav.Link as={NavLink} to={`${appPath}/variants`} onClick={toggleNavbar}>Варіанти</Nav.Link>)}
               {showDriveLinks && (
               <NavDropdown
                 title="Диски"

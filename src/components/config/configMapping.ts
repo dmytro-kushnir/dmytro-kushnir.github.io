@@ -1,7 +1,8 @@
 interface DriveLink {
     name: string;
-    doc: string;
+    journal: string;
     drive: string;
+    variants?: string;
 }
 
 type ScoresMappping = {

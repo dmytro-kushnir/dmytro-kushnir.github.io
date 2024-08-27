@@ -88,29 +88,16 @@ const compArchConfig: CommonAppMapping = {
   },
   driveLinks: [
     {
-      doc: 'https://docs.google.com/spreadsheets/d/1mryFxzyOy7czdyvab6F1MAZa3e_Vc-Yk/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
-      drive: 'https://drive.google.com/drive/folders/1zOvW9TOw4hEO23iV0v768GcsEoz1y8RM?usp=drive_link',
-      name: 'KI-41',
-    },
-    {
-      doc: 'https://docs.google.com/spreadsheets/d/1JTF9MVdyosBGXYQi2kTrMOtEnErC9t0M/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
-      drive: 'https://drive.google.com/drive/folders/1bxZ4fea1BeIDPNOfTgPXIyKPj35BEmV_?usp=drive_link',
-      name: 'KI-42',
-    },
-    {
-      doc: 'https://docs.google.com/spreadsheets/d/1pIV1ZBFADBnjB25DYr7wLjhrZp8l1bFi/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
-      drive: 'https://drive.google.com/drive/folders/1Hnrov1ovJxGaoT1UBuMIggQu7N0UbJ5T?usp=drive_link',
-      name: 'KI-43',
-    },
-    {
-      doc: 'https://docs.google.com/spreadsheets/d/1vhnoKNyL29fohGtEGEnfsQLbjo8KrbnY/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
       drive: 'https://drive.google.com/drive/folders/1U9bJ4XKsD3vMmwhvYx3uYQ23zSVBq_eI?usp=drive_link',
+      journal: 'https://docs.google.com/spreadsheets/d/1vhnoKNyL29fohGtEGEnfsQLbjo8KrbnY/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
       name: 'KI-44',
+      variants: 'https://docs.google.com/spreadsheets/d/1kgZdrpid-uKyWmGi9dlB3VldVoi3gEdC/edit?usp=drive_link&ouid=112734872675001245593&rtpof=true&sd=true',
     },
     {
-      doc: 'https://docs.google.com/spreadsheets/d/13WulPB-aOZutVQqAGISA4zv83_kCqfw5/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
       drive: 'https://drive.google.com/drive/folders/1L9u9YfOpOwQ77iFrV_AmnvGmRZpdB3YO?usp=drive_link',
+      journal: 'https://docs.google.com/spreadsheets/d/13WulPB-aOZutVQqAGISA4zv83_kCqfw5/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
       name: 'KI-45',
+      variants: 'https://docs.google.com/spreadsheets/d/1kgZdrpid-uKyWmGi9dlB3VldVoi3gEdC/edit?usp=drive_link&ouid=112734872675001245593&rtpof=true&sd=true',
     },
   ],
   faviconLink: '/images/apps/comp-arch/svg/favicon.svg',
@@ -122,7 +109,8 @@ const compArchConfig: CommonAppMapping = {
         { name: 'lectures', title: 'Курс Лекцій' },
         { name: 'course-work', title: 'Курсова робота' },
         { name: 'articles', title: 'Статті' },
-        { name: 'grades', title: 'Журнали успішності' },
+        { name: 'grades', title: 'Журнали успішности' },
+        { name: 'variant', title: 'Варіанти завдань' },
       ],
       url: '/images/apps/comp-arch/bg-banner.png',
     },

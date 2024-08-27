@@ -20,7 +20,7 @@ import Footer from '../../components/footer/footer.tsx';
 import Lab from '../../components/lab/lab.tsx';
 import Lectures from '../../components/lecture/lectures.tsx';
 import Lecture from '../../components/lecture/lecture.tsx';
-import Journals from '../../components/journals/journals.tsx';
+import DriveLinks from '../../components/drive-links/driveLinks.tsx';
 import SelfWork from '../../components/self-work/selfWork.tsx';
 
 import NoMatch from '../../components/no-match/index.tsx';
@@ -101,7 +101,7 @@ export default function WebProgrammingApp({ appName }: Props) {
               <Route key={lab.id} path={`labs/${lab.id}`} element={<Lab lab={lab} />} />
             ))}
             <Route path="self-work" element={<SelfWork />} />
-            <Route path="grades" element={<Journals />} />
+            <Route path="grades" element={(<DriveLinks showJournals />)} />
             <Route path="error" element={<Error />} />
             <Route path="*" element={<NoMatch />} />
           </Route>

@@ -47,7 +47,7 @@ function FaqSection() {
                             <li key={link.name}>
                               {link.name}
                               <a href={link.drive} target="_blank" rel="noreferrer">Диск</a>
-                              <a href={link.doc} target="_blank" rel="noreferrer">Журнал</a>
+                              <a href={link.journal} target="_blank" rel="noreferrer">Журнал</a>
                             </li>
                           ))}
                         </ul>

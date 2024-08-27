@@ -3,11 +3,19 @@ import {
 } from 'react-bootstrap';
 import IframeLoader from '../iframe/iframe.tsx';
 
-import './journals.scss';
+import './driveLinks.scss';
 import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
 
-function Journals() {
+interface DriveLinksProps {
+  showJournals?: boolean;
+  showVariants?: boolean;
+}
+
+function DriveLinks({
+  showJournals = false,
+  showVariants = false,
+}: DriveLinksProps) {
   const config = useConfig(useAppName());
   const { driveLinks } = config;
 
@@ -33,7 +41,9 @@ function Journals() {
                       Перейти на Google Диск
                     </a>
                   </h6>
-                  <IframeLoader src={link.doc} title={link.name} />
+                  {showJournals && <IframeLoader src={link.journal} title={link.name} />}
+                  {showVariants && link.variants
+                      && <IframeLoader src={link.variants} title={link.name} />}
                 </Tab.Pane>
               ))}
             </Tab.Content>
@@ -44,4 +54,9 @@ function Journals() {
   );
 }
 
-export default Journals;
+DriveLinks.defaultProps = {
+  showJournals: false,
+  showVariants: false,
+};
+
+export default DriveLinks;
