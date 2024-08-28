@@ -65,7 +65,7 @@ const staff = {
   lecturerAssistants: [
     'Кушнір Дмитро Олександрович',
   ],
-  lecturerName: 'TBD',
+  lecturerName: 'Бачинський Руслан Володимирович',
   lecturerPhoto: '/images/apps/wp/lecturer.jpeg',
 };
 
@@ -88,16 +88,16 @@ const compArchConfig: CommonAppMapping = {
   },
   driveLinks: [
     {
-      drive: 'https://drive.google.com/drive/folders/1U9bJ4XKsD3vMmwhvYx3uYQ23zSVBq_eI?usp=drive_link',
-      journal: 'https://docs.google.com/spreadsheets/d/1vhnoKNyL29fohGtEGEnfsQLbjo8KrbnY/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
-      name: 'KI-44',
-      variants: 'https://docs.google.com/spreadsheets/d/1kgZdrpid-uKyWmGi9dlB3VldVoi3gEdC/edit?usp=drive_link&ouid=112734872675001245593&rtpof=true&sd=true',
+      drive: 'https://drive.google.com/drive/folders/1L7H_yLzCKiiWOoEaMIieeXDGnUHoRy6j?usp=sharing',
+      journal: 'https://docs.google.com/spreadsheets/d/15iROCmcJmMoQF8zKw2ScZgveDtASp580/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
+      name: 'KI-307',
+      variants: 'https://docs.google.com/spreadsheets/d/1M97Z0RucNsZ-X9fqRVPRE0GqvhuaCfIl/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
     },
     {
-      drive: 'https://drive.google.com/drive/folders/1L9u9YfOpOwQ77iFrV_AmnvGmRZpdB3YO?usp=drive_link',
-      journal: 'https://docs.google.com/spreadsheets/d/13WulPB-aOZutVQqAGISA4zv83_kCqfw5/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
-      name: 'KI-45',
-      variants: 'https://docs.google.com/spreadsheets/d/1kgZdrpid-uKyWmGi9dlB3VldVoi3gEdC/edit?usp=drive_link&ouid=112734872675001245593&rtpof=true&sd=true',
+      drive: 'https://drive.google.com/drive/folders/1PXenNE9iIrQWaktTojjGO2Yr6f0aDUPx?usp=sharing',
+      journal: 'https://docs.google.com/spreadsheets/d/1SzNmFDhb-yXF-RezZJWZVmDpZGQcwZtm/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
+      name: 'KI-308',
+      variants: 'https://docs.google.com/spreadsheets/d/1ryE5GPH1XT7M_gHFkppxwXEVTSblBzVz/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
     },
   ],
   faviconLink: '/images/apps/comp-arch/svg/favicon.svg',
@@ -142,8 +142,8 @@ const compArchConfig: CommonAppMapping = {
       {
         content: [
           `Заняття з дисципліни ${courseName} у ${new Date().getFullYear()} році відбуваються офлайн у визначених аудиторіях. За потреби проведення онлайн консультацій, буде доступно онлайн посилання.`,
-          `Лекції веде та проводить захисти: ${staff.lecturerName}`,
-          `Лабараторні ведуть: ${staff.lecturerAssistants}`,
+          `Лекції веде та приймає екзамен: ${staff.lecturerName}`,
+          `Лабараторні веде у зазначених групах і приймає захисти: ${staff.lecturerAssistants}`,
         ],
         showOnlineLink: true,
         title: 'Як і де відбуваються заняття?',
