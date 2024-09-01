@@ -4,6 +4,7 @@ import {
 
 import WebProgrammingApp from '../web-programming/App.tsx';
 import ComputerArchitectureApp from '../computer-architecture/App.tsx';
+import CSNJournalApp from '../csn-journal/App.tsx';
 import ConfigProvider from '../../components/config/index.tsx';
 import { ConfigMapping, AppNames } from '../../components/config/configMapping.ts';
 
@@ -15,39 +16,6 @@ interface AppProps {
     config: ConfigMapping;
 }
 
-// function Layout() {
-//   const location = useLocation();
-//   return (
-//     <div>
-//       <h1>Home page</h1>
-//       <nav>
-//         <ul>
-//           <li>
-//             <Link to="/">Home</Link>
-//           </li>
-//           <li>
-//             <Link to="/about">About</Link>
-//           </li>
-//           <li>
-//             {location.pathname.startsWith('/web-programming') ? (
-//               <Link to="/">Back to Home</Link>
-//             ) : (
-//               <Link to="/web-programming/">Web Programming</Link>
-//             )}
-//           </li>
-//         </ul>
-//       </nav>
-//
-//       <hr />
-//
-//       <Outlet />
-//       <p>
-//         This example demonstrates how to lazily load both route elements and
-//       </p>
-//     </div>
-//   );
-// }
-
 export default function App({ config }: AppProps) { //   HashRouter could be reimplemented with standard BrowserRouter https://github.com/rafgraph/spa-github-pages to properly reload each sub-page
   return (
     <ConfigProvider config={config}>
@@ -58,6 +26,7 @@ export default function App({ config }: AppProps) { //   HashRouter could be rei
           <Route path={`${config.apps.wp.appPath as AppNames}/*`} element={<WebProgrammingApp appName={config.apps.wp.name as AppNames} />} />
           <Route path={`${config.apps.compArch.appPath as AppNames}/*`} element={<ComputerArchitectureApp appName={config.apps.compArch.name as AppNames} />} />
           <Route path="error" element={<Error />} />
+          <Route path="csnJournal/*" element={<CSNJournalApp />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </HashRouter>
