@@ -1,0 +1,20 @@
+{
+  "name": "csn-journal-functions",
+  "description": "Cloud Functions for the CSN Journal app",
+  "type": "module",
+  "dependencies": {
+    "firebase-admin": "^12.4",
+    "firebase-functions": "^5.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.0"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "deploy:functions": "tsc && firebase deploy --only functions",
+    "emulate:functions": "tsc && firebase emulators:start --only functions,firestore,storage"
+  }
+}

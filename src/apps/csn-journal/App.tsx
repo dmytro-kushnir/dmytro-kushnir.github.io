@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Container, Row, Col, Button,
 } from 'react-bootstrap';
@@ -22,8 +22,34 @@ interface Article {
 const App: React.FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
 
-  const handleAddArticle = (article: Article) => {
-    setArticles([...articles, article]);
+  useEffect(() => {
+    const fetchArticles = async () => {
+      try {
+        const response = await fetch('https://<your-cloud-function-url>/getArticles');
+        const articlesData = await response.json();
+        setArticles(articlesData);
+      } catch (error) {
+        console.error('Failed to fetch articles:', error);
+      }
+    };
+
+    fetchArticles();
+  }, []);
+
+  const handleAddArticle = async (article: Article) => {
+    try {
+      const response = await fetch('https://<your-cloud-function-url>/addArticle', {
+        body: JSON.stringify(article),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        method: 'POST',
+      });
+      const newArticle = await response.json();
+      setArticles([...articles, newArticle]);
+    } catch (error) {
+      console.error('Error adding article:', error);
+    }
   };
 
   const handleUpdateStatus = (id: string, status: string) => {

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "strict": true,                    // Enable all strict type-checking options
+    "esModuleInterop": true,           // Enable interop between CommonJS and ES Modules
+    "skipLibCheck": true,              // Skip type checking of declaration files
+    "outDir": ".",                   // Output directory for compiled JavaScript
+    "moduleResolution": "node",        // This helps TypeScript resolve node module
+    "rootDir": "."                    // Root directory of input files
+  },
+  "include": [
+    "**/*.ts"  // Include all TypeScript files in this directory
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}
