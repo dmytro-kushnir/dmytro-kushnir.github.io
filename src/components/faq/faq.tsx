@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import {
   Container, Row, Col, Accordion,
 } from 'react-bootstrap';

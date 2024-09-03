@@ -103,7 +103,6 @@ const DataTable: React.FC<DataTableProps> = ({
                   Link
                 </a>
               </td>
-              {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
               <td>
                 <StatusBadge status={article.status} />
               </td>

@@ -7,7 +7,8 @@
     "firebase-functions": "^5.1"
   },
   "devDependencies": {
-    "typescript": "^5.0"
+    "typescript": "^5.0",
+    "firebase-tools": "^13.16"
   },
   "engines": {
     "node": "20"
@@ -15,6 +16,6 @@
   "scripts": {
     "build": "tsc",
     "deploy:functions": "tsc && firebase deploy --only functions",
-    "emulate:functions": "tsc && firebase emulators:start --only functions,firestore,storage"
+    "emulate:system": "tsc && firebase emulators:start --only functions,firestore,storage"
   }
 }
