@@ -1,5 +1,6 @@
 /* eslint-disable import/no-unresolved */
-// eslint rules started from root project, where we don't have firebase.
+// eslint rules started from root project, where we don't have firebase
+
 import { onRequest } from 'firebase-functions/v2/https';
 import { getFirestore, FieldValue } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
@@ -13,9 +14,10 @@ const SCHEMA = {
 initializeApp();
 
 const db = getFirestore();
-const storage = getStorage().bucket();
 
-export const getAllArticles = onRequest(async (req, res) => {
+// const storage = getStorage().bucket();
+
+export const getArticles = onRequest(async (_req, res) => {
   try {
     const articlesRef = db.collection(SCHEMA.COLLECTION_NAME);
     const snapshot = await articlesRef.get();
@@ -39,14 +41,14 @@ export const getAllArticles = onRequest(async (req, res) => {
 
 export const addArticle = onRequest(async (req, res) => {
   try {
-    const { title, content } = req.body;
-    if (!title || !content) {
+    const { abstract, title } = req.body;
+    if (!title || !abstract) {
       res.status(400).json({ error: 'Title and content are required.' });
       return;
     }
 
     const newArticle = {
-      content,
+      abstract,
       createdAt: FieldValue.serverTimestamp(),
       title,
     };

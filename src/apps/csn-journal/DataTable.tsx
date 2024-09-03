@@ -90,7 +90,7 @@ const DataTable: React.FC<DataTableProps> = ({
           </tr>
         </thead>
         <tbody>
-          {articles.map((article) => (
+          {articles.length > 0 && articles.map((article) => (
             <tr key={article.id}>
               <td>{article.title}</td>
               <td>{article.authors}</td>

@@ -25,7 +25,7 @@ const App: React.FC = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await fetch('https://<your-cloud-function-url>/getArticles');
+        const response = await fetch('http://localhost:5001/dmytro-kushnir-apps/us-central1/getArticles');
         const articlesData = await response.json();
         setArticles(articlesData);
       } catch (error) {
@@ -38,7 +38,7 @@ const App: React.FC = () => {
 
   const handleAddArticle = async (article: Article) => {
     try {
-      const response = await fetch('https://<your-cloud-function-url>/addArticle', {
+      const response = await fetch('http://localhost:5001/dmytro-kushnir-apps/us-central1/addArticle', {
         body: JSON.stringify(article),
         headers: {
           'Content-Type': 'application/json',
@@ -53,9 +53,11 @@ const App: React.FC = () => {
   };
 
   const handleUpdateStatus = (id: string, status: string) => {
-    setArticles(
-      articles.map((article) => (article.id === id ? { ...article, status } : article)),
-    );
+    if (articles?.length) {
+      setArticles(
+        articles.map((article) => (article.id === id ? { ...article, status } : article)),
+      );
+    }
   };
 
   const exportToXML = () => {
