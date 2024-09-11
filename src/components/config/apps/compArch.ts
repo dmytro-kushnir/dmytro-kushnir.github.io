@@ -31,10 +31,10 @@ const scores = {
 };
 
 const semester = {
-  end: '20.12.2024',
+  end: '03.12.2024',
   periods: [
     {
-      end: '20.09.2024',
+      end: '23.09.2024',
       labs: '1-2',
       score: 7,
       start: '02.09.2024',
@@ -52,7 +52,7 @@ const semester = {
       start: '21.10.2024',
     },
     {
-      end: '6.12.2024',
+      end: '29.11.2024',
       labs: '7-8',
       score: 8,
       start: '11.11.2024',
