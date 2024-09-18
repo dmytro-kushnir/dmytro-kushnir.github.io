@@ -7,6 +7,9 @@ import { getStorage } from 'firebase-admin/storage';
 import { initializeApp } from 'firebase-admin/app';
 import * as logger from 'firebase-functions/logger';
 
+// eslint-disable-next-line import/extensions
+import { checkAndSeedFirestore } from './seedFirestore.js';
+
 const SCHEMA = {
   COLLECTION_NAME: 'csn-journal',
 };
@@ -16,6 +19,12 @@ initializeApp();
 const db = getFirestore();
 
 // const storage = getStorage().bucket();
+
+// Check if the emulator is running and seed data
+if (process.env.FIREBASE_EMULATOR_HUB) {
+  logger.info('Running in Firebase Emulator. Checking for data...');
+  checkAndSeedFirestore(db, SCHEMA.COLLECTION_NAME);
+}
 
 export const getArticles = onRequest(async (_req, res) => {
   try {

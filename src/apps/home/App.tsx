@@ -26,7 +26,7 @@ export default function App({ config }: AppProps) { //   HashRouter could be rei
           <Route path={`${config.apps.wp.appPath as AppNames}/*`} element={<WebProgrammingApp appName={config.apps.wp.name as AppNames} />} />
           <Route path={`${config.apps.compArch.appPath as AppNames}/*`} element={<ComputerArchitectureApp appName={config.apps.compArch.name as AppNames} />} />
           <Route path="error" element={<Error />} />
-          <Route path="csnJournal/*" element={<CSNJournalApp />} />
+          <Route path="csn-journal/*" element={<CSNJournalApp />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>
       </HashRouter>

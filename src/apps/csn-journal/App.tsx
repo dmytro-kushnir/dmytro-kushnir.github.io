@@ -23,7 +23,7 @@ const App: React.FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
 
   useEffect(() => {
-    const fetchArticles = async () => {
+    (async function fetchArticles() {
       try {
         const response = await fetch('http://localhost:5001/dmytro-kushnir-apps/us-central1/getArticles');
         const articlesData = await response.json();
@@ -31,9 +31,7 @@ const App: React.FC = () => {
       } catch (error) {
         console.error('Failed to fetch articles:', error);
       }
-    };
-
-    fetchArticles();
+    }());
   }, []);
 
   const handleAddArticle = async (article: Article) => {

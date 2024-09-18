@@ -1,0 +1,26 @@
+[
+  {
+    "abstract": "This is the first article.",
+    "authors": "John Doe",
+    "doi": "10.1234/example1",
+    "firstPage": "1",
+    "id": "article1",
+    "lastPage": "10",
+    "publicationDate": "2024-09-18",
+    "resourceUrl": "https://example.com/first",
+    "status": "published",
+    "title": "First Article"
+  },
+  {
+    "abstract": "This is the second article.",
+    "authors": "Jane Smith",
+    "doi": "10.1234/example2",
+    "firstPage": "11",
+    "id": "article2",
+    "lastPage": "20",
+    "publicationDate": "2024-09-19",
+    "resourceUrl": "https://example.com/second",
+    "status": "draft",
+    "title": "Second Article"
+  }
+]

@@ -6,8 +6,10 @@
     "skipLibCheck": true,              // Skip type checking of declaration files
     "outDir": ".",                   // Output directory for compiled JavaScript
     "moduleResolution": "node",        // This helps TypeScript resolve node module
+    "resolveJsonModule": true,
     "rootDir": ".",                    // Root directory of input files
-    "sourceMap": true                 // please uncomment sourceMap during debugging
+    "sourceMap": true,                 // please uncomment sourceMap during debugging
+    "module": "esnext",
   },
   "include": [
     "**/*.ts"  // Include all TypeScript files in this directory
