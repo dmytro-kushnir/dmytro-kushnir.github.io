@@ -6,16 +6,17 @@ import DataTable from './DataTable.tsx';
 import { jsonToXml } from './jsonToXml.ts';
 
 interface Article {
-    id: string;
-    title: string;
-    authors: string;
-    abstract: string;
-    publicationDate: string;
-    firstPage: string;
-    lastPage: string;
-    doi: string;
-    resourceUrl: string;
-    status: string;
+  id: string;
+  title: string;
+  authors: string;
+  abstract: string;
+  publicationDate: string;
+  firstPage: string;
+  lastPage: string;
+  doi: string;
+  resourceUrl: string;
+  status: string;
+  fileURL: string;
 }
 
 // eslint-disable-next-line react/function-component-definition
@@ -34,15 +35,34 @@ const App: React.FC = () => {
     }());
   }, []);
 
-  const handleAddArticle = async (article: Article) => {
+  const fileToBase64 = (file: File): Promise<string> => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result?.toString().split(',')[1] || '');
+    reader.onerror = (error) => reject(error);
+  });
+
+  const handleAddArticle = async (article: Article, file: File | null) => {
+    if (!file) {
+      console.error('File is required for uploading an article.');
+      return;
+    }
+
+    const fileContent = await fileToBase64(file);
+
     try {
       const response = await fetch('http://localhost:5001/dmytro-kushnir-apps/us-central1/addArticle', {
-        body: JSON.stringify(article),
+        body: JSON.stringify({
+          ...article,
+          fileContent,
+          fileName: file.name,
+        }),
         headers: {
           'Content-Type': 'application/json',
         },
         method: 'POST',
       });
+
       const newArticle = await response.json();
       setArticles([...articles, newArticle]);
     } catch (error) {

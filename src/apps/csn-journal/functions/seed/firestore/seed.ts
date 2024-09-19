@@ -1,6 +1,6 @@
 import * as logger from 'firebase-functions/logger';
 
-import articlesMock from './mock.json' assert { type: 'json' };
+import articlesMock from '../mock.json' assert { type: 'json' };
 
 // Function to seed data in Firestore
 const seedFirestore = async (db: FirebaseFirestore.Firestore, collectionName: string) => {

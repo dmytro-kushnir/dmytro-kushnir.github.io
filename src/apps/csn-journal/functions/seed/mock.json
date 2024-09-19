@@ -9,7 +9,9 @@
     "publicationDate": "2024-09-18",
     "resourceUrl": "https://example.com/first",
     "status": "published",
-    "title": "First Article"
+    "title": "First Article",
+    "fileName": "first_article.pdf",
+    "fileContent": "<base64-encoded content of first_article.pdf>"
   },
   {
     "abstract": "This is the second article.",
@@ -21,6 +23,8 @@
     "publicationDate": "2024-09-19",
     "resourceUrl": "https://example.com/second",
     "status": "draft",
-    "title": "Second Article"
+    "title": "Second Article",
+    "fileName": "second_article.docx",
+    "fileContent": "<base64-encoded content of second_article.docx>"
   }
 ]

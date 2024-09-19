@@ -6,22 +6,23 @@ import { v4 as uuidv4 } from 'uuid';
 import StatusBadge from './StatusBadge.tsx';
 
 interface Article {
-    id: string;
-    title: string;
-    authors: string;
-    abstract: string;
-    publicationDate: string;
-    firstPage: string;
-    lastPage: string;
-    doi: string;
-    resourceUrl: string;
-    status: string;
+  id: string;
+  title: string;
+  authors: string;
+  abstract: string;
+  publicationDate: string;
+  firstPage: string;
+  lastPage: string;
+  doi: string;
+  resourceUrl: string;
+  status: string;
+  fileURL: string; // Include file URL
 }
 
 interface DataTableProps {
-    articles: Article[];
-    onAddArticle: (article: Article) => void;
-    onUpdateStatus: (id: string, status: string) => void;
+  articles: Article[];
+  onAddArticle: (article: Article, file: File | null) => void;
+  onUpdateStatus: (id: string, status: string) => void;
 }
 
 // eslint-disable-next-line react/function-component-definition
@@ -31,7 +32,7 @@ const DataTable: React.FC<DataTableProps> = ({
   onUpdateStatus,
 }) => {
   const [showModal, setShowModal] = useState(false);
-  const [newArticle, setNewArticle] = useState<Omit<Article, 'id' | 'status'>>({
+  const [newArticle, setNewArticle] = useState<Omit<Article, 'id' | 'status' | 'fileURL'>>({
     abstract: '',
     authors: '',
     doi: '',
@@ -41,6 +42,7 @@ const DataTable: React.FC<DataTableProps> = ({
     resourceUrl: '',
     title: '',
   });
+  const [file, setFile] = useState<File | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setNewArticle({
@@ -49,13 +51,20 @@ const DataTable: React.FC<DataTableProps> = ({
     });
   };
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setFile(e.target.files[0]);
+    }
+  };
+
   const handleSubmit = () => {
     const article: Article = {
       id: uuidv4(),
       ...newArticle,
+      fileURL: '',
       status: 'In Review',
     };
-    onAddArticle(article);
+    onAddArticle(article, file); // Pass the article and file
     setShowModal(false);
     setNewArticle({
       abstract: '',
@@ -67,6 +76,7 @@ const DataTable: React.FC<DataTableProps> = ({
       resourceUrl: '',
       title: '',
     });
+    setFile(null); // Reset file after submission
   };
 
   return (
@@ -85,6 +95,9 @@ const DataTable: React.FC<DataTableProps> = ({
             <th>Pages</th>
             <th>DOI</th>
             <th>Resource URL</th>
+            <th>File</th>
+            {' '}
+            {/* Add file column */}
             <th>Status</th>
             <th>Actions</th>
           </tr>
@@ -102,6 +115,15 @@ const DataTable: React.FC<DataTableProps> = ({
                 <a href={article.resourceUrl} target="_blank" rel="noopener noreferrer">
                   Link
                 </a>
+              </td>
+              <td>
+                {article.fileURL ? (
+                  <a href={article.fileURL} target="_blank" rel="noopener noreferrer">
+                    Download
+                  </a>
+                ) : (
+                  'No file'
+                )}
               </td>
               <td>
                 <StatusBadge status={article.status} />
@@ -210,6 +232,15 @@ const DataTable: React.FC<DataTableProps> = ({
                 name="resourceUrl"
                 value={newArticle.resourceUrl}
                 onChange={handleChange}
+              />
+            </Form.Group>
+
+            <Form.Group controlId="formFile" className="mb-3">
+              <Form.Label>Upload File (PDF/DOCX)</Form.Label>
+              <Form.Control
+                type="file"
+                accept=".pdf,.docx"
+                onChange={handleFileChange}
               />
             </Form.Group>
           </Form>
