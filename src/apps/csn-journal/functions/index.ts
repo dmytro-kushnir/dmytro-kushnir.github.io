@@ -8,7 +8,7 @@ import { initializeApp } from 'firebase-admin/app';
 import * as logger from 'firebase-functions/logger';
 
 // eslint-disable-next-line import/extensions
-import { checkAndSeedFirestore } from './seedFirestore.js';
+import { checkAndSeedFirestore } from './seed/firestore/seed.js';
 
 const SCHEMA = {
   COLLECTION_NAME: 'csn-journal',
