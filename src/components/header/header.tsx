@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Link, useNavigate, NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import {
   Container, Navbar, Nav, NavDropdown, Modal, Button,
 } from 'react-bootstrap';
@@ -37,7 +37,7 @@ function Header({
     showVariants = false,
   } = {},
 }: HeaderProps) {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const appConfig = useConfig(useAppName());
 
   const {
@@ -100,10 +100,9 @@ function Header({
                 {labList.map((lab) => (
                   <NavDropdown.Item
                     key={lab.id}
-                    onClick={() => {
-                      navigate(`${appPath}/labs/${lab.id}`);
-                      toggleNavbar();
-                    }}
+                    as={NavLink}
+                    to={`${appPath}/labs/${lab.id}`}
+                    onClick={toggleNavbar}
                   >
                     {lab.name}
                   </NavDropdown.Item>
