@@ -97,8 +97,9 @@ interface Article {
     description: string;
     link?: string;
     name?: string;
+    thumbnail?: string;
     type: string;
-    username: string;
+    username?: string;
 }
 
 interface HomePageMapping {

@@ -77,6 +77,12 @@ const compArchConfig: CommonAppMapping = {
       type: 'medium',
       username: 'dmytro.kushnir',
     },
+    {
+      description: 'Види адресації.',
+      link: 'https://uk.wikipedia.org/wiki/%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%B8_%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D0%B0%D1%86%D1%96%D1%97_%D0%BF%D0%B0%D0%BC%27%D1%8F%D1%82%D1%96',
+      thumbnail: '/images/apps/comp-arch/addressing-modes.png',
+      type: 'link',
+    },
   ],
   courseWork: {
     description: 'Проєктування CISC комп’ютера',
