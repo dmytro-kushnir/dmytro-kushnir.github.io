@@ -31,6 +31,7 @@ const scores = {
 };
 
 const semester = {
+  courseWork: '06.12.24',
   end: '03.12.2024',
   periods: [
     {
@@ -222,6 +223,11 @@ const compArchConfig: CommonAppMapping = {
         {
           items: [
             { label: 'Курсова Робота', points: scores.courseWork },
+          ],
+          title: `До ${semester.courseWork}`,
+        },
+        {
+          items: [
             { label: 'Тести, описові питання', points: scores.exam, specialClass: 'test' },
           ],
           title: 'Екзамен',
@@ -428,7 +434,7 @@ const compArchConfig: CommonAppMapping = {
       })),
       {
         content: [`Курсова робота - ${scores.courseWork} балів`],
-        title: 'Протягом семестру',
+        title: `Протягом семестру. Дедлайн подачі до ${semester.courseWork}`,
       },
       {
         content: [
