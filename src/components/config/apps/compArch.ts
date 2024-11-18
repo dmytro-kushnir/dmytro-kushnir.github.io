@@ -53,7 +53,7 @@ const semester = {
       start: '21.10.2024',
     },
     {
-      end: '29.11.2024',
+      end: '26.11.2024',
       labs: '7-8',
       score: 8,
       start: '11.11.2024',
