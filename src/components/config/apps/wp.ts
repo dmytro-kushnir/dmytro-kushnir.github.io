@@ -68,28 +68,28 @@ const wpConfig: CommonAppMapping = {
   appPath: '/web-programming',
   driveLinks: [
     {
-      drive: 'https://drive.google.com/drive/folders/1zOvW9TOw4hEO23iV0v768GcsEoz1y8RM?usp=drive_link',
-      journal: 'https://docs.google.com/spreadsheets/d/1mryFxzyOy7czdyvab6F1MAZa3e_Vc-Yk/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
+      drive: 'https://drive.google.com/drive/folders/1pupvPBnde3fqO_Q-tYCs-AUl6Hy_ZNGW?usp=sharing',
+      journal: 'https://docs.google.com/spreadsheets/d/1SlqQbxBWgDs-dcSBjrA2oRMJ841-DNuP/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
       name: 'KI-41',
     },
     {
-      drive: 'https://drive.google.com/drive/folders/1bxZ4fea1BeIDPNOfTgPXIyKPj35BEmV_?usp=drive_link',
-      journal: 'https://docs.google.com/spreadsheets/d/1JTF9MVdyosBGXYQi2kTrMOtEnErC9t0M/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
+      drive: 'https://drive.google.com/drive/folders/19QVnMO9JHJT3w6pj6gIJe423yJjhT9Py?usp=sharing',
+      journal: 'https://docs.google.com/spreadsheets/d/1VAHKgqKJNP0eq6V4oC1TpBdPW5m1YvWA/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
       name: 'KI-42',
     },
     {
-      drive: 'https://drive.google.com/drive/folders/1Hnrov1ovJxGaoT1UBuMIggQu7N0UbJ5T?usp=drive_link',
-      journal: 'https://docs.google.com/spreadsheets/d/1pIV1ZBFADBnjB25DYr7wLjhrZp8l1bFi/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
+      drive: 'https://drive.google.com/drive/folders/1H4E7z6tESFAJOC-zob6y8Rsy0HJWyCff?usp=sharing',
+      journal: 'https://docs.google.com/spreadsheets/d/1TOIgZPf0q1XrKmE9lESLdQ7QZFJyGT5R/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
       name: 'KI-43',
     },
     {
-      drive: 'https://drive.google.com/drive/folders/1U9bJ4XKsD3vMmwhvYx3uYQ23zSVBq_eI?usp=drive_link',
-      journal: 'https://docs.google.com/spreadsheets/d/1vhnoKNyL29fohGtEGEnfsQLbjo8KrbnY/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
+      drive: 'https://drive.google.com/drive/folders/1549cfDSGYQvLFCWvMVC3LtdrmTsSCbBL?usp=sharing',
+      journal: 'https://docs.google.com/spreadsheets/d/1akEAAlYLvSGGUtWO4kZTiV5X95ojyMTt/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
       name: 'KI-44',
     },
     {
-      drive: 'https://drive.google.com/drive/folders/1L9u9YfOpOwQ77iFrV_AmnvGmRZpdB3YO?usp=drive_link',
-      journal: 'https://docs.google.com/spreadsheets/d/13WulPB-aOZutVQqAGISA4zv83_kCqfw5/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
+      drive: 'https://drive.google.com/drive/folders/1Zl5bysjqTF4APAga-omj9ZWGKvrTCCev?usp=sharing',
+      journal: 'https://docs.google.com/spreadsheets/d/1O9Jh68OaXa7WIelIPrGut4l8GsYHno7A/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
       name: 'KI-45',
     },
   ],

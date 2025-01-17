@@ -55,7 +55,7 @@ function TopBar() {
               <li>
                 <a href={links.telegram} aria-label="tg" target="_blank" rel="noreferrer">
                   <FaTelegram />
-                  Телеграм
+                  TG
                 </a>
               </li>
             </ul>
