@@ -34,31 +34,32 @@ const scores = {
 };
 
 const semester = {
-  end: '08.04.2024',
-  middle: '11.03.2024',
+  end: '14.04.2025',
+  middle: '17.03.2025',
   periods: [
     {
-      end: '11.03.2024',
+      end: '17.03.2025',
       extraScore: 5,
       labs: '1-4',
       score: 10,
-      start: '12.02.2024',
+      start: '24.02.2025',
     },
     {
-      end: '08.04.2024',
+      end: '14.04.2025',
       extraScore: 5,
       labs: '5-8',
       score: 10,
-      start: '12.03.2024',
+      start: '17.03.2025',
     },
   ],
-  start: '12.02.2024',
+  start: '24.02.2025',
 };
 
 const staff = {
   lecturerAssistants: [
     'Кушнір Дмитро Олександрович',
-    'Добуш Андрій Романович',
+    'Мальцев Едуард Євгенович',
+    'Іванов Юрій Сергійович ',
   ],
   lecturerName: 'Кушнір Дмитро Олександрович',
   lecturerPhoto: '/images/apps/wp/lecturer.jpeg',
@@ -70,27 +71,32 @@ const wpConfig: CommonAppMapping = {
     {
       drive: 'https://drive.google.com/drive/folders/1pupvPBnde3fqO_Q-tYCs-AUl6Hy_ZNGW?usp=sharing',
       journal: 'https://docs.google.com/spreadsheets/d/1SlqQbxBWgDs-dcSBjrA2oRMJ841-DNuP/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
-      name: 'KI-41',
+      name: 'KI-401',
     },
     {
       drive: 'https://drive.google.com/drive/folders/19QVnMO9JHJT3w6pj6gIJe423yJjhT9Py?usp=sharing',
       journal: 'https://docs.google.com/spreadsheets/d/1VAHKgqKJNP0eq6V4oC1TpBdPW5m1YvWA/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
-      name: 'KI-42',
+      name: 'KI-402',
     },
     {
       drive: 'https://drive.google.com/drive/folders/1H4E7z6tESFAJOC-zob6y8Rsy0HJWyCff?usp=sharing',
       journal: 'https://docs.google.com/spreadsheets/d/1TOIgZPf0q1XrKmE9lESLdQ7QZFJyGT5R/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
-      name: 'KI-43',
+      name: 'KI-403',
     },
     {
       drive: 'https://drive.google.com/drive/folders/1549cfDSGYQvLFCWvMVC3LtdrmTsSCbBL?usp=sharing',
       journal: 'https://docs.google.com/spreadsheets/d/1akEAAlYLvSGGUtWO4kZTiV5X95ojyMTt/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
-      name: 'KI-44',
+      name: 'KI-404',
     },
     {
       drive: 'https://drive.google.com/drive/folders/1Zl5bysjqTF4APAga-omj9ZWGKvrTCCev?usp=sharing',
       journal: 'https://docs.google.com/spreadsheets/d/1O9Jh68OaXa7WIelIPrGut4l8GsYHno7A/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
-      name: 'KI-45',
+      name: 'KI-405',
+    },
+    {
+      drive: 'https://drive.google.com/drive/folders/16eexK9lJ0K-8-efghQXIPu8C3qObO5Ia?usp=drive_link',
+      journal: 'https://docs.google.com/spreadsheets/d/1f8qtkiXV9bgprqAXQgtKprd0MEAC7gCo/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
+      name: 'KI-406',
     },
   ],
   faviconLink: '/images/apps/wp/svg/favicon.svg',
