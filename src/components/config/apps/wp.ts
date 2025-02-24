@@ -57,9 +57,9 @@ const semester = {
 
 const staff = {
   lecturerAssistants: [
-    'Кушнір Дмитро Олександрович',
-    'Мальцев Едуард Євгенович',
-    'Іванов Юрій Сергійович ',
+    `Кушнір Дмитро Олександрович (${links.mail})`,
+    'Мальцев Едуард Євгенович (Eduard.Y.Maltsev@lpnu.ua)',
+    'Іванов Юрій Сергійович (Yuriy.S.Ivanov@lpnu.ua)',
   ],
   lecturerName: 'Кушнір Дмитро Олександрович',
   lecturerPhoto: '/images/apps/wp/lecturer.jpeg',
