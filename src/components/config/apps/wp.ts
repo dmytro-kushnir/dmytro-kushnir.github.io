@@ -40,14 +40,14 @@ const semester = {
     {
       end: '17.03.2025',
       extraScore: 5,
-      labs: '1-4',
+      labs: '1-3',
       score: 10,
       start: '24.02.2025',
     },
     {
       end: '14.04.2025',
       extraScore: 5,
-      labs: '5-8',
+      labs: '4-6',
       score: 10,
       start: '17.03.2025',
     },
