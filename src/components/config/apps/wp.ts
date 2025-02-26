@@ -231,7 +231,7 @@ const wpConfig: CommonAppMapping = {
           header: 'Посилання на виконання задач та порядок роботи.',
           link: {
             title: 'Перейти до завдання',
-            url: 'https://leetcode.com/problem-list/top-interview-questions/?sorting=W3sic29ydE9yZGVyIjoiQVNDRU5ESU5HIiwib3JkZXJCeSI6IkRJRkZJQ1VMVFkifV0%3D',
+            url: 'https://leetcode.com/studyplan/top-interview-150/',
           },
         },
         {
