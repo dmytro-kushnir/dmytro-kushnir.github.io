@@ -33,6 +33,7 @@ import Faq from '../../components/faq/faq.tsx';
 
 import ScrollToTop from '../../components/scroll-to-top/scrollToTop.ts';
 import { useAppHead } from '../../utils/utils.ts';
+import Articles from '../../components/articles/articles.tsx';
 
 interface Props {
     appName: AppNames;
@@ -43,6 +44,7 @@ function Layout() {
     <div>
       <TopBar />
       <Header config={{
+        showArticles: true,
         showDriveLinks: true,
         showGrades: true,
         showLabList: true,
@@ -101,6 +103,7 @@ export default function WebProgrammingApp({ appName }: Props) {
               <Route key={lab.id} path={`labs/${lab.id}`} element={<Lab lab={lab} />} />
             ))}
             <Route path="self-work" element={<SelfWork />} />
+            <Route path="articles" element={<Articles />} />
             <Route path="grades" element={(<DriveLinks showJournals />)} />
             <Route path="error" element={<Error />} />
             <Route path="*" element={<NoMatch />} />

@@ -67,6 +67,14 @@ const staff = {
 
 const wpConfig: CommonAppMapping = {
   appPath: '/web-programming',
+  articles: [
+    {
+      description: 'Tech Talk | Вирішуємо життєві негаразди за допомогою JavaScript — Володимир Агафонкін | DOU Day.',
+      link: 'https://www.youtube.com/watch?v=m8XXeqpHmfA',
+      thumbnail: 'https://img.youtube.com/vi/m8XXeqpHmfA/maxresdefault.jpg',
+      type: 'link',
+    },
+  ],
   driveLinks: [
     {
       drive: 'https://drive.google.com/drive/folders/1pupvPBnde3fqO_Q-tYCs-AUl6Hy_ZNGW?usp=sharing',
@@ -107,6 +115,7 @@ const wpConfig: CommonAppMapping = {
         { name: 'labs', title: 'Роботи до виконання' },
         { name: 'lectures', title: 'Курс Лекцій' },
         { name: 'self-work', title: 'Самостійна робота' },
+        { name: 'articles', title: 'Статті, посилання за тематикою предмету' },
         { name: 'grades', title: 'Журнали успішності' },
       ],
       url: '/images/apps/wp/bg-banner.png',

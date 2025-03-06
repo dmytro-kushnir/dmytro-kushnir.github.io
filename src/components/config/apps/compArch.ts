@@ -121,7 +121,7 @@ const compArchConfig: CommonAppMapping = {
         { name: 'labs', title: 'Роботи до виконання' },
         { name: 'lectures', title: 'Курс Лекцій' },
         { name: 'course-work', title: 'Курсова робота' },
-        { name: 'articles', title: 'Статті' },
+        { name: 'articles', title: 'Статті, посилання за тематикою предмету' },
         { name: 'grades', title: 'Журнали успішности' },
         { name: 'variant', title: 'Варіанти завдань' },
       ],
