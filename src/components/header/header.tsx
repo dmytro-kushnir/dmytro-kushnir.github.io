@@ -112,7 +112,7 @@ function Header({
 
               {showSelfWork && (<Nav.Link as={NavLink} to={`${appPath}/self-work`} onClick={toggleNavbar}>Самостійна</Nav.Link>)}
               {showCourseWork && (<Nav.Link as={NavLink} to={`${appPath}/course-work`} onClick={toggleNavbar}>Курсова</Nav.Link>)}
-              {showArticles && (<Nav.Link as={NavLink} to={`${appPath}/articles`} onClick={toggleNavbar}>Статті</Nav.Link>)}
+              {showArticles && (<Nav.Link as={NavLink} to={`${appPath}/articles`} onClick={toggleNavbar}>Блог</Nav.Link>)}
               {showVariants && (<Nav.Link as={NavLink} to={`${appPath}/variants`} onClick={toggleNavbar}>Варіанти</Nav.Link>)}
               {showDriveLinks && (
               <NavDropdown

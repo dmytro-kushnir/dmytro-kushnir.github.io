@@ -20,7 +20,7 @@ function DriveLinks({
   const { driveLinks } = config;
 
   return (
-    <Container className="result-block">
+    <Container fluid className="result-block">
       <Tab.Container id="v-pills-tab" defaultActiveKey={driveLinks[0].name}>
         <Row>
           <Col sm={3}>
@@ -41,7 +41,8 @@ function DriveLinks({
                       Перейти на Google Диск
                     </a>
                   </h6>
-                  {showJournals && <IframeLoader src={link.journal} title={link.name} />}
+                  {showJournals
+                      && <IframeLoader src={link.journal} title={link.name} />}
                   {showVariants && link.variants
                       && <IframeLoader src={link.variants} title={link.name} />}
                 </Tab.Pane>

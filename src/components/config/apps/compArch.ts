@@ -31,6 +31,7 @@ const scores = {
 };
 
 const semester = {
+  courseWork: '06.12.24',
   end: '03.12.2024',
   periods: [
     {
@@ -52,7 +53,7 @@ const semester = {
       start: '21.10.2024',
     },
     {
-      end: '29.11.2024',
+      end: '26.11.2024',
       labs: '7-8',
       score: 8,
       start: '11.11.2024',
@@ -76,6 +77,18 @@ const compArchConfig: CommonAppMapping = {
       description: 'Ця стаття пояснює різницю між двома типами комп’ютерних архітектур — RISC (Reduced Instruction Set Computer) та CISC (Complex Instruction Set Computer), їх особливості, принципи роботи та історичний контекст виникнення. Порінюються такі архітектури як x86 (CISC) та ARM (RISC).',
       type: 'medium',
       username: 'dmytro.kushnir',
+    },
+    {
+      description: 'Види адресації.',
+      link: 'https://uk.wikipedia.org/wiki/%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%B8_%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D0%B0%D1%86%D1%96%D1%97_%D0%BF%D0%B0%D0%BC%27%D1%8F%D1%82%D1%96',
+      thumbnail: '/images/apps/comp-arch/addressing-modes.png',
+      type: 'link',
+    },
+    {
+      description: 'Етапи виконання команди.',
+      link: 'https://uk.wikipedia.org/wiki/%D0%A6%D0%B8%D0%BA%D0%BB_%D0%B2%D0%B8%D0%BA%D0%BE%D0%BD%D0%B0%D0%BD%D0%BD%D1%8F_%D1%96%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D1%96%D0%B9',
+      thumbnail: '/images/apps/comp-arch/instruction-cycle.png',
+      type: 'link',
     },
   ],
   courseWork: {
@@ -108,7 +121,7 @@ const compArchConfig: CommonAppMapping = {
         { name: 'labs', title: 'Роботи до виконання' },
         { name: 'lectures', title: 'Курс Лекцій' },
         { name: 'course-work', title: 'Курсова робота' },
-        { name: 'articles', title: 'Статті' },
+        { name: 'articles', title: 'Статті, посилання за тематикою предмету' },
         { name: 'grades', title: 'Журнали успішности' },
         { name: 'variant', title: 'Варіанти завдань' },
       ],
@@ -210,6 +223,11 @@ const compArchConfig: CommonAppMapping = {
         {
           items: [
             { label: 'Курсова Робота', points: scores.courseWork },
+          ],
+          title: `До ${semester.courseWork}`,
+        },
+        {
+          items: [
             { label: 'Тести, описові питання', points: scores.exam, specialClass: 'test' },
           ],
           title: 'Екзамен',
@@ -416,7 +434,7 @@ const compArchConfig: CommonAppMapping = {
       })),
       {
         content: [`Курсова робота - ${scores.courseWork} балів`],
-        title: 'Протягом семестру',
+        title: `Протягом семестру. Дедлайн подачі до ${semester.courseWork}`,
       },
       {
         content: [

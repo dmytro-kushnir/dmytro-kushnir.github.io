@@ -21,7 +21,7 @@ import Lectures from '../../components/lecture/lectures.tsx';
 import Lecture from '../../components/lecture/lecture.tsx';
 import DriveLinks from '../../components/drive-links/driveLinks.tsx';
 import CourseWork from '../../components/course-work/courseWork.tsx';
-import MediumArticle from '../../components/articles/mediumArticle.tsx';
+import Articles from '../../components/articles/articles.tsx';
 
 import NoMatch from '../../components/no-match/index.tsx';
 import Error from '../../components/error/index.tsx';
@@ -106,7 +106,7 @@ export default function WebProgrammingApp({ appName }: Props) {
               <Route key={lab.id} path={`labs/${lab.id}`} element={<Lab lab={lab} />} />
             ))}
             <Route path="course-work" element={<CourseWork />} />
-            <Route path="articles" element={<MediumArticle />} />
+            <Route path="articles" element={<Articles />} />
             <Route path="grades" element={(<DriveLinks showJournals />)} />
             <Route path="variants" element={(<DriveLinks showVariants />)} />
             <Route path="error" element={<Error />} />

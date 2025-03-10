@@ -34,31 +34,32 @@ const scores = {
 };
 
 const semester = {
-  end: '08.04.2024',
-  middle: '11.03.2024',
+  end: '14.04.2025',
+  middle: '17.03.2025',
   periods: [
     {
-      end: '11.03.2024',
+      end: '17.03.2025',
       extraScore: 5,
-      labs: '1-4',
+      labs: '1-3',
       score: 10,
-      start: '12.02.2024',
+      start: '24.02.2025',
     },
     {
-      end: '08.04.2024',
+      end: '14.04.2025',
       extraScore: 5,
-      labs: '5-8',
+      labs: '4-6',
       score: 10,
-      start: '12.03.2024',
+      start: '17.03.2025',
     },
   ],
-  start: '12.02.2024',
+  start: '24.02.2025',
 };
 
 const staff = {
   lecturerAssistants: [
-    'Кушнір Дмитро Олександрович',
-    'Добуш Андрій Романович',
+    `Кушнір Дмитро Олександрович (${links.mail})`,
+    'Мальцев Едуард Євгенович (Eduard.Y.Maltsev@lpnu.ua)',
+    'Іванов Юрій Сергійович (Yuriy.S.Ivanov@lpnu.ua)',
   ],
   lecturerName: 'Кушнір Дмитро Олександрович',
   lecturerPhoto: '/images/apps/wp/lecturer.jpeg',
@@ -66,31 +67,44 @@ const staff = {
 
 const wpConfig: CommonAppMapping = {
   appPath: '/web-programming',
+  articles: [
+    {
+      description: 'Tech Talk | Вирішуємо життєві негаразди за допомогою JavaScript — Володимир Агафонкін | DOU Day.',
+      link: 'https://www.youtube.com/watch?v=m8XXeqpHmfA',
+      thumbnail: 'https://img.youtube.com/vi/m8XXeqpHmfA/maxresdefault.jpg',
+      type: 'link',
+    },
+  ],
   driveLinks: [
     {
-      drive: 'https://drive.google.com/drive/folders/1zOvW9TOw4hEO23iV0v768GcsEoz1y8RM?usp=drive_link',
-      journal: 'https://docs.google.com/spreadsheets/d/1mryFxzyOy7czdyvab6F1MAZa3e_Vc-Yk/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
-      name: 'KI-41',
+      drive: 'https://drive.google.com/drive/folders/1pupvPBnde3fqO_Q-tYCs-AUl6Hy_ZNGW?usp=sharing',
+      journal: 'https://docs.google.com/spreadsheets/d/1SlqQbxBWgDs-dcSBjrA2oRMJ841-DNuP/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
+      name: 'KI-401',
     },
     {
-      drive: 'https://drive.google.com/drive/folders/1bxZ4fea1BeIDPNOfTgPXIyKPj35BEmV_?usp=drive_link',
-      journal: 'https://docs.google.com/spreadsheets/d/1JTF9MVdyosBGXYQi2kTrMOtEnErC9t0M/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
-      name: 'KI-42',
+      drive: 'https://drive.google.com/drive/folders/19QVnMO9JHJT3w6pj6gIJe423yJjhT9Py?usp=sharing',
+      journal: 'https://docs.google.com/spreadsheets/d/1VAHKgqKJNP0eq6V4oC1TpBdPW5m1YvWA/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
+      name: 'KI-402',
     },
     {
-      drive: 'https://drive.google.com/drive/folders/1Hnrov1ovJxGaoT1UBuMIggQu7N0UbJ5T?usp=drive_link',
-      journal: 'https://docs.google.com/spreadsheets/d/1pIV1ZBFADBnjB25DYr7wLjhrZp8l1bFi/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
-      name: 'KI-43',
+      drive: 'https://drive.google.com/drive/folders/1H4E7z6tESFAJOC-zob6y8Rsy0HJWyCff?usp=sharing',
+      journal: 'https://docs.google.com/spreadsheets/d/1TOIgZPf0q1XrKmE9lESLdQ7QZFJyGT5R/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
+      name: 'KI-403',
     },
     {
-      drive: 'https://drive.google.com/drive/folders/1U9bJ4XKsD3vMmwhvYx3uYQ23zSVBq_eI?usp=drive_link',
-      journal: 'https://docs.google.com/spreadsheets/d/1vhnoKNyL29fohGtEGEnfsQLbjo8KrbnY/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
-      name: 'KI-44',
+      drive: 'https://drive.google.com/drive/folders/1549cfDSGYQvLFCWvMVC3LtdrmTsSCbBL?usp=sharing',
+      journal: 'https://docs.google.com/spreadsheets/d/1akEAAlYLvSGGUtWO4kZTiV5X95ojyMTt/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
+      name: 'KI-404',
     },
     {
-      drive: 'https://drive.google.com/drive/folders/1L9u9YfOpOwQ77iFrV_AmnvGmRZpdB3YO?usp=drive_link',
-      journal: 'https://docs.google.com/spreadsheets/d/13WulPB-aOZutVQqAGISA4zv83_kCqfw5/edit?usp=drive_link&ouid=103403982621563213254&rtpof=true&sd=true',
-      name: 'KI-45',
+      drive: 'https://drive.google.com/drive/folders/1Zl5bysjqTF4APAga-omj9ZWGKvrTCCev?usp=sharing',
+      journal: 'https://docs.google.com/spreadsheets/d/1O9Jh68OaXa7WIelIPrGut4l8GsYHno7A/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
+      name: 'KI-405',
+    },
+    {
+      drive: 'https://drive.google.com/drive/folders/16eexK9lJ0K-8-efghQXIPu8C3qObO5Ia?usp=drive_link',
+      journal: 'https://docs.google.com/spreadsheets/d/1f8qtkiXV9bgprqAXQgtKprd0MEAC7gCo/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
+      name: 'KI-406',
     },
   ],
   faviconLink: '/images/apps/wp/svg/favicon.svg',
@@ -101,6 +115,7 @@ const wpConfig: CommonAppMapping = {
         { name: 'labs', title: 'Роботи до виконання' },
         { name: 'lectures', title: 'Курс Лекцій' },
         { name: 'self-work', title: 'Самостійна робота' },
+        { name: 'articles', title: 'Статті, посилання за тематикою предмету' },
         { name: 'grades', title: 'Журнали успішності' },
       ],
       url: '/images/apps/wp/bg-banner.png',
@@ -176,7 +191,7 @@ const wpConfig: CommonAppMapping = {
         {
           description: 'LeetCode задачі - це завдання на онлайн ресурсі LeetCode, яке практично демонструє вимоги до технічого кандидата під час співбесіди в IT.',
           title: 'LeetCode задачі (опціонально)',
-          type: 'presentationMax',
+          type: 'interview',
         },
         {
           description: 'Створення інтерактивних веб-додатків з  використанням  мови  JavaScript. Вміння перевіряти дані користувача на стороні клієнта. Практичні навики створення інформаційної системи на базі мови програмування JavaScript.',
@@ -225,7 +240,7 @@ const wpConfig: CommonAppMapping = {
           header: 'Посилання на виконання задач та порядок роботи.',
           link: {
             title: 'Перейти до завдання',
-            url: 'https://leetcode.com/problem-list/top-interview-questions/?sorting=W3sic29ydE9yZGVyIjoiQVNDRU5ESU5HIiwib3JkZXJCeSI6IkRJRkZJQ1VMVFkifV0%3D',
+            url: 'https://leetcode.com/studyplan/top-interview-150/',
           },
         },
         {
