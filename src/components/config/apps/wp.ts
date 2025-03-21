@@ -34,7 +34,7 @@ const scores = {
 };
 
 const semester = {
-  end: '14.04.2025',
+  end: '15.04.2025',
   middle: '18.03.2025',
   periods: [
     {
@@ -45,7 +45,7 @@ const semester = {
       start: '24.02.2025',
     },
     {
-      end: '14.04.2025',
+      end: '15.04.2025',
       extraScore: 5,
       labs: '4-6',
       score: 10,
@@ -72,6 +72,18 @@ const wpConfig: CommonAppMapping = {
       description: 'Tech Talk | Вирішуємо життєві негаразди за допомогою JavaScript — Володимир Агафонкін | DOU Day.',
       link: 'https://www.youtube.com/watch?v=m8XXeqpHmfA',
       thumbnail: 'https://img.youtube.com/vi/m8XXeqpHmfA/maxresdefault.jpg',
+      type: 'link',
+    },
+    {
+      description: 'Головна проблема мікросервісів, яку часто недооцінюють | Віктор Турський.',
+      link: 'https://www.youtube.com/watch?v=MCFMQR6Yvd0',
+      thumbnail: 'https://img.youtube.com/vi/MCFMQR6Yvd0/maxresdefault.jpg',
+      type: 'link',
+    },
+    {
+      description: 'Чиста Архітектура: Як Створювати Масштабовані Та Гнучкі Системи | Роберт Мартін',
+      link: 'https://www.youtube.com/watch?v=o_TH-Y78tt4',
+      thumbnail: 'https://img.youtube.com/vi/o_TH-Y78tt4/maxresdefault.jpg',
       type: 'link',
     },
   ],
