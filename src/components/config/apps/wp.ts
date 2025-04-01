@@ -69,6 +69,12 @@ const wpConfig: CommonAppMapping = {
   appPath: '/web-programming',
   articles: [
     {
+      description: 'Про паттерни та код стайл | Refactoring Guru',
+      link: 'https://refactoring.guru/uk/design-patterns',
+      thumbnail: 'https://refactoring.guru/images/patterns/content/index-design-patterns.png?id=2a73abe6d41f0108d6bf636473851484',
+      type: 'link',
+    },
+    {
       description: 'Tech Talk | Вирішуємо життєві негаразди за допомогою JavaScript — Володимир Агафонкін | DOU Day.',
       link: 'https://www.youtube.com/watch?v=m8XXeqpHmfA',
       thumbnail: 'https://img.youtube.com/vi/m8XXeqpHmfA/maxresdefault.jpg',
@@ -84,6 +90,12 @@ const wpConfig: CommonAppMapping = {
       description: 'Чиста Архітектура: Як Створювати Масштабовані Та Гнучкі Системи | Роберт Мартін',
       link: 'https://www.youtube.com/watch?v=o_TH-Y78tt4',
       thumbnail: 'https://img.youtube.com/vi/o_TH-Y78tt4/maxresdefault.jpg',
+      type: 'link',
+    },
+    {
+      description: 'Чому композиція може бути ліпшою за наслідування | Fun Fun Function',
+      link: 'https://www.youtube.com/watch?v=wfMtDGfHWpA',
+      thumbnail: 'https://img.youtube.com/vi/wfMtDGfHWpA/sddefault.jpg',
       type: 'link',
     },
   ],
