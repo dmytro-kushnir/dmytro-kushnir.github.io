@@ -24,3 +24,20 @@
     height: auto;
   }
 }
+
+.img-poster {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+  margin-bottom: 12px;
+  
+  // scales only on devices with hover (not mobile)
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(2);
+    }
+  }
+}

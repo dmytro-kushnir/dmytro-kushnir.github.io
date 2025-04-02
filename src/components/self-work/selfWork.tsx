@@ -11,6 +11,7 @@ interface CourseOptionLink {
   imageUrl: string;
   altText: string;
   text: string;
+  type?: 'poster' | 'logo';
 }
 
 interface SubTopic {
@@ -305,6 +306,19 @@ const selfWorkConfig: SelfWorkConfig = {
       ],
       title: '6. Створення масштабованого веб-додатку',
     },
+    {
+      description: 'У цьому розділі студент може створити інтерактивний веб-додаток, що використовує сучасні AI-моделі — такі як генеративні мовні моделі (LLM), системи розпізнавання зображень або відеогенерацію. Проєкт реалізується за допомогою таких інструментів, як ComfyUI та Python-бібліотеки, з акцентом на практичне застосування штучного інтелекту у веб-середовищі.',
+      links: [
+        {
+          altText: 'ComfyUI',
+          imageUrl: 'https://modal-cdn.com/cdnbot/comfy-ui-diagram.jpg',
+          text: 'ComfyUI',
+          type: 'poster',
+          url: 'https://github.com/comfyanonymous/ComfyUI',
+        },
+      ],
+      title: '7. Створення інтерактивного додатку з залученням AI моделей (LLM, Object Recognition, тощо.)',
+    },
   ],
   reportContents: [
     'Тема розробленого додатку.',
@@ -364,7 +378,12 @@ function SelfWorkContent() {
                           <img
                             src={link.imageUrl}
                             alt={link.altText}
-                            className={`${cssClasses['img-fluid']} ${cssClasses['img-fluid-tablet']} ${cssClasses['img-fluid-mobile']}`}
+                            className={`
+                              ${cssClasses['img-fluid']}
+                              ${cssClasses['img-fluid-tablet']}
+                              ${cssClasses['img-fluid-mobile']}
+                              ${link.type === 'poster' ? cssClasses['img-poster'] : ''}
+                            `}
                           />
                           <Card.Title>{link.text}</Card.Title>
                         </a>
