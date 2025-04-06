@@ -26,6 +26,8 @@
 }
 
 .img-poster {
+  position: relative;
+  z-index: 2;
   max-width: 100%;
   width: 100%;
   height: auto;
@@ -33,11 +35,11 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: transform 0.3s ease;
   margin-bottom: 12px;
-  
+
   // scales only on devices with hover (not mobile)
   @media (hover: hover) {
     &:hover {
-      transform: scale(2);
+      transform: scale(2.2);
     }
   }
 }

@@ -86,7 +86,7 @@ const selfWorkConfig: SelfWorkConfig = {
     },
     {
       description: 'Написання інтерактивної аплікації, сервісу або веб-додатку',
-      iframeSrc: 'https://htmlpreview.github.io/?https://github.com/dmytro-kushnir/tic-tac-toe-legacy-2015-project/blob/main/index.html',
+      iframeSrc: 'https://html-preview.github.io/?url=https://github.com/dmytro-kushnir/tic-tac-toe-legacy-2015-project/blob/main/index.html',
       subTopics: [
         {
           items: [
@@ -151,6 +151,24 @@ const selfWorkConfig: SelfWorkConfig = {
           imageUrl: '/images/apps/wp/icon/vite.svg',
           text: 'Vite JS',
           url: 'https://vitejs.dev/',
+        },
+        {
+          altText: 'TailWind (extra tool for styling)',
+          imageUrl: 'https://cdnblog.webkul.com/blog/wp-content/uploads/2024/05/tailwindcss-1633184775.webp',
+          text: 'TailWind (extra tool for styling)',
+          url: 'https://tailwindcss.com/',
+        },
+        {
+          altText: 'Zod (extra tool for TypeScript type validation)',
+          imageUrl: 'https://zod.dev/logo.svg',
+          text: 'Zod (extra tool for TypeScript type validation)',
+          url: 'https://zod.dev/https://zod.dev/',
+        },
+        {
+          altText: 'XState (extra tool for context management)',
+          imageUrl: 'https://stately.ai/logo-black.svg',
+          text: 'XState (extra tool for context management)',
+          url: 'https://stately.ai/docs/xstate',
         },
       ],
       title: '3. Створення повноцінного сайту, написаного за допомогою JS-фрейворків',
@@ -274,22 +292,10 @@ const selfWorkConfig: SelfWorkConfig = {
           url: 'https://www.docker.com/',
         },
         {
-          altText: 'Google Cloud',
-          imageUrl: '/images/apps/wp/icon/google-cloud.png',
-          text: 'Google Cloud',
-          url: 'https://cloud.google.com/',
-        },
-        {
-          altText: 'Firebase',
-          imageUrl: '/images/apps/wp/icon/firebase.png',
-          text: 'Firebase',
-          url: 'https://firebase.google.com/',
-        },
-        {
-          altText: 'Amazon Web Services',
-          imageUrl: '/images/apps/wp/icon/aws.png',
-          text: 'Amazon Web Services',
-          url: 'https://aws.amazon.com/',
+          altText: 'Github Pages',
+          imageUrl: '/images/apps/wp/icon/github-mark.png',
+          text: 'Github Pages',
+          url: 'https://pages.github.com/',
         },
         {
           altText: 'Vercel',
@@ -298,23 +304,64 @@ const selfWorkConfig: SelfWorkConfig = {
           url: 'https://vercel.com/docs/getting-started-with-vercel',
         },
         {
-          altText: 'Github Pages',
-          imageUrl: '/images/apps/wp/icon/github-mark.png',
-          text: 'Github Pages',
-          url: 'https://pages.github.com/',
+          altText: 'Google Cloud',
+          imageUrl: '/images/apps/wp/icon/google-cloud.png',
+          text: 'Google Cloud',
+          url: 'https://cloud.google.com/',
+        },
+        {
+          altText: 'Amazon Web Services',
+          imageUrl: '/images/apps/wp/icon/aws.png',
+          text: 'Amazon Web Services',
+          url: 'https://aws.amazon.com/',
+        },
+        {
+          altText: 'Firebase',
+          imageUrl: '/images/apps/wp/icon/firebase.png',
+          text: 'Firebase',
+          url: 'https://firebase.google.com/',
+        },
+        {
+          altText: 'Fast API',
+          imageUrl: 'https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png',
+          text: 'Fast API',
+          url: 'https://fastapi.tiangolo.com/',
         },
       ],
       title: '6. Створення масштабованого веб-додатку',
     },
     {
-      description: 'У цьому розділі студент може створити інтерактивний веб-додаток, що використовує сучасні AI-моделі — такі як генеративні мовні моделі (LLM), системи розпізнавання зображень або відеогенерацію. Проєкт реалізується за допомогою таких інструментів, як ComfyUI та Python-бібліотеки, з акцентом на практичне застосування штучного інтелекту у веб-середовищі.',
+      description: `У цьому розділі студент може створити інтерактивний вебдодаток, що використовує сучасні AI-моделі — такі як генеративні мовні моделі (LLM), системи розпізнавання зображень або відеогенерацію. Проєкт реалізується за допомогою таких інструментів, як ComfyUI, YOLO, Jupyter Notebook та Python-бібліотеки, з акцентом на практичне застосування штучного інтелекту у вебсередовищі;
+      Приклади робіт:
+
+7.1 Генерація відео з зображення за допомогою AI — студент реалізує інтерфейс для створення коротких відео з одного зображення, використовуючи моделі типу WAN 2.1, lTXV чи інші у ComfyUI. Передбачено базове налаштування тривалості, роздільної здатності та використання VAE;
+
+7.2 Чат з AI: інтеграція LLM у вебдодаток — створення чат-інтерфейсу, який використовує локальну або хмарну LLM-модель (наприклад GPT4All, Mistral або Ollama), збереження історії діалогу, кастомізація промптів, налаштування температури;
+
+7.3 Розпізнавання об’єктів за допомогою AI — проєкт включає завантаження зображення або відео та обробку через модель YOLO чи Segment Anything, відображення bounding box або маски, з можливістю налаштування порогу впевненості. Після цього можна задеплоїти на serverless, наприклад Fast API;
+
+7.4 Інтерактивне середовище для роботи з AI — створення рішення у Jupyter Notebook, що дозволяє експериментувати з моделями, промптами та обробкою зображень/відео. Може включати графічний інтерфейс на Gradio чи Streamlit;
+
+7.5 Відстеження об’єктів на відео (Object Tracking) — побудова застосунку, що дозволяє не лише розпізнавати, але й відстежувати об’єкти на відео в реальному часі. Може використовувати такі трекери як SORT, DeepSORT чи ByteTrack на базі YOLO.`,
       links: [
         {
           altText: 'ComfyUI',
-          imageUrl: 'https://modal-cdn.com/cdnbot/comfy-ui-diagram.jpg',
+          imageUrl: 'https://blenderneko.github.io/ComfyUI-docs/media/default_workflow.svg',
           text: 'ComfyUI',
           type: 'poster',
           url: 'https://github.com/comfyanonymous/ComfyUI',
+        },
+        {
+          altText: 'YOLO',
+          imageUrl: 'https://miro.medium.com/v2/resize:fit:744/1*Vo2wti8Lhmi2lbkvlvU-rA.jpeg',
+          text: 'YOLO Object Detection',
+          url: 'https://github.com/THU-MIG/yolov10',
+        },
+        {
+          altText: 'Jupyter Notebook',
+          imageUrl: 'https://jupyter.org/assets/homepage/main-logo.svg',
+          text: 'Jupyter Notebook',
+          url: 'https://jupyter.org/',
         },
       ],
       title: '7. Створення інтерактивного додатку з залученням AI моделей (LLM, Object Recognition, тощо.)',
