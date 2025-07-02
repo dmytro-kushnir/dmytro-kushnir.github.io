@@ -35,7 +35,7 @@ function CourseWork() {
             {objective}
           </p>
           {sample && samplePath && (
-          <a href={`${samplePath}${sample}`} download={sample}>
+          <a href={samplePath} target="_blank" rel="noreferrer">
             <Button variant="primary" className="mb-4" style={{ backgroundColor: 'var(--app-color-content)' }}>
               {`Завантажити приклад ${sample}`}
             </Button>

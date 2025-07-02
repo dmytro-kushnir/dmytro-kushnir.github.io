@@ -96,8 +96,8 @@ const compArchConfig: CommonAppMapping = {
     filePath: '/files/apps/comp-arch/course-work/work-microprocessor.pdf',
     name: 'Курсова робота',
     objective: 'Мета курсового проєктування полягає в тому, щоб студент засвоїв знання про принципи роботи та архітектуру прототипів CISC-комп’ютера. Крім того, курсовий проект допоможе розібратися в інструкціях простої асемблерної мови та навчитись транслювати програми в машинний код.',
-    sample: 'sample.zip',
-    samplePath: '/files/apps/comp-arch/course-work/',
+    sample: 'LC-2K Python Sim',
+    samplePath: 'https://github.com/dmytro-kushnir/microprocessor-sim',
   },
   driveLinks: [
     {
