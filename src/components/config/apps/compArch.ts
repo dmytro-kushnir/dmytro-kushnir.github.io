@@ -31,42 +31,42 @@ const scores = {
 };
 
 const semester = {
-  courseWork: '06.12.24',
-  end: '03.12.2024',
+  courseWork: '06.12.25',
+  end: '03.12.2025',
   periods: [
     {
-      end: '20.09.2024',
+      end: '20.09.2025',
       labs: '1-2',
       score: 7,
-      start: '02.09.2024',
+      start: '25.08.2025',
     },
     {
-      end: '18.10.2024',
-      labs: '3-4',
+      end: '18.10.2025',
+      labs: '3',
       score: 8,
-      start: '23.09.2024',
+      start: '23.09.2025',
     },
     {
       end: '8.11.2024',
-      labs: '5-6',
+      labs: '4-5',
       score: 7,
-      start: '21.10.2024',
+      start: '21.10.2025',
     },
     {
-      end: '26.11.2024',
-      labs: '7-8',
+      end: '18.10.2025',
+      labs: '6',
       score: 8,
-      start: '11.11.2024',
+      start: '23.09.2025',
     },
   ],
-  start: '02.09.2024',
+  start: '25.08.2025',
 };
 
 const staff = {
   lecturerAssistants: [
     'Кушнір Дмитро Олександрович',
   ],
-  lecturerName: 'Бачинський Руслан Володимирович',
+  lecturerName: 'Рудик Юрій Іванович',
   lecturerPhoto: '/images/apps/wp/lecturer.jpeg',
 };
 
@@ -216,7 +216,12 @@ const compArchConfig: CommonAppMapping = {
       periods: [
         ...semester.periods.map((period) => ({
           items: [
-            { label: `Лабораторні ${period.labs}`, points: period.score },
+            {
+              label: period.labs.includes('-')
+                ? `Лабораторні ${period.labs}`
+                : `Лабораторна ${period.labs}`,
+              points: period.score,
+            },
           ],
           title: `${period.start} - ${period.end}`,
         })),
@@ -277,48 +282,36 @@ const compArchConfig: CommonAppMapping = {
     },
     {
       description: 'Робота з симулятором MARIE.',
-      filePath: '/files/apps/comp-arch/labs/5.pdf',
+      filePath: '/files/apps/comp-arch/labs/4.pdf',
       iconSrc: '/images/apps/comp-arch/svg/index-js.svg',
-      id: 'lab5',
-      imgSrc: '/images/apps/comp-arch/labs/lab5.png',
-      link: '/labs/lab5',
-      name: 'Лабараторна №5',
+      id: 'lab4',
+      imgSrc: '/images/apps/comp-arch/labs/lab4.png',
+      link: '/labs/lab4',
+      name: 'Лабараторна №4',
       objective: 'Ознайомитися з симулятором MARIE.',
       reference: 'https://marie.js.org/',
     },
     {
       description: 'Дослідження виконання інструкцій симулятора MARIE за допомогою DataPath.',
+      filePath: '/files/apps/comp-arch/labs/5.pdf',
+      iconSrc: '/images/apps/comp-arch/svg/index-object.svg',
+      id: 'lab5',
+      imgSrc: '/images/apps/comp-arch/labs/lab5.png',
+      link: '/labs/lab5',
+      name: 'Лабараторна №5',
+      objective: 'Дослідити виконання інструкцій MARIE через DataPath.',
+      reference: 'https://marie.js.org/#datapath',
+    },
+    {
+      description: 'Конкурентне виконання машинних інструкцій.',
       filePath: '/files/apps/comp-arch/labs/6.pdf',
       iconSrc: '/images/apps/comp-arch/svg/index-object.svg',
       id: 'lab6',
       imgSrc: '/images/apps/comp-arch/labs/lab6.png',
       link: '/labs/lab6',
       name: 'Лабараторна №6',
-      objective: 'Дослідити виконання інструкцій MARIE через DataPath.',
-      reference: 'https://marie.js.org/#datapath',
-    },
-    {
-      description: 'Дослідження виконання циклів на конвеєрі інструкцій.',
-      filePath: '/files/apps/comp-arch/labs/7.pdf',
-      iconSrc: '/images/apps/comp-arch/svg/index-object.svg',
-      id: 'lab7',
-      imgSrc: '/images/apps/comp-arch/labs/lab7.png',
-      link: '/labs/lab7',
-      name: 'Лабараторна №7',
-      objective: 'Вивчити виконання циклів на RISC конвеєрі інструкцій.',
-      sample: 'lab7-8.zip',
-      samplePath: '/files/apps/comp-arch/labs/',
-    },
-    {
-      description: 'Конкурентне виконання машинних інструкцій.',
-      filePath: '/files/apps/comp-arch/labs/8.pdf',
-      iconSrc: '/images/apps/comp-arch/svg/index-object.svg',
-      id: 'lab8',
-      imgSrc: '/images/apps/comp-arch/labs/lab8.png',
-      link: '/labs/lab8',
-      name: 'Лабараторна №8',
       objective: 'Ознайомитися конкурентне виконання RISC інструкцій.',
-      sample: 'lab7-8.zip',
+      sample: 'lab6.zip',
       samplePath: '/files/apps/comp-arch/labs/',
     },
   ],
