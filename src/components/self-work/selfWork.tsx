@@ -86,7 +86,7 @@ const selfWorkConfig: SelfWorkConfig = {
     },
     {
       description: 'Написання інтерактивної аплікації, сервісу або веб-додатку',
-      iframeSrc: 'https://html-preview.github.io/?url=https://github.com/dmytro-kushnir/tic-tac-toe-legacy-2015-project/blob/main/index.html',
+      iframeSrc: 'https://raw.githack.com/dmytro-kushnir/tic-tac-toe-legacy-2015-project/main/index.html',
       subTopics: [
         {
           items: [
