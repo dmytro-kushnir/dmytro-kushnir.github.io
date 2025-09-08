@@ -55,7 +55,6 @@ function Lectures() {
 
   return (
     <main className="container container-narrow">
-      <h1>Веб-програмування</h1>
       <ListGroup as="ol" numbered className="mb-5">
         {lecturesList.map((lecture, index) => renderLecture(lecture, index, appPath))}
       </ListGroup>

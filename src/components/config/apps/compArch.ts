@@ -35,31 +35,31 @@ const semester = {
   end: '03.12.2025',
   periods: [
     {
-      end: '20.09.2025',
+      end: '03.10.2025',
       labs: '1-2',
       score: 7,
-      start: '25.08.2025',
+      start: '08.09.2025',
     },
     {
-      end: '18.10.2025',
+      end: '15.10.2025',
       labs: '3',
       score: 8,
-      start: '23.09.2025',
+      start: '03.10.2025',
     },
     {
-      end: '8.11.2024',
+      end: '29.10.2024',
       labs: '4-5',
       score: 7,
-      start: '21.10.2025',
+      start: '15.10.2025',
     },
     {
-      end: '18.10.2025',
+      end: '12.11.2025',
       labs: '6',
       score: 8,
-      start: '23.09.2025',
+      start: '29.10.2025',
     },
   ],
-  start: '25.08.2025',
+  start: '08.09.2025',
 };
 
 const staff = {
@@ -101,16 +101,10 @@ const compArchConfig: CommonAppMapping = {
   },
   driveLinks: [
     {
-      drive: 'https://drive.google.com/drive/folders/1L7H_yLzCKiiWOoEaMIieeXDGnUHoRy6j?usp=sharing',
-      journal: 'https://docs.google.com/spreadsheets/d/15iROCmcJmMoQF8zKw2ScZgveDtASp580/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
-      name: 'KI-307',
-      variants: 'https://docs.google.com/spreadsheets/d/1M97Z0RucNsZ-X9fqRVPRE0GqvhuaCfIl/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
-    },
-    {
-      drive: 'https://drive.google.com/drive/folders/1PXenNE9iIrQWaktTojjGO2Yr6f0aDUPx?usp=sharing',
-      journal: 'https://docs.google.com/spreadsheets/d/1SzNmFDhb-yXF-RezZJWZVmDpZGQcwZtm/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
-      name: 'KI-308',
-      variants: 'https://docs.google.com/spreadsheets/d/1ryE5GPH1XT7M_gHFkppxwXEVTSblBzVz/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
+      drive: 'https://drive.google.com/drive/folders/1umOZ1OxbQ2Kq70t-4mjIPYfcbUPtdRfi?usp=sharing',
+      journal: 'https://docs.google.com/spreadsheets/d/1Ln7VRyxHnDoM8Ytq6mGS9NcOfM2aowKy/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
+      name: 'KI-303',
+      variants: 'https://docs.google.com/spreadsheets/d/1P_GnfMwxJHl_PnrQzafHItP4tECo0fRY/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
     },
   ],
   faviconLink: '/images/apps/comp-arch/svg/favicon.svg',
@@ -122,7 +116,7 @@ const compArchConfig: CommonAppMapping = {
         { name: 'lectures', title: 'Курс Лекцій' },
         { name: 'course-work', title: 'Курсова робота' },
         { name: 'articles', title: 'Статті, посилання за тематикою предмету' },
-        { name: 'grades', title: 'Журнали успішности' },
+        { name: 'grades', title: 'Журнали успішності' },
         { name: 'variant', title: 'Варіанти завдань' },
       ],
       url: '/images/apps/comp-arch/bg-banner.png',
