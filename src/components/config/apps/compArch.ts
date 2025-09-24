@@ -79,6 +79,12 @@ const compArchConfig: CommonAppMapping = {
       username: 'dmytro.kushnir',
     },
     {
+      description: 'Типова CISC архітектура  Машини Фон Неймана.',
+      link: 'https://uk.wikipedia.org/wiki/%D0%90%D1%80%D1%85%D1%96%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B0_%D1%84%D0%BE%D0%BD_%D0%9D%D0%B5%D0%B9%D0%BC%D0%B0%D0%BD%D0%B0',
+      thumbnail: '/images/apps/comp-arch/CISC achitecture.png',
+      type: 'link',
+    },
+    {
       description: 'Види адресації.',
       link: 'https://uk.wikipedia.org/wiki/%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%B8_%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D0%B0%D1%86%D1%96%D1%97_%D0%BF%D0%B0%D0%BC%27%D1%8F%D1%82%D1%96',
       thumbnail: '/images/apps/comp-arch/addressing-modes.png',
