@@ -31,7 +31,7 @@ const scores = {
 };
 
 const semester = {
-  courseWork: '06.12.25',
+  courseWork: '12.12.25',
   end: '03.12.2025',
   periods: [
     {
