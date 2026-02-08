@@ -34,25 +34,25 @@ const scores = {
 };
 
 const semester = {
-  end: '15.04.2025',
-  middle: '18.03.2025',
+  end: '06.04.2026',
+  middle: '06.03.2026',
   periods: [
     {
-      end: '18.03.2025',
+      end: '06.03.2026',
       extraScore: 5,
       labs: '1-3',
       score: 10,
-      start: '24.02.2025',
+      start: '09.02.2026',
     },
     {
-      end: '15.04.2025',
+      end: '06.04.2025',
       extraScore: 5,
       labs: '4-6',
       score: 10,
-      start: '18.03.2025',
+      start: '09.03.2025',
     },
   ],
-  start: '24.02.2025',
+  start: '09.02.2026',
 };
 
 const staff = {
