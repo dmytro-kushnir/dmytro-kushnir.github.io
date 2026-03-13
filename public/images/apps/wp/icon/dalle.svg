@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">DALLE icon</title>
+  <desc id="desc">Abstract icon representing DALLE: a stylized frame with a sun and mountain</desc>
+  <defs>
+    <linearGradient id="de-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#042b2f" />
+      <stop offset="100%" stop-color="#0fa47a" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="112" height="112" rx="20" fill="url(#de-bg)" />
+  <rect x="22" y="26" width="76" height="56" rx="8" fill="none" stroke="#e4fff6" stroke-width="4" />
+  <circle cx="84" cy="38" r="7" fill="#e4fff6" />
+  <path
+    d="M30 74l18-22l14 14l11-16l17 24Z"
+    fill="#e4fff6"
+    fill-opacity="0.9"
+  />
+  <rect x="36" y="86" width="48" height="6" rx="3" fill="#e4fff6" fill-opacity="0.8" />
+</svg>
+

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Stable Diffusion icon</title>
+  <desc id="desc">Abstract icon representing Stable Diffusion: concentric circles and a stylized S shape</desc>
+  <defs>
+    <linearGradient id="sd-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1b2456" />
+      <stop offset="100%" stop-color="#3f6dda" />
+    </linearGradient>
+    <linearGradient id="sd-s" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f5f5ff" />
+      <stop offset="100%" stop-color="#9ad5ff" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="112" height="112" rx="24" fill="url(#sd-bg)" />
+  <circle cx="60" cy="60" r="34" fill="none" stroke="#9ad5ff" stroke-width="4" stroke-opacity="0.4" />
+  <circle cx="60" cy="60" r="24" fill="none" stroke="#f5f5ff" stroke-width="3" stroke-opacity="0.8" />
+  <path
+    d="M42 45c4-6 10-9 18-9c10 0 18 6 18 15c0 7-4 11-13 13l-6 1c-5 1-7 3-7 6c0 4 3 6 8 6c4 0 7-1 11-4l7 8c-5 4-11 7-19 7c-12 0-20-7-20-17c0-9 5-14 15-16l7-2c5-1 7-3 7-6c0-4-3-6-8-6c-4 0-8 2-11 5l-7-6Z"
+    fill="url(#sd-s)"
+  />
+</svg>
+

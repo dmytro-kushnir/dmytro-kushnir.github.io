@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="title desc">
+  <title id="title">Midjourney icon</title>
+  <desc id="desc">Abstract icon representing Midjourney: stylized M and J over a gradient background</desc>
+  <defs>
+    <linearGradient id="mj-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#050510" />
+      <stop offset="50%" stop-color="#18183a" />
+      <stop offset="100%" stop-color="#2d63ff" />
+    </linearGradient>
+    <linearGradient id="mj-fg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="100%" stop-color="#9fb3ff" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="112" height="112" rx="28" fill="url(#mj-bg)" />
+  <path
+    d="M26 86L40 34h8l12 28l12-28h8l14 52h-11l-8-33l-11 25h-8l-11-25l-8 33Z"
+    fill="url(#mj-fg)"
+  />
+  <circle cx="86" cy="36" r="6" fill="#9fb3ff" />
+</svg>
+
