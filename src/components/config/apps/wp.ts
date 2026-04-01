@@ -34,7 +34,7 @@ const scores = {
 };
 
 const semester = {
-  end: '06.04.2026',
+  end: '03.04.2026',
   middle: '06.03.2026',
   periods: [
     {
@@ -45,7 +45,7 @@ const semester = {
       start: '09.02.2026',
     },
     {
-      end: '06.04.2025',
+      end: '03.04.2025',
       extraScore: 5,
       labs: '4-6',
       score: 10,
