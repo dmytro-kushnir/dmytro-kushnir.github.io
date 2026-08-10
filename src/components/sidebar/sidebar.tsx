@@ -11,6 +11,10 @@ function Sidebar() {
     sidebar: { showScores = false, showDriveLinks = false, sections = [] } = {},
   } = config;
 
+  const hasDriveOrJournal = driveLinks.some(
+    (link) => Boolean(link.drive) || Boolean(link.journal),
+  );
+
   return (
     <aside>
       <div className={cssClasses['sidebar-inner']}>
@@ -33,19 +37,19 @@ function Sidebar() {
             </>
           )}
 
-          {showDriveLinks && (
-          <>
-            <h4>Диски для звітності</h4>
-            <ul className={cssClasses['disk-list']}>
-              {driveLinks.map((link) => (
-                <li key={link.name}>
-                  {link.name}
-                  <a href={link.drive} target="_blank" rel="noreferrer">Диск</a>
-                  <a href={link.journal} target="_blank" rel="noreferrer">Журнал</a>
-                </li>
-              ))}
-            </ul>
-          </>
+          {showDriveLinks && hasDriveOrJournal && (
+            <>
+              <h4>Диски для звітності</h4>
+              <ul className={cssClasses['disk-list']}>
+                {driveLinks.map((link) => (
+                  <li key={link.name}>
+                    {link.name}
+                    {link.drive && <a href={link.drive} target="_blank" rel="noreferrer">Диск</a>}
+                    {link.journal && <a href={link.journal} target="_blank" rel="noreferrer">Журнал</a>}
+                  </li>
+                ))}
+              </ul>
+            </>
           )}
         </div>
       </div>

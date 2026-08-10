@@ -9,6 +9,10 @@ const links = {
       path: '/computer-architecture',
     },
     {
+      name: 'Периферійні пристрої, інтерфейси та драйвери',
+      path: '/peripheral-devices',
+    },
+    {
       name: courseName,
       path: '/web-programming',
     },

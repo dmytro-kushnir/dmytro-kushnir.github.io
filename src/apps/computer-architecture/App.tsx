@@ -107,6 +107,7 @@ export default function WebProgrammingApp({ appName }: Props) {
             ))}
             <Route path="course-work" element={<CourseWork />} />
             <Route path="articles" element={<Articles />} />
+            <Route path="drives" element={<DriveLinks />} />
             <Route path="grades" element={(<DriveLinks showJournals />)} />
             <Route path="variants" element={(<DriveLinks showVariants />)} />
             <Route path="error" element={<Error />} />

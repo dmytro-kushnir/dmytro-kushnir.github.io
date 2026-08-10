@@ -43,6 +43,7 @@ type LinksMapping = {
 
 export interface LabLink {
     description: string;
+    /** Primary materials URL (PDF, local path, or GitHub). */
     filePath: string;
     iconSrc: string;
     id: string;
@@ -53,14 +54,19 @@ export interface LabLink {
     reference?: string;
     sample?: string;
     samplePath?: string;
+    /** Optional link to the theory section for this lab's block. */
+    theoryPath?: string;
 }
 
 export interface LectureLink {
     description?: string;
+    /** Primary materials URL (PDF, local path, or GitHub). */
     filePath: string;
     id: string;
     imageUrl?: string;
     name: string;
+    /** Optional second materials link (e.g. teaching plan section). */
+    planPath?: string;
     subLectures?: LectureLink[];
 }
 
@@ -191,12 +197,17 @@ export type CommonAppMapping = {
     sidebar?: SidebarConfig;
     scores: ScoresMappping;
     title: string;
+    /** Optional course code repository (shown on each lab page). */
+    codeRepoUrl?: string;
+    /** Raw JSON URL (e.g. GitHub raw variants.json). Enables in-page variants table. */
+    variantsDataUrl?: string;
 }
 
 export type ConfigMapping = {
     apps: {
         compArch: CommonAppMapping
         otherApp: CommonAppMapping
+        ppid: CommonAppMapping
         wp: CommonAppMapping
     };
 };
@@ -204,6 +215,7 @@ export type ConfigMapping = {
 const AppNames = {
   compArch: 'compAch' as const,
   otherApp: 'otherApp' as const,
+  ppid: 'ppid' as const,
   wp: 'wp' as const,
 } as const;
 

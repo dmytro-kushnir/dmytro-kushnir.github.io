@@ -12,17 +12,20 @@ function IframeLoader({ src, title, className }: IframeLoaderProps) {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     const timeout = setTimeout(() => {
       setLoading(false);
     }, MAX_TIMEOUT);
 
     return () => clearTimeout(timeout);
-  }, []);
+  }, [src]);
 
   return (
     <>
       {loading && <ModuleLoader />}
+      {/* key forces a full remount when only the PDF #page= fragment changes */}
       <iframe
+        key={src}
         className={className}
         src={src}
         title={title}

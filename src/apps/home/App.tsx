@@ -4,6 +4,7 @@ import {
 
 import WebProgrammingApp from '../web-programming/App.tsx';
 import ComputerArchitectureApp from '../computer-architecture/App.tsx';
+import PeripheralDevicesApp from '../peripheral-devices/App.tsx';
 import ConfigProvider from '../../components/config/index.tsx';
 import { ConfigMapping, AppNames } from '../../components/config/configMapping.ts';
 
@@ -57,6 +58,7 @@ export default function App({ config }: AppProps) { //   HashRouter could be rei
           <Route path="/" element={<Navigate to={`${config.apps.wp.appPath as AppNames}/`} />} />
           <Route path={`${config.apps.wp.appPath as AppNames}/*`} element={<WebProgrammingApp appName={config.apps.wp.name as AppNames} />} />
           <Route path={`${config.apps.compArch.appPath as AppNames}/*`} element={<ComputerArchitectureApp appName={config.apps.compArch.name as AppNames} />} />
+          <Route path={`${config.apps.ppid.appPath as AppNames}/*`} element={<PeripheralDevicesApp appName={config.apps.ppid.name as AppNames} />} />
           <Route path="error" element={<Error />} />
           <Route path="*" element={<NoMatch />} />
         </Routes>

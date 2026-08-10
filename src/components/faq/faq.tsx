@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import {
   Container, Row, Col, Accordion,
 } from 'react-bootstrap';
@@ -7,6 +6,7 @@ import { FaEnvelope, FaTelegram } from 'react-icons/fa';
 import './faq.scss';
 import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
+import renderTextWithLinks from '../../utils/linkify.tsx';
 
 function FaqSection() {
   const config = useConfig(useAppName());
@@ -26,7 +26,7 @@ function FaqSection() {
                     <Accordion.Body>
                       <div>
                         {item.content.map((text) => (
-                          <p key={text}>{text}</p>
+                          <p key={text}>{renderTextWithLinks(text)}</p>
                         ))}
                         {item.showOnlineLink && config.onlineLink && (
                         <ul className="summary-list">
@@ -46,8 +46,11 @@ function FaqSection() {
                           {config.driveLinks.map((link) => (
                             <li key={link.name}>
                               {link.name}
-                              <a href={link.drive} target="_blank" rel="noreferrer">Диск</a>
-                              <a href={link.journal} target="_blank" rel="noreferrer">Журнал</a>
+                              {link.drive && <a href={link.drive} target="_blank" rel="noreferrer">Диск</a>}
+                              {link.journal && <a href={link.journal} target="_blank" rel="noreferrer">Журнал</a>}
+                              {!link.drive && !link.journal && (
+                                <span className="text-muted"> (посилання з’явиться незабаром)</span>
+                              )}
                             </li>
                           ))}
                         </ul>

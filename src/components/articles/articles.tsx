@@ -65,10 +65,10 @@ function Articles() {
     <>
       {loading && <ModuleLoader />}
       <Container fluid="md" className="my-4">
-        <Row>
-          <Col className="mb-5">
-            {posts && posts.length > 0 && posts.map((post) => (
-              <div key={post.guid} className={styles.articleCard}>
+        <Row className="mb-5">
+          {posts && posts.length > 0 && posts.map((post) => (
+            <Col xs={12} sm={6} lg={4} className="mb-4 d-flex" key={post.guid}>
+              <div className={styles.articleCard}>
                 <a href={post.link} target="_blank" className={styles.articleLink} rel="noopener noreferrer">
                   <h2>{post.title}</h2>
                   <img
@@ -78,8 +78,8 @@ function Articles() {
                   />
                 </a>
               </div>
-            ))}
-          </Col>
+            </Col>
+          ))}
         </Row>
       </Container>
     </>

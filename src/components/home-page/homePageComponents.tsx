@@ -12,6 +12,7 @@ import useAppName from '../context/useAppNameContext.ts';
 import Image from '../image/index.tsx';
 import SliderComponent from '../slider/slider.tsx';
 import { isMobileDevice } from '../../utils/utils.ts';
+import renderTextWithLinks from '../../utils/linkify.tsx';
 
 export function CourseIntro() {
   const config = useConfig(useAppName());
@@ -340,7 +341,7 @@ export function PointsDistributionSection() {
               <Row>
                 <Col xs={12} className="text-center">
                   {additionalNotes.map((note) => (
-                    <p key={note.substring(0, 10)}>{note}</p>
+                    <p key={note.substring(0, 10)}>{renderTextWithLinks(note)}</p>
                   ))}
                   <ul className="inner-bullet">
                     <li>

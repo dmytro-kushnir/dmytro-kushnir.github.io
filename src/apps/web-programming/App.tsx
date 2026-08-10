@@ -104,6 +104,7 @@ export default function WebProgrammingApp({ appName }: Props) {
             ))}
             <Route path="self-work" element={<SelfWork />} />
             <Route path="articles" element={<Articles />} />
+            <Route path="drives" element={<DriveLinks />} />
             <Route path="grades" element={(<DriveLinks showJournals />)} />
             <Route path="error" element={<Error />} />
             <Route path="*" element={<NoMatch />} />
