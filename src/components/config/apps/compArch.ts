@@ -9,7 +9,7 @@ const links = {
       path: '/computer-architecture',
     },
     {
-      name: 'Периферійні пристрої, інтерфейси та драйвери',
+      name: 'Периферійні пристрої',
       path: '/peripheral-devices',
     },
     {

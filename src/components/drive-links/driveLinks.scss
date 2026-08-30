@@ -22,6 +22,106 @@ $background-color_2: var(--app-color-content);
   }
 }
 
+.drives-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-top: 1.5rem;
+  padding-bottom: 4rem;
+
+  &__intro {
+    margin: 0 0 1.25rem;
+    color: $color_3;
+    font-size: 1.05rem;
+    line-height: 1.45;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid var(--app-color-gray);
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.9rem 1.1rem;
+    border-bottom: 1px solid var(--app-color-gray);
+    background: #fff;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &:nth-child(even) {
+      background: $background-color_1;
+    }
+  }
+
+  &__group {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    min-width: 0;
+  }
+
+  &__icon {
+    display: inline-flex;
+    color: $background-color_2;
+    font-size: 1.15rem;
+    flex-shrink: 0;
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: $color_3;
+  }
+
+  &__action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+    padding: 0.45rem 0.85rem;
+    background: $background-color_2;
+    color: $color_2 !important;
+    text-decoration: none !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: opacity 0.15s ease;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.9;
+      color: $color_2 !important;
+    }
+  }
+
+  &__pending {
+    flex-shrink: 0;
+    color: #888;
+    font-size: 0.92rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .drives-page {
+    &__item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__action {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
+
 .journal-link {
   font-size: 1.2rem;
 }

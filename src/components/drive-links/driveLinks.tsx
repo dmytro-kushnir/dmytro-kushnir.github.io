@@ -1,6 +1,7 @@
 import {
   Container, Tab, Nav, Row, Col,
 } from 'react-bootstrap';
+import { FaExternalLinkAlt, FaFolder } from 'react-icons/fa';
 import IframeLoader from '../iframe/iframe.tsx';
 
 import './driveLinks.scss';
@@ -23,6 +24,7 @@ function DriveLinks({
 }: DriveLinksProps) {
   const config = useConfig(useAppName());
   const { driveLinks = [] } = config;
+  const isDriveOnly = !showJournals && !showVariants;
 
   if (!driveLinks.length) {
     return (
@@ -43,6 +45,44 @@ function DriveLinks({
     if (showJournals) return 'Відкрити журнал';
     return 'Перейти на Google Диск';
   };
+
+  if (isDriveOnly) {
+    return (
+      <Container className="result-block drives-page">
+        <p className="drives-page__intro">
+          Оберіть групу та перейдіть у спільну папку Google Drive для здачі звітів.
+        </p>
+        <ul className="drives-page__list">
+          {driveLinks.map((link) => {
+            const href = link.drive;
+            return (
+              <li key={link.name} className="drives-page__item">
+                <div className="drives-page__group">
+                  <span className="drives-page__icon" aria-hidden>
+                    <FaFolder />
+                  </span>
+                  <span className="drives-page__name">{link.name}</span>
+                </div>
+                {href ? (
+                  <a
+                    href={href}
+                    className="drives-page__action"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Перейти на Google Диск
+                    <FaExternalLinkAlt aria-hidden />
+                  </a>
+                ) : (
+                  <span className="drives-page__pending">Посилання з’явиться незабаром</span>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </Container>
+    );
+  }
 
   return (
     <Container fluid className="result-block">
@@ -78,7 +118,7 @@ function DriveLinks({
                       ) : (
                         <span className="text-muted">Посилання з’явиться незабаром</span>
                       )}
-                      {link.drive && (showJournals || showVariants) && (
+                      {link.drive && (
                         <>
                           {' · '}
                           <a href={link.drive} className="journal-link" target="_blank" rel="noopener noreferrer">
@@ -101,17 +141,11 @@ function DriveLinks({
                         )}
                       </p>
                     )}
-                    {!embedSrc && (showJournals || showVariants) && (
+                    {!embedSrc && (
                       <p className="mt-3 text-muted">
                         {showVariants
-                          ? 'Таблицю варіантів ще не підключено (потрібен Google Sheets або інше посилання).'
-                          : 'Журнал ще не підключено (потрібен Google Sheets).'}
-                      </p>
-                    )}
-                    {!showJournals && !showVariants && !href && (
-                      <p className="mt-3 text-muted">
-                        Папка Google Drive для цієї групи з’явиться незабаром.
-                        Звіти завантажуйте після публікації посилання викладачем.
+                          ? 'Таблицю варіантів ще не підключено.'
+                          : 'Журнал ще не підключено'}
                       </p>
                     )}
                   </Tab.Pane>

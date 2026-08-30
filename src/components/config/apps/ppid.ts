@@ -1,6 +1,6 @@
 import { CommonAppMapping } from '../configMapping.ts';
 
-const courseName = 'Периферійні пристрої, інтерфейси та драйвери';
+const courseName = 'Периферійні пристрої';
 
 const labsRepoUrl = 'https://github.com/dmytro-kushnir/ppid-labs';
 const variantsJsonRaw = 'https://raw.githubusercontent.com/dmytro-kushnir/ppid-labs/main/fixtures/variants.json';
@@ -179,8 +179,8 @@ const ppidConfig: CommonAppMapping = {
     banner: {
       defaultPageConfig: {
         name: 'home',
-        subtitle: 'Навчальна дисципліна · Інтерфейси та драйвери периферійних пристроїв',
-        title: 'Периферійні пристрої, інтерфейси та драйвери',
+        subtitle: 'Навчальна дисципліна',
+        title: 'Периферійні пристрої',
       },
       pageConfigs: [
         { name: 'labs', title: 'Лабораторні роботи' },
@@ -229,7 +229,8 @@ const ppidConfig: CommonAppMapping = {
       {
         content: [
           `Практикум (PDF): ${praktikumPdfPublic}`,
-          `Репозиторій коду: ${labsRepoUrl}`,
+          `Репозиторій коду: ${labsRepoUrl} — host/, encoding/, wokwi/ (Додаток А).`,
+          `Встановлення: ${labsRepoUrl}/blob/main/docs/SETUP.md`,
         ],
         title: 'Які матеріали використовувати?',
       },
@@ -275,7 +276,8 @@ const ppidConfig: CommonAppMapping = {
       additionalNotes: [
         'Зазначено максимальну кількість балів за умови вчасного захисту.',
         `Практикум (PDF): ${praktikumPdfPublic}`,
-        `Репозиторій коду: ${labsRepoUrl}`,
+        `Код (host / encoding / wokwi): ${labsRepoUrl}`,
+        `SETUP: ${labsRepoUrl}/blob/main/docs/SETUP.md`,
       ],
       periods: [
         ...semester.periods.map((period) => ({
@@ -304,7 +306,8 @@ const ppidConfig: CommonAppMapping = {
   },
   labList: [
     {
-      description: 'UART: драйвер host ↔ device (Python pyserial + uart_device_emu)',
+      description:
+        'Дослідження програм передавача, приймача та моделі обміну даними інтерфейса RS-232C',
       id: 'lab1',
       name: 'Лабораторна №1',
       objective: 'Налаштувати UART і реалізувати обмін повідомленням між Python host і емулятором пристрою (віртуальна пара COM).',
@@ -312,7 +315,8 @@ const ppidConfig: CommonAppMapping = {
       theory: praktikumPages.theoryUart,
     },
     {
-      description: 'Візуалізація лінії зв’язку: UART 8N1 та USB NRZI (matplotlib)',
+      description:
+        'Дослідження графічного представлення сигналів лінії зв’язку та кодування NRZI інтерфейса УПШ (USB)',
       id: 'lab2',
       name: 'Лабораторна №2',
       objective: 'Побудувати амплітудно-часові діаграми UART та NRZI; розрахувати час передачі повідомлення.',
@@ -320,7 +324,8 @@ const ppidConfig: CommonAppMapping = {
       theory: praktikumPages.theoryUart,
     },
     {
-      description: 'Модель USB 2.0: транзакції, mock-сканування, GUI',
+      description:
+        'Розроблення та дослідження елементів програмного драйвера інтерфейса УПШ (USB)',
       id: 'lab3',
       name: 'Лабораторна №3',
       objective: 'Опанувати Token → Data → Handshake, mock enumeration і запис на рівні моделі ФС (без фізичної флешки).',
@@ -328,7 +333,8 @@ const ppidConfig: CommonAppMapping = {
       theory: praktikumPages.theoryUsb,
     },
     {
-      description: 'Шина I²C: BMP180 на ESP32 у Wokwi + Logic Analyzer',
+      description:
+        'Дослідження шини I2C та розроблення програмного драйвера периферійного давача',
       id: 'lab4',
       name: 'Лабораторна №4',
       objective: 'Опанувати master–slave I²C: scan (0x77), читання TEMP/PRESS, аналіз SDA/SCL у Logic Analyzer.',
@@ -336,7 +342,8 @@ const ppidConfig: CommonAppMapping = {
       theory: praktikumPages.theoryI2c,
     },
     {
-      description: 'Capstone: вузол моніторингу (I²C + UART + Python host)',
+      description:
+        'Розроблення та дослідження інтегрованого вузла моніторингу комп’ютерної системи',
       id: 'lab5',
       name: 'Лабораторна №5',
       objective: 'Інтегрувати датчик, телеметрію TEMP=… і host-обробку (CSV + графік) у міні-систему моніторингу.',
@@ -472,7 +479,7 @@ const ppidConfig: CommonAppMapping = {
     showScores: true,
   },
   staff,
-  title: 'Периферійні пристрої, інтерфейси та драйвери',
+  title: 'Периферійні пристрої',
   variantsDataUrl: variantsJsonRaw,
 };
 
