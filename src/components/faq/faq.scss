@@ -6,6 +6,10 @@ $color_3: var(--app-color-content);
 $background-color_1: #fff;
 $background-color_2: var(--app-color-content);
 
+.faq {
+  padding-bottom: 4rem;
+}
+
 .faq-wrapper {
   .accordion-item {
     margin-bottom: 25px;
@@ -13,7 +17,7 @@ $background-color_2: var(--app-color-content);
     background-color: $background-color_1;
     box-shadow: var(--app-color-shadow-dark);
     &:nth-last-of-type(1) {
-      margin-bottom: 0;
+      margin-bottom: 1.5rem;
     }
   }
   .accordion-button {

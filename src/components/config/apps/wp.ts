@@ -49,11 +49,11 @@ const semester = {
       start: '09.02.2026',
     },
     {
-      end: '03.04.2025',
+      end: '03.04.2026',
       extraScore: 5,
       labs: '4-6',
       score: 10,
-      start: '09.03.2025',
+      start: '09.03.2026',
     },
   ],
   start: '09.02.2026',

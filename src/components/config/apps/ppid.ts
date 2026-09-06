@@ -167,11 +167,15 @@ const ppidConfig: CommonAppMapping = {
   ],
   codeRepoUrl: labsRepoUrl,
   driveLinks: [
-    // TODO: підставити реальні Google Drive / Sheets після створення папок груп.
     {
-      drive: '',
-      journal: '',
-      name: 'PPID 2026',
+      drive: 'https://drive.google.com/drive/folders/1D6_hjQ8F5IqQfYjvHGTbcj794HnHMWj7?usp=sharing',
+      journal: 'https://docs.google.com/spreadsheets/d/18_DFydT0AILiKKHDLanVkixdXWXd2J7O/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
+      name: 'KI-303',
+    },
+    {
+      drive: 'https://drive.google.com/drive/folders/1pNU_PhwOEjnZ0I3XRXhxTAljlMsIZ-fM?usp=sharing',
+      journal: 'https://docs.google.com/spreadsheets/d/1s7YiJI7r1-Y3ej9qIb6Cpk5k4a9tZjIg/edit?usp=sharing&ouid=112734872675001245593&rtpof=true&sd=true',
+      name: 'KI-304',
     },
   ],
   faviconLink: '/images/apps/ppid/favicon.svg',

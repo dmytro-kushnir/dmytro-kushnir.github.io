@@ -64,8 +64,8 @@ function Articles() {
   return (
     <>
       {loading && <ModuleLoader />}
-      <Container fluid="md" className="my-4">
-        <Row className="mb-5">
+      <Container fluid="md" className={`my-4 ${styles.articlesPage}`}>
+        <Row className="mb-4">
           {posts && posts.length > 0 && posts.map((post) => (
             <Col xs={12} sm={6} lg={4} className="mb-4 d-flex" key={post.guid}>
               <div className={styles.articleCard}>

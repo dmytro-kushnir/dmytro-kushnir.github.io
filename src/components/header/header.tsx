@@ -1,7 +1,7 @@
 import {
   useState, useEffect, useCallback, useRef,
 } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import {
   Container, Navbar, Nav, NavDropdown, Modal, Button,
 } from 'react-bootstrap';
@@ -39,8 +39,8 @@ function Header({
     showVariants = false,
   } = {},
 }: HeaderProps) {
-  // const navigate = useNavigate();
   const appConfig = useConfig(useAppName());
+  const location = useLocation();
 
   const {
     appPath,
@@ -48,6 +48,7 @@ function Header({
       logo,
     },
     labList,
+    links,
   } = appConfig;
 
   const headerRef = useRef<HTMLElement>(null);
@@ -95,12 +96,47 @@ function Header({
     };
   }, []);
 
-  const handleDropdownToggle = (dropdown: string | null) => {
-    setShowDropdown(dropdown);
+  // Close open menus when crossing the hamburger / desktop breakpoint.
+  useEffect(() => {
+    const onResize = () => {
+      setShowDropdown(null);
+      if (isDesktopScreen()) setShowNavbar(false);
+    };
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  const openDropdownOnHover = (id: string) => {
+    if (isDesktopScreen()) setShowDropdown(id);
+  };
+
+  const closeDropdownOnHoverLeave = () => {
+    if (isDesktopScreen()) setShowDropdown(null);
+  };
+
+  const handleDropdownToggle = (id: string) => (isOpen: boolean) => {
+    // Hamburger: click/tap only. Desktop uses hover (and CSS), avoid fighting click.
+    if (!isDesktopScreen()) {
+      setShowDropdown(isOpen ? id : null);
+    }
   };
 
   const toggleSidebar = () => setShowSidebar(!showSidebar);
-  const toggleNavbar = () => !isDesktopScreen() && setShowNavbar(!showNavbar);
+
+  const toggleNavbar = () => {
+    if (isDesktopScreen()) return;
+    setShowNavbar((open) => {
+      if (open) setShowDropdown(null);
+      return !open;
+    });
+  };
+
+  const closeMobileNav = () => {
+    if (!isDesktopScreen()) {
+      setShowNavbar(false);
+      setShowDropdown(null);
+    }
+  };
 
   return (
     <>
@@ -112,41 +148,77 @@ function Header({
       >
         <Navbar expanded={showNavbar} expand="xl" className="p-0" bg={isSticky ? 'light' : 'transparent'} sticky="top">
           <Container>
-            <Link to={`${appPath}/`}>
+            <Link to={`${appPath}/`} className="navbar-brand-link">
               <Image path={logo.url} alt={logo.alt} className="logo" />
             </Link>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" onClick={toggleNavbar} />
             <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-center order-3 order-xl-2">
               <Nav className="mr-auto">
-                <Nav.Link as={NavLink} to={`${appPath}/`} onClick={toggleNavbar}>Головна</Nav.Link>
-                {showLectures && (<Nav.Link as={NavLink} to={`${appPath}/lectures`} onClick={toggleNavbar}>Лекції</Nav.Link>)}
+                <Nav.Link as={NavLink} to={`${appPath}/`} onClick={closeMobileNav}>Головна</Nav.Link>
+                {showLectures && (
+                  <Nav.Link as={NavLink} to={`${appPath}/lectures`} onClick={closeMobileNav}>Лекції</Nav.Link>
+                )}
                 {showLabList && (
+                  <NavDropdown
+                    title="Лабораторні"
+                    id="navbarLabDropdown"
+                    show={showDropdown === 'lab'}
+                    onToggle={handleDropdownToggle('lab')}
+                    onMouseEnter={() => openDropdownOnHover('lab')}
+                    onMouseLeave={closeDropdownOnHoverLeave}
+                  >
+                    {labList.map((lab) => (
+                      <NavDropdown.Item
+                        key={lab.id}
+                        as={NavLink}
+                        to={`${appPath}/labs/${lab.id}`}
+                        onClick={closeMobileNav}
+                      >
+                        {lab.name}
+                      </NavDropdown.Item>
+                    ))}
+                  </NavDropdown>
+                )}
+
+                {showSelfWork && (
+                  <Nav.Link as={NavLink} to={`${appPath}/self-work`} onClick={closeMobileNav}>Самостійна</Nav.Link>
+                )}
+                {showCourseWork && (
+                  <Nav.Link as={NavLink} to={`${appPath}/course-work`} onClick={closeMobileNav}>Курсова</Nav.Link>
+                )}
+                {showArticles && (
+                  <Nav.Link as={NavLink} to={`${appPath}/articles`} onClick={closeMobileNav}>Блог</Nav.Link>
+                )}
+                {showVariants && (
+                  <Nav.Link as={NavLink} to={`${appPath}/variants`} onClick={closeMobileNav}>Варіанти</Nav.Link>
+                )}
+                {showDriveLinks && (
+                  <Nav.Link as={NavLink} to={`${appPath}/drives`} onClick={closeMobileNav}>Диски</Nav.Link>
+                )}
+                {showGrades && (
+                  <Nav.Link as={NavLink} to={`${appPath}/grades`} onClick={closeMobileNav}>Журнали</Nav.Link>
+                )}
                 <NavDropdown
-                  title="Лабораторні"
-                  id="navbarLabDropdown"
-                  show={showDropdown === 'lab'}
-                  onMouseEnter={() => handleDropdownToggle('lab')}
-                  onMouseLeave={() => handleDropdownToggle(null)}
+                  title="Курси"
+                  id="navbarCoursesDropdown"
+                  className="nav-courses"
+                  show={showDropdown === 'courses'}
+                  onToggle={handleDropdownToggle('courses')}
+                  onMouseEnter={() => openDropdownOnHover('courses')}
+                  onMouseLeave={closeDropdownOnHoverLeave}
                 >
-                  {labList.map((lab) => (
+                  {links.courses.map((course) => (
                     <NavDropdown.Item
-                      key={lab.id}
+                      key={course.path}
                       as={NavLink}
-                      to={`${appPath}/labs/${lab.id}`}
-                      onClick={toggleNavbar}
+                      to={course.path}
+                      className={location.pathname.includes(course.path) ? 'active' : ''}
+                      onClick={closeMobileNav}
                     >
-                      {lab.name}
+                      {course.name}
                     </NavDropdown.Item>
                   ))}
                 </NavDropdown>
-                )}
-
-                {showSelfWork && (<Nav.Link as={NavLink} to={`${appPath}/self-work`} onClick={toggleNavbar}>Самостійна</Nav.Link>)}
-                {showCourseWork && (<Nav.Link as={NavLink} to={`${appPath}/course-work`} onClick={toggleNavbar}>Курсова</Nav.Link>)}
-                {showArticles && (<Nav.Link as={NavLink} to={`${appPath}/articles`} onClick={toggleNavbar}>Блог</Nav.Link>)}
-                {showVariants && (<Nav.Link as={NavLink} to={`${appPath}/variants`} onClick={toggleNavbar}>Варіанти</Nav.Link>)}
-                {showDriveLinks && (<Nav.Link as={NavLink} to={`${appPath}/drives`} onClick={toggleNavbar}>Диски</Nav.Link>)}
-                {showGrades && (<Nav.Link as={NavLink} to={`${appPath}/grades`} onClick={toggleNavbar}>Журнали</Nav.Link>)}
               </Nav>
             </Navbar.Collapse>
             <div className="order-1 d-none d-xl-block order-xl-3">

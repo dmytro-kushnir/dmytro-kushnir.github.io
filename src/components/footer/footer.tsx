@@ -33,10 +33,10 @@ function Footer() {
             оцінки
           </Button>
         </li>
-        <li>
+        <li className="d-none d-xl-inline-block">
           <Dropdown>
-            <Dropdown.Toggle variant="outline-light" id="courses-dropdown">
-              Інші курси
+            <Dropdown.Toggle variant="light" id="courses-dropdown" className={cssClasses['courses-toggle']}>
+              Курси
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
