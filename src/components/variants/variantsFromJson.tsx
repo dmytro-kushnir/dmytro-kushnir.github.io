@@ -4,6 +4,7 @@ import {
 } from 'react-bootstrap';
 import useConfig from '../config/useConfig.ts';
 import useAppName from '../context/useAppNameContext.ts';
+import styles from './variantsFromJson.module.scss';
 
 interface VariantRow {
   id: number;
@@ -65,7 +66,7 @@ function VariantsFromJson() {
   }, [variantsDataUrl]);
 
   return (
-    <Container fluid="md" className="mt-4 mb-5 pb-4">
+    <Container fluid="md" className={`mt-4 ${styles.variantsPage}`}>
       <h1 className="mb-3">Варіанти завдань</h1>
       <p className="mb-2">
         Номер варіанту — за порядком у списку групи; якщо більше 10 — знову з початку.

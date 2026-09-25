@@ -35,20 +35,20 @@ const scores = {
 };
 
 const semester = {
-  courseWork: '12.12.26',
+  courseWork: '10.12.26',
   end: '03.12.2026',
   periods: [
     {
-      end: '03.10.2026',
+      end: '01.10.2026',
       labs: '1-2',
       score: 7,
-      start: '08.09.2026',
+      start: '10.09.2026',
     },
     {
       end: '15.10.2026',
       labs: '3',
       score: 8,
-      start: '03.10.2026',
+      start: '01.10.2026',
     },
     {
       end: '29.10.2026',
@@ -63,7 +63,7 @@ const semester = {
       start: '29.10.2026',
     },
   ],
-  start: '08.09.2026',
+  start: '10.09.2026',
 };
 
 const staff = {
