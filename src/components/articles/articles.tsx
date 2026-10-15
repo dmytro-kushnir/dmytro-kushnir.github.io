@@ -39,8 +39,11 @@ function Articles() {
               `https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@${article.username}`,
             );
             // eslint-disable-next-line no-await-in-loop
-            const feed = await response.json();
-            fetchedPosts = [...fetchedPosts, ...feed.items];
+            const feed = await response.json().catch(() => null);
+            // Skip the feed if the rss2json proxy fails, so other articles still render
+            if (response.ok && feed?.status === 'ok' && Array.isArray(feed.items)) {
+              fetchedPosts = [...fetchedPosts, ...feed.items];
+            }
           } else if (article.type === 'link' && article.link) {
             fetchedPosts.push({
               description: `<img src="${article.thumbnail || ''}" alt="${article.description}" />`,
