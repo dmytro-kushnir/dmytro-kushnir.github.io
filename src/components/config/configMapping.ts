@@ -105,7 +105,6 @@ interface Article {
     name?: string;
     thumbnail?: string;
     type: string;
-    username?: string;
 }
 
 interface HomePageMapping {

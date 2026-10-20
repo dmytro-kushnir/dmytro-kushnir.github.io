@@ -78,9 +78,10 @@ const compArchConfig: CommonAppMapping = {
   appPath: '/computer-architecture',
   articles: [
     {
-      description: 'Ця стаття пояснює різницю між двома типами комп’ютерних архітектур — RISC (Reduced Instruction Set Computer) та CISC (Complex Instruction Set Computer), їх особливості, принципи роботи та історичний контекст виникнення. Порінюються такі архітектури як x86 (CISC) та ARM (RISC).',
-      type: 'medium',
-      username: 'dmytro.kushnir',
+      description: 'Архітектура процесорів: що означають RISC та CISC?',
+      link: 'https://medium.com/@dmytro.kushnir/%D1%89%D0%BE-%D0%BE%D0%B7%D0%BD%D0%B0%D1%87%D0%B0%D1%8E%D1%82%D1%8C-risc-%D1%82%D0%B0-cisc-%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D0%BB%D0%B0%D0%B4-8cbac6bd6c51',
+      thumbnail: 'https://cdn-images-1.medium.com/v2/resize:fit:640/0*2TzCIm1H4e7_sb7J.png',
+      type: 'link',
     },
     {
       description: 'Типова CISC архітектура  Машини Фон Неймана.',
