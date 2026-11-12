@@ -21,20 +21,22 @@ const labImages = [
 ];
 
 const lecturesPdf = '/files/apps/ppid/lectures.pdf';
-const praktikumPdf = '/files/apps/ppid/lab-praktikum.pdf';
+const posibnykPdf = '/files/apps/ppid/navchalnyi-posibnyk.pdf';
 /** Absolute URL for FAQ / notes (plain text, not site-relative). */
-const praktikumPdfPublic = 'https://dmytro-kushnir.github.io/files/apps/ppid/lab-praktikum.pdf';
+const posibnykPdfPublic = 'https://dmytro-kushnir.github.io/files/apps/ppid/navchalnyi-posibnyk.pdf';
 
-// Page anchors into lab-praktikum.pdf (printed numbers match physical pages).
-const praktikumPages = {
-  lab1: 16,
-  lab2: 20,
-  lab3: 32,
-  lab4: 44,
-  lab5: 49,
-  theoryI2c: 37,
-  theoryUart: 5,
-  theoryUsb: 26,
+// Page anchors into navchalnyi-posibnyk.pdf (printed numbers match physical pages).
+const posibnykPages = {
+  lab1: 41, // 2.6. Практичне завдання № 1
+  lab2: 44, // 2.7. Практичне завдання № 2
+  lab3: 59, // 3.6. Практичне завдання № 3
+  lab4: 79, // 4.6. Практичне завдання № 4
+  lab5: 84, // 4.7. Практичне завдання № 5
+  theoryI2c: 66, // 4. Синхронні послідовні інтерфейси I²C і SPI
+  theoryMonitoring: 77, // 4.5. Вузол моніторингу та рівні ПЗ
+  theoryNrzi: 38, // 2.5. Амплітудно-часова діаграма UART та кодування NRZI
+  theoryUart: 25, // 2. Послідовний асинхронний інтерфейс RS-232C (UART)
+  theoryUsb: 52, // 3. Універсальна послідовна шина USB
 };
 
 const links = {
@@ -208,7 +210,7 @@ const ppidConfig: CommonAppMapping = {
         url: '/images/apps/ppid/about.png',
       },
       objective: {
-        conclusion: 'Практикум 2026: 5 лабораторних (Python + Wokwi для I²C/capstone, без обов’язкового фізичного заліза). Конспект лекцій — 15 тем. Доповнення 2026: класифікація інтерфейсів, embedded-платформи, USB-C, DP/HDMI. Усі шаблони — у репозиторії ppid-labs.',
+        conclusion: 'Навчальний посібник 2026: 4 розділи теорії та 5 практичних завдань (Python + Wokwi для I²C/capstone, без обов’язкового фізичного заліза). Конспект лекцій — 15 тем. Варіанти завдань — у Додатку А посібника. Доповнення 2026: класифікація інтерфейсів, embedded-платформи, USB-C, DP/HDMI. Усі шаблони — у репозиторії ppid-labs.',
         link: '/lectures',
         list: [
           'Класифікація периферійних інтерфейсів та принципи побудови драйверів;',
@@ -232,8 +234,8 @@ const ppidConfig: CommonAppMapping = {
       },
       {
         content: [
-          `Практикум (PDF): ${praktikumPdfPublic}`,
-          `Репозиторій коду: ${labsRepoUrl} — host/, encoding/, wokwi/ (Додаток А).`,
+          `Навчальний посібник (PDF): ${posibnykPdfPublic}`,
+          `Репозиторій коду: ${labsRepoUrl} — host/, encoding/, wokwi/ (тексти програм — Додаток Б посібника).`,
           `Встановлення: ${labsRepoUrl}/blob/main/docs/SETUP.md`,
         ],
         title: 'Які матеріали використовувати?',
@@ -273,13 +275,13 @@ const ppidConfig: CommonAppMapping = {
         'Розуміти RS-232C / UART: формат слова, управління потоком;',
         'Знати архітектуру USB: транзакції, endpoints, NRZI;',
         'Описувати CAN, SPI, I²C та паралельні інтерфейси PCI/PCIe, ATA/SATA;',
-        'Реалізовувати програми обміну з послідовними портами та моделі периферії (практикум 2026).',
+        'Реалізовувати програми обміну з послідовними портами та моделі периферії (навчальний посібник 2026).',
       ],
     },
     pointsDistributionSection: {
       additionalNotes: [
         'Зазначено максимальну кількість балів за умови вчасного захисту.',
-        `Практикум (PDF): ${praktikumPdfPublic}`,
+        `Навчальний посібник (PDF): ${posibnykPdfPublic}`,
         `Код (host / encoding / wokwi): ${labsRepoUrl}`,
         `SETUP: ${labsRepoUrl}/blob/main/docs/SETUP.md`,
       ],
@@ -315,8 +317,8 @@ const ppidConfig: CommonAppMapping = {
       id: 'lab1',
       name: 'Лабораторна №1',
       objective: 'Налаштувати UART і реалізувати обмін повідомленням між Python host і емулятором пристрою (віртуальна пара COM).',
-      page: praktikumPages.lab1,
-      theory: praktikumPages.theoryUart,
+      page: posibnykPages.lab1,
+      theory: posibnykPages.theoryUart,
     },
     {
       description:
@@ -324,8 +326,8 @@ const ppidConfig: CommonAppMapping = {
       id: 'lab2',
       name: 'Лабораторна №2',
       objective: 'Побудувати амплітудно-часові діаграми UART та NRZI; розрахувати час передачі повідомлення.',
-      page: praktikumPages.lab2,
-      theory: praktikumPages.theoryUart,
+      page: posibnykPages.lab2,
+      theory: posibnykPages.theoryNrzi,
     },
     {
       description:
@@ -333,8 +335,8 @@ const ppidConfig: CommonAppMapping = {
       id: 'lab3',
       name: 'Лабораторна №3',
       objective: 'Опанувати Token → Data → Handshake, mock enumeration і запис на рівні моделі ФС (без фізичної флешки).',
-      page: praktikumPages.lab3,
-      theory: praktikumPages.theoryUsb,
+      page: posibnykPages.lab3,
+      theory: posibnykPages.theoryUsb,
     },
     {
       description:
@@ -342,8 +344,8 @@ const ppidConfig: CommonAppMapping = {
       id: 'lab4',
       name: 'Лабораторна №4',
       objective: 'Опанувати master–slave I²C: scan (0x77), читання TEMP/PRESS, аналіз SDA/SCL у Logic Analyzer.',
-      page: praktikumPages.lab4,
-      theory: praktikumPages.theoryI2c,
+      page: posibnykPages.lab4,
+      theory: posibnykPages.theoryI2c,
     },
     {
       description:
@@ -351,19 +353,19 @@ const ppidConfig: CommonAppMapping = {
       id: 'lab5',
       name: 'Лабораторна №5',
       objective: 'Інтегрувати датчик, телеметрію TEMP=… і host-обробку (CSV + графік) у міні-систему моніторингу.',
-      page: praktikumPages.lab5,
-      theory: praktikumPages.theoryI2c,
+      page: posibnykPages.lab5,
+      theory: posibnykPages.theoryMonitoring,
     },
   ].map((lab, index) => ({
     description: lab.description,
-    filePath: `${praktikumPdf}#page=${lab.page}`,
+    filePath: `${posibnykPdf}#page=${lab.page}`,
     iconSrc: labIcons[index],
     id: lab.id,
     imgSrc: labImages[index],
     link: `/labs/${lab.id}`,
     name: lab.name,
     objective: lab.objective,
-    theoryPath: `${praktikumPdf}#page=${lab.theory}`,
+    theoryPath: `${posibnykPdf}#page=${lab.theory}`,
   })),
   lecturesList: [
     {
