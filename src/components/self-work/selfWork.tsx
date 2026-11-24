@@ -37,388 +37,261 @@ interface SelfWorkConfig {
   workOrder: string[];
 }
 
+const icon = (name: string): string => `/images/apps/wp/icon/${name}`;
+
 const selfWorkConfig: SelfWorkConfig = {
-  assessment: 'Максимальна оцінка виконаної самостійної роботи 20 балів.',
-  instruction: `Для виконання самостійної роботи студент обирає один з наведених нижче варіантів. Складність варіантів зростає від 1 до 7 (зверху-вниз).
-  Чим складніше завдання, тим легше можна отримати позитивні бали. Проте варіанти цілком можна поєднувати то розширювати, і можна отримати хороші
-  бали за перші завдання, якщо вони будуть якісно зроблені:`,
-  objective: 'практично застосувати отримані під час вивчення курсу навички та знання. Результат виконання у вигляді звіту потрібно завантажити на диск.',
+  assessment: `Максимальна оцінка самостійної роботи – 20 балів: рівень «Достатній» – 12–14 балів (модуль працює з вашим застосунком,
+  продемонстрований на захисті, є розділ «Самостійна робота» в app/README.md і звіт), «Добрий» – 15–17 балів (автоматизована перевірка модуля
+  проходить у CI, опрацьовано помилки й граничні випадки), «Високий» – 18–20 балів (у звіті є вимірювання або порівняння й обґрунтування
+  вибору технологій, модуль доступний за публічним посиланням). Модуль не може повторювати роботу, уже зараховану на рівні «Високий»
+  практичного завдання (наприклад, сервер на Python у ПЗ 4 чи хмарне розгортання в ПЗ 6).`,
+  instruction: `Самостійна робота – це модуль-розширення того самого застосунку, який ви розробляєте в практичних завданнях: окремий проєкт
+  починати не потрібно. Оберіть один модуль зі списку нижче (або запропонуйте власний за погодженням з викладачем) до захисту ПЗ 4 і повідомте
+  викладачу. Модуль виконують у тому самому репозиторії, наприклад у каталозі app/server-py чи app/client-vue. Тут можна працювати з
+  будь-якою мовою чи фреймворком. У проєктному треку самостійну роботу зараховують тим самим проєктом, якщо всі практичні завдання виконано
+  щонайменше на рівні «Добрий» (Додаток А.2 посібника).`,
+  objective: 'застосувати знання курсу для розширення власного вебзастосунку новою технологією, мовою чи фреймворком і перевірити результат автоматизованими засобами.',
   options: [
     {
-      description: 'Написання власних динамічних елементів на чистому Javascript з використанням додаткових бібліотек. Інтерфейс сайту - українською мовою.',
+      description: 'Реалізуйте API практичних завдань № 4–5 (каталог, перевірка даних, автентифікація й ролі) іншою мовою або на іншому фреймворку з власною базою даних. Клієнт ПЗ 3 і ПЗ 6 має працювати з новим сервером без змін.',
+      links: [
+        {
+          altText: 'Python', imageUrl: icon('python.png'), text: 'Python', url: 'https://www.python.org/',
+        },
+        {
+          altText: 'FastAPI', imageUrl: 'https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png', text: 'FastAPI', url: 'https://fastapi.tiangolo.com/',
+        },
+        {
+          altText: 'Django', imageUrl: icon('django.png'), text: 'Django', url: 'https://www.djangoproject.com/',
+        },
+        {
+          altText: 'PHP', imageUrl: icon('php.png'), text: 'PHP', url: 'https://www.php.net/',
+        },
+        {
+          altText: 'Laravel', imageUrl: icon('laravel.png'), text: 'Laravel', url: 'https://laravel.com/',
+        },
+        {
+          altText: 'Java', imageUrl: icon('java.png'), text: 'Java', url: 'https://dev.java/',
+        },
+        {
+          altText: 'Spring', imageUrl: icon('spring.png'), text: 'Spring Boot', url: 'https://spring.io/projects/spring-boot',
+        },
+        {
+          altText: 'C#', imageUrl: icon('c.png'), text: 'C#', url: 'https://learn.microsoft.com/dotnet/csharp/',
+        },
+        {
+          altText: 'ASP.NET', imageUrl: icon('asp-net.png'), text: 'ASP.NET Core', url: 'https://dotnet.microsoft.com/apps/aspnet',
+        },
+        {
+          altText: 'Ruby on Rails', imageUrl: icon('ruby-on-rails.png'), text: 'Ruby on Rails', url: 'https://rubyonrails.org/',
+        },
+      ],
       subTopics: [
         {
           items: [
-            'Різноманітні ефекти, залежно від дій користувача.',
-            'Діалогові вікна.',
-            'Випадне меню на сайті при наведенні курсору миші.',
-            'Поява чи зникнення елементів при натисканні на кнопку.',
-            'Поява спливаючого вікна, коли курсор миші пішов межі вікна браузера.',
-            'Затемнення заднього фону та ефекти плавної появи елемента.',
+            'Ті самі маршрути, коди стану й формат помилок, що й у контракті contract/openapi.yaml.',
+            'Власна база даних з міграціями (SQLite, PostgreSQL або інша) і параметризованими запитами.',
+            'Перевірка даних з відповіддю 400 і деталями по полях, зокрема ваше індивідуальне правило.',
+            'Реєстрація, вхід, ролі й перевірка прав засобами обраного фреймворку.',
           ],
-          title: 'Взаємодії з користувачем та події',
+          title: 'Що зробити',
         },
         {
           items: [
-            'При настанні певної події зміна зовнішнього вигляду елементів на сторінці.',
-            'При певній події додавання певних елементів або атрибутів до них.',
+            'npm run contract -- --auth --command "команда запуску вашого сервера з {port}" – контрактні тести курсу проходять.',
+            'Наприклад: --command "python -m uvicorn main:app --app-dir app/server-py --port {port}" (підрозділ 4.8 посібника).',
           ],
-          title: 'Взаємодія з HTML-елементами на сторінці та керувати їх вмістом та стилями',
-        },
-        {
-          items: [
-            'JS-анімація, що реагує на дії користувача.',
-            'Плавна поява, приховування та переміщення об\'єктів сторінки при певних діях користувача.',
-          ],
-          title: 'Додавання анімації та різноманітних графічних ефектів на веб-сторінки',
-        },
-        {
-          items: [
-            'Таймер зворотного відліку від заданої користувачем дати.',
-            'Калькулятор підрахунку з певних полів форми.',
-            'Конвертація певних величин, введених користувачем (валюта, одиниці виміру, RGB to HEX тощо).',
-            'Опитувальна система з виведенням результату.',
-          ],
-          title: 'Окремі сервіси. Насправді список реалізацій є необмежений, тому студент може втілювати власні ідеї.',
+          title: 'Як перевіряється',
         },
       ],
-      title: '1. Створення повноцінного тематичного сайту з втіленням Javascript',
+      title: '1. Сервер іншою мовою або фреймворком',
     },
     {
-      description: 'Написання інтерактивної аплікації, сервісу або веб-додатку',
-      iframeSrc: 'https://raw.githack.com/dmytro-kushnir/tic-tac-toe-legacy-2015-project/main/index.html',
+      description: 'Перепишіть клієнт ПЗ 6 на іншому компонентному фреймворку або з рендерингом на сервері та порівняйте з версією на React.',
+      links: [
+        {
+          altText: 'Vue', imageUrl: icon('vue.png'), text: 'Vue', url: 'https://vuejs.org/',
+        },
+        {
+          altText: 'Svelte', imageUrl: icon('svelte.png'), text: 'Svelte', url: 'https://svelte.dev/',
+        },
+        {
+          altText: 'Angular', imageUrl: icon('angular.png'), text: 'Angular', url: 'https://angular.dev/',
+        },
+        {
+          altText: 'Next.js', imageUrl: icon('nextjs.png'), text: 'Next.js', url: 'https://nextjs.org/',
+        },
+        {
+          altText: 'Vite', imageUrl: icon('vite.svg'), text: 'Vite', url: 'https://vite.dev/',
+        },
+      ],
       subTopics: [
         {
           items: [
-            'Автоматизована презентація.',
-            'Система анкетування з виведенням підсумкового висновку.',
-            'Інфографіка, що формується з даних форми, яка заповнюється користувачам',
-            'Математичний калькулятор.',
-            'Інтерактивна гра. Наприклад, як нижче: ',
+            'Ті самі сторінки й маршрути, спільний стан автентифікації та обмін з вашим сервером ПЗ 4–5.',
+            'Стани завантаження й помилки, захищені маршрути, вихід із системи.',
+            'Для Next.js чи Nuxt – рендеринг сторінки каталогу на сервері; поясніть, коли це доцільно.',
           ],
-          title: 'Приклади сервісів. Насправді список реалізацій є необмежений, тому студент може втілювати власні ідеї.',
+          title: 'Що зробити',
+        },
+        {
+          items: [
+            'Збирання командою build і компонентні (Vitest) або наскрізні (Playwright) тести в CI.',
+            'Для рівня «Високий» – порівняння з клієнтом на React: обсяг коду, розмір збірки, час першого відображення.',
+          ],
+          title: 'Як перевіряється',
         },
       ],
-      title: '2. Створення окремого веб-додатку, написаного на чистому Javascript',
+      title: '2. Клієнт на іншому фреймворку',
     },
     {
-      description: 'Написання інтерактивного сайту за допомогою веб-фреймворків. Наприклад цей статичний сайт написаний на Vite + ReactJs',
-      links: [
+      description: 'Додайте оновлення в реальному часі: створення, зміна й видалення записів одразу з’являються в усіх відкритих вкладках без перезавантаження сторінки.',
+      subTopics: [
         {
-          altText: 'Angular',
-          imageUrl: '/images/apps/wp/icon/angular.png',
-          text: 'Angular JS',
-          url: 'https://angularjs.org/',
+          items: [
+            'Канал подій засобами WebSocket або Server-Sent Events.',
+            'Відновлення з’єднання після обриву й повторне завантаження пропущених змін.',
+            'Події отримують лише користувачі з правом читання; відправник не дублює власну зміну.',
+          ],
+          title: 'Що зробити',
         },
         {
-          altText: 'Backbone',
-          imageUrl: '/images/apps/wp/icon/backbone.png',
-          text: 'Backbone JS',
-          url: 'https://backbonejs.org/',
-        },
-        {
-          altText: 'Ember',
-          imageUrl: '/images/apps/wp/icon/ember.png',
-          text: 'Ember JS',
-          url: 'https://emberjs.com/',
-        },
-        {
-          altText: 'NextJS',
-          imageUrl: '/images/apps/wp/icon/nextjs.png',
-          text: 'NextJS',
-          url: 'https://nextjs.org/',
-        },
-        {
-          altText: 'React',
-          imageUrl: '/images/apps/wp/icon/react.png',
-          text: 'React JS',
-          url: 'https://react.dev/learn',
-        },
-        {
-          altText: 'Svelte',
-          imageUrl: '/images/apps/wp/icon/svelte.png',
-          text: 'Svelte JS',
-          url: 'https://svelte.dev/',
-        },
-        {
-          altText: 'Vue',
-          imageUrl: '/images/apps/wp/icon/vue.png',
-          text: 'Vue JS',
-          url: 'https://vuejs.org/',
-        },
-        {
-          altText: 'Vite',
-          imageUrl: '/images/apps/wp/icon/vite.svg',
-          text: 'Vite JS',
-          url: 'https://vitejs.dev/',
-        },
-        {
-          altText: 'TailWind (extra tool for styling)',
-          imageUrl: 'https://cdnblog.webkul.com/blog/wp-content/uploads/2024/05/tailwindcss-1633184775.webp',
-          text: 'TailWind (extra tool for styling)',
-          url: 'https://tailwindcss.com/',
-        },
-        {
-          altText: 'Zod (extra tool for TypeScript type validation)',
-          imageUrl: 'https://zod.dev/logo.svg',
-          text: 'Zod (extra tool for TypeScript type validation)',
-          url: 'https://zod.dev/https://zod.dev/',
-        },
-        {
-          altText: 'XState (extra tool for context management)',
-          imageUrl: 'https://stately.ai/logo-black.svg',
-          text: 'XState (extra tool for context management)',
-          url: 'https://stately.ai/docs/xstate',
+          items: [
+            'Інтеграційний тест сервера: клієнт підписується, виконує POST і отримує подію.',
+            'Демонстрація у двох вікнах браузера; вкладка Network (WS або EventStream) у звіті.',
+          ],
+          title: 'Як перевіряється',
         },
       ],
-      title: '3. Створення повноцінного сайту, написаного за допомогою JS-фрейворків',
+      title: '3. Оновлення в реальному часі',
     },
     {
-      description: `Ваш сайт цілком може хоститись на локальному сервері. Така технологія називається Server Side Rendering (SSR).
-       Для реалізації таких потреб можна використати мову програмування Javascript (фреймворк  NodeJs), але можуть підійти і
-       інші мови програмування з можливістю підключення відповідних фреймворків:`,
+      description: 'Зробіть застосунок прогресивним (PWA) або напишіть мобільний клієнт до того самого API.',
       links: [
         {
-          altText: 'NodeJs',
-          imageUrl: '/images/apps/wp/icon/node-js.png',
-          text: 'NodeJs (JavaScript)',
-          url: 'https://nodejs.org/en/learn/getting-started/introduction-to-nodejs',
+          altText: 'React Native', imageUrl: icon('react-native.png'), text: 'React Native', url: 'https://reactnative.dev/',
         },
         {
-          altText: 'C#',
-          imageUrl: '/images/apps/wp/icon/c.png',
-          text: 'C#',
-          url: 'https://learn.microsoft.com/en-us/dotnet/csharp/',
-        },
-        {
-          altText: 'ASP.NET',
-          imageUrl: '/images/apps/wp/icon/asp-net.png',
-          text: 'ASP.NET (C#)',
-          url: 'https://dotnet.microsoft.com/en-us/apps/aspnet',
-        },
-        {
-          altText: 'Java',
-          imageUrl: '/images/apps/wp/icon/java.png',
-          text: 'Java',
-          url: 'https://www.java.com/en/',
-        },
-        {
-          altText: 'Spring',
-          imageUrl: '/images/apps/wp/icon/spring.png',
-          text: 'Spring (Java)',
-          url: 'https://spring.io/',
-        },
-        {
-          altText: 'PHP',
-          imageUrl: '/images/apps/wp/icon/php.png',
-          text: 'PHP',
-          url: 'https://www.php.net/',
-        },
-        {
-          altText: 'Laravel',
-          imageUrl: '/images/apps/wp/icon/laravel.png',
-          text: 'Laravel (PHP)',
-          url: 'https://laravel.com/',
-        },
-        {
-          altText: 'Python',
-          imageUrl: '/images/apps/wp/icon/python.png',
-          text: 'Python',
-          url: 'https://www.python.org/',
-        },
-        {
-          altText: 'Django',
-          imageUrl: '/images/apps/wp/icon/django.png',
-          text: 'Django (Python)',
-          url: 'https://www.djangoproject.com/',
-        },
-        {
-          altText: 'Flask',
-          imageUrl: '/images/apps/wp/icon/flask.jpeg',
-          text: 'Flask (Python)',
-          url: 'https://flask.palletsprojects.com/',
-        },
-        {
-          altText: 'Ruby',
-          imageUrl: '/images/apps/wp/icon/ruby.png',
-          text: 'Ruby',
-          url: 'https://www.ruby-lang.org/en/',
-        },
-        {
-          altText: 'Ruby on Rails',
-          imageUrl: '/images/apps/wp/icon/ruby-on-rails.png',
-          text: 'Ruby on Rails (Ruby)',
-          url: 'https://rubyonrails.org/',
-        },
-        {
-          altText: 'Dart (for Web)',
-          imageUrl: '/images/apps/wp/icon/dart.png',
-          text: 'Dart (for Web)',
-          url: 'https://dart.dev/web',
+          altText: 'Flutter', imageUrl: icon('flutter.png'), text: 'Flutter', url: 'https://flutter.dev/',
         },
       ],
-      title: '4. Створення динамічного додатку, написаного мовою серверного програмування або серверним фреймворком',
+      subTopics: [
+        {
+          items: [
+            'PWA: маніфест і service worker, встановлення застосунку, перегляд каталогу без мережі.',
+            'Черга змін, зроблених без мережі, з надсиланням після відновлення з’єднання.',
+            'Або мобільний клієнт (React Native, Flutter, Capacitor) з входом і списком каталогу.',
+          ],
+          title: 'Що зробити',
+        },
+        {
+          items: [
+            'Аудит Lighthouse (PWA) або тести мобільного клієнта.',
+            'Демонстрація роботи в режимі «Офлайн» інструментів розробника.',
+          ],
+          title: 'Як перевіряється',
+        },
+      ],
+      title: '4. PWA або мобільний клієнт',
     },
     {
-      description: `Кросплатформні рішення з залученням технологій веб-розробки. Такі підходи дозволяють мати одну архітектуру для усіх платфторм.
-      Наприклад на React Native простий додаток, написаний на JS фреймворці React може бути запущений як у браузері, так і на Android та iOS.
-      Цілком можливо реалізувати мобільний додаток і для конкретної платформи, але тоді він має бути з'єднаний з певним бекенд сервісом через, наприклад, Rest/GraphQL.`,
+      description: 'Додайте до каталогу функцію на основі мовної моделі: семантичний пошук, рекомендації, генерацію описів або класифікацію записів.',
       links: [
         {
-          altText: 'React Native',
-          imageUrl: '/images/apps/wp/icon/react-native.png',
-          text: 'React Native',
-          url: 'https://reactnative.dev/',
+          altText: 'Ollama', imageUrl: 'https://ollama.com/public/ollama.png', text: 'Ollama (локальні моделі)', url: 'https://ollama.com/',
         },
         {
-          altText: 'Flutter',
-          imageUrl: '/images/apps/wp/icon/flutter.png',
-          text: 'Flutter',
-          url: 'https://flutter.dev/multi-platform/web',
+          altText: 'Python', imageUrl: icon('python.png'), text: 'Python', url: 'https://www.python.org/',
         },
       ],
-      title: '5. Створення кросплатформного додатку',
+      subTopics: [
+        {
+          items: [
+            'Звернення до API мовної моделі або до локальної моделі (Ollama) лише із сервера; ключ доступу – у змінних середовища, не в клієнті.',
+            'Обмеження частоти запитів і зрозуміле повідомлення, якщо модель недоступна: каталог працює й без неї.',
+            'У запитах до моделі немає персональних даних користувачів.',
+          ],
+          title: 'Що зробити',
+        },
+        {
+          items: [
+            'Тести з підміною моделі (mock): сервер правильно опрацьовує відповідь і помилку.',
+            'Оцінка якості на наборі щонайменше з 10 прикладів у звіті (що модель зробила правильно, а що – ні).',
+          ],
+          title: 'Як перевіряється',
+        },
+      ],
+      title: '5. Функція зі штучним інтелектом',
     },
     {
-      description: `Рішення масштабуванння веб-аплікації дозволяє створити ізольовані компоненти, які можуть бути запущенні на довільній кількості серверів.
-       В рамках цієї роботи доречно поєднати  масштабоване рішення (наприклад Docker), з існуючими веб-фреймворками (попередні пункти). Наприклад, запустити NodeJs сервер, фронтенд на React та базу даних MongoDB в окремих контейнерах Docker.
-       З такими більш абстрактними SAAS (Software as a Service) системами як Google Cloud чи AWS можна працювати як і через веб-інтерфейс, так і через їхнє SDK (Software Development Kit), яке інтегровується у ваш веб-фреймворк або операційну систему.
-       Інший варіант - PAAS рішення для CI/CD (Continious Integration/Continious Deployment). Доречно використати такі системи як Github Pages чи Vercel для інтеграції статичних сайтів аба serverless. Наприклад, при кожному комміті в гітхабі відбувається автоматичний деплой на обрану PAAS систему.`,
+      description: 'Підготуйте застосунок до навантаження та експлуатації: кілька екземплярів сервера, кешування, журнали й метрики.',
       links: [
         {
-          altText: 'Docker',
-          imageUrl: '/images/apps/wp/icon/docker.png',
-          text: 'Docker',
-          url: 'https://www.docker.com/',
+          altText: 'Docker', imageUrl: icon('docker.png'), text: 'Docker Compose', url: 'https://docs.docker.com/compose/',
         },
         {
-          altText: 'Github Pages',
-          imageUrl: '/images/apps/wp/icon/github-mark.png',
-          text: 'Github Pages',
-          url: 'https://pages.github.com/',
+          altText: 'Google Cloud', imageUrl: icon('google-cloud.png'), text: 'Google Cloud', url: 'https://cloud.google.com/',
         },
         {
-          altText: 'Vercel',
-          imageUrl: '/images/apps/wp/icon/vercel.png',
-          text: 'Vercel',
-          url: 'https://vercel.com/docs/getting-started-with-vercel',
-        },
-        {
-          altText: 'Google Cloud',
-          imageUrl: '/images/apps/wp/icon/google-cloud.png',
-          text: 'Google Cloud',
-          url: 'https://cloud.google.com/',
-        },
-        {
-          altText: 'Amazon Web Services',
-          imageUrl: '/images/apps/wp/icon/aws.png',
-          text: 'Amazon Web Services',
-          url: 'https://aws.amazon.com/',
-        },
-        {
-          altText: 'Firebase',
-          imageUrl: '/images/apps/wp/icon/firebase.png',
-          text: 'Firebase',
-          url: 'https://firebase.google.com/',
-        },
-        {
-          altText: 'Fast API',
-          imageUrl: 'https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png',
-          text: 'Fast API',
-          url: 'https://fastapi.tiangolo.com/',
+          altText: 'AWS', imageUrl: icon('aws.png'), text: 'AWS', url: 'https://aws.amazon.com/',
         },
       ],
-      title: '6. Створення масштабованого веб-додатку',
+      subTopics: [
+        {
+          items: [
+            'Перехід з SQLite на PostgreSQL і кілька екземплярів сервера за балансувальником Nginx (docker compose).',
+            'Кешування (Redis) або черга фонових завдань.',
+            'Структуровані журнали, метрики (Prometheus, Grafana), перевірка стану й резервне копіювання бази даних.',
+          ],
+          title: 'Що зробити',
+        },
+        {
+          items: [
+            'Навантажувальне тестування (k6, autocannon) до і після змін; порівняння показників у звіті.',
+          ],
+          title: 'Як перевіряється',
+        },
+      ],
+      title: '6. Масштабування та експлуатація',
     },
     {
-      description: `У цьому розділі студент може створити інтерактивний вебдодаток, що використовує сучасні AI-моделі — такі як генеративні мовні моделі (LLM), системи розпізнавання зображень або відеогенерацію. Проєкт реалізується за допомогою таких інструментів, як ComfyUI, YOLO, Jupyter Notebook та Python-бібліотеки, а також за участю сервісів на кшталт Stable Diffusion, DALL·E, Midjourney чи Ollama. Акцент робиться як на практичне застосування штучного інтелекту у вебсередовищі, так і на покращення UX існуючих або нових вебдодатків.
-      Приклади робіт:
-
-7.1 Генерація відео з зображення за допомогою AI — студент реалізує інтерфейс для створення коротких відео з одного зображення, використовуючи моделі типу WAN 2.1, lTXV чи інші у ComfyUI. Передбачено базове налаштування тривалості, роздільної здатності та використання VAE;
-
-7.2 Чат з AI: інтеграція LLM у вебдодаток — створення чат-інтерфейсу, який використовує локальну або хмарну LLM-модель (наприклад GPT4All, Mistral або Ollama), збереження історії діалогу, кастомізація промптів, налаштування температури;
-
-7.3 Розпізнавання об’єктів за допомогою AI — проєкт включає завантаження зображення або відео та обробку через модель YOLO чи Segment Anything, відображення bounding box або маски, з можливістю налаштування порогу впевненості. Після цього можна задеплоїти на serverless, наприклад Fast API;
-
-7.4 Інтерактивне середовище для роботи з AI — створення рішення у Jupyter Notebook, що дозволяє експериментувати з моделями, промптами та обробкою зображень/відео. Може включати графічний інтерфейс на Gradio чи Streamlit;
-
-7.5 Відстеження об’єктів на відео (Object Tracking) — побудова застосунку, що дозволяє не лише розпізнавати, але й відстежувати об’єкти на відео в реальному часі. Може використовувати такі трекери як SORT, DeepSORT чи ByteTrack на базі YOLO;
-
-7.6 AI‑асистент для сайту курсу — чат‑бот у вигляді віджета на сторінці, що відповідає на питання студентів на основі програми курсу, лекційних матеріалів або FAQ. Може використовувати готові API (наприклад, OpenAI, Gemini, Mistral) або локальні моделі через Ollama. Передбачити приклади запитань, обмеження та сценарії некоректних відповідей;
-
-7.7 Генератор ілюстрацій для контенту — вебінтерфейс, де користувач вводить тему (наприклад, “архітектура комп’ютера”, “HTTP‑запит”, “нейронна мережа”), а система генерує зображення за допомогою моделей типу Stable Diffusion, DALL·E чи Midjourney API. Студент продумує обмеження (наприклад, освітній, некомерційний контент) та показує декілька прикладів згенерованих зображень;
-
-7.8 AI‑покращення UX існуючого сайту — студент аналізує існуючий сайт (можна використати власний проєкт або одну з попередніх робіт) та застосовує LLM для:
-– генерації варіантів текстів (заголовків, описів, підказок у формах),
-– покращення читабельності,
-– адаптації тексту під різні рівні підготовки користувача (початківець/просунутий).
-Результати оформлюються у вигляді “до/після” з поясненням вибору;
-
-7.9 AI‑персоналізація контенту — створення сторінки, яка змінює вміст залежно від короткого профілю користувача (наприклад, спеціальність, рівень знань, інтереси). Модель може рекомендувати лекції, лабораторні роботи або додаткові матеріали. Важливо продумати, які дані збираються та як пояснюється логіка рекомендацій;
-
-7.10 Візуальна галерея AI‑робіт — студент збирає на одній сторінці галерею створених з використанням AI ілюстрацій, схем або скріншотів інтерфейсу. Зображення можуть бути як завантажені з інтернету (з зазначенням джерела та ліцензії), так і згенеровані самостійно. Для кожного прикладу варто додати короткий опис: яку модель використано, який був промпт і у чому користь для навчального вебресурсу.`,
-      links: [
+      description: 'Під’єднайте до застосунку пристрій IoT. Модуль можна поєднати з курсовим проєктом з дисципліни «Мікропроцесорні системи».',
+      subTopics: [
         {
-          altText: 'ComfyUI',
-          imageUrl: 'https://blenderneko.github.io/ComfyUI-docs/media/default_workflow.svg',
-          text: 'ComfyUI',
-          type: 'poster',
-          url: 'https://github.com/comfyanonymous/ComfyUI',
+          items: [
+            'Сутність «Вимірювання» (пристрій, величина, значення, час) у вашому застосунку.',
+            'Показники надсилає плата ESP32, симулятор Wokwi (приклад – каталог wokwi/iot-node репозиторію курсу) або імітатор пристрою з ключем пристрою.',
+            'Панель моніторингу: список пристроїв, останні показники, межі норми.',
+          ],
+          title: 'Що зробити',
         },
         {
-          altText: 'YOLO',
-          imageUrl: 'https://miro.medium.com/v2/resize:fit:744/1*Vo2wti8Lhmi2lbkvlvU-rA.jpeg',
-          text: 'YOLO Object Detection',
-          url: 'https://github.com/THU-MIG/yolov10',
-        },
-        {
-          altText: 'Jupyter Notebook',
-          imageUrl: 'https://jupyter.org/assets/homepage/main-logo.svg',
-          text: 'Jupyter Notebook',
-          url: 'https://jupyter.org/',
-        },
-        {
-          altText: 'Stable Diffusion',
-          imageUrl: '/images/apps/wp/icon/stable-diffusion.svg',
-          text: 'Stable Diffusion',
-          url: 'https://stability.ai/',
-        },
-        {
-          altText: 'Midjourney',
-          imageUrl: '/images/apps/wp/icon/midjourney.svg',
-          text: 'Midjourney',
-          url: 'https://www.midjourney.com/',
-        },
-        {
-          altText: 'DALL·E',
-          imageUrl: '/images/apps/wp/icon/dalle.svg',
-          text: 'DALL·E',
-          url: 'https://openai.com/dall-e-2',
-        },
-        {
-          altText: 'Ollama',
-          imageUrl: 'https://ollama.com/public/ollama.png',
-          text: 'Ollama',
-          url: 'https://ollama.com/',
+          items: [
+            'node tools/device.mjs --simulate 5 --key wp_… – показники надходять, без ключа запит відхиляється.',
+            'Контрактні перевірки ключів пристроїв (npm run contract -- --auth).',
+          ],
+          title: 'Як перевіряється',
         },
       ],
-      title: '7. Створення інтерактивного додатку з залученням AI моделей (LLM, Object Recognition, тощо.)',
+      title: '7. IoT-модуль',
     },
   ],
   reportContents: [
-    'Тема розробленого додатку.',
-    'Адреса або місце розміщення.',
-    'Застосовані мови, фрейворки чи бібліотеки.',
-    'Скрін сторінки з реалізованими динамічними елементами.',
-    'У висновку оцінити процес створення додатку, доступність та ефективність застосованих мов, фреймворків та бібліотек.',
+    'Титульний аркуш: прізвище, група, трек, номер варіанту й назва обраного модуля.',
+    'Мета й обраний стек з коротким обґрунтуванням.',
+    'Посилання на репозиторій (і на розгорнутий застосунок, якщо є) та знімок успішної перевірки CI.',
+    'Хід виконання: команди, результати перевірок, знімки екрана.',
+    'Для рівня «Високий» – вимірювання або порівняння та висновки з них.',
+    'Журнал використання інструментів штучного інтелекту (що згенеровано, що змінено, як перевірено).',
+    'Висновки.',
   ],
   title: 'Виконання самостійної роботи',
   workOrder: [
-    'Обрати варіант виконання самостійної роботи.',
-    'Визначитися з тематикою проєкту, його назвою та динамічними елементами для реалізації.',
-    'Реалізувати проєкт у вибраний спосіб.',
-    'Розгорнути проєкт на безкоштовному хостингу або локальному сервері. Щодо хостингу можна використати GitHub Pages, Vercel, Netlify, Firebase Hosting, Heroku, AWS, Google Cloud, Azure тощо. Посилання на деякі з них є в пункті 6.',
-    'По результатах роботи сформувати звіт.',
+    'До захисту ПЗ 4 обрати модуль (або погодити власний) і повідомити викладачу.',
+    'Виконати модуль у тому самому репозиторії, не змінюючи каталогів tools/, contract/ і demo/.',
+    'Додати в app/README.md розділ «Самостійна робота»: команди запуску й перевірки модуля.',
+    'Налаштувати автоматизовану перевірку модуля в CI.',
+    'Сформувати звіт за вимогами Додатка А.5 посібника й захистити роботу до останньої контрольної дати семестру.',
   ],
 };
 

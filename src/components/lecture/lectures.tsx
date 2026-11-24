@@ -33,6 +33,7 @@ function renderLecture(lecture: LectureLink, index: number, appPath: string): JS
                   {subIndex + 1}
                   {' '}
                   {subLecture.name}
+                  {' '}
                   { isMobileDevice()
                     ? <a href={`${baseUrl}${subLecture.filePath}`} target="_blank" rel="noopener noreferrer">Переглянути</a>
                     : <Link to={`${appPath}/lectures/${subLecture.id}`}>Переглянути</Link>}
