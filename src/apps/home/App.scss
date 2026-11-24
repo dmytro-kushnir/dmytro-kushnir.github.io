@@ -28,15 +28,19 @@ body {
   line-height: 1.5;
   overflow-x: hidden;
 }
+/* Футер унизу сторінки без перекриття вмісту: обгортка застосунку – flex-колонка на всю висоту вікна,
+   футер іде в потоці після вмісту і притискається донизу на коротких сторінках (margin-top: auto).
+   Раніше футер мав position: absolute і закривав нижню частину довгих сторінок. */
+#root > div {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+footer {
+  margin-top: auto;
+}
 @media (min-width: 992px) {
-  body {
-    margin-bottom: 120px;
-  }
   footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: auto;
     min-height: 80px;
   }
 }
